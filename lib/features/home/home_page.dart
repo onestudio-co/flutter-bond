@@ -1,5 +1,5 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:fixit/app_router.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:fixit/features/auth/data/repositories/auth_repository.dart';
 import 'package:fixit/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:fixit/features/auth/presentation/bloc/auth_state.dart';

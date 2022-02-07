@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fixit/app_router.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:fixit/core/assets.dart';
 import 'package:fixit/core/constants.dart';
 import 'package:fixit/core/extension.dart';

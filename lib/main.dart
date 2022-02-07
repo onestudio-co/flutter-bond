@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app_router.dart';
+import 'routes/app_router.dart';
 import 'environment/config_reader.dart';
 import 'injection_container.dart';
 
