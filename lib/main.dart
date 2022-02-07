@@ -1,3 +1,4 @@
+import 'package:fixit/routes/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
 
@@ -13,7 +14,7 @@ Future<void> main() async {
 }
 
 class FixitApp extends StatelessWidget {
-  final _appRouter = AppRouter();
+  final _appRouter = AppRouter(AuthGuard());
 
   FixitApp({Key? key}) : super(key: key);
 

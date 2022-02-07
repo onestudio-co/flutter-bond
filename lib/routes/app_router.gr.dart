@@ -13,7 +13,11 @@
 part of 'app_router.dart';
 
 class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+  _$AppRouter(
+      {GlobalKey<NavigatorState>? navigatorKey, required this.authGuard})
+      : super(navigatorKey);
+
+  final AuthGuard authGuard;
 
   @override
   final Map<String, PageFactory> pagesMap = {
@@ -37,8 +41,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const CompleteProfilePage());
     },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const LoginPage());
+          routeData: routeData,
+          child: LoginPage(key: args.key, onResult: args.onResult));
     },
     RegistrationRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -59,7 +65,7 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
-        RouteConfig(HomeRoute.name, path: '/home-page'),
+        RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard]),
         RouteConfig(ActivationRoute.name, path: '/activation-page'),
         RouteConfig(CompleteProfileRoute.name, path: '/complete-profile-page'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
@@ -119,10 +125,26 @@ class CompleteProfileRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({Key? key, required dynamic Function(bool) onResult})
+      : super(LoginRoute.name,
+            path: '/login-page',
+            args: LoginRouteArgs(key: key, onResult: onResult));
 
   static const String name = 'LoginRoute';
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key, required this.onResult});
+
+  final Key? key;
+
+  final dynamic Function(bool) onResult;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key, onResult: $onResult}';
+  }
 }
 
 /// generated route for

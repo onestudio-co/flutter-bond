@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:fixit/routes/app_router.dart';
 import 'package:fixit/core/constants.dart';
-import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:fixit/injection_container.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 class LaunchPage extends StatefulWidget {
@@ -32,11 +30,6 @@ class _LaunchPageState extends State<LaunchPage> {
   }
 
   FutureOr _navigateToNextScreen() {
-    final AuthLocalDataSource authLocalDataSource = sl<AuthLocalDataSource>();
-    if (authLocalDataSource.hasToken()) {
-      context.router.replace(const HomeRoute());
-    } else {
-      context.router.replace(const RegistrationRoute());
-    }
+    context.router.replace(const HomeRoute());
   }
 }

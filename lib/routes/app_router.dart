@@ -17,9 +17,11 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: LaunchPage, initial: true),
-    AutoRoute(page: HomePage),
+    AutoRoute(page: HomePage, guards: [AuthGuard]),
     ...authRoutes,
   ],
 )
 // extend the generated private router
-class AppRouter extends _$AppRouter {}
+class AppRouter extends _$AppRouter {
+  AppRouter(AuthGuard authGuard) : super(authGuard: authGuard);
+}

@@ -25,10 +25,10 @@ class ApiClient {
       debugPrint(e.message);
       if (e.response != null && e.response!.data != null) {
         throw ServerException(
-            errors: e.response!.data, statusCode: e.response!.statusCode!);
+            errors: e.response!.data, statusCode: e.response?.statusCode);
       }
       throw ServerException(
-          errors: {"message": "$e"}, statusCode: e.response!.statusCode!);
+          errors: {"message": "$e"}, statusCode: e.response?.statusCode);
     } catch (e) {
       debugPrint(e.toString());
       throw ServerException(errors: {"message": "$e"});
@@ -39,6 +39,7 @@ class ApiClient {
       {required Map<String, String> headers, body, Encoding? encoding}) async {
     ApiClient.logoutFromInterceptors = false;
 
+    debugPrint('post url $url');
     try {
       return await client.post(url,
           data: body,
@@ -48,10 +49,10 @@ class ApiClient {
     } on DioError catch (e) {
       if (e.response != null && e.response!.data != null) {
         throw ServerException(
-            errors: e.response!.data, statusCode: e.response!.statusCode!);
+            errors: e.response!.data, statusCode: e.response?.statusCode);
       }
       throw ServerException(
-          errors: {"message": "$e"}, statusCode: e.response!.statusCode!);
+          errors: {"message": "$e"}, statusCode: e.response?.statusCode);
     } catch (e) {
       throw ServerException(errors: {"message": "$e"});
     }
@@ -72,10 +73,10 @@ class ApiClient {
     } on DioError catch (e) {
       if (e.response != null && e.response!.data != null) {
         throw ServerException(
-            errors: e.response!.data, statusCode: e.response!.statusCode!);
+            errors: e.response!.data, statusCode: e.response?.statusCode);
       }
       throw ServerException(
-          errors: {"message": "$e"}, statusCode: e.response!.statusCode!);
+          errors: {"message": "$e"}, statusCode: e.response?.statusCode);
     } catch (e) {
       throw ServerException(errors: {"message": "$e"});
     }
