@@ -3,7 +3,6 @@ import 'package:get_it/get_it.dart';
 
 import 'data/datasources/auth_local_data_source.dart';
 import 'data/datasources/auth_remote_data_source.dart';
-import 'data/datasources/auth_response_converter.dart';
 import 'data/models/country.dart';
 import 'data/models/user.dart';
 import 'data/models/user_meta.dart';
@@ -25,7 +24,9 @@ class AuthServiceProvider extends ServiceProvider {
   Future<void> register(GetIt it) async {
     it.registerFactory(() => AuthRemoteDataSource(it.get()));
     it.registerFactory(() => AuthLocalDataSource(it.get()));
+
     it.registerLazySingleton(() => AuthRepository(it.get(), it.get()));
+
     it.registerFactory(() => GoogleAccountLoginService());
     it.registerFactory(() => AppleIdLoginService());
 
