@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fixit/routes/app_router.dart';
 import 'package:fixit/core/assets.dart';
 import 'package:fixit/core/constants.dart';
 import 'package:fixit/core/extension.dart';
@@ -9,6 +8,7 @@ import 'package:fixit/core/widgets/fixit_button.dart';
 import 'package:fixit/core/widgets/fixit_statusbar.dart';
 import 'package:fixit/core/widgets/fixit_text_field.dart';
 import 'package:fixit/injection_container.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,15 +20,13 @@ import 'login_cubit.dart';
 import 'login_state.dart';
 
 class LoginPage extends StatefulWidget implements AutoRouteWrapper {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key, required this.onResult}) : super(key: key);
+
+  final Function(bool result) onResult;
 
   @override
-  Widget wrappedRoute(BuildContext context) => MultiBlocProvider(
-        providers: [
-          BlocProvider<LoginCubit>(
-            create: (ctx) => sl<LoginCubit>(),
-          ),
-        ],
+  Widget wrappedRoute(BuildContext context) => BlocProvider<LoginCubit>(
+        create: (BuildContext context) => sl<LoginCubit>(),
         child: this,
       );
 
@@ -54,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     mobile.text = appBloc.mobile ?? '';
     refreshSendButtonEnable("");
 
+    print('initState loginCubit');
     super.initState();
 
     getSMSAutoFillSignature();
@@ -244,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void loginListener(BuildContext context, state) {
     if (state is LoginSuccess) {
-      context.router.popAndPush(const HomeRoute());
+      widget.onResult(true);
     }
 
     if (state is LoginFailed) {

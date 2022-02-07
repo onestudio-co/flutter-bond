@@ -33,7 +33,7 @@ class AuthLocalDataSource {
     );
   }
 
-  Future<bool> setUser(SingleMResponse<User, ProfileMeta?> cache) {
+  Future<bool> setUser(SingleMResponse<User, ProfileMeta> cache) {
     return sharedPreferences.setString(
       AuthLocalDataSource.cachedUser,
       json.encode(cache.toJson()),

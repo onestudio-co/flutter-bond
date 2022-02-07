@@ -8,12 +8,12 @@ import 'response_converter.dart';
 part 'single_m_response.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SingleMResponse<T extends Equatable, G extends Equatable?>
+class SingleMResponse<T extends Equatable, G extends Equatable>
     extends Equatable {
   @ResponseConverter()
   final T data;
   @ResponseConverter()
-  final G? meta;
+  final G meta;
 
   const SingleMResponse(this.data, this.meta);
 

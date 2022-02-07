@@ -23,7 +23,7 @@ class AuthRemoteDataSource extends DataSource {
 
   AuthRemoteDataSource(this.client);
 
-  Future<SingleMResponse<User, UserMeta?>> login(
+  Future<SingleMResponse<User, UserMeta>> login(
     String mobile,
     String password,
   ) async {
@@ -35,14 +35,14 @@ class AuthRemoteDataSource extends DataSource {
       'device_token': 'test_token',
     };
 
-    return mapSingleMResponse<User, UserMeta?>(await client.post(
+    return mapSingleMResponse<User, UserMeta>(await client.post(
       Api.login(),
       body: data,
       headers: Api.headers(),
     ));
   }
 
-  Future<SingleMResponse<User, UserMeta?>> register(
+  Future<SingleMResponse<User, UserMeta>> register(
     String mobile,
     String name,
     String password,
@@ -58,23 +58,23 @@ class AuthRemoteDataSource extends DataSource {
       'device_token': 'test_token',
     };
 
-    return mapSingleMResponse<User, UserMeta?>(await client.post(
+    return mapSingleMResponse<User, UserMeta>(await client.post(
       Api.register(),
       body: data,
       headers: Api.headers(),
     ));
   }
 
-  Future<SingleMResponse<User, UserMeta?>> completeRegistration(
+  Future<SingleMResponse<User, UserMeta>> completeRegistration(
       CompleteRegistration completeRegistrationData) async {
-    return mapSingleMResponse<User, UserMeta?>(await client.put(
+    return mapSingleMResponse<User, UserMeta>(await client.put(
       Api.completeRegistration(),
       body: completeRegistrationData.body,
       headers: Api.headers(),
     ));
   }
 
-  Future<SingleMResponse<User, UserMeta?>> activation(
+  Future<SingleMResponse<User, UserMeta>> activation(
     String mobile,
     String code,
   ) async {
@@ -86,7 +86,7 @@ class AuthRemoteDataSource extends DataSource {
       'device_token': 'test_token',
     };
 
-    return mapSingleMResponse<User, UserMeta?>(await client.post(
+    return mapSingleMResponse<User, UserMeta>(await client.post(
       Api.verify(),
       body: data,
       headers: Api.headers(),
@@ -129,14 +129,14 @@ class AuthRemoteDataSource extends DataSource {
     ));
   }
 
-  Future<SuccessResponse> logout(logoutFromOther) async {
-    return mapSuccessResponse(await client.post(
+  Future<void> logout(logoutFromOther) async {
+    client.post(
       Api.logout(),
       body: {
         "all": logoutFromOther.toString(),
       },
       headers: Api.headers(),
-    ));
+    );
   }
 
   Future<SuccessResponse> changePassword(
@@ -173,8 +173,8 @@ class AuthRemoteDataSource extends DataSource {
     ));
   }
 
-  Future<SingleMResponse<User, ProfileMeta?>> profile() async {
-    return mapSingleMResponse<User, ProfileMeta?>(await client.get(
+  Future<SingleMResponse<User, ProfileMeta>> profile() async {
+    return mapSingleMResponse<User, ProfileMeta>(await client.get(
       Api.profile(),
       headers: Api.headers(),
     ));
@@ -222,7 +222,7 @@ class AuthRemoteDataSource extends DataSource {
     ));
   }
 
-  Future<SingleMResponse<User, UserMeta?>> loginWithSocial(
+  Future<SingleMResponse<User, UserMeta>> loginWithSocial(
     SocialAccountUser user,
   ) async {
     Map<String, dynamic> data = <String, dynamic>{
@@ -234,15 +234,15 @@ class AuthRemoteDataSource extends DataSource {
       "device_type": getDeviceType(),
     };
 
-    return mapSingleMResponse<User, UserMeta?>(await client.post(
+    return mapSingleMResponse<User, UserMeta>(await client.post(
       Api.loginWithSocial(),
       body: data,
       headers: Api.headers(),
     ));
   }
 
-  Future<SingleMResponse<User, UserMeta?>> refreshToken() async {
-    return mapSingleMResponse<User, UserMeta?>(await client.post(
+  Future<SingleMResponse<User, UserMeta>> refreshToken() async {
+    return mapSingleMResponse<User, UserMeta>(await client.post(
       Api.refreshToken(),
       headers: Api.headers(),
     ));

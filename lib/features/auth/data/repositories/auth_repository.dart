@@ -24,7 +24,7 @@ class AuthRepository {
 
   AuthRepository(this.remoteDataSource, this.localDataSource);
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>> login(
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> login(
     String number,
     String password,
   ) async {
@@ -37,7 +37,7 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>> register(
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> register(
     String number,
     String name,
     String password,
@@ -53,7 +53,7 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, SingleMResponse<User, ProfileMeta?>>> profile() async {
+  Future<Either<Failure, SingleMResponse<User, ProfileMeta>>> profile() async {
     try {
       // TODO devmsh
       await loadCachedUser();
@@ -88,38 +88,33 @@ class AuthRepository {
     }
   }
 
-  setUser(SingleMResponse<User, UserMeta?> response) async {
+  setUser(SingleMResponse<User, UserMeta> response) async {
     appBloc.user = response.data;
     await localDataSource.setUser(toProfile(response));
-    appBloc.token = response.meta?.token;
-    appBloc.tokenWc = response.meta?.wcToken;
-    if (response.meta != null) {
-      localDataSource.setToken(response.meta!.token);
-      if (response.meta!.wcToken != null) {
-        localDataSource.setWooCommerceToken(response.meta!.wcToken!);
-      }
-    }
+    appBloc.token = response.meta.token;
+    appBloc.tokenWc = response.meta.wcToken;
+    localDataSource.setToken(response.meta.token);
+    localDataSource.setWooCommerceToken(response.meta.wcToken);
 
     appBloc.mobile = response.data.mobile.replaceFirst("+966", "");
     localDataSource.setMobile(response.data.mobile);
   }
 
   SingleMResponse<User, ProfileMeta> toProfile(
-    SingleMResponse<User, UserMeta?> response,
+    SingleMResponse<User, UserMeta> response,
   ) {
     return SingleMResponse<User, ProfileMeta>(
         response.data, ProfileMeta(restoredUser: true, id: response.data.id));
   }
 
-  setProfile(SingleMResponse<User, ProfileMeta?> response) {
+  setProfile(SingleMResponse<User, ProfileMeta> response) {
     appBloc.user = response.data;
     localDataSource.setUser(response);
     localDataSource.setMobile(response.data.mobile);
   }
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>>
-      completeRegistration(
-          CompleteRegistration completeRegistrationData) async {
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> completeRegistration(
+      CompleteRegistration completeRegistrationData) async {
     try {
       final response =
           await remoteDataSource.completeRegistration(completeRegistrationData);
@@ -130,7 +125,7 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>> activation(
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> activation(
     String mobile,
     String code,
   ) async {
@@ -186,7 +181,7 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, SuccessResponse>> logout(other) async {
+  Future<Either<Failure, void>> logout(other) async {
     try {
       final response = await remoteDataSource.logout(other);
       return Right(response);
@@ -289,7 +284,7 @@ class AuthRepository {
     localDataSource.clearAppData();
   }
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>> loginWithSocial({
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> loginWithSocial({
     required SocialAccountUser user,
   }) async {
     try {
@@ -301,7 +296,7 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, SingleMResponse<User, UserMeta?>>>
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>>
       refreshToken() async {
     try {
       final response = await remoteDataSource.refreshToken();

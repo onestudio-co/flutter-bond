@@ -8,11 +8,11 @@ import 'models/single_response.dart';
 import 'models/success_response.dart';
 
 class DataSource {
-  SingleMResponse<T, G?>
-      mapSingleMResponse<T extends Equatable, G extends Equatable?>(
+  SingleMResponse<T, G>
+      mapSingleMResponse<T extends Equatable, G extends Equatable>(
           Response response) {
     if ((response.statusCode ?? 0) <= 204) {
-      return SingleMResponse<T, G?>.fromResponse(response.data);
+      return SingleMResponse<T, G>.fromResponse(response.data);
     } else {
       throw ServerException.fromResponse(response.data);
     }
