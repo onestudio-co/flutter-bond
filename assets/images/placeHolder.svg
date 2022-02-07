@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="photo" transform="translate(-126.853 -114)">
+    <g id="pic" transform="translate(128.853 116)" fill="#b9becc" stroke="#fff" stroke-width="2">
+      <circle cx="38" cy="38" r="38" stroke="none"/>
+      <circle cx="38" cy="38" r="39" fill="none"/>
+    </g>
+    <path id="human-male" d="M31.572,2A13.184,13.184,0,1,1,18.388,15.184,13.184,13.184,0,0,1,31.572,2ZM21.684,34.96H41.459A13.184,13.184,0,0,1,54.643,48.143v9.642s-11.762,7.963-23.3,7.963S8.5,58.324,8.5,58.324V48.143A13.184,13.184,0,0,1,21.684,34.96Z" transform="translate(135.659 126.541)" fill="#fff"/>
+  </g>
+</svg>

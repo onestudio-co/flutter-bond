@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="exc" transform="translate(-2 -2)">
+    <path id="Oval-5" d="M10,0a10,10,0,0,1,0,20,10.2,10.2,0,0,1-5.562-1.689A9.861,9.861,0,0,1,0,10,10,10,0,0,1,10,0Z" transform="translate(2 2)" fill="#836219" opacity="0.3"/>
+    <rect id="Rectangle-9" width="2" height="8" rx="1" transform="translate(11 7)" fill="#836219"/>
+    <rect id="Rectangle-9-Copy" width="2" height="2" rx="1" transform="translate(11 16)" fill="#836219"/>
+  </g>
+</svg>

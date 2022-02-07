@@ -1,0 +1,27 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:famcare/features/auth/presentation/activation/activation_page.dart';
+import 'package:famcare/features/auth/presentation/complete_registeration/complete_registeration_page.dart';
+import 'package:famcare/features/auth/presentation/login/login_page.dart';
+import 'package:famcare/features/auth/presentation/register/register_page.dart';
+import 'package:famcare/features/home/home_page.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'features/app/launch_page.dart';
+import 'features/auth/presentation/reset_password/reset_password_page.dart';
+
+part 'app_router.gr.dart';
+
+@MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
+  routes: <AutoRoute>[
+    AutoRoute(page: LaunchPage, initial: true),
+    AutoRoute(page: ActivationPage),
+    AutoRoute(page: CompleteProfilePage),
+    AutoRoute(page: LoginPage),
+    AutoRoute(page: RegistrationPage),
+    AutoRoute(page: ResetPasswordPage),
+    AutoRoute(page: HomePage),
+  ],
+)
+// extend the generated private router
+class AppRouter extends _$AppRouter {}

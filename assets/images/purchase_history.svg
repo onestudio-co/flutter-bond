@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18">
+  <g id="box" transform="translate(-4 -3)">
+    <path id="Rectangle" d="M6,3H18l2,3.5H4Z" fill="#7f7df8" fill-rule="evenodd" opacity="0.3"/>
+    <path id="Combined-Shape" d="M6,5H18a2,2,0,0,1,2,2V19a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V7A2,2,0,0,1,6,5ZM9,9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" fill="#7f7df8" fill-rule="evenodd"/>
+  </g>
+</svg>

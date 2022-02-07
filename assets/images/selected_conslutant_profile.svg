@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g id="profile" transform="translate(-125 -165.132)">
+    <g id="icon" transform="translate(-31 -736.329)">
+      <circle id="circle" cx="32" cy="32" r="32" transform="translate(156 901.461)" fill="#fff"/>
+      <g id="person-add-round-24px" transform="translate(172 917.461)">
+        <path id="Path_13216" data-name="Path 13216" d="M0,0H32V32H0Z" fill="none"/>
+        <path id="Path_13217" data-name="Path 13217" d="M16.846,13.846a4.923,4.923,0,1,0-4.923-4.923A4.922,4.922,0,0,0,16.846,13.846Zm0,2.462C13.56,16.308,7,17.957,7,21.231v1.231a1.234,1.234,0,0,0,1.231,1.231H25.462a1.234,1.234,0,0,0,1.231-1.231V21.231C26.692,17.957,20.132,16.308,16.846,16.308Z" transform="translate(5.308 3.385)" fill="#49cbf9"/>
+        <path id="Path_13219" data-name="Path 13219" d="M20.665,18.412l-5.637,5.637A1.236,1.236,0,0,1,13.28,22.3l3.545-3.532H9.231A1.234,1.234,0,0,1,8,17.538V5.231a1.231,1.231,0,1,1,2.462,0V16.308h6.363L13.28,12.775a1.236,1.236,0,0,1,1.748-1.748l5.637,5.637A1.241,1.241,0,0,1,20.665,18.412Z" transform="translate(-8 -0.538)" fill="#49cbf9"/>
+      </g>
+    </g>
+  </g>
+</svg>

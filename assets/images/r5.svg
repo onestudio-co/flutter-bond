@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="smile" clip-path="url(#clip-path)">
+    <g id="smile-2" data-name="smile" transform="translate(0 0)">
+      <circle id="circle" cx="24" cy="24" r="24" transform="translate(0 0)" fill="#fff"/>
+      <g id="smile-3" data-name="smile" transform="translate(7.588 7.588)">
+        <circle id="Ellipse_496" data-name="Ellipse 496" cx="16" cy="16" r="16" transform="translate(0.412 0.412)" fill="#fdc54f"/>
+        <path id="Path_6550" data-name="Path 6550" d="M645.04,946.817a8.753,8.753,0,0,1-13.155,1.531,10.7,10.7,0,0,1-3.416-6.964,11.544,11.544,0,0,1,0-2.148,1.009,1.009,0,0,1,1.073-.967,1.06,1.06,0,0,1,.873,1.187h0c-.42,4.5,2.534,8.522,6.6,8.986s7.7-2.8,8.118-7.3a9.08,9.08,0,0,0,0-1.693,1.062,1.062,0,0,1,.871-1.19,1.008,1.008,0,0,1,1.075.963h0A11.068,11.068,0,0,1,645.04,946.817Z" transform="translate(-621.359 -922.596)" fill="#6d4c22"/>
+        <path id="Path_6549" data-name="Path 6549" d="M292.065,208A4.065,4.065,0,0,0,288,212.056a1.016,1.016,0,0,0,2.033,0,2.033,2.033,0,0,1,4.065,0,1.016,1.016,0,0,0,2.033,0A4.065,4.065,0,0,0,292.065,208Z" transform="translate(-269.556 -198.499)" fill="#6d4c22"/>
+        <path id="Path_6550-2" data-name="Path 6550" d="M100.065,208A4.065,4.065,0,0,0,96,212.056a1.016,1.016,0,0,0,2.033,0,2.033,2.033,0,0,1,4.065,0,1.016,1.016,0,0,0,2.033,0A4.065,4.065,0,0,0,100.065,208Z" transform="translate(-89.752 -198.499)" fill="#6d4c22"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="bad" transform="translate(0 0)">
+    <circle id="circle" cx="24" cy="24" r="24" transform="translate(0 0)" fill="#fff"/>
+    <g id="bad-2" data-name="bad" transform="translate(8 7.296)">
+      <circle id="Ellipse_495" data-name="Ellipse 495" cx="16" cy="16" r="16" transform="translate(0 0.704)" fill="#dfe6ea"/>
+      <path id="Path_6545" data-name="Path 6545" d="M291.969,213.1A4.028,4.028,0,0,1,288,209.019a.993.993,0,1,1,1.985,0,1.985,1.985,0,1,0,3.969,0,.993.993,0,1,1,1.985,0A4.028,4.028,0,0,1,291.969,213.1Z" transform="translate(-270.18 -194.745)" fill="#bdccd4"/>
+      <path id="Path_6546" data-name="Path 6546" d="M99.969,213.1A4.028,4.028,0,0,1,96,209.019a.993.993,0,1,1,1.985,0,1.985,1.985,0,1,0,3.969,0,.993.993,0,1,1,1.985,0A4.028,4.028,0,0,1,99.969,213.1Z" transform="translate(-90.088 -194.745)" fill="#bdccd4"/>
+      <path id="Path_6547" data-name="Path 6547" d="M151.791,356.725a.983.983,0,0,1-.7-.3,7.972,7.972,0,0,0-11.227,0,.975.975,0,0,1-1.4,0,1.04,1.04,0,0,1,0-1.441,9.737,9.737,0,0,1,14.034,0,1.04,1.04,0,0,1,0,1.441A.971.971,0,0,1,151.791,356.725Z" transform="translate(-129.641 -329.572)" fill="#bdccd4"/>
+      <path id="Path_6548" data-name="Path 6548" d="M53,1.081a1.073,1.073,0,0,0-1.79,0C50.675,2.028,48,6.848,48,8.707a4.105,4.105,0,0,0,8.211,0C56.211,6.848,53.536,2.028,53,1.081Z" transform="translate(-45.684 0.104)" fill="#bdccd4"/>
+    </g>
+  </g>
+</svg>

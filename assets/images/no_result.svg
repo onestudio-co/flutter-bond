@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g id="icon" transform="translate(26.758 40.585)">
+    <circle id="circle" cx="32" cy="32" r="32" transform="translate(-26.758 -40.585)" fill="#fff"/>
+    <g id="search-round-24px" transform="translate(-6.758 -20.585)">
+      <path id="Path_8009" data-name="Path 8009" d="M24,0H0V24H24Z" transform="translate(0 0)" fill="none"/>
+      <path id="Path_8010" data-name="Path 8010" d="M9.4,18.477h1.112l.394-.38a9.178,9.178,0,1,1,.985.985l-.38.394v1.111L5.53,26.567a1.483,1.483,0,0,1-2.1-2.1Zm8.447,0a6.331,6.331,0,1,0-6.335-6.331A6.325,6.325,0,0,0,17.848,18.477Z" transform="translate(-2.999 -2.999)" fill="#cfcfe5"/>
+    </g>
+  </g>
+</svg>

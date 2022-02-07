@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12">
+  <g id="resend" transform="translate(-8 -11)">
+    <path id="XMLID_25_" d="M11,17a5,5,0,0,0,7,4.584" fill="none" stroke="#7f75f8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="XMLID_26_" d="M21,17a5,5,0,0,0-7-4.582" fill="none" stroke="#7f75f8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="XMLID_27_" d="M9,17l2-2,2,2Z" fill="none" stroke="#7f75f8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="XMLID_28_" d="M23,17l-2,2-2-2Z" fill="none" stroke="#7f75f8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

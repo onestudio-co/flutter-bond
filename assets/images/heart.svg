@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="icon" transform="translate(-339.001 -2)">
+    <g id="love" transform="translate(339.001 2)">
+      <path id="Path_13175" data-name="Path 13175" d="M0,0H20V20H0Z" transform="translate(0 0)" fill="none"/>
+      <path id="Path_13230" data-name="Path 13230" d="M20,4.045A6.075,6.075,0,0,1,24.5,2,5.394,5.394,0,0,1,30,7.4c0,3.715-4.85,8.018-10,12.6-5.15-4.6-10-8.9-10-12.6A5.394,5.394,0,0,1,15.5,2,6.075,6.075,0,0,1,20,4.045Z" transform="translate(-10 -1)" fill="#7d7bfa"/>
+    </g>
+  </g>
+</svg>

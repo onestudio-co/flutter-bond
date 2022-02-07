@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="84.5" viewBox="0 0 140 84.5">
+  <defs>
+    <filter id="back" x="0" y="6.5" width="140" height="78" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-opacity="0.059"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="card" transform="translate(4.5 -0.258)">
+    <rect id="back-2" data-name="back" width="109" height="58" rx="8" transform="translate(11 0.258)" fill="#a6b7c1"/>
+    <line id="Line_27" data-name="Line 27" x1="31.523" transform="translate(53.427 16.515)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <line id="Line_28" data-name="Line 28" x1="86.52" transform="translate(23.246 34.624)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <line id="Line_29" data-name="Line 29" x1="59.692" transform="translate(50.074 44.685)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <g id="Group_2740" data-name="Group 2740" transform="translate(0 10)">
+      <g transform="matrix(1, 0, 0, 1, -4.5, -9.74)" filter="url(#back)">
+        <rect id="back-3" data-name="back" width="131" height="69" rx="8" transform="translate(4.5 10)" fill="#bdc9d0"/>
+      </g>
+      <ellipse id="Ellipse_377" data-name="Ellipse 377" cx="12" cy="11.5" rx="12" ry="11.5" transform="translate(99 6.258)" fill="#fff"/>
+      <line id="Line_30" data-name="Line 30" x1="37.505" transform="translate(51.136 16.61)" fill="none" stroke="#dee6eb" stroke-linecap="round" stroke-width="6"/>
+      <line id="Line_31" data-name="Line 31" x1="102.94" transform="translate(15.227 38.156)" fill="none" stroke="#dee6eb" stroke-linecap="round" stroke-width="6"/>
+      <line id="Line_32" data-name="Line 32" x1="71.021" transform="translate(47.146 50.125)" fill="none" stroke="#dee6eb" stroke-linecap="round" stroke-width="6"/>
+    </g>
+  </g>
+</svg>

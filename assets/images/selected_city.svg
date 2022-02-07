@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon" transform="translate(0.068 0.133)">
+    <circle id="circle" cx="12" cy="12" r="12" transform="translate(-0.068 -0.133)" fill="#7f78f8"/>
+    <path id="check" d="M23.63,11.25l.1.1a1.133,1.133,0,0,1,0,1.6l-6.351,6.362a1.133,1.133,0,0,1-1.6,0L12.26,15.8a1.133,1.133,0,0,1,0-1.6l.1-.1a1.133,1.133,0,0,1,1.6,0l2.618,2.618,5.44-5.452A1.123,1.123,0,0,1,23.63,11.25Z" transform="translate(-6.074 -3.523)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>

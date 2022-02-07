@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.913" height="17.888" viewBox="0 0 13.913 17.888">
+  <g id="delete" transform="translate(-9.24 -5.536)">
+    <path id="Combined-Shape" d="M6,8H17.926l-.888,11.543a1.491,1.491,0,0,1-1.486,1.376H8.374a1.491,1.491,0,0,1-1.486-1.376Z" transform="translate(4.234 2.505)" fill="#d05749"/>
+    <path id="Shape" d="M13.944,4.491V3.5a.5.5,0,0,0-.5-.5H10.466a.5.5,0,0,0-.5.5v.994H5.5a.5.5,0,0,0-.5.5v.5a.5.5,0,0,0,.5.5H18.416a.5.5,0,0,0,.5-.5v-.5a.5.5,0,0,0-.5-.5Z" transform="translate(4.24 2.536)" fill="#d05749" fill-rule="evenodd" opacity="0.501"/>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" width="27.236" height="27.235" viewBox="0 0 27.236 27.235">
+  <g id="meeting_1_" data-name="meeting (1)" transform="translate(0 0)">
+    <g id="Group_3015" data-name="Group 3015" transform="translate(2.395 4.043)">
+      <g id="Group_3014" data-name="Group 3014">
+        <path id="Path_4895" data-name="Path 4895" d="M47.408,76.005A2.394,2.394,0,1,0,49.8,78.4,2.4,2.4,0,0,0,47.408,76.005Z" transform="translate(-45.014 -76.005)" fill="#3a3855"/>
+      </g>
+    </g>
+    <g id="Group_3017" data-name="Group 3017" transform="translate(7.98)">
+      <g id="Group_3016" data-name="Group 3016">
+        <path id="Path_4896" data-name="Path 4896" d="M158.893.008H152.4a2.442,2.442,0,0,0-2.394,2.447v1.6A2.4,2.4,0,0,0,152.4,6.444h2.914L158.329,9.4a.8.8,0,0,0,1.362-.564V6.308a2.4,2.4,0,0,0,1.6-2.257v-1.6A2.442,2.442,0,0,0,158.893.008Z" transform="translate(-150.01 -0.008)" fill="#3a3855"/>
+      </g>
+    </g>
+    <g id="Group_3019" data-name="Group 3019" transform="translate(0 9.637)">
+      <g id="Group_3018" data-name="Group 3018">
+        <path id="Path_4897" data-name="Path 4897" d="M12.719,196.793l-2.394-7.235a1.593,1.593,0,0,0-1.548-1.208h-1.6a.8.8,0,1,1,0-1.6H9.575a1.6,1.6,0,0,0,0-3.192H5.181l-.562-1.511a1.6,1.6,0,0,0-2.976.326l-1.6,7.181a1.594,1.594,0,0,0,1.525,1.98L.025,197.784a.8.8,0,0,0,1.548.386l.647-2.587H8.928l.695,1.983a1.6,1.6,0,0,0,3.1-.774Zm-10.1-2.8.55-2.254a.765.765,0,0,0,.009-.193H7.531l.839,2.447Z" transform="translate(0 -181.178)" fill="#3a3855"/>
+      </g>
+    </g>
+    <g id="Group_3021" data-name="Group 3021" transform="translate(20.054 4.043)">
+      <g id="Group_3020" data-name="Group 3020">
+        <path id="Path_4898" data-name="Path 4898" d="M379.385,76.005a2.394,2.394,0,1,0,2.394,2.394A2.4,2.4,0,0,0,379.385,76.005Z" transform="translate(-376.991 -76.005)" fill="#3a3855"/>
+      </g>
+    </g>
+    <g id="Group_3023" data-name="Group 3023" transform="translate(14.469 9.637)">
+      <g id="Group_3022" data-name="Group 3022">
+        <path id="Path_4899" data-name="Path 4899" d="M283.183,191.537a1.594,1.594,0,0,0,1.525-1.98l-1.6-7.181a1.6,1.6,0,0,0-2.976-.326l-.562,1.511H275.18a1.6,1.6,0,0,0,0,3.192h2.394a.8.8,0,0,1,0,1.6h-1.6a1.592,1.592,0,0,0-1.548,1.208l-2.394,7.235a1.6,1.6,0,0,0,3.1.775l.695-1.983h6.709l.647,2.587a.8.8,0,1,0,1.547-.386Zm-6.8,2.45.839-2.452h4.354a.763.763,0,0,0,.009.193l.55,2.259Z" transform="translate(-271.988 -181.176)" fill="#3a3855"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "started_at": "2020-03-31 08:01:04",
+      "completed_at": null,
+      "duration": 30,
+      "created_at": "2020-03-31 08:01:04",
+
+      "specialist": {
+        "id": 1,
+        "name": "ahmed"
+      }
+    }
+  ]
+}

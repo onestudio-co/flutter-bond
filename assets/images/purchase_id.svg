@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10.616" height="11.944" viewBox="0 0 10.616 11.944">
+  <g id="box" transform="translate(-4 -3)">
+    <path id="Rectangle" d="M5.327,3h7.962l1.327,2.322H4Z" fill="#3a3855" fill-rule="evenodd" opacity="0.3"/>
+    <path id="Combined-Shape" d="M5.327,5h7.962a1.327,1.327,0,0,1,1.327,1.327v7.962a1.327,1.327,0,0,1-1.327,1.327H5.327A1.327,1.327,0,0,1,4,14.289V6.327A1.327,1.327,0,0,1,5.327,5ZM7.318,7.654a.664.664,0,0,0,0,1.327H11.3a.664.664,0,1,0,0-1.327Z" transform="translate(0 -0.673)" fill="#3a3855" fill-rule="evenodd"/>
+  </g>
+</svg>

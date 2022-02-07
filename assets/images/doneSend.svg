@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <g id="icon" transform="translate(-0.065)">
+    <circle id="circle" cx="35" cy="35" r="35" transform="translate(0.065)" fill="#19bf73"/>
+    <path id="_Icon-Color"  d="M46.314,11.893l.3.3a3.33,3.33,0,0,1,0,4.715L27.954,35.6a3.33,3.33,0,0,1-4.715,0L12.906,25.269a3.33,3.33,0,0,1,0-4.715l.3-.3a3.33,3.33,0,0,1,4.715,0l7.692,7.692L41.6,11.926A3.3,3.3,0,0,1,46.314,11.893Z" transform="translate(5.277 10.942)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>

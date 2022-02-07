@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="chat-round-24px" transform="translate(-2 -2)">
+    <path id="Path_6809" data-name="Path 6809" d="M0,0H16V16H0Z" transform="translate(2 2)" fill="none"/>
+    <path id="Path_6810" data-name="Path 6810" d="M16.4,2H3.6A1.6,1.6,0,0,0,2.008,3.6L2,18l3.2-3.2H16.4A1.6,1.6,0,0,0,18,13.2V3.6A1.6,1.6,0,0,0,16.4,2ZM6,7.6h8a.8.8,0,0,1,0,1.6H6A.8.8,0,0,1,6,7.6Zm4.8,4H6A.8.8,0,1,1,6,10h4.8a.8.8,0,1,1,0,1.6ZM14,6.8H6A.8.8,0,0,1,6,5.2h8a.8.8,0,0,1,0,1.6Z" fill="#7d7bfa"/>
+  </g>
+</svg>

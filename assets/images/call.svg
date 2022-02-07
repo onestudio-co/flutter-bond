@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.222" height="16.222" viewBox="0 0 16.222 16.222">
+  <g id="Icons" transform="translate(3 3)">
+    <g id="Rounded" transform="translate(-3 -3)">
+      <g id="Notification">
+        <g id="_-Round-_-Notification-_-phone_callback" data-name="-Round-/-Notification-/-phone_callback">
+          <g id="Group_3303" data-name="Group 3303">
+            <path id="Path" d="M0,0H16.222V16.222H0Z" fill="none" fill-rule="evenodd"/>
+            <path id="_-Icon-Color" data-name="🔹-Icon-Color" d="M13.978,11.283l-1.717-.2a1.345,1.345,0,0,0-1.108.385L9.91,12.715A10.169,10.169,0,0,1,5.455,8.261l1.25-1.25A1.345,1.345,0,0,0,7.091,5.9l-.2-1.7A1.353,1.353,0,0,0,5.55,3H4.381A1.341,1.341,0,0,0,3.029,4.4a11.485,11.485,0,0,0,10.74,10.74,1.341,1.341,0,0,0,1.4-1.352V12.621A1.34,1.34,0,0,0,13.978,11.283ZM9.768,8.4h2.7a.676.676,0,0,0,0-1.352H11.4L14.31,4.138a.674.674,0,0,0-.953-.953L10.443,6.1V5.024a.676.676,0,0,0-1.352,0v2.7A.678.678,0,0,0,9.768,8.4Z" transform="translate(-0.981 -0.968)" fill="#7f7ff8" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

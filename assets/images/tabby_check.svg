@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <g id="check" transform="translate(-124 16)">
+    <rect id="back-green-overly" width="96" height="96" rx="48" transform="translate(124 -16)" fill="#fdc54f" opacity="0.32"/>
+    <rect id="back-green" width="64" height="64" rx="32" transform="translate(140)" fill="#fdc54f"/>
+    <g id="icon" transform="translate(-16 -16)">
+      <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="15" cy="15" rx="15" ry="15" transform="translate(173 33)" fill="#fff"/>
+      <path id="error_black_24dp" d="M22,2A20,20,0,1,0,42,22,20.007,20.007,0,0,0,22,2Zm0,22a2.006,2.006,0,0,1-2-2V14a2,2,0,1,1,4,0v8A2.006,2.006,0,0,1,22,24Zm2,8H20V28h4Z" transform="translate(166 26)" fill="#fdc54f"/>
+    </g>
+  </g>
+</svg>

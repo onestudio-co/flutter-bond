@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "conversation_id": 1,
+      "author": {
+        "id": 2,
+        "name": "conslt",
+        "type": "conslt"
+      },
+      "created_at": "2020-03-31 08:31:04",
+      "body": "<p>msg</p> "
+    }
+
+  ]
+}

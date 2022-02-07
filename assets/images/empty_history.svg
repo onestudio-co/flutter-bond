@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+   
+    <g id="icon" transform="translate(27.064 40.891)">
+        <circle id="circle" cx="48" cy="48" r="48" fill="#f4f5f8" transform="translate(-27.064 -40.891)"/>
+        <g id="archive" transform="translate(-.585 -14.293)">
+            <path id="Path_6556" fill="#7f7ff8" d="M3 7h35.139v23.426a5.856 5.856 0 0 1-5.856 5.856H8.856A5.856 5.856 0 0 1 3 30.426z" opacity="0.25" transform="translate(.952 4.761)"/>
+            <path id="Path_6557" d="M9 13.952A1.952 1.952 0 0 1 10.952 12h7.809a1.952 1.952 0 0 1 1.952 1.952 1.952 1.952 0 0 1-1.952 1.948h-7.809A1.952 1.952 0 0 1 9 13.952z" transform="translate(6.665 9.521)"/>
+            <path id="Path_6558" d="M2 5.9A3.9 3.9 0 0 1 5.9 2h31.239a3.9 3.9 0 0 1 3.9 3.9v3.9a3.9 3.9 0 0 1-3.9 3.9H5.9A3.9 3.9 0 0 1 2 9.809z" />
+        </g>
+    </g>
+</svg>

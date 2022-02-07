@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
+  <g id="ex" transform="translate(-337 -376)">
+    <g id="cricle" transform="translate(339 378)" fill="#e81212" stroke="#fff" stroke-width="2">
+      <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+      <circle cx="13.5" cy="13.5" r="14.5" fill="none"/>
+    </g>
+    <path id="exclamation" d="M19.931,10.615a1.966,1.966,0,1,1-1.966-1.966A1.968,1.968,0,0,1,19.931,10.615Zm-3.7-10L16.562,7.3a.59.59,0,0,0,.589.56h1.63a.59.59,0,0,0,.589-.56L19.7.619A.59.59,0,0,0,19.115,0h-2.3A.59.59,0,0,0,16.228.619Z" transform="translate(334.626 384.751)" fill="#fff"/>
+  </g>
+</svg>

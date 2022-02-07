@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+import 'app_router.dart';
+import 'environment/config_reader.dart';
+import 'injection_container.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await init();
+  await ConfigReader.initialize();
+  runApp(FamcareApp());
+}
+
+class FamcareApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+
+  FamcareApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+    );
+    ;
+  }
+}

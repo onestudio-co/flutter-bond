@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.583" viewBox="0 0 18 18.583">
+  <path id="country" d="M15,11V5.83a1.966,1.966,0,0,0-.59-1.41L12.7,2.71a1,1,0,0,0-1.41,0l-1.7,1.7A2.006,2.006,0,0,0,9,5.83V7H5A2.006,2.006,0,0,0,3,9V19a2.006,2.006,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V13a2.006,2.006,0,0,0-2-2ZM7,19H5V17H7Zm0-4H5V13H7Zm0-4H5V9H7Zm6,8H11V17h2Zm0-4H11V13h2Zm0-4H11V9h2Zm0-4H11V5h2Zm6,12H17V17h2Zm0-4H17V13h2Z" transform="translate(-3 -2.418)" fill="#7f78f8" fill-rule="evenodd"/>
+</svg>

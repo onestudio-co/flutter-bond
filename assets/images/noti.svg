@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <filter id="back_bt" x="0" y="0" width="50" height="50" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="noti" transform="translate(16.035 12.406)">
+    <g transform="matrix(1, 0, 0, 1, -16.03, -12.41)" filter="url(#back_bt)">
+      <rect id="back_bt-2" data-name="back_bt" width="32" height="32" rx="16" transform="translate(9 6)" fill="#acb2c1"/>
+    </g>
+    <path id="bell" d="M8.312,19a2.375,2.375,0,0,0,2.374-2.375H5.938A2.375,2.375,0,0,0,8.312,19ZM16.3,13.444c-.717-.77-2.058-1.929-2.058-5.726A5.86,5.86,0,0,0,9.5,1.961V1.188a1.187,1.187,0,1,0-2.374,0v.773A5.86,5.86,0,0,0,2.377,7.719c0,3.8-1.342,4.955-2.058,5.726A1.159,1.159,0,0,0,0,14.25a1.189,1.189,0,0,0,1.191,1.187H15.433a1.188,1.188,0,0,0,1.191-1.187A1.159,1.159,0,0,0,16.3,13.444Z" transform="translate(0.62 -0.98)" fill="#fff"/>
+  </g>
+</svg>

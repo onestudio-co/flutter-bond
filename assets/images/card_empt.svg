@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="163" height="99" viewBox="0 0 163 99">
+  <g id="card_empt" transform="translate(-93 -305.061)">
+    <rect id="back" width="137" height="73" rx="10" transform="translate(106 305.061)" fill="#e6eaed"/>
+    <line id="Line_27" data-name="Line 27" x1="39.503" transform="translate(159.371 326.911)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <line id="Line_28" data-name="Line 28" x1="108.423" transform="translate(121.549 349.604)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <line id="Line_29" data-name="Line 29" x1="74.804" transform="translate(155.169 362.212)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="9"/>
+    <g id="Group_2740" data-name="Group 2740">
+      <g id="back-2" data-name="back" transform="translate(93 317.061)" fill="#fff" stroke="#e6eaed" stroke-width="2">
+        <rect width="163" height="87" rx="14" stroke="none"/>
+        <rect x="1" y="1" width="161" height="85" rx="13" fill="none"/>
+      </g>
+      <line id="Line_30" data-name="Line 30" x1="47" transform="translate(193.5 339.561)" fill="none" stroke="#beccd4" stroke-linecap="round" stroke-width="6" opacity="0.312"/>
+      <line id="Line_31" data-name="Line 31" x1="129" transform="translate(111.5 366.561)" fill="none" stroke="#beccd4" stroke-linecap="round" stroke-width="6" opacity="0.312"/>
+      <line id="Line_32" data-name="Line 32" x1="89" transform="translate(151.5 381.561)" fill="none" stroke="#beccd4" stroke-linecap="round" stroke-width="6" opacity="0.312"/>
+    </g>
+  </g>
+</svg>

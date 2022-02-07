@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <g id="check" transform="translate(-124 16)">
+    <rect id="back-green-overly" width="128" height="128" rx="64" transform="translate(124 -16)" fill="#37e1ca" opacity="0.32"/>
+    <rect id="back-green" width="96" height="96" rx="48" transform="translate(140)" fill="#37e1ca"/>
+    <g id="correct" transform="translate(171.756 31.84)">
+      <path id="_Icon-Color" data-name="🔹Icon-Color" d="M42.779,11.906l.27.3a3.689,3.689,0,0,1,0,4.777L26.307,35.928a2.753,2.753,0,0,1-4.231,0L12.805,25.458a3.689,3.689,0,0,1,0-4.777l.27-.3a2.753,2.753,0,0,1,4.231,0l6.9,7.793L38.549,11.939A2.731,2.731,0,0,1,42.779,11.906Z" transform="translate(-11.684 -7.759)" fill="#fff" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

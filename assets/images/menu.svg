@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="menu" transform="translate(-304 -31.879)">
+    <circle id="circle" cx="15" cy="15" r="15" transform="translate(304 31.879)" fill="#3a3855"/>
+    <path id="dots" d="M12,16a2,2,0,1,1-2,2A2,2,0,0,1,12,16Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,12,10Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,12,4Z" transform="translate(331 34.879) rotate(90)" fill="#3a3855"/>
+  </g>
+</svg>
