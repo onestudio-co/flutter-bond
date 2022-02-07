@@ -17,7 +17,7 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: LaunchPage, initial: true),
-    AutoRoute(page: HomePage),
+    AutoRoute(page: HomePage, guards: [AuthGuard()]),
     ...authRoutes,
   ],
 )

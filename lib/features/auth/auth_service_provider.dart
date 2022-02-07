@@ -1,4 +1,4 @@
-import 'package:fixit/config/service_provider.dart';
+import 'package:fixit/core/service_provider.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/datasources/auth_local_data_source.dart';
