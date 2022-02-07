@@ -21,6 +21,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LaunchPage());
     },
+    HomeRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HomePage());
+    },
     ActivationRoute.name: (routeData) {
       final args = routeData.argsAs<ActivationRouteArgs>(
           orElse: () => const ActivationRouteArgs());
@@ -49,22 +53,18 @@ class _$AppRouter extends RootStackRouter {
               mobile: args.mobile,
               code: args.code,
               onSuccess: args.onSuccess));
-    },
-    HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HomePage());
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
+        RouteConfig(HomeRoute.name, path: '/home-page'),
         RouteConfig(ActivationRoute.name, path: '/activation-page'),
         RouteConfig(CompleteProfileRoute.name, path: '/complete-profile-page'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(RegistrationRoute.name, path: '/registration-page'),
-        RouteConfig(ResetPasswordRoute.name, path: '/reset-password-page'),
-        RouteConfig(HomeRoute.name, path: '/home-page')
+        RouteConfig(ResetPasswordRoute.name, path: '/reset-password-page')
       ];
 }
 
@@ -74,6 +74,14 @@ class LaunchRoute extends PageRouteInfo<void> {
   const LaunchRoute() : super(LaunchRoute.name, path: '/');
 
   static const String name = 'LaunchRoute';
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute() : super(HomeRoute.name, path: '/home-page');
+
+  static const String name = 'HomeRoute';
 }
 
 /// generated route for
@@ -161,12 +169,4 @@ class ResetPasswordRouteArgs {
   String toString() {
     return 'ResetPasswordRouteArgs{key: $key, mobile: $mobile, code: $code, onSuccess: $onSuccess}';
   }
-}
-
-/// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '/home-page');
-
-  static const String name = 'HomeRoute';
 }

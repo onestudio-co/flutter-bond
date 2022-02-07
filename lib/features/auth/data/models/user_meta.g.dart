@@ -7,9 +7,9 @@ part of 'user_meta.dart';
 // **************************************************************************
 
 UserMeta _$UserMetaFromJson(Map<String, dynamic> json) => UserMeta(
-      id: json['id'] == null ? 0 : json['id'] as int,
+      id: json['id'] as int,
       token: json['token'] as String,
-      wcToken: json['wc_token'] == null ? null : json['wc_token'] as String,
+      wcToken: json['wc_token'] as String?,
     );
 
 Map<String, dynamic> _$UserMetaToJson(UserMeta instance) => <String, dynamic>{

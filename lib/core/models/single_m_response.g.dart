@@ -11,8 +11,7 @@ SingleMResponse<T, G>
             Map<String, dynamic> json) =>
         SingleMResponse<T, G>(
           ResponseConverter<T>().fromJson(json['data'] as Object),
-          ResponseConverter<G?>()
-              .fromJson(json['meta'] == null ? {} : json['meta'] as Object),
+          ResponseConverter<G?>().fromJson(json['meta'] as Object),
         );
 
 Map<String, dynamic>

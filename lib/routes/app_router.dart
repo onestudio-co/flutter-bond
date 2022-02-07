@@ -3,6 +3,7 @@ import 'package:fixit/features/auth/presentation/activation/activation_page.dart
 import 'package:fixit/features/auth/presentation/complete_registeration/complete_registeration_page.dart';
 import 'package:fixit/features/auth/presentation/login/login_page.dart';
 import 'package:fixit/features/auth/presentation/register/register_page.dart';
+import 'package:fixit/features/auth/routes.dart';
 import 'package:fixit/features/home/home_page.dart';
 import 'package:fixit/routes/auth_guard.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,12 +17,8 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: LaunchPage, initial: true),
-    AutoRoute(page: ActivationPage),
-    AutoRoute(page: CompleteProfilePage),
-    AutoRoute(page: LoginPage),
-    AutoRoute(page: RegistrationPage),
-    AutoRoute(page: ResetPasswordPage),
-    AutoRoute(page: HomePage, guards: [AuthGuard]),
+    AutoRoute(page: HomePage),
+    ...authRoutes,
   ],
 )
 // extend the generated private router
