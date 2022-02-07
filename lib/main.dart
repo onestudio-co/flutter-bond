@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 
-import 'routes/app_router.dart';
-import 'environment/config_reader.dart';
 import 'injection_container.dart';
+import 'routes/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await init();
-  await ConfigReader.initialize();
+  await FlutterConfig.loadEnvVariables();
   runApp(FixitApp());
 }
 

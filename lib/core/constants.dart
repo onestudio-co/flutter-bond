@@ -85,8 +85,8 @@ class Api {
     return _api!;
   }
 
-  static final String mainUrl = ConfigReader.mainUrl();
-  static final String mainUrlV = ConfigReader.mainUrlV();
+  static final String mainUrl = ConfigReader.mainUrl;
+  static final String mainUrlV = ConfigReader.mainUrlV;
   static final String api = '${mainUrl}api/$mainUrlV/';
   static const String auth = 'users';
 
