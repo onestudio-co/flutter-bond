@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/famcare_alert.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_statusbar.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_statusbar.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -60,7 +60,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FamcareStatusBar(
+    return FixitStatusBar(
       child: BlocListener<ResetPasswordCubit, ResetPasswordState>(
           listener: listenerRestPassword,
           child: BlocBuilder<ResetPasswordCubit, ResetPasswordState>(
@@ -92,13 +92,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        FamcareTextFieldWidget(
+                        FixitTextFieldWidget(
                           controller: passwordController,
                           errorString:
                               resetPasswordCubit.getError("new_password"),
                           label: Strings.newPasswordLabel,
                           svgIcon: "assets/images/password-type.svg",
-                          type: FamcareTextType.password,
+                          type: FixitTextType.password,
                           onActiveTyping: () {
                             resetPasswordCubit.hideError('new_password');
                           },
@@ -107,7 +107,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        FamcareTextFieldWidget(
+                        FixitTextFieldWidget(
                           controller: newPasswordController,
                           errorString:
                               resetPasswordCubit.getError("c_password"),
@@ -116,7 +116,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           onActiveTyping: () {
                             resetPasswordCubit.hideError('c_password');
                           },
-                          type: FamcareTextType.password,
+                          type: FixitTextType.password,
                           onChanged: refreshSendButtonEnable,
                         ),
                       ],
@@ -126,7 +126,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         right: 20,
                         left: 20,
                         child: SafeArea(
-                          child: FamcareButton(
+                          child: FixitButton(
                             enable: sendButtonEnable,
                             loading: state is ResetPasswordLoading,
                             label: Strings.save,
@@ -157,7 +157,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
 
     if (state is ResetPasswordFailed) {
       if (BlocProvider.of<ResetPasswordCubit>(context).error == null) {
-        FamcareAlert.showNotificationBottom(context,
+        FixitAlert.showNotificationBottom(context,
             title: state.error, inLastBottom: false);
       }
     }

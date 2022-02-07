@@ -1,6 +1,6 @@
-import 'package:famcare/core/shared_bloc_base.dart';
-import 'package:famcare/features/auth/data/repositories/auth_repository.dart';
-import 'package:famcare/features/auth/presentation/activation/activation_state.dart';
+import 'package:fixit/core/shared_bloc_base.dart';
+import 'package:fixit/features/auth/data/repositories/auth_repository.dart';
+import 'package:fixit/features/auth/presentation/activation/activation_state.dart';
 
 class ActivationCubit extends SharedBlocBase<ActivationState> {
   final AuthRepository authenticationRepository;

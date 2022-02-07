@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/widgets/count_down_timer.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_code_text_field.dart';
-import 'package:famcare/core/widgets/famcare_statusbar.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/widgets/count_down_timer.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_code_text_field.dart';
+import 'package:fixit/core/widgets/fixit_statusbar.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -79,7 +79,7 @@ class _ActivationPageState extends State<ActivationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FamcareStatusBar(
+    return FixitStatusBar(
       child: BlocConsumer<ActivationCubit, ActivationState>(
           listener: _authBlocListener,
           builder: (BuildContext context, ActivationState state) {
@@ -199,7 +199,7 @@ class _ActivationPageState extends State<ActivationPage> {
                               ],
                             ),
                           ),
-                          FamcareCodeTextFieldWidget(
+                          FixitCodeTextFieldWidget(
                             onChanged: onCodeChanged,
                             errorString: activationBloc.getError("code"),
                             onActiveTyping: () {
@@ -211,7 +211,7 @@ class _ActivationPageState extends State<ActivationPage> {
                             label: "####",
                             hintText: "####",
                             svgIcon: Assets.code,
-                            type: FamcareTextType.number,
+                            type: FixitTextType.number,
                             maxLength: 4,
                             autoFocus: true,
                           ),
@@ -270,7 +270,7 @@ class _ActivationPageState extends State<ActivationPage> {
                           Row(
                             children: [
                               Expanded(
-                                child: FamcareButton(
+                                child: FixitButton(
                                   label: Strings.activate,
                                   loading: state is ActivationLoading,
                                   background: cannotResend
@@ -290,7 +290,7 @@ class _ActivationPageState extends State<ActivationPage> {
                                 SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.35,
-                                  child: FamcareButton(
+                                  child: FixitButton(
                                     label: "الدعم الفني",
 
                                     background: Constant.yellowColorRegular,

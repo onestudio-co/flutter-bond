@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/app_router.dart';
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/extension.dart';
-import 'package:famcare/core/famcare_alert.dart';
-import 'package:famcare/core/widgets/app_bar.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_statusbar.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/app_router.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/extension.dart';
+import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/core/widgets/app_bar.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_statusbar.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FamcareStatusBar(
+    return FixitStatusBar(
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: loginListener,
         builder: (BuildContext context, LoginState state) {
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                         margin: const EdgeInsets.only(
                             left: 8, right: 16, top: 24, bottom: 20),
                       ),
-                      FamcareTextFieldWidget(
+                      FixitTextFieldWidget(
                         controller: mobile,
                         errorString: loginCubit.getError('mobile'),
                         label: Strings.mobileLabel,
@@ -113,12 +113,12 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         onChanged: refreshSendButtonEnable,
                         svgIcon: "assets/images/mobile.svg",
-                        type: FamcareTextType.mobile,
+                        type: FixitTextType.mobile,
                       ),
                       const SizedBox(
                         height: 8,
                       ),
-                      FamcareTextFieldWidget(
+                      FixitTextFieldWidget(
                         errorString: loginCubit.getError('password'),
                         controller: password,
                         label: Strings.passwordLabel,
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         onChanged: refreshSendButtonEnable,
                         svgIcon: "assets/images/password-type.svg",
-                        type: FamcareTextType.password,
+                        type: FixitTextType.password,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                         margin:
                             const EdgeInsets.only(left: 16, right: 16, top: 32),
                         child: SafeArea(
-                          child: FamcareButton(
+                          child: FixitButton(
                             enable: sendButtonEnable,
                             loading: state is LoginLoading,
                             label: Strings.login,
@@ -256,7 +256,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (loginCubit.error == null) {
         debugPrint("state.code ${state.code}");
-        FamcareAlert.showNotificationBottom(context,
+        FixitAlert.showNotificationBottom(context,
             title: "لا يمكنك تسجيل الدخول", inLastBottom: false);
       }
     }

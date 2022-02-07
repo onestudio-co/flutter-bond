@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/features/auth/presentation/activation/activation_page.dart';
-import 'package:famcare/features/auth/presentation/complete_registeration/complete_registeration_page.dart';
-import 'package:famcare/features/auth/presentation/login/login_page.dart';
-import 'package:famcare/features/auth/presentation/register/register_page.dart';
-import 'package:famcare/features/home/home_page.dart';
+import 'package:fixit/features/auth/presentation/activation/activation_page.dart';
+import 'package:fixit/features/auth/presentation/complete_registeration/complete_registeration_page.dart';
+import 'package:fixit/features/auth/presentation/login/login_page.dart';
+import 'package:fixit/features/auth/presentation/register/register_page.dart';
+import 'package:fixit/features/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'features/app/launch_page.dart';

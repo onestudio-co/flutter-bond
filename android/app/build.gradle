@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "sa.example.famcare"
+        applicationId "sa.example.fixit"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
@@ -54,11 +54,11 @@ android {
     productFlavors {
         production {
             dimension "app"
-            resValue "string", "app_name", "Famcare"
+            resValue "string", "app_name", "Fixit"
         }
         staging {
             dimension "app"
-            resValue "string", "app_name", "Famcare"
+            resValue "string", "app_name", "Fixit"
             versionNameSuffix "-staging"
             applicationIdSuffix ".staging"
 

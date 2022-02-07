@@ -1,4 +1,4 @@
-package com.example.famcare
+package com.example.fixit
 
 import io.flutter.embedding.android.FlutterActivity
 

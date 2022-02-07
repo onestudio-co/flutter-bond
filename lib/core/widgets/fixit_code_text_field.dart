@@ -1,15 +1,15 @@
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/core/widgets/pin_field_auto_fill.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/core/widgets/pin_field_auto_fill.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
 import '../debouncer.dart';
 
-class FamcareCodeTextFieldWidget extends StatefulWidget {
+class FixitCodeTextFieldWidget extends StatefulWidget {
   final String label;
   final String? apiKey;
-  final FamcareTextType type;
+  final FixitTextType type;
   final IconData? icon;
   final String? svgIcon;
   final String? errorString;
@@ -37,13 +37,13 @@ class FamcareCodeTextFieldWidget extends StatefulWidget {
   final Function? onTapClearCoupon;
 
   final Widget? action;
-  const FamcareCodeTextFieldWidget({
+  const FixitCodeTextFieldWidget({
     Key? key,
     required this.label,
     this.icon,
     this.svgIcon,
     this.errorString,
-    this.type = FamcareTextType.normal,
+    this.type = FixitTextType.normal,
     this.autoFocus = false,
     this.maxLength,
     this.apiKey,
@@ -70,12 +70,12 @@ class FamcareCodeTextFieldWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FamcareCodeTextFieldWidgetState createState() =>
-      _FamcareCodeTextFieldWidgetState();
+  _FixitCodeTextFieldWidgetState createState() =>
+      _FixitCodeTextFieldWidgetState();
 }
 
-class _FamcareCodeTextFieldWidgetState
-    extends State<FamcareCodeTextFieldWidget> {
+class _FixitCodeTextFieldWidgetState
+    extends State<FixitCodeTextFieldWidget> {
   var active = false;
   bool _obscureText = true;
   double height = 0;
@@ -215,7 +215,7 @@ class _FamcareCodeTextFieldWidgetState
                         ),
                       ),
                       Visibility(
-                          visible: widget.type == FamcareTextType.mobile,
+                          visible: widget.type == FixitTextType.mobile,
                           child: Container(
                             alignment: Alignment.centerLeft,
                             margin: const EdgeInsetsDirectional.fromSTEB(
@@ -242,7 +242,7 @@ class _FamcareCodeTextFieldWidgetState
                             ),
                           )),
                       Visibility(
-                        visible: widget.type == FamcareTextType.coupon &&
+                        visible: widget.type == FixitTextType.coupon &&
                             widget.controller.text
                                 .replaceAll(RegExp(r"\s+"), "")
                                 .isNotEmpty,
@@ -259,7 +259,7 @@ class _FamcareCodeTextFieldWidgetState
                         ),
                       ),
                       Visibility(
-                        visible: widget.type == FamcareTextType.coupon,
+                        visible: widget.type == FixitTextType.coupon,
                         child: InkWell(
                           onTap: () {
                             if (sendButtonEnable) {
@@ -296,7 +296,7 @@ class _FamcareCodeTextFieldWidgetState
                         ),
                       ),
                       Visibility(
-                        visible: widget.type == FamcareTextType.password,
+                        visible: widget.type == FixitTextType.password,
                         child: Container(
                             width: 100,
                             alignment: Alignment.centerLeft,

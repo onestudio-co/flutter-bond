@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
 
-enum FamcareTextType {
+enum FixitTextType {
   normal,
   email,
   mobile,
@@ -13,10 +13,10 @@ enum FamcareTextType {
   coupon
 }
 
-class FamcareTextFieldWidget extends StatefulWidget {
+class FixitTextFieldWidget extends StatefulWidget {
   final String label;
   final String? apiKey;
-  final FamcareTextType type;
+  final FixitTextType type;
   final Widget? action;
   final IconData? icon;
   final String? svgIcon;
@@ -38,14 +38,14 @@ class FamcareTextFieldWidget extends StatefulWidget {
   final double marginRightContainer;
   final double marginRightSvg;
 
-  const FamcareTextFieldWidget(
+  const FixitTextFieldWidget(
       {Key? key,
       required this.label,
       this.icon,
       this.action,
       this.svgIcon,
       this.errorString,
-      this.type = FamcareTextType.normal,
+      this.type = FixitTextType.normal,
       this.autoFocus = false,
       this.maxLength,
       this.apiKey,
@@ -66,10 +66,10 @@ class FamcareTextFieldWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  _FamcareTextFieldWidgetState createState() => _FamcareTextFieldWidgetState();
+  _FixitTextFieldWidgetState createState() => _FixitTextFieldWidgetState();
 }
 
-class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
+class _FixitTextFieldWidgetState extends State<FixitTextFieldWidget> {
   var active = false;
   bool _obscureText = true;
   double height = 0;
@@ -90,7 +90,7 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              height: widget.type == FamcareTextType.multiline ? null : 70,
+              height: widget.type == FixitTextType.multiline ? null : 70,
               margin: const EdgeInsets.only(right: 2, left: 2),
               padding: EdgeInsets.only(
                   top: 10, right: widget.marginRightContainer, left: 0),
@@ -99,28 +99,28 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                 onChanged: (vv) {
                   widget.onChanged(vv);
                 },
-                maxLines: widget.type == FamcareTextType.multiline
+                maxLines: widget.type == FixitTextType.multiline
                     ? widget.multilineMaxLine
                     : 1,
-                minLines: widget.type == FamcareTextType.multiline ? 1 : 1,
+                minLines: widget.type == FixitTextType.multiline ? 1 : 1,
                 controller: widget.controller,
                 maxLength: widget.maxLength,
                 autofocus: widget.autoFocus,
-                keyboardType: widget.type == FamcareTextType.multiline
+                keyboardType: widget.type == FixitTextType.multiline
                     ? TextInputType.multiline
-                    : widget.type == FamcareTextType.number
+                    : widget.type == FixitTextType.number
                         ? TextInputType.number
-                        : widget.type == FamcareTextType.mobile
+                        : widget.type == FixitTextType.mobile
                             ? TextInputType.number
                             : TextInputType.text,
-                textInputAction: widget.type == FamcareTextType.multiline
+                textInputAction: widget.type == FixitTextType.multiline
                     ? null
                     : TextInputAction.done,
                 cursorColor: Constant.primaryColor,
                 cursorWidth: 2,
                 cursorRadius: const Radius.circular(0.5),
                 obscureText:
-                    (widget.type == FamcareTextType.password ? true : false) &&
+                    (widget.type == FixitTextType.password ? true : false) &&
                         (_obscureText == true),
                 style: TextStyle(
                   color: Colors.black,
@@ -128,9 +128,9 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                   fontFamily: AppFontFamily.regular,
                 ),
                 decoration: InputDecoration(
-                  suffixIcon: widget.type == FamcareTextType.normal
+                  suffixIcon: widget.type == FixitTextType.normal
                       ? null
-                      : widget.type == FamcareTextType.multiline
+                      : widget.type == FixitTextType.multiline
                           ? Container(
                               width: 8,
                             )
@@ -140,7 +140,7 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                               alignment: Alignment.centerLeft,
                               child: Wrap(
                                 children: <Widget>[
-                                  widget.type == FamcareTextType.password
+                                  widget.type == FixitTextType.password
                                       ? GestureDetector(
                                           onTap: () {
                                             setState(() {
@@ -154,7 +154,7 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                                             color: Colors.black87,
                                           ),
                                         )
-                                      : widget.type == FamcareTextType.mobile
+                                      : widget.type == FixitTextType.mobile
                                           ? Container(
                                               alignment: Alignment.centerLeft,
                                               margin:
@@ -196,9 +196,9 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                               left: 30,
                               right: widget.marginRightSvg > 0
                                   ? widget.marginRightSvg
-                                  : widget.type == FamcareTextType.multiline
+                                  : widget.type == FixitTextType.multiline
                                       ? 0
-                                      : widget.type == FamcareTextType.normal
+                                      : widget.type == FixitTextType.normal
                                           ? 20
                                           : 10),
                           padding: EdgeInsets.all(widget.svgPadding),
@@ -235,7 +235,7 @@ class _FamcareTextFieldWidgetState extends State<FamcareTextFieldWidget> {
                                 size: 16,
                               ),
                             ),
-                  contentPadding: widget.type == FamcareTextType.normal
+                  contentPadding: widget.type == FixitTextType.normal
                       ? const EdgeInsets.only(left: 10)
                       : widget.hintText == null
                           ? const EdgeInsets.only(top: 5)

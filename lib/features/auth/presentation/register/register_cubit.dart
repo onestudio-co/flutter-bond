@@ -1,4 +1,4 @@
-import 'package:famcare/core/shared_bloc_base.dart';
+import 'package:fixit/core/shared_bloc_base.dart';
 
 import '../../data/repositories/auth_repository.dart';
 import 'register_state.dart';

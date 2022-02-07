@@ -6,7 +6,7 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 typedef DateChangedCallback = Function(DateTime time);
 typedef StringAtIndexCallBack = String Function(int index);
 
-class FamcareDatePicker {
+class FixitDatePicker {
   static Future<DateTime> showDatePicker(
     BuildContext context, {
     bool showTitleActions = true,

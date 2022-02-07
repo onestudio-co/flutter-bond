@@ -1,5 +1,5 @@
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

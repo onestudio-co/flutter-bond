@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/app_router.dart';
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/extension.dart';
-import 'package:famcare/core/famcare_alert.dart';
-import 'package:famcare/core/widgets/app_bar.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_statusbar.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/features/auth/presentation/social_account_login/apple_id_login/apple_id_login_widget.dart';
-import 'package:famcare/features/auth/presentation/social_account_login/google_account_login/google_account_login_widget.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/app_router.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/extension.dart';
+import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/core/widgets/app_bar.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_statusbar.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/features/auth/presentation/social_account_login/apple_id_login/apple_id_login_widget.dart';
+import 'package:fixit/features/auth/presentation/social_account_login/google_account_login/google_account_login_widget.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,7 +56,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FamcareStatusBar(
+    return FixitStatusBar(
       child: BlocListener<RegisterCubit, RegisterState>(
         listener: listenerRegister,
         child: BlocBuilder<RegisterCubit, RegisterState>(
@@ -86,7 +86,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           margin: const EdgeInsets.only(
                               left: 8, right: 16, top: 24, bottom: 8),
                         ),
-                        FamcareTextFieldWidget(
+                        FixitTextFieldWidget(
                           onChanged: refreshSendButtonEnable,
                           onActiveTyping: () {
                             registerCubit.hideError('mobile');
@@ -95,9 +95,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           errorString: registerCubit.getError("mobile"),
                           label: Strings.mobileLabel,
                           svgIcon: "assets/images/mobile.svg",
-                          type: FamcareTextType.mobile,
+                          type: FixitTextType.mobile,
                         ),
-                        FamcareTextFieldWidget(
+                        FixitTextFieldWidget(
                           onChanged: refreshSendButtonEnable,
                           onActiveTyping: () {
                             registerCubit.hideError('password');
@@ -106,13 +106,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           errorString: registerCubit.getError("password"),
                           label: Strings.passwordLabel,
                           svgIcon: "assets/images/password_lock.svg",
-                          type: FamcareTextType.password,
+                          type: FixitTextType.password,
                         ),
                         Container(
                           margin: const EdgeInsets.only(
                               left: 16, right: 16, top: 32),
                           child: SafeArea(
-                            child: FamcareButton(
+                            child: FixitButton(
                               enable: sendButtonEnable,
                               loading: state is RegisterLoading,
                               label: Strings.createAccount,
@@ -179,7 +179,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
     if (state is RegisterFailed) {
       if (BlocProvider.of<RegisterCubit>(context).error == null) {
-        FamcareAlert.showNotificationBottom(context,
+        FixitAlert.showNotificationBottom(context,
             title: Strings.registrationErrorTitle, inLastBottom: false);
       }
     }

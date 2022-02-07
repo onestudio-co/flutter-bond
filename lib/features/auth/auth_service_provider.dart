@@ -1,4 +1,4 @@
-import 'package:famcare/config/service_provider.dart';
+import 'package:fixit/config/service_provider.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/datasources/auth_local_data_source.dart';
@@ -39,6 +39,7 @@ class AuthServiceProvider extends ServiceProvider {
   }
 
   @override
-  T? responseConvert<T>(Map<String, dynamic> json) =>
-      AuthResponseConverter.convert<T>(json);
+  T? responseConvert<T>(Map<String, dynamic> json) {
+    return AuthResponseConverter.convert<T>(json);
+  }
 }

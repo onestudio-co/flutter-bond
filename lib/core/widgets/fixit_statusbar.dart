@@ -1,13 +1,13 @@
-import 'package:famcare/core/constants.dart';
+import 'package:fixit/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FamcareStatusBar extends StatelessWidget {
+class FixitStatusBar extends StatelessWidget {
   final Widget child;
   final Color? statusBarColor;
   final Brightness? brightness;
 
-  const FamcareStatusBar({
+  const FixitStatusBar({
     Key? key,
     required this.child,
     this.statusBarColor,

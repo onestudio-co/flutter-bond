@@ -1,6 +1,6 @@
-import 'package:famcare/features/auth/data/dto/social_account_user.dart';
-import 'package:famcare/features/auth/data/repositories/auth_repository.dart';
-import 'package:famcare/features/auth/data/services/apple_id_login_service.dart';
+import 'package:fixit/features/auth/data/dto/social_account_user.dart';
+import 'package:fixit/features/auth/data/repositories/auth_repository.dart';
+import 'package:fixit/features/auth/data/services/apple_id_login_service.dart';
 
 import '../social_account_login_cubit.dart';
 

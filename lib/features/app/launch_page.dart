@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:famcare/app_router.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/app_router.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 
 class LaunchPage extends StatefulWidget {

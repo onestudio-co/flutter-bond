@@ -1,4 +1,4 @@
-import 'package:famcare/features/auth/data/dto/social_account_user.dart';
+import 'package:fixit/features/auth/data/dto/social_account_user.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleAccountLoginService {

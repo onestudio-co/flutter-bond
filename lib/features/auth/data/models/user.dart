@@ -1,4 +1,4 @@
-import 'package:famcare/core/models/model.dart';
+import 'package:fixit/core/models/model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'country.dart';

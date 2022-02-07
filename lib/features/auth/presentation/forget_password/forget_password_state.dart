@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:famcare/core/models/success_response.dart';
+import 'package:fixit/core/models/success_response.dart';
 
 abstract class ForgetPasswordState extends Equatable {
   const ForgetPasswordState();

@@ -1,22 +1,22 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:famcare/core/errors/exceptions.dart';
-import 'package:famcare/core/errors/failures.dart';
-import 'package:famcare/core/extension.dart';
-import 'package:famcare/core/models/list_response.dart';
-import 'package:famcare/core/models/single_m_response.dart';
-import 'package:famcare/core/models/single_response.dart';
-import 'package:famcare/core/models/success_response.dart';
-import 'package:famcare/features/auth/data/datasources/auth_local_data_source.dart';
-import 'package:famcare/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:famcare/features/auth/data/dto/complete_registration.dart';
-import 'package:famcare/features/auth/data/dto/social_account_user.dart';
-import 'package:famcare/features/auth/data/models/country.dart';
-import 'package:famcare/features/auth/data/models/user.dart';
-import 'package:famcare/features/auth/data/models/user_meta.dart';
-import 'package:famcare/features/profile/data/models/profile_meta.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/core/errors/exceptions.dart';
+import 'package:fixit/core/errors/failures.dart';
+import 'package:fixit/core/extension.dart';
+import 'package:fixit/core/models/list_response.dart';
+import 'package:fixit/core/models/single_m_response.dart';
+import 'package:fixit/core/models/single_response.dart';
+import 'package:fixit/core/models/success_response.dart';
+import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:fixit/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:fixit/features/auth/data/dto/complete_registration.dart';
+import 'package:fixit/features/auth/data/dto/social_account_user.dart';
+import 'package:fixit/features/auth/data/models/country.dart';
+import 'package:fixit/features/auth/data/models/user.dart';
+import 'package:fixit/features/auth/data/models/user_meta.dart';
+import 'package:fixit/features/profile/data/models/profile_meta.dart';
+import 'package:fixit/injection_container.dart';
 
 class AuthRepository {
   final AuthRemoteDataSource remoteDataSource;

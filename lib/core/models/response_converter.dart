@@ -1,4 +1,4 @@
-import 'package:famcare/config/app.dart';
+import 'package:fixit/config/app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 

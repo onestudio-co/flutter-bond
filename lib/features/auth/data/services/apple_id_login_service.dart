@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:famcare/features/auth/data/dto/social_account_user.dart';
+import 'package:fixit/features/auth/data/dto/social_account_user.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class AppleIdLoginService {

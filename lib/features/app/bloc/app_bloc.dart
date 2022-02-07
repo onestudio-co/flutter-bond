@@ -1,5 +1,5 @@
-import 'package:famcare/features/auth/data/models/user.dart';
-import 'package:famcare/features/profile/data/models/profile_meta.dart';
+import 'package:fixit/features/auth/data/models/user.dart';
+import 'package:fixit/features/profile/data/models/profile_meta.dart';
 
 class AppBloc {
   User? user;

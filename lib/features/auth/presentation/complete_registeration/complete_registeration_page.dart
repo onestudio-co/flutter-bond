@@ -1,18 +1,18 @@
 // ignore_for_file:  deprecated_member_use
 
 import 'package:auto_route/auto_route.dart';
-import 'package:famcare/app_router.dart';
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/widgets/app_bar.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_statusbar.dart';
-import 'package:famcare/core/widgets/famcare_text_button.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/core/widgets/item_selection.dart';
-import 'package:famcare/core/widgets/martial_status_selection.dart';
-import 'package:famcare/features/auth/data/dto/complete_registration.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/app_router.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/widgets/app_bar.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_statusbar.dart';
+import 'package:fixit/core/widgets/fixit_text_button.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/core/widgets/item_selection.dart';
+import 'package:fixit/core/widgets/martial_status_selection.dart';
+import 'package:fixit/features/auth/data/dto/complete_registration.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,7 +68,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return FamcareStatusBar(
+    return FixitStatusBar(
       child: BlocConsumer<CompleteRegistrationCubit, CompleteRegistrationState>(
           listener: _listenerCompleteReg,
           builder: (BuildContext context, CompleteRegistrationState state) {
@@ -86,7 +86,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          FamcareTextFieldWidget(
+                          FixitTextFieldWidget(
                               onChanged: onNameFilled,
                               onActiveTyping: () {
                                 completeRegistrationCubit.hideError('name');
@@ -94,11 +94,11 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                               controller: name,
                               label: Strings.nameLabel,
                               svgIcon: "assets/images/pin.svg",
-                              type: FamcareTextType.email,
+                              type: FixitTextType.email,
                               errorString:
                                   completeRegistrationCubit.getError("name")),
                           const SizedBox(height: 8),
-                          FamcareTextFieldWidget(
+                          FixitTextFieldWidget(
                             // onChanged: refreshSendButtonEnable,
                             onActiveTyping: () {
                               completeRegistrationCubit
@@ -109,7 +109,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                                 .getError("referral_code"),
                             label: Strings.referralCodeLabel,
                             svgIcon: "assets/images/couponInvitation.svg",
-                            type: FamcareTextType.normal,
+                            type: FixitTextType.normal,
                             onChanged: (String value) {},
                           ),
                           const SizedBox(height: 8),
@@ -136,7 +136,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                             height: 2,
                             color: Constant.greyColorRegular,
                           ),
-                          FamcareTextButton(
+                          FixitTextButton(
                             controller: dob,
                             label: Strings.dobLabel,
                             svgPadding: 3,
@@ -156,7 +156,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                           const SizedBox(height: 8),
                           Stack(
                             children: <Widget>[
-                              FamcareTextFieldWidget(
+                              FixitTextFieldWidget(
                                 errorString: completeRegistrationCubit
                                     .getError("country"),
                                 onActiveTyping: () {
@@ -189,7 +189,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                             visible: showCityFiled || countryId == 1,
                             child: Stack(
                               children: <Widget>[
-                                FamcareTextFieldWidget(
+                                FixitTextFieldWidget(
                                   errorString: completeRegistrationCubit
                                       .getError("city"),
                                   onActiveTyping: () {
@@ -232,7 +232,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                     right: 20,
                     left: 20,
                     child: SafeArea(
-                      child: FamcareButton(
+                      child: FixitButton(
                         loading: state is CompleteRegistrationLoading,
                         label: Strings.create,
                         enable: hasAcceptTerms &&

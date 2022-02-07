@@ -1,8 +1,8 @@
-// import 'package:famcare/constants.dart';
-// import 'package:famcare/core/utils.dart';
+// import 'package:fixit/constants.dart';
+// import 'package:fixit/core/utils.dart';
 // import 'package:flutter/material.dart';
 //
-// class FamcareButton extends StatefulWidget {
+// class FixitButton extends StatefulWidget {
 //   final String label;
 //   final Color background;
 //   final Color labelColor;
@@ -13,7 +13,7 @@
 //   final Function onLongPress;
 //   final BorderSide border;
 //
-//   const FamcareButton(
+//   const FixitButton(
 //       {Key key,
 //       this.label,
 //       this.background,
@@ -27,10 +27,10 @@
 //       : super(key: key);
 //
 //   @override
-//   _FamcareButtonState createState() => _FamcareButtonState();
+//   _FixitButtonState createState() => _FixitButtonState();
 // }
 //
-// class _FamcareButtonState extends State<FamcareButton> {
+// class _FixitButtonState extends State<FixitButton> {
 //   @override
 //   Widget build(BuildContext context) {
 //     return Container(
@@ -106,7 +106,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class FamcareButton extends StatefulWidget {
+class FixitButton extends StatefulWidget {
   final String label;
   final String? secondLabel;
   final Color background;
@@ -122,7 +122,7 @@ class FamcareButton extends StatefulWidget {
   final double? fontSize;
   final BorderRadius? borderRadius;
 
-  const FamcareButton(
+  const FixitButton(
       {Key? key,
       required this.label,
       this.secondLabel,
@@ -141,10 +141,10 @@ class FamcareButton extends StatefulWidget {
       : super(key: key);
 
   @override
-  _FamcareButtonState createState() => _FamcareButtonState();
+  _FixitButtonState createState() => _FixitButtonState();
 }
 
-class _FamcareButtonState extends State<FamcareButton> {
+class _FixitButtonState extends State<FixitButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

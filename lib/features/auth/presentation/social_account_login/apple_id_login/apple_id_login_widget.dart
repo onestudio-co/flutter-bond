@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/dialogs.dart';
-import 'package:famcare/core/famcare_alert.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/dialogs.dart';
+import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,7 +60,7 @@ class AppleIDLoginWidget extends SocialAccountLoginWidget {
 
     if (state is SocialAccountLoginFailed) {
       hideLoading(context);
-      FamcareAlert.showNotificationBottom(context,
+      FixitAlert.showNotificationBottom(context,
           title: 'عذراً، لقد حدث خطأ ما، حاول التسجيل مرة أخرى.',
           inLastBottom: true);
     }

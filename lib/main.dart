@@ -9,13 +9,13 @@ Future<void> main() async {
 
   await init();
   await ConfigReader.initialize();
-  runApp(FamcareApp());
+  runApp(FixitApp());
 }
 
-class FamcareApp extends StatelessWidget {
+class FixitApp extends StatelessWidget {
   final _appRouter = AppRouter();
 
-  FamcareApp({Key? key}) : super(key: key);
+  FixitApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,5 @@ class FamcareApp extends StatelessWidget {
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
     );
-    ;
   }
 }

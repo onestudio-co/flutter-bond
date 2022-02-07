@@ -1,4 +1,4 @@
-import 'package:famcare/core/constants.dart';
+import 'package:fixit/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import '../assets.dart';
 import 'date_picker.dart';
 
-class FamcareTextButton extends StatefulWidget {
+class FixitTextButton extends StatefulWidget {
   final String label;
   final Widget? action;
   final IconData? icon;
@@ -20,7 +20,7 @@ class FamcareTextButton extends StatefulWidget {
   final String? initialValue;
   final Function(String)? onSubmitAction;
 
-  const FamcareTextButton({
+  const FixitTextButton({
     Key? key,
     required this.label,
     this.icon,
@@ -36,10 +36,10 @@ class FamcareTextButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FamcareTextButtonState createState() => _FamcareTextButtonState();
+  _FixitTextButtonState createState() => _FixitTextButtonState();
 }
 
-class _FamcareTextButtonState extends State<FamcareTextButton> {
+class _FixitTextButtonState extends State<FixitTextButton> {
   var active = false;
   var dateCurrent = DateTime.now().subtract(const Duration(days: 360 * 35));
 
@@ -173,7 +173,7 @@ class _FamcareTextButtonState extends State<FamcareTextButton> {
       ),
       backgroundColor: Colors.white,
     );
-    FamcareDatePicker.showDatePicker(context,
+    FixitDatePicker.showDatePicker(context,
         showTitleActions: true,
         theme: style,
         minTime: DateTime.now().subtract(const Duration(days: 360 * 100)),

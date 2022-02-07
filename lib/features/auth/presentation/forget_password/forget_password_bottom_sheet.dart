@@ -1,9 +1,9 @@
-import 'package:famcare/core/assets.dart';
-import 'package:famcare/core/constants.dart';
-import 'package:famcare/core/famcare_alert.dart';
-import 'package:famcare/core/widgets/famcare_button.dart';
-import 'package:famcare/core/widgets/famcare_text_field.dart';
-import 'package:famcare/injection_container.dart';
+import 'package:fixit/core/assets.dart';
+import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/core/widgets/fixit_button.dart';
+import 'package:fixit/core/widgets/fixit_text_field.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -56,7 +56,7 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
         }
         if (state is ForgetPasswordFailed) {
           if (forgetPasswordCubit.error == null) {
-            FamcareAlert.showNotificationBottom(context,
+            FixitAlert.showNotificationBottom(context,
                 title: state.error, inLastBottom: false);
           }
         }
@@ -117,7 +117,7 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
                   const SizedBox(
                     height: 10,
                   ),
-                  FamcareTextFieldWidget(
+                  FixitTextFieldWidget(
                     controller: mobileForget,
                     errorString: forgetPasswordCubit.getError('mobile')?.trim(),
                     onActiveTyping: () {
@@ -129,12 +129,12 @@ class _ForgetPasswordBottomSheetState extends State<ForgetPasswordBottomSheet> {
                     svgIcon: "assets/images/mobile.svg",
                     marginLeft: 13,
                     marginRight: 13,
-                    type: FamcareTextType.mobile,
+                    type: FixitTextType.mobile,
                   ),
                   Container(
                     margin: const EdgeInsets.only(
                         top: 50, bottom: 20, left: 10, right: 10),
-                    child: FamcareButton(
+                    child: FixitButton(
                       loading: state is ForgetPasswordLoading,
                       enable: sendButtonEnable,
                       closekeyboard: false,

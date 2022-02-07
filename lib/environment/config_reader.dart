@@ -17,18 +17,18 @@ class ConfigReader {
       var env = await Environment.current;
       if (env == EnvironmentType.clientProduction) {
         _config = {
-          "main_url": "https://dashboard.famcare.app/",
+          "main_url": "https://dashboard.fixit.app/",
           "main_url_v": "v2",
         };
       } else if (env == EnvironmentType.clientStaging) {
         _config = {
-          "main_url": "https://backend-develop.famcare.app/",
+          "main_url": "https://backend-develop.fixit.app/",
           "main_url_v": "v2",
         };
       }
     } else {
       _config = {
-        "main_url": "https://dashboard.famcare.app/",
+        "main_url": "https://dashboard.fixit.app/",
         "main_url_v": "v2",
       };
     }

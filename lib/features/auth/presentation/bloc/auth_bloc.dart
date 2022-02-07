@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:famcare/core/errors/failures.dart';
+import 'package:fixit/core/errors/failures.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/repositories/auth_repository.dart';
