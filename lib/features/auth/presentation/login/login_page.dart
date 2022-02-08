@@ -52,7 +52,6 @@ class _LoginPageState extends State<LoginPage> {
     mobile.text = appBloc.mobile ?? '';
     refreshSendButtonEnable("");
 
-    print('initState loginCubit');
     super.initState();
 
     getSMSAutoFillSignature();

@@ -4,7 +4,7 @@ import 'config/app.dart';
 import 'features/app/bloc/app_bloc.dart';
 
 final sl = GetIt.instance;
-AppBloc appBloc = AppBloc(); // initiated at main.dart
+App appBloc = App();
 
 Future<void> init() async {
   for (var provider in providers) {

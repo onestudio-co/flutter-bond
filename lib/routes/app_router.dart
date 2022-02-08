@@ -5,13 +5,15 @@ import 'package:fixit/features/auth/presentation/login/login_page.dart';
 import 'package:fixit/features/auth/presentation/register/register_page.dart';
 import 'package:fixit/features/auth/routes.dart';
 import 'package:fixit/features/home/home_page.dart';
-import 'package:fixit/routes/auth_guard.dart';
+import 'package:fixit/routes/guards/auth_guard.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../features/app/launch_page.dart';
 import '../features/auth/presentation/reset_password/reset_password_page.dart';
 
 part 'app_router.gr.dart';
+
+final appRouter = AppRouter(AuthGuard());
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -21,7 +23,6 @@ part 'app_router.gr.dart';
     ...authRoutes,
   ],
 )
-// extend the generated private router
 class AppRouter extends _$AppRouter {
   AppRouter(AuthGuard authGuard) : super(authGuard: authGuard);
 }

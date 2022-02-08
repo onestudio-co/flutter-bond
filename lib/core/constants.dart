@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:fixit/environment/config_reader.dart';
 import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -85,11 +84,6 @@ class Api {
     return _api!;
   }
 
-  static final String mainUrl = ConfigReader.mainUrl;
-  static final String mainUrlV = ConfigReader.mainUrlV;
-  static final String api = '${mainUrl}api/$mainUrlV/';
-  static const String auth = 'users';
-
   static Map<String, String> headers({Map<String, String>? extra}) {
     Map<String, String> map = <String, String>{};
     map["content-type"] = "application/json";
@@ -108,87 +102,79 @@ class Api {
     return map;
   }
 
-  static broadcastAuth() {
-    return "${mainUrl}api/broadcasting/auth";
-  }
-
-  static vaporStorage() {
-    return "${mainUrl}vapor/signed-storage-url";
-  }
-
   static login() {
-    return "$api$auth/login";
+    return "users/login";
   }
 
   static register() {
-    return "$api$auth/register";
+    return "users/register";
   }
 
   static completeRegistration() {
-    return "${api}users/me";
+    return "users/me";
   }
 
   static profile() {
-    return "$api$auth/profile";
+    return "users/profile";
   }
 
   static ldProfile() {
-    return "$api$auth/ldProfile";
+    return "users/ldProfile";
   }
 
   static verify() {
-    return "$api$auth/verify";
+    return "users/verify";
   }
 
   static resend() {
-    return "$api$auth/resend";
+    return "users/resend";
   }
 
   static forgetPassword() {
-    return "$api$auth/forget_password";
+    return "users/forget_password";
   }
 
   static resetPassword() {
-    return "$api$auth/reset_password";
+    return "users/reset_password";
   }
 
   static logout() {
-    return "$api$auth/logout";
+    return "users/logout";
   }
 
   static delete() {
-    return "${api}users/delete";
+    return "users/delete";
   }
 
   static changPassword() {
-    return "${api}users/change_password";
+    return "users/change_password";
   }
 
   static settings() {
-    return "${api}settings";
+    return "settings";
   }
 
   static deletionReasons() {
-    return "${api}deletion-reasons";
+    return "deletion-reasons";
   }
 
   static loginWithSocial() {
-    return "${api}users/social-login";
+    return "users/social-login";
   }
 
   static updateToken() {
-    return "${api}auth/update-token";
+    return "auth/update-token";
   }
 
   static refreshToken() {
-    return "${api}users/refresh_token";
+    return "users/refresh_token";
   }
 
   static clientInfo(int id) {
-    return "${api}users/${id.toString()}/profile";
+    return "users/${id.toString()}/profile";
   }
 
   static countries() {
-    return "${api}countries";
+    return "countries";
   }
 }
