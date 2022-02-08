@@ -1,3 +1,4 @@
+import 'package:fixit/core/auth/authenticable.dart';
 import 'package:fixit/core/models/model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -7,7 +8,7 @@ import 'organization.dart';
 part 'user.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class User extends Model {
+class User extends Model implements Authenticable{
   final String? name;
 
   final String? bio;

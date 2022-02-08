@@ -27,6 +27,8 @@ dependencies:
   package_info_plus: ^1.3.0
   flutter_config: ^2.0.0
   cupertino_icons: ^1.0.2
+  bloc_test: ^9.0.2
+  mockito: ^5.0.17
 
 dev_dependencies:
   flutter_test:
