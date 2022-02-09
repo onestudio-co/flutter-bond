@@ -7,6 +7,7 @@ import 'package:fixit/generator/strings.dart';
 import 'console.dart';
 import 'menu.dart';
 import 'ny_command.dart';
+import 'stubs/local_data_source_stub.dart';
 import 'stubs/model_stub.dart';
 import 'stubs/remote_data_source_stub.dart';
 
@@ -91,6 +92,8 @@ Future makeFeature({required String featureName, String? customModel}) async {
   String featureDataSourcesFolderPath = '$featureDataFolderPath/data_sources';
   String featureRemoteDataSourceFilePath =
       '$featureDataSourcesFolderPath/${featureName}_remote_data_source.dart';
+  String featureLocalDataSourceFilePath =
+      '$featureDataSourcesFolderPath/${featureName}_local_data_source.dart';
 
   String featurePresentationFolderPath = '$featureFolderPath/presentation';
 
@@ -101,14 +104,16 @@ Future makeFeature({required String featureName, String? customModel}) async {
   await _makeDirectory(featureDataFolderPath);
   await _makeDirectory(featureModelsFolderPath);
   await _makeDirectory(featureDataSourcesFolderPath);
-
   await _makeDirectory(featurePresentationFolderPath);
 
   await _createNewFile(
       featureModelFilePath, modelStub(modelName: modelName.toTitleCase()));
-
   await _createNewFile(featureRemoteDataSourceFilePath,
       remoteDataSourceStub(name: featureName.toTitleCase()));
+  await _createNewFile(
+      featureLocalDataSourceFilePath,
+      localDataSourceStub(
+          name: featureName.toTitleCase(), model: modelName.toTitleCase()));
 }
 
 /// Creates a new file from a [path] and [value].
