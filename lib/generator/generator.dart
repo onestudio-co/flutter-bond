@@ -8,6 +8,7 @@ import 'console.dart';
 import 'menu.dart';
 import 'ny_command.dart';
 import 'stubs/model_stub.dart';
+import 'stubs/remote_data_source_stub.dart';
 
 final ArgParser parser = ArgParser(allowTrailingOptions: true);
 
@@ -21,7 +22,7 @@ List<NyCommand> _allCommands = [
 ];
 
 void main(List<String> arguments) {
-  commands(arguments);
+  commands(arguments.toList());
 }
 
 Future<void> commands(List<String> arguments) async {
@@ -48,6 +49,7 @@ Future<void> commands(List<String> arguments) async {
     exit(1);
   }
 
+  arguments.removeAt(0);
   await nyCommand.action!(arguments);
 }
 
@@ -88,7 +90,7 @@ Future makeFeature({required String featureName, String? customModel}) async {
 
   String featureDataSourcesFolderPath = '$featureDataFolderPath/data_sources';
   String featureRemoteDataSourceFilePath =
-      '$featureModelsFolderPath/${featureName}_remote_data_source.dart';
+      '$featureDataSourcesFolderPath/${featureName}_remote_data_source.dart';
 
   String featurePresentationFolderPath = '$featureFolderPath/presentation';
 
@@ -102,10 +104,11 @@ Future makeFeature({required String featureName, String? customModel}) async {
 
   await _makeDirectory(featurePresentationFolderPath);
 
-  await _createNewFile(featureModelFilePath, modelStub(modelName: modelName));
+  await _createNewFile(
+      featureModelFilePath, modelStub(modelName: modelName.toTitleCase()));
 
-// await _checkIfFileExists(filePath, shouldForceCreate: forceCreate);
-// await _createNewFile(filePath, value);
+  await _createNewFile(featureRemoteDataSourceFilePath,
+      remoteDataSourceStub(name: featureName.toTitleCase()));
 }
 
 /// Creates a new file from a [path] and [value].
@@ -122,11 +125,11 @@ _makeDirectory(String path) async {
   }
 }
 
-/// Checks if a file exists from a [path].
-/// Use [shouldForceCreate] to override check.
-_checkIfFileExists(path, {bool shouldForceCreate = false}) async {
-  if (await File(path).exists() && shouldForceCreate == false) {
-    MetroConsole.writeInRed('$path already exists');
-    exit(1);
-  }
+extension StringCasingExtension on String {
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ')
+      .split(' ')
+      .map((str) => str.toCapitalized())
+      .join(' ');
 }
