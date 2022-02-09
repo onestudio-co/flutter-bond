@@ -10,4 +10,6 @@ Future<void> init() async {
   for (var provider in providers) {
     await provider.register(sl);
   }
+
+  sl.allowReassignment = true;
 }

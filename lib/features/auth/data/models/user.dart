@@ -4,6 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'country.dart';
 import 'organization.dart';
+import 'package:faker/faker.dart';
 
 part 'user.g.dart';
 

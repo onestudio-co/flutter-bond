@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:fixit/core/api_client.dart';
 import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:fixit/injection_container.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -15,14 +14,18 @@ MockApiClient mockApiClient = MockApiClient();
 Future mockSetup() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  sl.reset();
+  await init();
+  sl.registerLazySingleton<ApiClient>(() => mockApiClient);
+}
+
+void mockSharedPreferences() {
   SharedPreferences.setMockInitialValues({
     AuthLocalDataSource.cachedToken: "123",
   });
+}
 
-  FlutterConfig.loadValueForTesting({
-    "API_BASE_URL": "http://example.com/api/v2/",
-  });
-
+void mockPackageInfo() {
   PackageInfo.setMockInitialValues(
     appName: "ABC",
     packageName: "A.B.C",
@@ -30,10 +33,6 @@ Future mockSetup() async {
     buildNumber: "10",
     buildSignature: "buildSignature",
   );
-
-  sl.reset();
-  await init();
-  sl.registerLazySingleton<ApiClient>(() => mockApiClient);
 }
 
 void mockPost(
