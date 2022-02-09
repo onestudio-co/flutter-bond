@@ -7,9 +7,13 @@ import 'package:fixit/generator/strings.dart';
 import 'console.dart';
 import 'menu.dart';
 import 'ny_command.dart';
+import 'stubs/cubit_state_stub.dart';
+import 'stubs/cubit_stub.dart';
 import 'stubs/local_data_source_stub.dart';
 import 'stubs/model_stub.dart';
+import 'stubs/page_stub.dart';
 import 'stubs/remote_data_source_stub.dart';
+import 'stubs/repository_stub.dart';
 
 final ArgParser parser = ArgParser(allowTrailingOptions: true);
 
@@ -81,39 +85,60 @@ _feature(List<String> arguments) async {
 
 Future makeFeature({required String featureName, String? customModel}) async {
   String featureFolderPath = '$featuresFolder/${featureName.toLowerCase()}';
+  await _makeDirectory(featuresFolder);
+  await _makeDirectory(featureFolderPath);
 
   String featureDataFolderPath = '$featureFolderPath/data';
+  await _makeDirectory(featureDataFolderPath);
 
   String featureModelsFolderPath = '$featureDataFolderPath/models';
   String modelName = customModel ?? featureName;
   String featureModelFilePath =
       '$featureModelsFolderPath/${modelName.toLowerCase()}.dart';
-
-  String featureDataSourcesFolderPath = '$featureDataFolderPath/data_sources';
-  String featureRemoteDataSourceFilePath =
-      '$featureDataSourcesFolderPath/${featureName}_remote_data_source.dart';
-  String featureLocalDataSourceFilePath =
-      '$featureDataSourcesFolderPath/${featureName}_local_data_source.dart';
-
-  String featurePresentationFolderPath = '$featureFolderPath/presentation';
-
-  await _makeDirectory(featuresFolder);
-
-  await _makeDirectory(featureFolderPath);
-
-  await _makeDirectory(featureDataFolderPath);
   await _makeDirectory(featureModelsFolderPath);
-  await _makeDirectory(featureDataSourcesFolderPath);
-  await _makeDirectory(featurePresentationFolderPath);
-
   await _createNewFile(
       featureModelFilePath, modelStub(modelName: modelName.toTitleCase()));
+
+  String featureDataSourcesFolderPath = '$featureDataFolderPath/data_sources';
+  await _makeDirectory(featureDataSourcesFolderPath);
+
+  String featureRemoteDataSourceFilePath =
+      '$featureDataSourcesFolderPath/${featureName}_remote_data_source.dart';
   await _createNewFile(featureRemoteDataSourceFilePath,
       remoteDataSourceStub(name: featureName.toTitleCase()));
+
+  String featureLocalDataSourceFilePath =
+      '$featureDataSourcesFolderPath/${featureName}_local_data_source.dart';
   await _createNewFile(
       featureLocalDataSourceFilePath,
       localDataSourceStub(
           name: featureName.toTitleCase(), model: modelName.toTitleCase()));
+
+  String featureRepositoriesFolderPath = '$featureDataFolderPath/repositories';
+  await _makeDirectory(featureRepositoriesFolderPath);
+
+  String featureRepositoryFilePath =
+      '$featureRepositoriesFolderPath/${featureName}_repository.dart';
+  await _createNewFile(featureRepositoryFilePath,
+      repositoryStub(name: featureName.toTitleCase()));
+
+  String featurePresentationFolderPath = '$featureFolderPath/presentation';
+  await _makeDirectory(featurePresentationFolderPath);
+
+  String featureCubitStateFilePath =
+      '$featurePresentationFolderPath/${featureName}_state.dart';
+  await _createNewFile(featureCubitStateFilePath,
+      cubitStateStub(name: featureName.toTitleCase()));
+
+  String featureCubitFilePath =
+      '$featurePresentationFolderPath/${featureName}_cubit.dart';
+  await _createNewFile(
+      featureCubitFilePath, cubitStub(name: featureName.toTitleCase()));
+
+  String featurePageFilePath =
+      '$featurePresentationFolderPath/${featureName}_page.dart';
+  await _createNewFile(
+      featurePageFilePath, pageStub(name: featureName.toTitleCase()));
 }
 
 /// Creates a new file from a [path] and [value].
