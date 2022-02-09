@@ -1,5 +1,3 @@
-import 'package:faker/faker.dart';
-import 'package:fixit/features/auth/data/models/user.dart';
 import 'package:fixit/features/auth/data/models/user_meta.dart';
 
 class UserMetaFactory{

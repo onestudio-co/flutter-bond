@@ -2,10 +2,8 @@ import 'dart:async' as _i4;
 import 'dart:convert' as _i5;
 
 import 'package:dio/dio.dart' as _i2;
-import 'package:dio/dio.dart';
 import 'package:fixit/core/api_client.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/mockito.dart';
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -70,24 +68,4 @@ class MockApiClient extends _i1.Mock implements _i3.ApiClient {
               returnValue: Future<_i2.Response<dynamic>>.value(
                   _FakeResponse_1<dynamic>()))
           as _i4.Future<_i2.Response<dynamic>>);
-
-  void fakePost(
-      String url,
-      dynamic data, {
-        Map<String, dynamic>? body,
-        Map<String, String>? headers,
-        int statusCode = 200,
-      }) {
-    when(post(
-      url,
-      body: body ?? anyNamed("body"),
-      headers: headers ?? anyNamed("headers"),
-    )).thenAnswer((_) async {
-      return Response(
-        data: data,
-        statusCode: statusCode,
-        requestOptions: RequestOptions(path: ''),
-      );
-    });
-  }
 }

@@ -9,8 +9,8 @@ import 'package:fixit/injection_container.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../test_helpers.dart';
-import 'Factories/UserFactory.dart';
-import 'factories/UserMetaFactory.dart';
+import 'factories/user_factory.dart';
+import 'factories/user_meta_factory.dart';
 
 void main() {
   setUp(() async {
@@ -20,32 +20,47 @@ void main() {
   });
 
   group('Login cubit tests', () {
-    test('initialState should be Empty', () {
+    test('initial state should be InitialLoginState', () {
       expect(sl<LoginCubit>().state, equals(InitialLoginState()));
     });
 
-    var user = UserFactory.create(id: 1, mobile: "123");
+    var user = UserFactory.create();
     var meta = UserMetaFactory.create();
 
     blocTest(
-      "success login",
-      build: () {
-        mockPost(
+      "success login must emits [LoginLoading,LoginSuccess]",
+      setUp: () {
+        mockApiClient.fakePost(
           Api.login(),
           SingleMResponse<User, UserMeta>(user, meta).toJson(),
         );
-
-        return sl<LoginCubit>();
       },
+      build: () => sl<LoginCubit>(),
       act: (LoginCubit loginCubit) {
-        return loginCubit.loginPressed(
-          mobile: "123",
-          password: "123456",
-        );
+        return loginCubit.loginPressed(mobile: "123", password: "123456");
       },
       expect: () => [
         LoginLoading(),
         LoginSuccess(user: user),
+      ],
+    );
+
+    blocTest(
+      "failed login must emits [LoginLoading,LoginFailed]",
+      setUp: () {
+        mockApiClient.fakePost(
+          Api.login(),
+          "{ \"message\": \"Login Failed\" }",
+          statusCode: 403,
+        );
+      },
+      build: () => sl<LoginCubit>(),
+      act: (LoginCubit loginCubit) {
+        return loginCubit.loginPressed(mobile: "123", password: "123456");
+      },
+      expect: () => [
+        LoginLoading(),
+        const LoginFailed(error: "Login Failed"),
       ],
     );
   });

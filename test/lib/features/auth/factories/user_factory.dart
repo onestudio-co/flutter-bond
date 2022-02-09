@@ -5,7 +5,7 @@ class UserFactory{
 
   static create({int? id, String? mobile}) {
     return User(
-      id: id ?? faker.randomGenerator.numbers(0, 10).first,
+      id: id ?? 1,
       name: faker.person.name(),
       mobile: mobile ?? faker.phoneNumber.toString(),
       email: faker.internet.email(),
