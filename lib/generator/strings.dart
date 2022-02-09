@@ -2,7 +2,7 @@
 const String modelFlag = 'model';
 
 // folders
-const String featuresFolder = 'libc/features';
+const String featuresFolder = 'lib/features';
 
 // options
 const String customModelNameOption = 'customModel';
