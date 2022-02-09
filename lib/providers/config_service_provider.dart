@@ -6,6 +6,6 @@ import 'package:get_it/get_it.dart';
 class ConfigServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
-    await FlutterConfig.loadEnvVariables();
+    // await FlutterConfig.loadEnvVariables();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:fixit/core/service_provider.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/datasources/auth_local_data_source.dart';
 import 'data/datasources/auth_remote_data_source.dart';
@@ -22,6 +23,9 @@ import 'presentation/social_account_login/google_account_login/google_account_lo
 class AuthServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    it.registerLazySingleton(() => sharedPreferences);
+
     it.registerFactory(() => AuthRemoteDataSource(it.get()));
     it.registerFactory(() => AuthLocalDataSource(it.get()));
 

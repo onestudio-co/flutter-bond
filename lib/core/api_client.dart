@@ -36,7 +36,7 @@ class ApiClient {
   }
 
   Future<Response> post(url,
-      {Map<String, String>? headers, body, Encoding? encoding}) async {
+      {Map<String, String>? headers, body}) async {
     ApiClient.logoutFromInterceptors = false;
 
     debugPrint('post url $url');
