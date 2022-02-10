@@ -3,7 +3,7 @@ import 'package:fixit/features/auth/data/models/user.dart';
 
 class UserFactory{
 
-  static create({int? id, String? mobile}) {
+  static User create({int? id, String? mobile}) {
     return User(
       id: id ?? 1,
       name: faker.person.name(),

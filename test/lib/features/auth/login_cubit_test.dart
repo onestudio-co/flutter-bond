@@ -25,14 +25,14 @@ void main() {
     });
 
     var user = UserFactory.create();
-    var meta = UserMetaFactory.create();
+    var userMeta = UserMetaFactory.create();
 
     blocTest(
       "success login must emits [LoginLoading,LoginSuccess]",
       setUp: () {
         mockApiClient.fakePost(
           Api.login(),
-          SingleMResponse<User, UserMeta>(user, meta).toJson(),
+          SingleMResponse<User, UserMeta>(user, userMeta).toJson(),
         );
       },
       build: () => sl<LoginCubit>(),
