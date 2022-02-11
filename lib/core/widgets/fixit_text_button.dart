@@ -1,6 +1,5 @@
 import 'package:fixit/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
@@ -160,22 +159,8 @@ class _FixitTextButtonState extends State<FixitTextButton> {
   }
 
   void showDatePicker() {
-    var style = const DatePickerTheme(
-      cancelStyle: TextStyle(
-        color: Constant.navyColorExtraDark,
-        fontSize: 17,
-        fontFamily: AppFontFamily.medium,
-      ),
-      doneStyle: TextStyle(
-        color: Constant.violetColorDark,
-        fontSize: 17,
-        fontFamily: AppFontFamily.medium,
-      ),
-      backgroundColor: Colors.white,
-    );
     FixitDatePicker.showDatePicker(context,
         showTitleActions: true,
-        theme: style,
         minTime: DateTime.now().subtract(const Duration(days: 360 * 100)),
         maxTime: DateTime.now(),
         onChanged: (date) {}, onConfirm: (date) {
@@ -188,6 +173,6 @@ class _FixitTextButtonState extends State<FixitTextButton> {
       });
       widget.controller.text = '';
       // widget.controller.text = DateFormat('yyyy-MM-dd').format(dateCurrent);
-    }, currentTime: dateCurrent, locale: LocaleType.ar);
+    }, currentTime: dateCurrent);
   }
 }
