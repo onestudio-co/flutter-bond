@@ -14,6 +14,7 @@ import 'stubs/model_stub.dart';
 import 'stubs/page_stub.dart';
 import 'stubs/remote_data_source_stub.dart';
 import 'stubs/repository_stub.dart';
+import 'stubs/service_provider_stub.dart';
 
 final ArgParser parser = ArgParser(allowTrailingOptions: true);
 
@@ -139,6 +140,11 @@ Future makeFeature({required String featureName, String? customModel}) async {
       '$featurePresentationFolderPath/${featureName}_page.dart';
   await _createNewFile(
       featurePageFilePath, pageStub(name: featureName.toTitleCase()));
+
+  String featureServiceProviderFilePath =
+      '$featureFolderPath/${featureName}_service_provider.dart';
+  await _createNewFile(featureServiceProviderFilePath,
+      serviceProviderStub(name: featureName.toTitleCase()));
 }
 
 /// Creates a new file from a [path] and [value].
