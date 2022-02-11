@@ -8,7 +8,7 @@ import 'package:fixit/features/auth/presentation/reset_password/reset_password_p
 const authRoutes = <AutoRoute>[
   AutoRoute(page: ActivationPage),
   AutoRoute(page: CompleteProfilePage),
-  AutoRoute(page: LoginPage),
+  AutoRoute<bool>(page: LoginPage),
   AutoRoute(page: RegistrationPage),
   AutoRoute(page: ResetPasswordPage),
 ];

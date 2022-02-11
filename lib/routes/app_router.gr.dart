@@ -41,10 +41,8 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const CompleteProfilePage());
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: LoginPage(key: args.key, onResult: args.onResult));
+      return MaterialPageX<bool>(
+          routeData: routeData, child: const LoginPage());
     },
     RegistrationRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -125,26 +123,10 @@ class CompleteProfileRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [LoginPage]
-class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({Key? key, required dynamic Function(bool) onResult})
-      : super(LoginRoute.name,
-            path: '/login-page',
-            args: LoginRouteArgs(key: key, onResult: onResult));
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
-}
-
-class LoginRouteArgs {
-  const LoginRouteArgs({this.key, required this.onResult});
-
-  final Key? key;
-
-  final dynamic Function(bool) onResult;
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key, onResult: $onResult}';
-  }
 }
 
 /// generated route for

@@ -20,9 +20,7 @@ import 'login_cubit.dart';
 import 'login_state.dart';
 
 class LoginPage extends StatefulWidget implements AutoRouteWrapper {
-  const LoginPage({Key? key, required this.onResult}) : super(key: key);
-
-  final Function(bool result) onResult;
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider<LoginCubit>(
@@ -242,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void loginListener(BuildContext context, state) {
     if (state is LoginSuccess) {
-      widget.onResult(true);
+      context.router.pop<bool>(true);
     }
 
     if (state is LoginFailed) {
