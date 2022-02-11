@@ -13,8 +13,6 @@ import '../features/auth/presentation/reset_password/reset_password_page.dart';
 
 part 'app_router.gr.dart';
 
-final appRouter = AppRouter(AuthGuard());
-
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[

@@ -6,12 +6,16 @@ import 'package:fixit/features/auth/data/models/user_meta.dart';
 import 'package:fixit/features/auth/presentation/login/login_cubit.dart';
 import 'package:fixit/features/auth/presentation/login/login_state.dart';
 import 'package:fixit/injection_container.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
 import '../../../test_helpers.dart';
 import 'factories/user_factory.dart';
 import 'factories/user_meta_factory.dart';
 
+@GenerateMocks([AppRouter])
 void main() {
   setUp(() async {
     mockPackageInfo();
@@ -20,16 +24,17 @@ void main() {
   });
 
   group('Login cubit tests', () {
+    var user = UserFactory.create();
+    var userMeta = UserMetaFactory.create();
+
     test('initial state should be InitialLoginState', () {
       expect(sl<LoginCubit>().state, equals(InitialLoginState()));
     });
 
-    var user = UserFactory.create();
-    var userMeta = UserMetaFactory.create();
-
     blocTest(
-      "success login must emits [LoginLoading,LoginSuccess]",
+      "success login must emits [LoginLoading,LoginSuccess] then pop with true result",
       setUp: () {
+        when(appRouter.pop(true)).thenAnswer((_) async => true);
         mockApiClient.fakePost(
           Api.login(),
           SingleMResponse<User, UserMeta>(user, userMeta).toJson(),
@@ -43,6 +48,9 @@ void main() {
         LoginLoading(),
         LoginSuccess(user: user),
       ],
+      verify: (_) {
+        verify(appRouter.pop(true));
+      },
     );
 
     blocTest(
