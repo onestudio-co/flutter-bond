@@ -18,14 +18,11 @@ class ${name}ServiceProvider extends ServiceProvider {
     it.registerLazySingleton(() => ${name}Repository(it.get(), it.get()));
   }
 
-  /* 
-  - I override this method (responseConvert) because user can implement it as they need
-  - and because the user didn't know is abstract class ServiceProvider contains this method  
- */
-
   @override
   T? responseConvert<T>(Map<String, dynamic> json) {
     switch (T) {
+      default:
+       return null;
     }
   }
 }
