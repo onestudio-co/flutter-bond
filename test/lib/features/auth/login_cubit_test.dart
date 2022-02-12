@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:fixit/core/constants.dart';
+import 'package:fixit/core/errors/failures.dart';
 import 'package:fixit/core/models/single_m_response.dart';
 import 'package:fixit/features/auth/data/models/user.dart';
 import 'package:fixit/features/auth/data/models/user_meta.dart';
@@ -28,11 +29,11 @@ void main() {
     var userMeta = UserMetaFactory.create();
 
     test('initial state should be InitialLoginState', () {
-      expect(sl<LoginCubit>().state, equals(InitialLoginState()));
+      expect(sl<LoginCubit>().state, equals(const LoginState.initial()));
     });
 
     blocTest(
-      "success login must emits [LoginLoading,LoginSuccess]",
+      "success login must emits [LoginState.loading(),LoginState.success()]",
       setUp: () {
         when(appRouter.pop(true)).thenAnswer((_) async => true);
         mockApiClient.fakePost(
@@ -42,11 +43,29 @@ void main() {
       },
       build: () => sl<LoginCubit>(),
       act: (LoginCubit loginCubit) {
-        return loginCubit.loginPressed(mobile: "123", password: "123456");
+        loginCubit.loginMobileChanged('123');
+        loginCubit.loginPasswordChanged('123456');
+        return loginCubit.loginSubmitted();
       },
       expect: () => [
-        LoginLoading(),
-        LoginSuccess(user: user),
+        const LoginState.initial(
+          mobile: InputField.value('123'),
+        ),
+        const LoginState(
+          status: LoginFormStatus.valid(),
+          mobile: InputField.value('123'),
+          password: InputField.value('123456'),
+        ),
+        const LoginState(
+          status: LoginFormStatus.loading(),
+          mobile: InputField.value('123'),
+          password: InputField.value('123456'),
+        ),
+        LoginState(
+          status: LoginFormStatus.success(user: user),
+          mobile: const InputField.value('123'),
+          password: const InputField.value('123456'),
+        ),
       ],
     );
 
@@ -61,11 +80,32 @@ void main() {
       },
       build: () => sl<LoginCubit>(),
       act: (LoginCubit loginCubit) {
-        return loginCubit.loginPressed(mobile: "123", password: "123456");
+        loginCubit.loginMobileChanged('123');
+        loginCubit.loginPasswordChanged('123456');
+        return loginCubit.loginSubmitted();
       },
       expect: () => [
-        LoginLoading(),
-        const LoginFailed(error: "Login Failed"),
+        const LoginState.initial(
+          mobile: InputField.value('123'),
+        ),
+        const LoginState(
+          status: LoginFormStatus.valid(),
+          mobile: InputField.value('123'),
+          password: InputField.value('123456'),
+        ),
+        const LoginState(
+          status: LoginFormStatus.loading(),
+          mobile: InputField.value('123'),
+          password: InputField.value('123456'),
+        ),
+        const LoginState(
+          status: LoginFormStatus.failure(
+            failure:
+                ServerFailure(error: {'message': 'Login Failed'}, code: 403),
+          ),
+          mobile: InputField.value('123'),
+          password: InputField.value('123456'),
+        ),
       ],
     );
   });

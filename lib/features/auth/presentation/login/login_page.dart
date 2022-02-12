@@ -3,6 +3,7 @@ import 'package:fixit/core/assets.dart';
 import 'package:fixit/core/constants.dart';
 import 'package:fixit/core/extension.dart';
 import 'package:fixit/core/fixit_alert.dart';
+import 'package:fixit/core/theme/fixit_text_theme.dart';
 import 'package:fixit/core/widgets/app_bar.dart';
 import 'package:fixit/core/widgets/fixit_button.dart';
 import 'package:fixit/core/widgets/fixit_statusbar.dart';
@@ -19,33 +20,7 @@ import '../social_account_login/google_account_login/google_account_login_widget
 import 'login_cubit.dart';
 import 'login_state.dart';
 
-extension E on BlocBase {
-  void navigateOn<State>(PageRouteInfo route) {
-    stream.listen((event) {
-      if (event is State) {
-        sl<AppRouter>().navigate(route);
-      }
-    });
-  }
-
-  void popOn<State, Result>(Result result) {
-    stream.listen((event) {
-      if (event is State) {
-        sl<AppRouter>().pop<Result>(result);
-      }
-    });
-  }
-
-  void on<State, Result>(Function function) {
-    stream.listen((event) {
-      if (event is State) {
-        function();
-      }
-    });
-  }
-}
-
-class LoginPage extends StatefulWidget implements AutoRouteWrapper {
+class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -55,236 +30,178 @@ class LoginPage extends StatefulWidget implements AutoRouteWrapper {
       );
 
   @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController mobile = TextEditingController();
-  TextEditingController password = TextEditingController();
-  late LoginCubit _loginCubit;
-  bool sendButtonEnable = false;
-
-  void refreshSendButtonEnable(String txt) {
-    setState(() {
-      sendButtonEnable = mobile.text.isNotEmpty && password.text.isNotEmpty;
-    });
-  }
-
-  @override
-  void initState() {
-    _loginCubit = BlocProvider.of<LoginCubit>(context);
-    _loginCubit.popOn<LoginSuccess, bool>(true);
-    refreshSendButtonEnable("");
-
-    super.initState();
-
-    getSMSAutoFillSignature();
-  }
-
-  getSMSAutoFillSignature() async {
-    // final signCode = await SmsAutoFill().getAppSignature;
-    // print("SmsAutoFill signCode: $signCode");
-  }
-
-  @override
-  void dispose() {
-    mobile.dispose();
-    password.dispose();
-    _loginCubit.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return FixitStatusBar(
-      child: BlocConsumer<LoginCubit, LoginState>(
-        listener: loginListener,
-        builder: (BuildContext context, LoginState state) {
-          return Scaffold(
-            backgroundColor: Colors.white,
-            appBar: getAppbar(
-              context,
-              Strings.login,
-              // hideBack: !AppRouter.navigator.canPop(),
-            ),
-            body: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Container(
-                        child: const Text(
-                          'تسجيل الدخول بإستخدام رقم الجوال',
-                          style: TextStyle(
-                            color: Constant.navyColorRegular,
-                            fontSize: 12.0,
-                            fontFamily: AppFontFamily.regular,
-                          ),
-                        ),
-                        margin: const EdgeInsets.only(
-                            left: 8, right: 16, top: 24, bottom: 20),
+    return BlocListener<LoginCubit, LoginState>(
+      listener: _loginListener,
+      child: FixitStatusBar(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: getAppbar(context, Strings.login),
+          body: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        'تسجيل الدخول بإستخدام رقم الجوال',
+                        style: Theme.of(context).textTheme.caption?.regularNavy,
                       ),
-                      FixitTextFieldWidget(
-                        controller: mobile,
-                        errorString: _loginCubit.getError('mobile'),
-                        label: Strings.mobileLabel,
-                        onActiveTyping: () {
-                          _loginCubit.hideError('mobile');
-                        },
-                        onChanged: refreshSendButtonEnable,
-                        svgIcon: "assets/images/mobile.svg",
-                        type: FixitTextType.mobile,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      FixitTextFieldWidget(
-                        errorString: _loginCubit.getError('password'),
-                        controller: password,
-                        label: Strings.passwordLabel,
-                        onActiveTyping: () {
-                          _loginCubit.hideError('password');
-                        },
-                        onChanged: refreshSendButtonEnable,
-                        svgIcon: "assets/images/password-type.svg",
-                        type: FixitTextType.password,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.only(
-                                  right: 10, left: 10, top: 10),
-                              padding: const EdgeInsets.all(10),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  SvgPicture.asset(
-                                      "assets/images/arrow-circle-left.svg"),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Expanded(
-                                    child: InkWell(
-                                      onTap: showForgetPasswordBottomSheet,
-                                      child: Text(
-                                        Strings.forgetPasswordQuestion,
-                                        overflow: TextOverflow.clip,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          color: Constant.violetColorDark,
-                                          fontFamily: AppFontFamily.regular,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin:
-                            const EdgeInsets.only(left: 16, right: 16, top: 32),
-                        child: SafeArea(
-                          child: FixitButton(
-                            enable: sendButtonEnable,
-                            loading: state is LoginLoading,
-                            label: Strings.login,
-                            background: Constant.violetColorDark,
-                            labelColor: Colors.white,
-                            onTab: onLogin,
-                          ),
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(
-                                left: 16, right: 16, top: 32, bottom: 32),
-                            child: Row(
-                              children: [
-                                const Expanded(
-                                  child: Divider(
-                                    thickness: 2,
-                                    color: Constant.greyColorDark,
-                                  ),
-                                ),
-                                Container(
-                                  child: const Text(
-                                    'أو انشاء حساب باستخدام',
-                                    style: TextStyle(
-                                      color: Constant.navyColorExtraDark,
-                                      fontSize: 12.0,
-                                      fontFamily: AppFontFamily.regular,
-                                    ),
-                                  ),
-                                  margin:
-                                      const EdgeInsets.only(left: 8, right: 8),
-                                ),
-                                const Expanded(
-                                  child: Divider(
-                                    thickness: 2,
-                                    color: Constant.greyColorDark,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const AppleIDLoginWidget(),
-                          const GoogleAccountLoginWidget(),
-                        ],
-                      ),
-                    ],
-                  ),
+                      margin: const EdgeInsets.only(
+                          left: 8, right: 16, top: 24, bottom: 20),
+                    ),
+                    _MobileInput(),
+                    const SizedBox(height: 8),
+                    _PasswordInput(),
+                    const _ForgetPasswordWidget(),
+                    _LoginButton(),
+                    const _LoginFooter(),
+                  ],
                 ),
-              ],
-            ),
-          );
-        },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 
-  onRegister() {
-    context.router.push(const RegistrationRoute());
+  void _loginListener(BuildContext context, LoginState state) {
+    debugPrint('_loginListener ${state.toString()}');
+    switch (state.status.formStatus) {
+      case FormStatus.success:
+        sl<AppRouter>().pop<bool>(true);
+        break;
+      case FormStatus.failed:
+        if (state.status.notVerified) {
+          appBloc.mobile = state.mobile.value.cleanMobile();
+          context.router.navigate(ActivationRoute(fromForget: false));
+        } else {
+          FixitAlert.showNotificationBottom(context,
+              title: "لا يمكنك تسجيل الدخول", inLastBottom: false);
+        }
+        break;
+      default:
+        break;
+    }
   }
+}
 
-  onLogin() {
-    _loginCubit.loginPressed(
-      mobile: mobile.text.toString(),
-      password: password.text.toString(),
+class _MobileInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      buildWhen: (previous, current) => previous.mobile != current.mobile,
+      builder: (context, state) {
+        return FixitTextFieldWidget(
+          key: const Key('loginForm_mobileInput_textField'),
+          label: Strings.mobileLabel,
+          errorString: state.mobile.error,
+          onChanged: (String mobile) =>
+              context.read<LoginCubit>().loginMobileChanged(mobile),
+          svgIcon: "assets/images/mobile.svg",
+          type: FixitTextType.mobile,
+        );
+      },
+    );
+  }
+}
+
+class _PasswordInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      buildWhen: (previous, current) => previous.mobile != current.mobile,
+      builder: (context, state) {
+        return FixitTextFieldWidget(
+          key: const Key('loginForm_passwordInput_textField'),
+          errorString: state.password.error,
+          label: Strings.passwordLabel,
+          onChanged: (String mobile) =>
+              context.read<LoginCubit>().loginPasswordChanged(mobile),
+          svgIcon: "assets/images/password-type.svg",
+          type: FixitTextType.password,
+        );
+      },
+    );
+  }
+}
+
+class _LoginButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      buildWhen: (previous, current) =>
+          previous.status.formStatus != current.status.formStatus,
+      builder: (context, state) {
+        return Container(
+          key: const Key('loginForm_loginButton'),
+          margin: const EdgeInsets.only(left: 16, right: 16, top: 32),
+          child: SafeArea(
+            child: FixitButton(
+              enable: state.status.formStatus == FormStatus.valid,
+              loading: state.status.formStatus == FormStatus.inProgress,
+              label: Strings.login,
+              background: Constant.violetColorDark,
+              labelColor: Colors.white,
+              onTab: context.read<LoginCubit>().loginSubmitted,
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _ForgetPasswordWidget extends StatelessWidget {
+  const _ForgetPasswordWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(right: 10, left: 10, top: 10),
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(
+                  width: 10,
+                ),
+                SvgPicture.asset("assets/images/arrow-circle-left.svg"),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: InkWell(
+                    onTap: () => _showForgetPasswordBottomSheet(context),
+                    child: Text(
+                      Strings.forgetPasswordQuestion,
+                      overflow: TextOverflow.clip,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Constant.violetColorDark,
+                        fontFamily: AppFontFamily.regular,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
-  void loginListener(BuildContext context, state) {
-    if (state is LoginSuccess) {
-      debugPrint('state is LoginSuccess');
-    }
-
-    if (state is LoginFailed) {
-      // todo not verified returned in error?
-      if (_loginCubit.code == "not_verified") {
-        appBloc.mobile = mobile.text.toString().cleanMobile();
-        context.router.navigate(ActivationRoute(fromForget: false));
-      }
-
-      if (_loginCubit.error == null) {
-        debugPrint("state.code ${state.code}");
-        FixitAlert.showNotificationBottom(context,
-            title: "لا يمكنك تسجيل الدخول", inLastBottom: false);
-      }
-    }
-  }
-
-  showForgetPasswordBottomSheet() {
+  _showForgetPasswordBottomSheet(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
@@ -295,6 +212,53 @@ class _LoginPageState extends State<LoginPage> {
       builder: (builder) {
         return const ForgetPasswordBottomSheet();
       },
+    );
+  }
+}
+
+class _LoginFooter extends StatelessWidget {
+  const _LoginFooter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin:
+              const EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 32),
+          child: Row(
+            children: [
+              const Expanded(
+                child: Divider(
+                  thickness: 2,
+                  color: Constant.greyColorDark,
+                ),
+              ),
+              Container(
+                child: const Text(
+                  'أو انشاء حساب باستخدام',
+                  style: TextStyle(
+                    color: Constant.navyColorExtraDark,
+                    fontSize: 12.0,
+                    fontFamily: AppFontFamily.regular,
+                  ),
+                ),
+                margin: const EdgeInsets.only(left: 8, right: 8),
+              ),
+              const Expanded(
+                child: Divider(
+                  thickness: 2,
+                  color: Constant.greyColorDark,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const AppleIDLoginWidget(),
+        const GoogleAccountLoginWidget(),
+      ],
     );
   }
 }

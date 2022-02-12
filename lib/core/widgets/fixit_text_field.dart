@@ -25,8 +25,8 @@ class FixitTextFieldWidget extends StatefulWidget {
   final int? maxLength;
   final double fontSize;
   final double svgPadding;
-  final TextEditingController controller;
-  final Function onActiveTyping;
+  final TextEditingController? controller;
+  final Function? onActiveTyping;
   final ValueChanged<String> onChanged;
   final int multilineMaxLine;
   final String? hintText;
@@ -49,10 +49,10 @@ class FixitTextFieldWidget extends StatefulWidget {
       this.autoFocus = false,
       this.maxLength,
       this.apiKey,
-      required this.controller,
+      this.controller,
       this.svgPadding = 0,
       this.fontSize = 17,
-      required this.onActiveTyping,
+      this.onActiveTyping,
       required this.onChanged,
       this.multilineMaxLine = 8,
       this.hintText,
@@ -80,7 +80,7 @@ class _FixitTextFieldWidgetState extends State<FixitTextFieldWidget> {
       child: Focus(
         onFocusChange: (focus) {
           if (focus == true) {
-            widget.onActiveTyping();
+            widget.onActiveTyping?.call();
           }
           setState(() {
             active = focus;

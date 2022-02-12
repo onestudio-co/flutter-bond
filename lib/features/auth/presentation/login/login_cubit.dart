@@ -4,27 +4,28 @@ import '../../data/repositories/auth_repository.dart';
 import 'login_state.dart';
 
 class LoginCubit extends SharedBlocBase<LoginState> {
+  LoginCubit(this.authenticationRepository) : super(const LoginState.initial());
+
   final AuthRepository authenticationRepository;
 
-  LoginCubit(this.authenticationRepository) : super(InitialLoginState());
-
-  Future<void> loginPressed(
-      {required String mobile, required String password}) async {
-    emit(LoginLoading());
-    final response = await authenticationRepository.login(
-      mobile,
-      password,
-    );
-    emit(response.fold(
-      (failure) =>
-          LoginFailed(error: toMessage(failure), code: toCode(failure)),
-      (response) => LoginSuccess(user: response.data),
-    ));
+  void loginMobileChanged(String mobile) {
+    emit(state.copyWith(mobile: InputField.value(mobile)));
   }
 
-  void hideError(String key) {
-    emit(LoginLoading());
-    clearKeyError(key);
-    emit(LoginFieldChangedSuccess(key: key));
+  void loginPasswordChanged(String password) {
+    emit(state.copyWith(password: InputField.value(password)));
+  }
+
+  Future<void> loginSubmitted() async {
+    emit(state.copyWith(status: const LoginFormStatus.loading()));
+    final response = await authenticationRepository.login(
+      state.mobile.value,
+      state.password.value,
+    );
+    final LoginFormStatus loginStatus = response.fold(
+      (failure) => LoginFormStatus.failure(failure: failure),
+      (response) => LoginFormStatus.success(user: response.data),
+    );
+    emit(state.copyWith(status: loginStatus));
   }
 }
