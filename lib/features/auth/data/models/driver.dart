@@ -2,9 +2,6 @@ import 'package:fixit/core/auth/authenticable.dart';
 import 'package:fixit/core/models/model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'country.dart';
-import 'organization.dart';
-
 part 'driver.g.dart';
 
 @JsonSerializable(explicitToJson: true)

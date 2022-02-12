@@ -1,4 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:fixit/core/auth/auth.dart';
+import 'package:fixit/core/auth/authenticable.dart';
 import 'package:fixit/core/constants.dart';
 import 'package:fixit/core/models/single_m_response.dart';
 import 'package:fixit/features/auth/data/models/user.dart';
@@ -17,6 +19,9 @@ void main() {
     mockPackageInfo();
     mockSharedPreferences();
     await mockSetup();
+    sl.registerLazySingleton<AuthDriver>(() {
+      return SanctumDriver<Authenticable>();
+    });
   });
 
   group('Login cubit tests', () {
@@ -43,6 +48,10 @@ void main() {
         LoginLoading(),
         LoginSuccess(user: user),
       ],
+      verify: (LoginCubit loginCubit) {
+        expect(Auth.check(), equals(true));
+        expect(Auth.user(), equals(user));
+      },
     );
 
     blocTest(
@@ -62,6 +71,10 @@ void main() {
         LoginLoading(),
         const LoginFailed(error: "Login Failed"),
       ],
+      verify: (LoginCubit loginCubit) {
+        expect(Auth.check(), equals(false));
+        expect(Auth.user(), isNull);
+      },
     );
   });
 }

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:fixit/config/auth.dart';
 import 'package:fixit/features/auth/data/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,26 +7,17 @@ import '../../injection_container.dart';
 import 'authenticable.dart';
 
 class Auth {
-  AuthDriver authDriver = GuestDriver();
+  static AuthDriver authDriver = sl<AuthDriver>();
 
-  Auth() {
-    var guard = AuthConfig.defaultGuard;
-    var guardDriver = AuthConfig.guards[guard]?['driver'];
-
-    if (guardDriver == 'sanctum') {
-      authDriver = SanctumDriver<Authenticable>();
-    }
-  }
-
-  bool check() {
+  static bool check() {
     return authDriver.check();
   }
 
-  Authenticable? user() {
+  static Authenticable? user() {
     return authDriver.user();
   }
 
-  Future<bool> attempt(Authenticable user) async {
+  static Future<bool> attempt(Authenticable user) async {
     return authDriver.attempt(user);
   }
 }
