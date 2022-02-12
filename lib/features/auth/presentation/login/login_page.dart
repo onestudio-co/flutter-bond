@@ -19,6 +19,32 @@ import '../social_account_login/google_account_login/google_account_login_widget
 import 'login_cubit.dart';
 import 'login_state.dart';
 
+extension E on BlocBase {
+  void navigateOn<State>(PageRouteInfo route) {
+    stream.listen((event) {
+      if (event is State) {
+        sl<AppRouter>().navigate(route);
+      }
+    });
+  }
+
+  void popOn<State, Result>(Result result) {
+    stream.listen((event) {
+      if (event is State) {
+        sl<AppRouter>().pop<Result>(result);
+      }
+    });
+  }
+
+  void on<State, Result>(Function function) {
+    stream.listen((event) {
+      if (event is State) {
+        function();
+      }
+    });
+  }
+}
+
 class LoginPage extends StatefulWidget implements AutoRouteWrapper {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -35,7 +61,7 @@ class LoginPage extends StatefulWidget implements AutoRouteWrapper {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController mobile = TextEditingController();
   TextEditingController password = TextEditingController();
-  late LoginCubit loginCubit;
+  late LoginCubit _loginCubit;
   bool sendButtonEnable = false;
 
   void refreshSendButtonEnable(String txt) {
@@ -46,8 +72,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    loginCubit = BlocProvider.of<LoginCubit>(context);
-    mobile.text = appBloc.mobile ?? '';
+    _loginCubit = BlocProvider.of<LoginCubit>(context);
+    _loginCubit.popOn<LoginSuccess, bool>(true);
     refreshSendButtonEnable("");
 
     super.initState();
@@ -64,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     mobile.dispose();
     password.dispose();
-    loginCubit.close();
+    _loginCubit.close();
     super.dispose();
   }
 
@@ -102,10 +128,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       FixitTextFieldWidget(
                         controller: mobile,
-                        errorString: loginCubit.getError('mobile'),
+                        errorString: _loginCubit.getError('mobile'),
                         label: Strings.mobileLabel,
                         onActiveTyping: () {
-                          loginCubit.hideError('mobile');
+                          _loginCubit.hideError('mobile');
                         },
                         onChanged: refreshSendButtonEnable,
                         svgIcon: "assets/images/mobile.svg",
@@ -115,11 +141,11 @@ class _LoginPageState extends State<LoginPage> {
                         height: 8,
                       ),
                       FixitTextFieldWidget(
-                        errorString: loginCubit.getError('password'),
+                        errorString: _loginCubit.getError('password'),
                         controller: password,
                         label: Strings.passwordLabel,
                         onActiveTyping: () {
-                          loginCubit.hideError('password');
+                          _loginCubit.hideError('password');
                         },
                         onChanged: refreshSendButtonEnable,
                         svgIcon: "assets/images/password-type.svg",
@@ -232,7 +258,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   onLogin() {
-    loginCubit.loginPressed(
+    _loginCubit.loginPressed(
       mobile: mobile.text.toString(),
       password: password.text.toString(),
     );
@@ -241,17 +267,16 @@ class _LoginPageState extends State<LoginPage> {
   void loginListener(BuildContext context, state) {
     if (state is LoginSuccess) {
       debugPrint('state is LoginSuccess');
-      sl<AppRouter>().pop<bool>(true);
     }
 
     if (state is LoginFailed) {
       // todo not verified returned in error?
-      if (loginCubit.code == "not_verified") {
+      if (_loginCubit.code == "not_verified") {
         appBloc.mobile = mobile.text.toString().cleanMobile();
         context.router.navigate(ActivationRoute(fromForget: false));
       }
 
-      if (loginCubit.error == null) {
+      if (_loginCubit.error == null) {
         debugPrint("state.code ${state.code}");
         FixitAlert.showNotificationBottom(context,
             title: "لا يمكنك تسجيل الدخول", inLastBottom: false);
