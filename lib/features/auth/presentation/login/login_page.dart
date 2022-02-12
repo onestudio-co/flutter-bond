@@ -241,6 +241,7 @@ class _LoginPageState extends State<LoginPage> {
   void loginListener(BuildContext context, state) {
     if (state is LoginSuccess) {
       debugPrint('state is LoginSuccess');
+      sl<AppRouter>().pop<bool>(true);
     }
 
     if (state is LoginFailed) {

@@ -32,7 +32,7 @@ void main() {
     });
 
     blocTest(
-      "success login must emits [LoginLoading,LoginSuccess] then pop with true result",
+      "success login must emits [LoginLoading,LoginSuccess]",
       setUp: () {
         when(appRouter.pop(true)).thenAnswer((_) async => true);
         mockApiClient.fakePost(
@@ -48,9 +48,6 @@ void main() {
         LoginLoading(),
         LoginSuccess(user: user),
       ],
-      verify: (_) {
-        verify(appRouter.pop(true));
-      },
     );
 
     blocTest(
