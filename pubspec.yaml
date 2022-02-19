@@ -29,6 +29,7 @@ dependencies:
   bloc_test: ^9.0.2
   mockito: ^5.0.17
   faker: ^2.0.0
+  flutter_form_bloc: ^0.29.3
 
 dev_dependencies:
   flutter_test:
