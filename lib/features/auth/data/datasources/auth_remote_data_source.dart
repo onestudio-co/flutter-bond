@@ -10,6 +10,8 @@ import 'package:fixit/core/models/single_m_response.dart';
 import 'package:fixit/core/models/single_response.dart';
 import 'package:fixit/core/models/success_response.dart';
 import 'package:fixit/core/utils.dart';
+import 'package:fixit/features/auth/data/dto/user_register.dart';
+import 'package:fixit/features/auth/data/models/user_fixit.dart';
 import 'package:fixit/features/profile/data/models/profile_meta.dart';
 
 import '../dto/complete_registration.dart';
@@ -22,6 +24,16 @@ class AuthRemoteDataSource extends DataSource {
   final ApiClient client;
 
   AuthRemoteDataSource(this.client);
+  Future<dynamic> registerFixit(
+    UserDto user,
+  ) async {
+    Response response = await client.post(
+      Api.fixitRegister(),
+      body: user.body,
+      headers: Api.headers(),
+    );
+    return UserFixit.fromMap(response.data['data']);
+  }
 
   Future<SingleMResponse<User, UserMeta>> login(
     String mobile,

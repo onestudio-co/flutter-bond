@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:fixit/core/constants.dart';
-import 'package:fixit/routes/app_router.dart';
+import 'package:fixit/features/auth/register/register_page.dart';
 import 'package:flutter/material.dart';
 
 class LaunchPage extends StatefulWidget {
@@ -30,6 +29,10 @@ class _LaunchPageState extends State<LaunchPage> {
   }
 
   FutureOr _navigateToNextScreen() {
-    context.router.push(const HomeRoute());
+    // context.router.push(const HomeRoute());
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const RegisterPageFixit()),
+    );
   }
 }

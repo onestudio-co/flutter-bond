@@ -1,4 +1,5 @@
 import 'package:fixit/core/service_provider.dart';
+import 'package:fixit/features/auth/register/register_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,6 +43,7 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerFactory(() => ForgetPasswordCubit(it.get()));
     it.registerFactory(() => ActivationCubit(it.get()));
     it.registerFactory(() => ResetPasswordCubit(it.get()));
+    it.registerFactory(() => RegisterCubitFixit(it.get()));
 
     it.registerFactory(() => AuthBloc(it.get()));
   }

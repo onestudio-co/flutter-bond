@@ -10,8 +10,10 @@ import 'package:fixit/core/models/single_response.dart';
 import 'package:fixit/core/models/success_response.dart';
 import 'package:fixit/features/auth/data/dto/complete_registration.dart';
 import 'package:fixit/features/auth/data/dto/social_account_user.dart';
+import 'package:fixit/features/auth/data/dto/user_register.dart';
 import 'package:fixit/features/auth/data/models/country.dart';
 import 'package:fixit/features/auth/data/models/user.dart';
+import 'package:fixit/features/auth/data/models/user_fixit.dart';
 import 'package:fixit/features/auth/data/models/user_meta.dart';
 import 'package:fixit/features/profile/data/models/profile_meta.dart';
 import 'package:fixit/injection_container.dart';
@@ -24,6 +26,15 @@ class AuthRepository {
   final AuthLocalDataSource localDataSource;
 
   AuthRepository(this.remoteDataSource, this.localDataSource);
+
+  Future<Either<Failure, UserFixit>> registerFixit(UserDto user) async {
+    try {
+      final response = await remoteDataSource.registerFixit(user);
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.toFailure());
+    }
+  }
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> login(
     String number,
