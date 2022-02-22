@@ -1,28 +1,19 @@
 import 'package:fixit/core/errors/failures.dart';
 import 'package:fixit/core/models/validation_response.dart';
-import 'package:fixit/features/auth/data/dto/user_register.dart';
 import 'package:fixit/features/auth/data/repositories/auth_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-class RegisterCubitFixit extends FormBloc<String, String> {
+class LoginCubitFixit extends FormBloc<String, String> {
   final AuthRepository authenticationRepository;
-  RegisterCubitFixit(this.authenticationRepository) {
+  LoginCubitFixit(this.authenticationRepository) {
     addFieldBlocs(
       fieldBlocs: [
-        userName,
         email,
         password,
-        mobileNumber,
       ],
     );
   }
-
-  final userName = TextFieldBloc(
-    validators: [
-      FieldBlocValidators.required,
-    ],
-  );
 
   final email = TextFieldBloc(
     validators: [
@@ -35,28 +26,14 @@ class RegisterCubitFixit extends FormBloc<String, String> {
       FieldBlocValidators.required,
     ],
   );
-  final mobileNumber = TextFieldBloc(
-    validators: [
-      FieldBlocValidators.required,
-    ],
-  );
-
   @override
   void onSubmitting() async {
     List<TextFieldBloc> listOfTextFieldBloc = [
-      userName,
       email,
       password,
-      mobileNumber,
     ];
-    UserDto user = UserDto(
-      userName: userName.value,
-      email: email.value,
-      password: password.value,
-      mobile: mobileNumber.value,
-    );
-    final response = await authenticationRepository.registerFixit(user);
-
+    final response = await authenticationRepository.loginFixit(
+        email.value.trim(), password.value);
     response.fold(
       (failure) {
         if (failure is ServerFailure) {

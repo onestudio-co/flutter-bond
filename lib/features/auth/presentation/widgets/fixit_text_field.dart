@@ -6,12 +6,14 @@ class FixitTextField extends StatelessWidget {
     Key? key,
     required this.textFormBloc,
     required this.hint,
+    required this.autofillHints,
     this.keyboardType = TextInputType.text,
     this.suffixButton,
   }) : super(key: key);
 
   final TextFieldBloc textFormBloc;
   final String hint;
+  final String autofillHints;
   final TextInputType keyboardType;
   final SuffixButton? suffixButton;
 
@@ -22,7 +24,7 @@ class FixitTextField extends StatelessWidget {
       keyboardType: keyboardType,
       suffixButton: suffixButton,
       autofillHints: [
-        hint,
+        autofillHints,
       ],
       decoration: InputDecoration(
         labelText: hint,

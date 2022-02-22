@@ -9,18 +9,18 @@ import 'package:fixit/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-import 'register_cubit.dart';
+import 'login_cubit.dart';
 
-class RegisterPageFixit extends StatelessWidget {
-  const RegisterPageFixit({Key? key}) : super(key: key);
+class LoginPageFixit extends StatelessWidget {
+  const LoginPageFixit({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<RegisterCubitFixit>(
-      create: (context) => sl<RegisterCubitFixit>(),
+    return BlocProvider<LoginCubitFixit>(
+      create: (context) => sl<LoginCubitFixit>(),
       child: Builder(
         builder: (context) {
-          final registerFormBloc = context.read<RegisterCubitFixit>();
+          final loginFormBloc = context.read<LoginCubitFixit>();
 
           return Directionality(
             textDirection: TextDirection.rtl,
@@ -28,10 +28,10 @@ class RegisterPageFixit extends StatelessWidget {
               resizeToAvoidBottomInset: false,
               backgroundColor: primaryColor,
               appBar: FixitAppBar(
-                title: 'إنشاء حساب جديد',
+                title: 'تسجيل الدخول',
                 onTapBackButton: () => {},
               ),
-              body: FormBlocListener<RegisterCubitFixit, String, String>(
+              body: FormBlocListener<LoginCubitFixit, String, String>(
                 onSubmitting: (context, state) {
                   LoadingDialog.show(context);
                 },
@@ -55,38 +55,45 @@ class RegisterPageFixit extends StatelessWidget {
                           child: Column(
                             children: [
                               FixitTextField(
-                                textFormBloc: registerFormBloc.userName,
-                                hint: 'الاسم',
-                                autofillHints: 'name',
-                              ),
-                              const FixitDivider(),
-                              FixitTextField(
-                                textFormBloc: registerFormBloc.email,
+                                textFormBloc: loginFormBloc.email,
                                 hint: 'البريد الالكتروني',
                                 autofillHints: 'email',
                                 keyboardType: TextInputType.emailAddress,
                               ),
                               const FixitDivider(),
                               FixitTextField(
-                                textFormBloc: registerFormBloc.password,
+                                textFormBloc: loginFormBloc.password,
                                 suffixButton: SuffixButton.obscureText,
                                 autofillHints: 'password',
                                 hint: 'كلمة المرور',
                               ),
-                              const FixitDivider(),
-                              FixitTextField(
-                                textFormBloc: registerFormBloc.mobileNumber,
-                                hint: 'رقم الجوال',
-                                autofillHints: 'mobile',
-                                keyboardType: TextInputType.number,
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            children: [
+                              const Text(
+                                'هل نسيت كلمة المرور ؟',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'اضغط هنا',
+                                  style: TextStyle(color: secondaryColor),
+                                ),
                               ),
                             ],
                           ),
                         ),
                         FixitButton(
-                          title: 'إنشاء حساب جديد',
+                          title: 'تسجيل الدخول',
                           icon: const Icon(Icons.arrow_forward),
-                          onPress: registerFormBloc.submit,
+                          onPress: loginFormBloc.submit,
                         ),
                       ],
                     ),
@@ -120,7 +127,7 @@ class NextScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () => Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => const RegisterPageFixit())),
+                  MaterialPageRoute(builder: (_) => const LoginPageFixit())),
               icon: const Icon(Icons.replay),
               label: const Text('AGAIN'),
             ),

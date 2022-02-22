@@ -27,9 +27,20 @@ class AuthRepository {
 
   AuthRepository(this.remoteDataSource, this.localDataSource);
 
-  Future<Either<Failure, UserFixit>> registerFixit(UserDto user) async {
+  Future<Either<Failure, SingleResponse<UserFixit>>> registerFixit(
+      UserDto user) async {
     try {
       final response = await remoteDataSource.registerFixit(user);
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.toFailure());
+    }
+  }
+
+  Future<Either<Failure, UserFixit>> loginFixit(
+      String email, String password) async {
+    try {
+      final response = await remoteDataSource.loginFixit(email, password);
       return Right(response);
     } on ServerException catch (e) {
       return Left(e.toFailure());

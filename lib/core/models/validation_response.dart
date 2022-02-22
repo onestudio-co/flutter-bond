@@ -28,11 +28,6 @@ class Errors {
   Errors({this.userName, this.email, this.password, this.mobile});
 
   Errors.fromJson(Map<String, dynamic> json) {
-    // userName = json['username'].cast<List>();
-    // email = json['email'].cast<List>();
-    // password = json['password'].cast<List>();
-    // password = json['mobile'].cast<List>();
-
     if (json['username'] != null) {
       userName = <String>[];
       json['username'].forEach((v) {

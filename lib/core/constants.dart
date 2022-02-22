@@ -110,6 +110,10 @@ class Api {
     return "register";
   }
 
+  static fixitLogin() {
+    return "login";
+  }
+
   static register() {
     return "users/register";
   }

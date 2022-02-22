@@ -4,13 +4,11 @@ import 'package:fixit/core/models/model.dart';
 class UserFixit extends Model implements Authenticable {
   final String userName;
   final String email;
-  final String password;
   final String mobile;
   const UserFixit({
     required int id,
     required this.userName,
     required this.email,
-    required this.password,
     required this.mobile,
   }) : super(id: id);
 
@@ -19,7 +17,6 @@ class UserFixit extends Model implements Authenticable {
       id: map['id'] ?? 1,
       userName: map['username'] ?? '',
       email: map['email'] ?? '',
-      password: map['password'] ?? '',
       mobile: map['mobile'] ?? '',
     );
   }

@@ -24,12 +24,27 @@ class AuthRemoteDataSource extends DataSource {
   final ApiClient client;
 
   AuthRemoteDataSource(this.client);
-  Future<dynamic> registerFixit(
+  Future<SingleResponse<UserFixit>> registerFixit(
     UserDto user,
   ) async {
     Response response = await client.post(
       Api.fixitRegister(),
       body: user.body,
+      headers: Api.headers(),
+    );
+    return mapSingleResponse(response);
+  }
+
+  Future<dynamic> loginFixit(
+    String email,
+    String password,
+  ) async {
+    Response response = await client.post(
+      Api.fixitLogin(),
+      body: {
+        'email': email,
+        'password': password,
+      },
       headers: Api.headers(),
     );
     return UserFixit.fromMap(response.data['data']);

@@ -33,6 +33,7 @@ class _LaunchPageState extends State<LaunchPage> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const RegisterPageFixit()),
+      // MaterialPageRoute(builder: (context) => const LoginPageFixit()),
     );
   }
 }

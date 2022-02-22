@@ -11,6 +11,7 @@ import 'data/models/user_meta.dart';
 import 'data/repositories/auth_repository.dart';
 import 'data/services/apple_id_login_service.dart';
 import 'data/services/google_account_login_service.dart';
+import 'login/login_cubit.dart';
 import 'presentation/activation/activation_cubit.dart';
 import 'presentation/bloc/auth_bloc.dart';
 import 'presentation/complete_registeration/complete_registration_cubit.dart';
@@ -44,6 +45,7 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerFactory(() => ActivationCubit(it.get()));
     it.registerFactory(() => ResetPasswordCubit(it.get()));
     it.registerFactory(() => RegisterCubitFixit(it.get()));
+    it.registerFactory(() => LoginCubitFixit(it.get()));
 
     it.registerFactory(() => AuthBloc(it.get()));
   }

@@ -17,26 +17,27 @@ class FixitApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        routerDelegate: appRouter.delegate(),
-        routeInformationParser: appRouter.defaultRouteParser(),
-        theme: ThemeData(
-          primarySwatch: MaterialColor(0xFF5158F6, color),
-          appBarTheme: const AppBarTheme(
-            centerTitle: true,
-            iconTheme: IconThemeData(color: secondaryColor),
-            elevation: 0,
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              primary: secondaryColor,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              textStyle: const TextStyle(fontSize: 16),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
+      theme: ThemeData(
+        primarySwatch: MaterialColor(0xFF5158F6, color),
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          iconTheme: IconThemeData(color: secondaryColor),
+          elevation: 0,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            primary: secondaryColor,
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
             ),
+            textStyle: const TextStyle(fontSize: 16),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 

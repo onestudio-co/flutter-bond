@@ -17,7 +17,6 @@ class FixitContainerForm extends StatelessWidget {
         bottom: 20,
         top: 10,
       ),
-      // padding: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
