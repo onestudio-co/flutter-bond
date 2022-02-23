@@ -24,15 +24,12 @@ class AuthRemoteDataSource extends DataSource {
   AuthRemoteDataSource(this.client);
 
   Future<SingleMResponse<User, UserMeta>> login(
-    String mobile,
+    String email,
     String password,
   ) async {
     Map<String, dynamic> data = <String, dynamic>{
-      "mobile": "+966${mobile.cleanMobile()}",
+      "email": email,
       "password": password,
-      "device_id": await deviceIdInfo(),
-      "device_type": getDeviceType(),
-      'device_token': 'test_token',
     };
 
     return mapSingleMResponse<User, UserMeta>(await client.post(

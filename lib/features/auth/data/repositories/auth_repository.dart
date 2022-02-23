@@ -26,11 +26,11 @@ class AuthRepository {
   AuthRepository(this.remoteDataSource, this.localDataSource);
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> login(
-    String number,
+    String email,
     String password,
   ) async {
     try {
-      final response = await remoteDataSource.login(number, password);
+      final response = await remoteDataSource.login(email, password);
       await setUser(response);
       return Right(response);
     } on ServerException catch (e) {

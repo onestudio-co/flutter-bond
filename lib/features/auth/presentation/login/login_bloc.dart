@@ -22,7 +22,7 @@ class LoginFormBloc extends FormBloc<String, String> {
   final password = TextFieldBloc(validators: [
     FieldBlocValidators.required,
     FieldBlocValidators.passwordMin6Chars,
- //   FieldBlocValidators.confirmPassword()
+    //   FieldBlocValidators.confirmPassword()
   ]);
 
   void addErrors() {
@@ -32,7 +32,7 @@ class LoginFormBloc extends FormBloc<String, String> {
 
   List<dynamic>? data;
 
- // Map<String, dynamic>? data;
+  // Map<String, dynamic>? data;
 
   Future<dynamic> login(
     String email,
@@ -61,7 +61,7 @@ class LoginFormBloc extends FormBloc<String, String> {
   //     password.addFieldError(data!['errors']['password']);
   //   }
   //   emitFailure(failureResponse: data!.toString());
-  
+
   //   // for (int i = 0; i <= data!.length; i++) {
   //   //   if (data![i]['errors']['email'] != null) {
   //   //     email.addFieldError(data![i]['errors']['email'][0]);
@@ -104,35 +104,30 @@ class LoginFormBloc extends FormBloc<String, String> {
 
   var error;
   var code;
+
   toMessage(Failure failure) {
     if (failure is ServerFailure) {
       error = failure.error["errors"];
       if (failure.error["code"] != null) {
         code = failure.error["code"];
+      } else if (error['email'] != null) {
+        email.addFieldError(error['email']);
+      } else if (error['password'] != null) {
+        password.addFieldError(error['password']);
       }
     }
-
     return failure.toMessage();
   }
 
   Future<void> loginPressed() async {
     final response = await authenticationRepository.login(
       email.value,
-     password.value,
+      password.value,
     );
     response.fold(
-      (failure) {
-        emitFailure(failureResponse: toMessage(failure));
-        if (error['email'] != null) {
-          email.addFieldError(error!['errors']['email']);
-        }
-        if (error['password'] != null) {
-          password.addFieldError(error!['errors']['password']);
-        }
-      },
+      (failure) => emitFailure(failureResponse: toMessage(failure)),
       (response) => emitSuccess(successResponse: response.data.toString()),
     );
-    print(response.toString());
   }
 
   @override
