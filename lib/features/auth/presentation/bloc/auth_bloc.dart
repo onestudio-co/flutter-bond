@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:fixit/core/errors/failures.dart';
+import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:fixit/injection_container.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/repositories/auth_repository.dart';
@@ -29,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(failureOrAuth.fold(
       (failure) => AuthFailed(error: toMessage(failure)),
       (response) {
+        sl<AuthLocalDataSource>().removeToken();
         return const LogoutSuccess();
       },
     ));

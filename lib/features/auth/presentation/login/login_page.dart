@@ -3,7 +3,9 @@ import 'package:fixit/features/auth/presentation/login/login_bloc.dart';
 import 'package:fixit/features/auth/presentation/login/success_page.dart';
 import 'package:fixit/features/auth/presentation/widgets/custom_elevatedbutton_widget.dart';
 import 'package:fixit/features/auth/presentation/widgets/custom_textfield_widget.dart';
+import 'package:fixit/features/auth/presentation/widgets/loading_dialog_widget.dart';
 import 'package:fixit/injection_container.dart';
+import 'package:fixit/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
@@ -57,15 +59,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 body: FormBlocListener<LoginFormBloc, String, String>(
                   onSubmitting: (context, state) {
-                    //   LoadingDialog.show(context);
+                    LoadingDialog.show(context);
                   },
                   onSuccess: (context, state) {
-                    //    LoadingDialog.hide(context);
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_) => const SuccessScreen()));
+                    LoadingDialog.hide(context);
+                    context.router.navigate(HomeRoute());
+                    // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //     builder: (_) => const SuccessScreen()));
                   },
                   onFailure: (context, state) {
-                    //  LoadingDialog.hide(context);
+                    LoadingDialog.hide(context);
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(state.failureResponse!)));
                   },

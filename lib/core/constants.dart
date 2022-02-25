@@ -103,7 +103,7 @@ class Api {
   }
 
   static login() {
-    return "users/login";
+    return "login";
   }
 
   static register() {
@@ -139,7 +139,7 @@ class Api {
   }
 
   static logout() {
-    return "users/logout";
+    return "logout";
   }
 
   static delete() {

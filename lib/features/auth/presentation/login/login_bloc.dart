@@ -108,14 +108,18 @@ class LoginFormBloc extends FormBloc<String, String> {
   toMessage(Failure failure) {
     if (failure is ServerFailure) {
       error = failure.error["errors"];
+      print(error);
       if (failure.error["code"] != null) {
         code = failure.error["code"];
-      } else if (error['email'] != null) {
-        email.addFieldError(error['email']);
-      } else if (error['password'] != null) {
-        password.addFieldError(error['password']);
+      }
+
+      if (error['email'][0] != '') {
+        email.addFieldError(error['email'][0]);
+      } else if (error['password'][0] != '') {
+        password.addFieldError(error['password'][0]);
       }
     }
+
     return failure.toMessage();
   }
 
@@ -124,10 +128,14 @@ class LoginFormBloc extends FormBloc<String, String> {
       email.value,
       password.value,
     );
-    response.fold(
-      (failure) => emitFailure(failureResponse: toMessage(failure)),
-      (response) => emitSuccess(successResponse: response.data.toString()),
-    );
+
+    response.fold((failure) {
+      emitFailure(failureResponse: toMessage(failure));
+    }, (response) {
+      emitSuccess(canSubmitAgain: true);
+      print(response.data);
+      print(response.meta);
+    });
   }
 
   @override

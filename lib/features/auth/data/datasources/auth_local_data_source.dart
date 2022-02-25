@@ -54,6 +54,10 @@ class AuthLocalDataSource {
     }
   }
 
+  removeToken() {
+    sharedPreferences.clear();
+  }
+
   String getToken() {
     final token = sharedPreferences.getString(AuthLocalDataSource.cachedToken);
 

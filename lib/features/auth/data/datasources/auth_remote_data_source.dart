@@ -33,7 +33,7 @@ class AuthRemoteDataSource extends DataSource {
     };
 
     return mapSingleMResponse<User, UserMeta>(await client.post(
-      Api.login(),
+      'http://10.0.2.2:8000/api/auth/' + Api.login(),
       body: data,
       headers: Api.headers(),
     ));
@@ -128,7 +128,7 @@ class AuthRemoteDataSource extends DataSource {
 
   Future<void> logout(logoutFromOther) async {
     client.post(
-      Api.logout(),
+      'http://10.0.2.2/api/auth/' + Api.logout(),
       body: {
         "all": logoutFromOther.toString(),
       },

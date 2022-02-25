@@ -31,6 +31,7 @@ class AuthRepository {
   ) async {
     try {
       final response = await remoteDataSource.login(email, password);
+      print(response.data);
       await setUser(response);
       return Right(response);
     } on ServerException catch (e) {
@@ -93,12 +94,12 @@ class AuthRepository {
     appBloc.user = response.data;
     await localDataSource.setUser(toProfile(response));
     appBloc.token = response.meta.token;
-    appBloc.tokenWc = response.meta.wcToken;
+    //appBloc.tokenWc = response.meta.wcToken;
     localDataSource.setToken(response.meta.token);
-    localDataSource.setWooCommerceToken(response.meta.wcToken);
+    //localDataSource.setWooCommerceToken(response.meta.wcToken);
 
-    appBloc.mobile = response.data.mobile.replaceFirst("+966", "");
-    localDataSource.setMobile(response.data.mobile);
+    // appBloc.mobile = response.data.mobile.replaceFirst("+966", "");
+    //  localDataSource.setMobile(response.data.mobile);
   }
 
   SingleMResponse<User, ProfileMeta> toProfile(
@@ -111,7 +112,7 @@ class AuthRepository {
   setProfile(SingleMResponse<User, ProfileMeta> response) {
     appBloc.user = response.data;
     localDataSource.setUser(response);
-    localDataSource.setMobile(response.data.mobile);
+    // localDataSource.setMobile(response.data.mobile);
   }
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> completeRegistration(
