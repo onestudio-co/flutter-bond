@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [    
+        {
+                    "name": "Fixit",
+                    "program": "lib/main.dart",
+                    "request": "launch",
+                    "type": "dart",
+                    "args": [
+                            "--flavor",
+                            "staging" //development or staging or production
+                        ]
+            }
+    ]
+}
