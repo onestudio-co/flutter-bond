@@ -11,6 +11,6 @@ class Cache {
   static Future<bool> has(String key) => cacheDriver.has(key);
 
   static Future<bool> put(String key, dynamic value,
-          [Duration? expiredAfter]) =>
+          {Duration? expiredAfter}) =>
       cacheDriver.put(key, value, expiredAfter);
 }
