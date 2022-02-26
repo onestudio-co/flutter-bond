@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerFactory(() => AuthRemoteDataSource(it.get()));
     it.registerFactory(() => AuthLocalDataSource(it.get()));
 
-    it.registerLazySingleton(() => AuthRepository(it.get(), it.get()));
+    it.registerLazySingleton(() => AuthRepository(it.get()));
 
     it.registerFactory(() => GoogleAccountLoginService());
     it.registerFactory(() => AppleIdLoginService());

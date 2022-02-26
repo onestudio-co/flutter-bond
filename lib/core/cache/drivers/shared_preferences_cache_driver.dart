@@ -10,12 +10,15 @@ class SharedPreferencesCacheDriver implements CacheDriver {
   SharedPreferencesCacheDriver(this._sharedPreferences);
 
   @override
-  CacheDriverReturnType get(String key, [dynamic defaultValue]) {
+  CacheDriverReturnType get(String key,
+      {dynamic defaultValue, FromJsonFactory? factory}) {
     final String? stringCache = _sharedPreferences.getString(key);
     if (stringCache == null) return _handleDefaultValue(defaultValue);
     final Map<String, dynamic> jsonCache = jsonDecode(stringCache);
     final CacheData cache = CacheData.fromJson(jsonCache);
-    if (cache.isValid) return Future.value(cache.data);
+    if (cache.isValid) {
+      return Future.value(factory == null ? cache.data : factory(cache.data));
+    }
     _sharedPreferences.remove(key);
     return _handleDefaultValue(defaultValue);
   }
@@ -35,6 +38,9 @@ class SharedPreferencesCacheDriver implements CacheDriver {
     final String stringCache = jsonEncode(cache.toJson());
     return _sharedPreferences.setString(key, stringCache);
   }
+
+  @override
+  Future<bool> clear() => _sharedPreferences.clear();
 
   CacheDriverReturnType _handleDefaultValue(dynamic defaultValue) {
     if (defaultValue is Function) {
