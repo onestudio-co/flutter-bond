@@ -1,7 +1,7 @@
-typedef CacheDriverType = Future<dynamic>;
+typedef CacheDriverReturnType = Future<dynamic>;
 
 abstract class CacheDriver {
-  CacheDriverType get(String key, [dynamic defaultValue]);
+  CacheDriverReturnType get(String key, [dynamic defaultValue]);
   Future<bool> has(String key);
   Future<bool> put(String key, dynamic value, [Duration? expiredAfter]);
 }
