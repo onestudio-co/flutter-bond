@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:fixit/config/api.dart';
 import 'package:fixit/core/service_provider.dart';
 import 'package:get_it/get_it.dart';
 
@@ -13,7 +12,7 @@ class ApiServiceProvider extends ServiceProvider {
       sendTimeout: 1000 * 1000,
       receiveTimeout: 1000 * 1000,
       receiveDataWhenStatusError: true,
-      baseUrl: ApiConfig.baseUrl,
+      baseUrl: 'https://backend-develop.famcare.app/api/v2',
     );
 
     it.registerLazySingleton(() => Dio(baseOptions));
