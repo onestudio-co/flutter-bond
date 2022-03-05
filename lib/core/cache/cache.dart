@@ -16,6 +16,13 @@ class Cache {
           {Duration? expiredAfter}) =>
       cacheDriver.put(key, value, expiredAfter);
 
+  static Future<bool> add(String key, dynamic value,
+      {Duration? expiredAfter}) async {
+    final bool exist = await has(key);
+    if (!exist) return put(key, value, expiredAfter: expiredAfter);
+    return false;
+  }
+
   static Future<bool> forget(String key) => cacheDriver.forget(key);
 
   static Future<bool> increment(String key, [int amount = 1]) async {
