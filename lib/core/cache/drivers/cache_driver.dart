@@ -1,4 +1,5 @@
 typedef CacheDriverReturnType = Future<dynamic>;
+typedef CacheDriverFunctionType = Future<dynamic> Function();
 typedef FromJsonFactory = dynamic Function(Map<String, dynamic> json);
 
 abstract class CacheDriver {

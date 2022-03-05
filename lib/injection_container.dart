@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 
 import 'config/app.dart';
-import 'core/cache/cache.dart';
 import 'features/app/bloc/app_bloc.dart';
 
 final sl = GetIt.instance;
