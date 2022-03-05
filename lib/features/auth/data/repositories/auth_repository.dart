@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
+import 'package:fixit/core/cache/cache.dart';
 import 'package:fixit/core/errors/exceptions.dart';
 import 'package:fixit/core/errors/failures.dart';
 import 'package:fixit/core/extension.dart';
@@ -16,14 +17,17 @@ import 'package:fixit/features/auth/data/models/user_meta.dart';
 import 'package:fixit/features/profile/data/models/profile_meta.dart';
 import 'package:fixit/injection_container.dart';
 
-import '../datasources/auth_local_data_source.dart';
 import '../datasources/auth_remote_data_source.dart';
 
 class AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
-  final AuthLocalDataSource localDataSource;
 
-  AuthRepository(this.remoteDataSource, this.localDataSource);
+  static const cachedMobile = 'MOBILE';
+  static const cachedUser = 'PROFILE';
+  static const cachedToken = 'TOKEN';
+  static const cachedTokenWC = 'WC_TOKEN';
+
+  AuthRepository(this.remoteDataSource);
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> login(
     String number,
@@ -58,7 +62,8 @@ class AuthRepository {
     try {
       // TODO devmsh
       await loadCachedUser();
-      if (localDataSource.hasToken()) {
+      final hasToken = await Cache.has(cachedToken);
+      if (hasToken) {
         final response = await remoteDataSource.profile();
         setProfile(response);
 
@@ -74,15 +79,16 @@ class AuthRepository {
 
   Future loadCachedUser() async {
     try {
-      appBloc.token = localDataSource.getToken();
-      appBloc.tokenWc = await localDataSource.getWooCommerceToken();
-      var profileResponse = await localDataSource.getUser();
+      appBloc.token = await Cache.get(cachedToken);
+      appBloc.tokenWc = await Cache.get(cachedTokenWC);
+      var profileResponse = await Cache.get(cachedUser,
+          fromJsonFactory: SingleMResponse<User, ProfileMeta>.fromJson);
 
       appBloc.user = profileResponse.data;
 
       appBloc.profile = profileResponse.meta;
 
-      appBloc.mobile = await localDataSource.getMobile();
+      appBloc.mobile = await Cache.get(cachedMobile);
     } catch (e) {
       appBloc.token = "123";
       appBloc.tokenWc = null;
@@ -91,14 +97,16 @@ class AuthRepository {
 
   setUser(SingleMResponse<User, UserMeta> response) async {
     appBloc.user = response.data;
-    await localDataSource.setUser(toProfile(response));
+    await Cache.put(cachedUser, toProfile(response));
     appBloc.token = response.meta.token;
     appBloc.tokenWc = response.meta.wcToken;
-    localDataSource.setToken(response.meta.token);
-    localDataSource.setWooCommerceToken(response.meta.wcToken);
+
+    await Cache.put(cachedToken, response.meta.token);
+    await Cache.put(cachedTokenWC, response.meta.wcToken);
 
     appBloc.mobile = response.data.mobile.replaceFirst("+966", "");
-    localDataSource.setMobile(response.data.mobile);
+
+    await Cache.put(cachedMobile, response.data.mobile.englishNumbers());
   }
 
   SingleMResponse<User, ProfileMeta> toProfile(
@@ -108,10 +116,10 @@ class AuthRepository {
         response.data, ProfileMeta(restoredUser: true, id: response.data.id));
   }
 
-  setProfile(SingleMResponse<User, ProfileMeta> response) {
+  setProfile(SingleMResponse<User, ProfileMeta> response) async {
     appBloc.user = response.data;
-    localDataSource.setUser(response);
-    localDataSource.setMobile(response.data.mobile);
+    await Cache.put(cachedUser, response);
+    await Cache.put(cachedMobile, response.data.mobile.englishNumbers());
   }
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> completeRegistration(
@@ -152,7 +160,7 @@ class AuthRepository {
 
   Future<Either<Failure, String>> lastLoginMobile() async {
     try {
-      final response = await localDataSource.getMobile();
+      final response = await Cache.get(cachedMobile);
       return Right(response);
     } on CacheException {
       return Left(CacheFailure());
@@ -268,7 +276,8 @@ class AuthRepository {
   }
 
   Future<Either<Failure, SuccessResponse>> updateToken() async {
-    if (localDataSource.hasToken()) {
+    final hasToken = await Cache.has(cachedToken);
+    if (hasToken) {
       try {
         final response = await remoteDataSource.updateToken();
         return Right(response);
@@ -282,7 +291,7 @@ class AuthRepository {
   }
 
   clearAppData() {
-    localDataSource.clearAppData();
+    Cache.clear();
   }
 
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> loginWithSocial({
