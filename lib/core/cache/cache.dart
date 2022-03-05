@@ -58,5 +58,8 @@ class Cache {
     put(key, result);
   }
 
+  static CacheDriver store(String storeName) =>
+      sl<CacheDriver>(instanceName: storeName);
+
   static void clear() => cacheDriver.flush();
 }
