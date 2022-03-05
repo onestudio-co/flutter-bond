@@ -7,6 +7,7 @@ abstract class CacheDriver {
       {dynamic defaultValue, FromJsonFactory? factory});
   Future<bool> has(String key);
   Future<bool> put(String key, dynamic value, [Duration? expiredAfter]);
+  Future<bool> forget(String key);
   Future<bool> clear();
 }
 

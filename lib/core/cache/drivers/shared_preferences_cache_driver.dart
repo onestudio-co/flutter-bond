@@ -40,6 +40,9 @@ class SharedPreferencesCacheDriver implements CacheDriver {
   }
 
   @override
+  Future<bool> forget(String key) => _sharedPreferences.remove(key);
+
+  @override
   Future<bool> clear() => _sharedPreferences.clear();
 
   CacheDriverReturnType _handleDefaultValue(dynamic defaultValue) {

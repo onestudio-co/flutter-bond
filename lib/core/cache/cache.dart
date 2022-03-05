@@ -16,6 +16,8 @@ class Cache {
           {Duration? expiredAfter}) =>
       cacheDriver.put(key, value, expiredAfter);
 
+  static Future<bool> forget(String key) => cacheDriver.forget(key);
+
   static Future<bool> increment(String key, [int amount = 1]) async {
     final int value = await get(key);
     return put(key, value + amount);
@@ -24,6 +26,12 @@ class Cache {
   static Future<bool> decrement(String key, [int amount = 1]) async {
     final int value = await get(key);
     return put(key, value - amount);
+  }
+
+  static CacheDriverReturnType pull(String key) async {
+    final value = await get(key);
+    await forget(key);
+    return value;
   }
 
   static Future<void> remember(
