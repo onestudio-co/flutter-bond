@@ -49,5 +49,5 @@ class Cache {
     put(key, result);
   }
 
-  static void clear() => cacheDriver.clear();
+  static void clear() => cacheDriver.flush();
 }
