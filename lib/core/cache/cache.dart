@@ -23,6 +23,8 @@ class Cache {
     return false;
   }
 
+  static Future<bool> forever(String key, dynamic value) => put(key, value);
+
   static Future<bool> forget(String key) => cacheDriver.forget(key);
 
   static Future<bool> increment(String key, [int amount = 1]) async {
