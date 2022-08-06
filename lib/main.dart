@@ -1,12 +1,27 @@
+import 'dart:io';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bond/core/theme/bond_light_theme_data.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import 'injection_container.dart';
+import 'package:one_studio_core/external_packages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await init();
-  runApp(BondApp(appRouter: sl<AppRouter>()));
+  runApp(
+    EasyLocalization(
+      child: BondApp(appRouter: sl<AppRouter>()),
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      fallbackLocale: const Locale('en'),
+      path: 'assets/langs',
+    ),
+  );
 }
 
 class BondApp extends StatelessWidget {
@@ -16,9 +31,27 @@ class BondApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerDelegate: appRouter.delegate(),
-      routeInformationParser: appRouter.defaultRouteParser(),
+    return ScreenUtilInit(
+      minTextAdapt: true,
+      splitScreenMode: true,
+      designSize: const Size(375, 812),
+      builder: (context, child) => MaterialApp.router(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        builder: (context, child) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaleFactor: Platform.isIOS ? 1.0 : 1.1,
+            ),
+            child: child!,
+          );
+        },
+        debugShowCheckedModeBanner: false,
+        routerDelegate: appRouter.delegate(),
+        routeInformationParser: appRouter.defaultRouteParser(),
+        theme: bondLightThemeData(),
+      ),
     );
   }
 }
