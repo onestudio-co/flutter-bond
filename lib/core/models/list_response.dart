@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:fixit/core/models/response_converter.dart';
+import 'package:bond/core/models/response_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'meta.dart';

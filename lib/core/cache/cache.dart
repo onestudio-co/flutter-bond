@@ -1,4 +1,4 @@
-import 'package:fixit/injection_container.dart';
+import 'package:bond/injection_container.dart';
 
 import 'drivers/cache_driver.dart';
 

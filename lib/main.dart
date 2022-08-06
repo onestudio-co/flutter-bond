@@ -1,4 +1,4 @@
-import 'package:fixit/routes/app_router.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import 'injection_container.dart';

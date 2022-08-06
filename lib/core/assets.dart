@@ -548,7 +548,7 @@ class Strings {
 
   static String day = "اليوم";
 
-  static String fixitName = "فامكير";
+  static String bondName = "فامكير";
   static String updateVersion = "حدث نسختك";
   static String myInformation = "ملف معلوماتي";
   static String subMyInformation = "الحالة الإجتماعية، الصحة، التعليم، العمل";
@@ -652,9 +652,9 @@ class Strings {
       "يسعدنا تقيم تطبيق فامكير الآن على متجر التطبيقات";
   static String rateApp = "تقييم التطبيق";
   static String iosLinkApp =
-      "https://apps.apple.com/us/app/fixit/id1517781498";
+      "https://apps.apple.com/us/app/bond/id1517781498";
   static String androidLinkApp =
-      "https://play.google.com/store/apps/details?id=sa.app.fixit.specialist&hl=ar&gl=US";
+      "https://play.google.com/store/apps/details?id=sa.app.bond.specialist&hl=ar&gl=US";
 
   static String unAbilityToPay = "غير قادر على دفع قيمة الجلسة؟";
   static String descriptionUnAbilityToPay =
@@ -707,9 +707,9 @@ class Strings {
   static String schelduleSessionSuess = "تم حجز الجلسة بنجاح";
   static String descriptionProblem =
       "كتابتك لمشكلتك سيساعد ${Strings.consultant} على فهم ما تحتاجه أكثر ويوفر عليك وقت الشرح داخل الجلسة";
-  static String clientIdForAppleID = 'com.fixit.services-id';
+  static String clientIdForAppleID = 'com.bond.services-id';
   static String redirectUriForAppleID =
-      'https://backend-develop.fixit.app/callback/apple';
+      'https://backend-develop.bond.app/callback/apple';
   static String createAccount = "انشاء حساب";
   static String ratingQuestionText = "كيف تقيم جلستك السابقة مع";
   static String sendRate = 'إرسال التقييم';

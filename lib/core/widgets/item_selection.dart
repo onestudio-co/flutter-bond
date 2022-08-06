@@ -1,4 +1,4 @@
-import 'package:fixit/core/theme/fixit_text_theme.dart';
+import 'package:bond/core/theme/bond_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

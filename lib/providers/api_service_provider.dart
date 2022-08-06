@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fixit/core/service_provider.dart';
+import 'package:bond/core/service_provider.dart';
 import 'package:get_it/get_it.dart';
 
 import '../core/api_client.dart';

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:fixit/core/constants.dart';
-import 'package:fixit/routes/app_router.dart';
+import 'package:bond/core/constants.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 class LaunchPage extends StatefulWidget {

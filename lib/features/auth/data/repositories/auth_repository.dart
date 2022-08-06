@@ -1,21 +1,21 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:fixit/core/cache/cache.dart';
-import 'package:fixit/core/errors/exceptions.dart';
-import 'package:fixit/core/errors/failures.dart';
-import 'package:fixit/core/extension.dart';
-import 'package:fixit/core/models/list_response.dart';
-import 'package:fixit/core/models/single_m_response.dart';
-import 'package:fixit/core/models/single_response.dart';
-import 'package:fixit/core/models/success_response.dart';
-import 'package:fixit/features/auth/data/dto/complete_registration.dart';
-import 'package:fixit/features/auth/data/dto/social_account_user.dart';
-import 'package:fixit/features/auth/data/models/country.dart';
-import 'package:fixit/features/auth/data/models/user.dart';
-import 'package:fixit/features/auth/data/models/user_meta.dart';
-import 'package:fixit/features/profile/data/models/profile_meta.dart';
-import 'package:fixit/injection_container.dart';
+import 'package:bond/core/cache/cache.dart';
+import 'package:bond/core/errors/exceptions.dart';
+import 'package:bond/core/errors/failures.dart';
+import 'package:bond/core/extension.dart';
+import 'package:bond/core/models/list_response.dart';
+import 'package:bond/core/models/single_m_response.dart';
+import 'package:bond/core/models/single_response.dart';
+import 'package:bond/core/models/success_response.dart';
+import 'package:bond/features/auth/data/dto/complete_registration.dart';
+import 'package:bond/features/auth/data/dto/social_account_user.dart';
+import 'package:bond/features/auth/data/models/country.dart';
+import 'package:bond/features/auth/data/models/user.dart';
+import 'package:bond/features/auth/data/models/user_meta.dart';
+import 'package:bond/features/profile/data/models/profile_meta.dart';
+import 'package:bond/injection_container.dart';
 
 import '../datasources/auth_remote_data_source.dart';
 

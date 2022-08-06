@@ -8,6 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  one_studio_core:
+    path: packages/core
   equatable: ^2.0.3
   json_annotation: ^4.4.0
   sign_in_with_apple: ^3.3.0

@@ -1,5 +1,5 @@
-import 'package:fixit/core/widgets/fixit_text_field.dart';
-import 'package:fixit/core/widgets/pin_field_auto_fill.dart';
+import 'package:bond/core/widgets/bond_text_field.dart';
+import 'package:bond/core/widgets/pin_field_auto_fill.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

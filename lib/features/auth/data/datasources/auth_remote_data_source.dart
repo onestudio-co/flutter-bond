@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:fixit/core/api_client.dart';
-import 'package:fixit/core/constants.dart';
-import 'package:fixit/core/data_soruce.dart';
-import 'package:fixit/core/extension.dart';
-import 'package:fixit/core/models/list_response.dart';
-import 'package:fixit/core/models/single_m_response.dart';
-import 'package:fixit/core/models/single_response.dart';
-import 'package:fixit/core/models/success_response.dart';
-import 'package:fixit/core/utils.dart';
-import 'package:fixit/features/profile/data/models/profile_meta.dart';
+import 'package:bond/core/api_client.dart';
+import 'package:bond/core/constants.dart';
+import 'package:bond/core/data_soruce.dart';
+import 'package:bond/core/extension.dart';
+import 'package:bond/core/models/list_response.dart';
+import 'package:bond/core/models/single_m_response.dart';
+import 'package:bond/core/models/single_response.dart';
+import 'package:bond/core/models/success_response.dart';
+import 'package:bond/core/utils.dart';
+import 'package:bond/features/profile/data/models/profile_meta.dart';
 
 import '../dto/complete_registration.dart';
 import '../dto/social_account_user.dart';
