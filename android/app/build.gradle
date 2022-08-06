@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "sa.example.fixit"
+        applicationId "sa.example.bond"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
