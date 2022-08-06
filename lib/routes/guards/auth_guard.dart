@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fixit/core/auth/auth.dart';
 
-import '../app_router.dart';
-
 class AuthGuard extends AutoRouteGuard {
   @override
   Future<void> onNavigation(
@@ -12,8 +10,7 @@ class AuthGuard extends AutoRouteGuard {
     if (Auth.check()) {
       resolver.next(true);
     } else {
-      final bool result = await router.push<bool>(const LoginRoute()) ?? false;
-      resolver.next(result);
+      // TODO: Push to LoginPage if user not Authorized.
     }
   }
 }
