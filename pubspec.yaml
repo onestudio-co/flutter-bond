@@ -1,5 +1,5 @@
-name: fixit
-description: Fixit project.
+name: bond
+description: Bond project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
