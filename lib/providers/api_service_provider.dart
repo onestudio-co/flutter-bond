@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:bond/core/service_provider.dart';
 import 'package:get_it/get_it.dart';
+import 'package:one_studio_core/core.dart';
 
-import '../core/api_client.dart';
+import '../config/api.dart';
 
 class ApiServiceProvider extends ServiceProvider {
   @override
@@ -12,7 +12,7 @@ class ApiServiceProvider extends ServiceProvider {
       sendTimeout: 1000 * 1000,
       receiveTimeout: 1000 * 1000,
       receiveDataWhenStatusError: true,
-      baseUrl: 'https://backend-develop.famcare.app/api/v2',
+      baseUrl: ApiConfig.baseUrl,
     );
 
     it.registerLazySingleton(() => Dio(baseOptions));

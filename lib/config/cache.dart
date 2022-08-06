@@ -1,6 +1,4 @@
-import 'package:bond/core/cache/drivers/shared_preferences_cache_driver.dart';
-
-import '../core/cache/drivers/in_memory_cache_driver.dart';
+import 'package:one_studio_core/core.dart';
 
 class CacheConfig {
   static var defaultStore = 'shared_preference';

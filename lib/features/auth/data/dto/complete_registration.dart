@@ -1,5 +1,3 @@
-import 'gender.dart';
-
 class CompleteRegistration {
   final String countryId;
   final String countryName;
@@ -7,7 +5,6 @@ class CompleteRegistration {
   final String name;
   final String referralCode;
   final String? city;
-  final int gender;
   final String martial;
   final String cityName;
 
@@ -18,7 +15,6 @@ class CompleteRegistration {
       required this.name,
       required this.referralCode,
       this.city,
-      required this.gender,
       required this.martial,
       required this.cityName});
 
@@ -28,7 +24,6 @@ class CompleteRegistration {
         "country_id": countryId,
         "dob": dob,
         "city_id": city,
-        "gender": UserGender(gender).text,
         "martial_status": martial,
         "referral_link": ''
       };

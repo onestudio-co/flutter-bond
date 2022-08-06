@@ -1,5 +1,5 @@
-import 'package:bond/core/models/model.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:one_studio_core/core.dart';
 
 part 'profile_meta.g.dart';
 

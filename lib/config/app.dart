@@ -1,11 +1,10 @@
-import 'package:bond/providers/api_service_provider.dart';
-import 'package:bond/providers/app_service_provider.dart';
-import 'package:bond/features/auth/auth_service_provider.dart';
-import 'package:bond/providers/config_service_provider.dart';
+import '../features/auth/auth_service_provider.dart';
 
-import '../core/service_provider.dart';
+import '../providers/api_service_provider.dart';
+import '../providers/app_service_provider.dart';
+import '../providers/config_service_provider.dart';
 
-final List<ServiceProvider> providers = [
+final List providers = [
   // Framework Service Providers
   ConfigServiceProvider(),
   ApiServiceProvider(),
