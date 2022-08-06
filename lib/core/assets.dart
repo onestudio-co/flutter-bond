@@ -533,7 +533,7 @@ class Strings {
       " من أولوياتنا، يرجى تحديث نسختك الحالية";
   static String updateNow = "تحديث";
   static String updateLater = "لاحقا";
-  static String howToUseFixit = "كيف أستخدم فامكير";
+  static String howToUseBond = "كيف أستخدم فامكير";
   static String noChange = "لا يوجد تغير على البيانات";
   static String editPageProfile = "البيانات الاساسية";
   static String settingProfile = "اعدادات الحساب";
@@ -699,8 +699,8 @@ class Strings {
   static String clients = "العملاء";
   static String returningClients = "العملاء العائدين";
   static String chooseConsultant = "اختر ${Strings.aConsultant}";
-  static String spFromFixit = "اختيار تلقائي من النظام";
-  static String desSpFromFixit =
+  static String spFromBond = "اختيار تلقائي من النظام";
+  static String desSpFromBond =
       "اذا كنت لا تعرف ${Strings.aConsultant} معينة، سيساعدك تطبيق فامكير على اختيار ${Strings.aConsultant} مناسبة لحالتك بشكل تلقائي، اضغط على الزر بالأسفل للدخول لجلسة مباشرة.";
   static String startNowSession = "بدء جلسة مباشرة";
   static String startSessionSuess = "تم بدء الجلسة بنجاح";
