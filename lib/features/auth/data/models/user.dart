@@ -1,5 +1,5 @@
-import 'package:fixit/core/auth/authenticable.dart';
-import 'package:fixit/core/models/model.dart';
+import 'package:bond/core/auth/authenticable.dart';
+import 'package:bond/core/models/model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'country.dart';

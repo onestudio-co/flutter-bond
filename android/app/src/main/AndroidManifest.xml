@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fixit">
+    package="com.example.bond">
    <application
-        android:label="fixit"
+        android:label="bond"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

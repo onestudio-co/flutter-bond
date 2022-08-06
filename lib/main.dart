@@ -1,4 +1,4 @@
-import 'package:fixit/routes/app_router.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import 'injection_container.dart';
@@ -6,11 +6,11 @@ import 'injection_container.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
-  runApp(FixitApp(appRouter: sl<AppRouter>()));
+  runApp(BondApp(appRouter: sl<AppRouter>()));
 }
 
-class FixitApp extends StatelessWidget {
-  const FixitApp({Key? key, required this.appRouter}) : super(key: key);
+class BondApp extends StatelessWidget {
+  const BondApp({Key? key, required this.appRouter}) : super(key: key);
 
   final AppRouter appRouter;
 

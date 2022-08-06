@@ -1,9 +1,9 @@
 import 'dart:core';
 import 'dart:io';
 
-import 'package:fixit/core/cache/drivers/cache_driver.dart';
-import 'package:fixit/core/cache/drivers/in_memory_cache_driver.dart';
-import 'package:fixit/core/service_provider.dart';
+import 'package:bond/core/cache/drivers/cache_driver.dart';
+import 'package:bond/core/cache/drivers/in_memory_cache_driver.dart';
+import 'package:bond/core/service_provider.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:get_it/get_it.dart';
 

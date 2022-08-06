@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fixit/core/auth/auth.dart';
+import 'package:bond/core/auth/auth.dart';
 
 class AuthGuard extends AutoRouteGuard {
   @override

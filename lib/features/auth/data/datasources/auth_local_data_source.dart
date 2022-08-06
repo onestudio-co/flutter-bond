@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:fixit/core/errors/exceptions.dart';
-import 'package:fixit/core/extension.dart';
-import 'package:fixit/core/models/single_m_response.dart';
-import 'package:fixit/features/auth/data/models/user.dart';
-import 'package:fixit/features/profile/data/models/profile_meta.dart';
+import 'package:bond/core/errors/exceptions.dart';
+import 'package:bond/core/extension.dart';
+import 'package:bond/core/models/single_m_response.dart';
+import 'package:bond/features/auth/data/models/user.dart';
+import 'package:bond/features/profile/data/models/profile_meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthLocalDataSource {

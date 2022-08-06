@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class FixitTextTheme extends TextTheme {
+class BondTextTheme extends TextTheme {
   @override
   TextStyle get headline3 => const TextStyle(
         fontSize: 40,

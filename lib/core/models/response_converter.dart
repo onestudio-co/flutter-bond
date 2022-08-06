@@ -1,4 +1,4 @@
-import 'package:fixit/config/app.dart';
+import 'package:bond/config/app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 

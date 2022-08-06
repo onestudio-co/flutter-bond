@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fixit/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:bond/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
