@@ -12,7 +12,7 @@ class BondPadding {
 }
 
 class BondSizes {
-  //TODO Height Sizes
+  //* Hieght Sizes
   static double h3 = SizeUtil.setHeight(3.0);
   static double h7 = SizeUtil.setHeight(7.0);
   static double h8 = SizeUtil.setHeight(8.0);
@@ -31,7 +31,7 @@ class BondSizes {
   static double h111 = SizeUtil.setHeight(111.0);
   static double h405 = SizeUtil.setHeight(405.0);
 
-  //TODO Width Sizes
+  //* Width Sizes
   static double w2 = SizeUtil.setWidth(2.0);
   static double w7 = SizeUtil.setWidth(7.0);
   static double w8 = SizeUtil.setWidth(8.0);
