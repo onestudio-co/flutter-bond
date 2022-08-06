@@ -219,7 +219,7 @@ packages:
     source: hosted
     version: "0.10.1"
   device_info:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: device_info
       url: "https://pub.dartlang.org"
@@ -240,14 +240,14 @@ packages:
     source: hosted
     version: "0.4.1"
   dio:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.4"
   equatable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -261,7 +261,7 @@ packages:
     source: hosted
     version: "1.2.0"
   faker:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: faker
       url: "https://pub.dartlang.org"
@@ -346,7 +346,7 @@ packages:
     source: hosted
     version: "2.1.2"
   get_it:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: get_it
       url: "https://pub.dartlang.org"
@@ -401,6 +401,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.4"
+  http_mock_adapter:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: a1a5209471e3c27d43e3d79172b902f7ada4db4b
+      url: "https://github.com/lomsa-dev/http-mock-adapter.git"
+    source: git
+    version: "0.3.3"
   http_multi_server:
     dependency: transitive
     description:
@@ -437,7 +446,7 @@ packages:
     source: hosted
     version: "0.6.3"
   json_annotation:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
@@ -449,7 +458,7 @@ packages:
       name: json_serializable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.4"
+    version: "6.1.6"
   lints:
     dependency: transitive
     description:
@@ -492,13 +501,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  mockito:
-    dependency: "direct main"
-    description:
-      name: mockito
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.17"
   mocktail:
     dependency: transitive
     description:
@@ -535,7 +537,7 @@ packages:
     source: hosted
     version: "2.0.2"
   package_info_plus:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: package_info_plus
       url: "https://pub.dartlang.org"
@@ -696,7 +698,7 @@ packages:
     source: hosted
     version: "3.0.1+1"
   shared_preferences:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"
@@ -825,7 +827,7 @@ packages:
       name: source_helper
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.1"
+    version: "1.3.2"
   source_map_stack_trace:
     dependency: transitive
     description:

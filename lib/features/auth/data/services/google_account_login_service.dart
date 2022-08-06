@@ -1,5 +1,6 @@
-import 'package:bond/features/auth/data/dto/social_account_user.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../dto/social_account_user.dart';
 
 class GoogleAccountLoginService {
   GoogleSignInAccount? _currentUser;

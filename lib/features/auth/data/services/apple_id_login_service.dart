@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:bond/features/auth/data/dto/social_account_user.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
+import '../dto/social_account_user.dart';
 
 class AppleIdLoginService {
   AuthorizationCredentialAppleID? _appleID;

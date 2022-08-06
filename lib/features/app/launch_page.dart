@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/core/constants.dart';
+import 'package:bond/core/resources/bond_colors.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class _LaunchPageState extends State<LaunchPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Constant.violetColorExtraDark,
+      color: BondColors.white,
       child: const Center(
         child: SizedBox(height: 120, width: 120, child: FlutterLogo()),
       ),
