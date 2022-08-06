@@ -43,27 +43,19 @@ flutter:
   uses-material-design: true
 
   assets:
-    # - config/app_config.json
+    - assets/fonts/
+    - assets/icons/
     - assets/images/
-    - assets/fixture_reader/
-    - assets/fixture_reader/settings/
-    - assets/fixture_reader/conversations/
-    - assets/fixture_reader/conversationsMessage/
-    - assets/fixture_reader/sendMessage/
-    - assets/sounds/
-  fonts:
-    - family: Famtree-Bold
-      fonts:
-        - asset: assets/fonts/Famtree-Bold.ttf
+    - assets/langs/
 
-    - family: Famtree-Light
-      fonts:
-        - asset: assets/fonts/Famtree-Light.ttf
-
-    - family: Famtree-Medium
-      fonts:
-        - asset: assets/fonts/Famtree-Medium.ttf
-
-    - family: Famtree-Regular
-      fonts:
-        - asset: assets/fonts/Famtree-Regular.ttf
+# If you want to use any fonts, added it to assets/fonts folder
+# Or use Google Fonts Package
+  # fonts:
+    # - family: Montserrat
+    #   fonts:
+    #     - asset: assets/fonts/Montserrat-Arabic-Bold.ttf
+    #       weight: 700
+    #     - asset: assets/fonts/Montserrat-Arabic-Medium.ttf
+    #       weight: 500
+    #     - asset: assets/fonts/Montserrat-Arabic-Regular .ttf
+    #       weight: 400
