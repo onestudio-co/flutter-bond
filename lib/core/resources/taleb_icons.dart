@@ -1,3 +1,3 @@
 class TalebIcons {
-  static const String test = 'assets/icons/test.svg';
+  static const String splashLogo = 'assets/icons/splash_logo.svg';
 }

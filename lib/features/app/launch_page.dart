@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:taleb/core/resources/taleb_colors.dart';
-import 'package:taleb/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:taleb/core/resources/taleb_colors.dart';
+import 'package:taleb/core/resources/taleb_icons.dart';
+import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class LaunchPage extends StatefulWidget {
   const LaunchPage({Key? key}) : super(key: key);
@@ -22,9 +25,12 @@ class _LaunchPageState extends State<LaunchPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: TalebColors.white,
-      child: const Center(
-        child: SizedBox(height: 120, width: 120, child: FlutterLogo()),
+      color: TalebColors.blueRegular,
+      child: Center(
+        child: SizedBox(
+            height: TalebSizes.h200,
+            width: TalebSizes.w200,
+            child: SvgPicture.asset(TalebIcons.splashLogo)),
       ),
     );
   }
