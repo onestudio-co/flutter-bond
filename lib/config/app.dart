@@ -4,7 +4,7 @@ import '../providers/api_service_provider.dart';
 import '../providers/app_service_provider.dart';
 import '../providers/config_service_provider.dart';
 
-final List providers = [
+final providers = [
   // Framework Service Providers
   ConfigServiceProvider(),
   ApiServiceProvider(),
