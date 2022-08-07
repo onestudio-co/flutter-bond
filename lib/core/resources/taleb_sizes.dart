@@ -1,14 +1,26 @@
 import 'package:one_studio_core/core.dart';
 
 class TalebBorderRadius {
+  static double r0 = SizeUtil.setRadius(0.0);
+  static double r8 = SizeUtil.setRadius(8.0);
+  static double r12 = SizeUtil.setRadius(12.0);
   static double r16 = SizeUtil.setRadius(16.0);
+  static double r24 = SizeUtil.setRadius(24.0);
+  static double r32 = SizeUtil.setRadius(32.0);
 }
 
 class TalebPadding {
-  static double p16 = SizeUtil.setPadding(16.0);
-  static double p24 = SizeUtil.setPadding(24.0);
+  static double p1 = SizeUtil.setPadding(1.0);
+  static double p2 = SizeUtil.setPadding(2.0);
+  static double p4 = SizeUtil.setPadding(4.0);
+  static double p8 = SizeUtil.setPadding(8.0);
   static double p12 = SizeUtil.setPadding(12.0);
-  static double p6 = SizeUtil.setPadding(6.0);
+  static double p16 = SizeUtil.setPadding(16.0);
+  static double p20 = SizeUtil.setPadding(20.0);
+  static double p24 = SizeUtil.setPadding(24.0);
+  static double p32 = SizeUtil.setPadding(32.0);
+  static double p48 = SizeUtil.setPadding(48.0);
+  static double p96 = SizeUtil.setPadding(96.0);
 }
 
 class TalebSizes {
