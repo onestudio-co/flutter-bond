@@ -1,5 +1,4 @@
-import 'package:bond/core/env_helpers.dart';
 
 class ApiConfig {
-  static var baseUrl = env('API_BASE_URL');
+  static var baseUrl = 'https://backend-develop.famcare.app/api/v2/';
 }
