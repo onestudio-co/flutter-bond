@@ -1,15 +1,13 @@
-import 'package:get_it/get_it.dart';
+import 'package:one_studio_core/core.dart' as core;
 
 import 'config/app.dart';
 import 'features/app/bloc/app_bloc.dart';
 
-final sl = GetIt.instance;
 App appBloc = App();
 
 Future<void> init() async {
-  sl.allowReassignment = true;
-
   for (var provider in providers) {
-    await provider.register(sl);
+    await provider.register(core.sl);
   }
+  core.providers = providers;
 }
