@@ -7,6 +7,7 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color? color) {
   return GoogleFonts.cairo(
     fontSize: fontSize,
     fontWeight: fontWeight,
+    color: color,
   );
 }
 
@@ -26,6 +27,6 @@ TextStyle getMediumStyle({required double fontSize, Color? color}) {
 }
 
 // Bold TextStyle
-TextStyle getBoldStyle({required double fontSize, required Color color}) {
+TextStyle getBoldStyle({required double fontSize, Color? color}) {
   return _getTextStyle(fontSize, TalebFontWeight.bold, color);
 }

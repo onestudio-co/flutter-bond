@@ -14,15 +14,15 @@ ThemeData talebLightThemeData() {
     disabledColor: TalebColors.blueDark, // this for disabled button color
     splashColor: TalebColors.greyLight,
     backgroundColor: TalebColors.blueDark,
-    scaffoldBackgroundColor: TalebColors.blueDark,
+    scaffoldBackgroundColor: TalebColors.ghostWhite,
 
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: TalebColors.greyLight,
+      color: TalebColors.ghostWhite,
       elevation: 0,
       titleTextStyle:
-          getBoldStyle(color: TalebColors.blueDark, fontSize: TalebFontSize.s14),
+          getBoldStyle(color: TalebColors.customeBlue, fontSize: TalebFontSize.s14),
     ),
 
     /// Button theme

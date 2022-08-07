@@ -17,4 +17,6 @@ class TalebColors {
   static const Color gainsBoro = Color(0xFFE8F0F2);
   static const Color ghostWhite = Color(0xFFF8F7FB);
   static const Color spanishGray = Color(0xFF999999);
+  //! shoud rename from Fuaad
+  static const Color customeBlue = Color(0xFF113740);
 }
