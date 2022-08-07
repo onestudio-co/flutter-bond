@@ -8,13 +8,13 @@ import '../resources/taleb_text_theme.dart';
 ThemeData talebLightThemeData() {
   return ThemeData(
     /// main color of the app
-    primaryColor: TalebColors.green,
-    primaryColorLight: TalebColors.cetaceanBlue,
-    primaryColorDark: TalebColors.greyDark,
-    disabledColor: TalebColors.persianGreen, // this for disabled button color
+    primaryColor: TalebColors.blueDark,
+    primaryColorLight: TalebColors.blueDark,
+    primaryColorDark: TalebColors.blueDark,
+    disabledColor: TalebColors.blueDark, // this for disabled button color
     splashColor: TalebColors.greyLight,
-    backgroundColor: TalebColors.background,
-    scaffoldBackgroundColor: TalebColors.background,
+    backgroundColor: TalebColors.blueDark,
+    scaffoldBackgroundColor: TalebColors.blueDark,
 
     /// AppBar theme
     appBarTheme: AppBarTheme(
@@ -22,14 +22,14 @@ ThemeData talebLightThemeData() {
       color: TalebColors.greyLight,
       elevation: 0,
       titleTextStyle:
-          getBoldStyle(color: TalebColors.green, fontSize: TalebFontSize.s14),
+          getBoldStyle(color: TalebColors.blueDark, fontSize: TalebFontSize.s14),
     ),
 
     /// Button theme
     buttonTheme: const ButtonThemeData(
       shape: RoundedRectangleBorder(),
       disabledColor: TalebColors.greyLight,
-      buttonColor: TalebColors.greenLight,
+      buttonColor: TalebColors.blueDark,
     ),
 
     /// Text Theme
