@@ -1,3 +1,7 @@
 import 'package:auto_route/annotations.dart';
 
-const authRoutes = <AutoRoute>[];
+import 'presentation/login_page.dart';
+
+const authRoutes = <AutoRoute>[
+  AutoRoute(page: LoginPage),
+];

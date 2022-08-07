@@ -14,7 +14,7 @@ ThemeData bondLightThemeData() {
     disabledColor: BondColors.persianGreen, // this for disabled button color
     splashColor: BondColors.greyLight,
     backgroundColor: BondColors.background,
-    scaffoldBackgroundColor: BondColors.green,
+    scaffoldBackgroundColor: BondColors.background,
 
     /// AppBar theme
     appBarTheme: AppBarTheme(

@@ -28,13 +28,18 @@ class _$AppRouter extends RootStackRouter {
     HomeRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const HomePage());
+    },
+    LoginRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const LoginPage());
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
-        RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard])
+        RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard]),
+        RouteConfig(LoginRoute.name, path: '/login-page')
       ];
 }
 
@@ -52,4 +57,12 @@ class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '/home-page');
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
+
+  static const String name = 'LoginRoute';
 }
