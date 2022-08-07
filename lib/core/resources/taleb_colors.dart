@@ -19,4 +19,7 @@ class TalebColors {
   static const Color spanishGray = Color(0xFF999999);
   //! shoud rename from Fuaad
   static const Color customeBlue = Color(0xFF113740);
+  static const Color customeBlack = Color(0xFF242424);
+  static const Color customeBackground = Color(0xFFEDF3F5);
+  static const Color customeAppbarColor = Color(0xFF1C5866);
 }
