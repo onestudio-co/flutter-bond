@@ -1,4 +1,4 @@
-class BondStrings {
+class TalebStrings {
   // OnBoarding
   static const String next = 'التالي';
   static const String skip = 'تخطي';

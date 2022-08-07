@@ -1,5 +1,5 @@
-name: bond
-description: Bond project.
+name: taleb
+description: Taleb project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 

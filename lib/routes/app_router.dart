@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/features/auth/presentation/login_page.dart';
-import 'package:bond/features/home/home_page.dart';
-import 'package:bond/routes/guards/auth_guard.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:taleb/features/auth/presentation/login_page.dart';
 
 import '../features/app/launch_page.dart';
 import '../features/auth/routes.dart';
+import '../features/home/home_page.dart';
+import 'guards/auth_guard.dart';
 
 part 'app_router.gr.dart';
 

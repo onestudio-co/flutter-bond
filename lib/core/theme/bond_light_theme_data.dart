@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
 
-import '../resources/bond_colors.dart';
-import '../resources/bond_fonts.dart';
-import '../resources/bond_styles.dart';
-import '../resources/bond_text_theme.dart';
+import '../resources/taleb_colors.dart';
+import '../resources/taleb_fonts.dart';
+import '../resources/taleb_styles.dart';
+import '../resources/taleb_text_theme.dart';
 
-ThemeData bondLightThemeData() {
+ThemeData talebLightThemeData() {
   return ThemeData(
     /// main color of the app
-    primaryColor: BondColors.green,
-    primaryColorLight: BondColors.cetaceanBlue,
-    primaryColorDark: BondColors.greyDark,
-    disabledColor: BondColors.persianGreen, // this for disabled button color
-    splashColor: BondColors.greyLight,
-    backgroundColor: BondColors.background,
-    scaffoldBackgroundColor: BondColors.background,
+    primaryColor: TalebColors.green,
+    primaryColorLight: TalebColors.cetaceanBlue,
+    primaryColorDark: TalebColors.greyDark,
+    disabledColor: TalebColors.persianGreen, // this for disabled button color
+    splashColor: TalebColors.greyLight,
+    backgroundColor: TalebColors.background,
+    scaffoldBackgroundColor: TalebColors.background,
 
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: BondColors.greyLight,
+      color: TalebColors.greyLight,
       elevation: 0,
       titleTextStyle:
-          getBoldStyle(color: BondColors.green, fontSize: BondFontSize.s14),
+          getBoldStyle(color: TalebColors.green, fontSize: TalebFontSize.s14),
     ),
 
     /// Button theme
     buttonTheme: const ButtonThemeData(
       shape: RoundedRectangleBorder(),
-      disabledColor: BondColors.greyLight,
-      buttonColor: BondColors.greenLight,
+      disabledColor: TalebColors.greyLight,
+      buttonColor: TalebColors.greenLight,
     ),
 
     /// Text Theme
-    textTheme: BondTextTheme(),
+    textTheme: TalebTextTheme(),
   );
 }

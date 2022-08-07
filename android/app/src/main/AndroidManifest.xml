@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bond">
+    package="com.example.taleb">
    <application
-        android:label="bond"
+        android:label="taleb"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
