@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "sa.example.bond"
+        applicationId "sa.example.taleb"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
@@ -53,11 +53,11 @@ android {
     productFlavors {
         production {
             dimension "app"
-            resValue "string", "app_name", "Bond"
+            resValue "string", "app_name", "Taleb"
         }
         staging {
             dimension "app"
-            resValue "string", "app_name", "Bond"
+            resValue "string", "app_name", "Taleb"
             versionNameSuffix "-staging"
             applicationIdSuffix ".staging"
 

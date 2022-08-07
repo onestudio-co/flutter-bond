@@ -1,17 +1,17 @@
 import 'package:one_studio_core/core.dart';
 
-class BondBorderRadius {
+class TalebBorderRadius {
   static double r16 = SizeUtil.setRadius(16.0);
 }
 
-class BondPadding {
+class TalebPadding {
   static double p16 = SizeUtil.setPadding(16.0);
   static double p24 = SizeUtil.setPadding(24.0);
   static double p12 = SizeUtil.setPadding(12.0);
   static double p6 = SizeUtil.setPadding(6.0);
 }
 
-class BondSizes {
+class TalebSizes {
   //* Hieght Sizes
   static double h3 = SizeUtil.setHeight(3.0);
   static double h7 = SizeUtil.setHeight(7.0);

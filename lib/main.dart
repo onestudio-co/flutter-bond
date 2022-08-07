@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:bond/core/theme/bond_light_theme_data.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:one_studio_core/external_packages.dart';
+import 'package:taleb/core/theme/bond_light_theme_data.dart';
+import 'package:taleb/routes/app_router.dart';
 
 import 'injection_container.dart';
 
@@ -15,7 +15,7 @@ Future<void> main() async {
   await init();
   runApp(
     EasyLocalization(
-      child: BondApp(appRouter: sl<AppRouter>()),
+      child: TalebApp(appRouter: sl<AppRouter>()),
       supportedLocales: const [
         Locale('en'),
         Locale('ar'),
@@ -26,8 +26,8 @@ Future<void> main() async {
   );
 }
 
-class BondApp extends StatelessWidget {
-  const BondApp({Key? key, required this.appRouter}) : super(key: key);
+class TalebApp extends StatelessWidget {
+  const TalebApp({Key? key, required this.appRouter}) : super(key: key);
 
   final AppRouter appRouter;
 
@@ -52,7 +52,7 @@ class BondApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routerDelegate: appRouter.delegate(),
         routeInformationParser: appRouter.defaultRouteParser(),
-        theme: bondLightThemeData(),
+        theme: talebLightThemeData(),
       ),
     );
   }
