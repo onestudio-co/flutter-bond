@@ -26,7 +26,7 @@ class SearchWidget extends StatelessWidget {
               ),
             ),
             hintText: 'ابحث في الأخبار',
-            hintStyle: Theme.of(context).textTheme.bodyLarge!.customerColor1,
+            hintStyle: Theme.of(context).textTheme.bodyLarge!.metallicSilver,
             filled: true,
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: TalebColors.white),
