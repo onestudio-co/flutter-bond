@@ -13,18 +13,17 @@ ThemeData talebLightThemeData() {
     primaryColorDark: TalebColors.blueDark,
     disabledColor: TalebColors.blueDark, // this for disabled button color
     splashColor: TalebColors.greyLight,
-    backgroundColor: TalebColors.customeBackground,
-    scaffoldBackgroundColor: TalebColors.customeBackground,
+    backgroundColor: TalebColors.porcelain,
+    scaffoldBackgroundColor: TalebColors.porcelain,
 
     /// AppBar theme
     appBarTheme: AppBarTheme(
-      centerTitle: true,
-      color: TalebColors.customeBackground,
-      elevation: 0,
-      titleTextStyle:
-          getBoldStyle(color: TalebColors.customeAppbarColor, fontSize: TalebFontSize.s16),
-          iconTheme: const IconThemeData(color: TalebColors.customeAppbarColor)
-    ),
+        centerTitle: true,
+        color: TalebColors.porcelain,
+        elevation: 0,
+        titleTextStyle: getBoldStyle(
+            color: TalebColors.chathamsBlue, fontSize: TalebFontSize.s16),
+        iconTheme: const IconThemeData(color: TalebColors.chathamsBlue)),
 
     /// Button theme
     buttonTheme: const ButtonThemeData(

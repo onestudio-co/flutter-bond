@@ -36,6 +36,6 @@ class _LaunchPageState extends State<LaunchPage> {
   }
 
   FutureOr _navigateToNextScreen() {
-    context.router.push(const HomeRoute());
+    context.router.replace(const HomeRoute());
   }
 }

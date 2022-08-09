@@ -43,6 +43,7 @@ class TalebSizes {
   static double h86 = SizeUtil.setHeight(86.0);
   static double h111 = SizeUtil.setHeight(111.0);
   static double h200 = SizeUtil.setHeight(200.0);
+  static double h240 = SizeUtil.setHeight(240.0);
   static double h405 = SizeUtil.setHeight(405.0);
 
   //* Width Sizes
@@ -54,6 +55,7 @@ class TalebSizes {
   static double w16 = SizeUtil.setWidth(16.0);
   static double w20 = SizeUtil.setWidth(20.0);
   static double w24 = SizeUtil.setWidth(24.0);
+  static double w48 = SizeUtil.setWidth(48.0);
   static double w64 = SizeUtil.setWidth(64.0);
   static double w86 = SizeUtil.setWidth(86.0);
   static double w120 = SizeUtil.setWidth(120.0);

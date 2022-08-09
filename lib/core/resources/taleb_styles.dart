@@ -11,22 +11,27 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color? color) {
   );
 }
 
-// Text TextStyle
+//* Text TextStyle
 TextStyle getTextStyle({required double fontSize, Color? color}) {
   return _getTextStyle(fontSize, TalebFontWeight.text, color);
 }
 
-// Regular TextStyle
+//* Regular TextStyle
 TextStyle getRegularStyle({required double fontSize, Color? color}) {
   return _getTextStyle(fontSize, TalebFontWeight.regular, color);
 }
 
-// Medium TextStyle
+//* Medium TextStyle
 TextStyle getMediumStyle({required double fontSize, Color? color}) {
   return _getTextStyle(fontSize, TalebFontWeight.medium, color);
 }
 
-// Bold TextStyle
+//* SemiBold TextStyle
+TextStyle getSemiBoldStyle({required double fontSize, Color? color}) {
+  return _getTextStyle(fontSize, TalebFontWeight.semiBold, color);
+}
+
+//* Bold TextStyle
 TextStyle getBoldStyle({required double fontSize, Color? color}) {
   return _getTextStyle(fontSize, TalebFontWeight.bold, color);
 }
