@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="20" viewBox="0 0 16 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="16" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_16" data-name="Repeat Grid 16" clip-path="url(#clip-path)">
+    <g transform="translate(-4 -2)">
+      <path id="Icon_color" data-name="Icon color" d="M8,20a2,2,0,0,1-2-2h4A2,2,0,0,1,8,20Zm7-4H1a1,1,0,0,1-1-1v-.59a1.008,1.008,0,0,1,.29-.7l.83-.83A3.018,3.018,0,0,0,2,10.76V8A6.035,6.035,0,0,1,3.2,4.4l.9-1.2A3.011,3.011,0,0,1,6.5,2H7V.5A.5.5,0,0,1,7.5,0h1A.5.5,0,0,1,9,.5V2h.5a3.011,3.011,0,0,1,2.4,1.2l.9,1.2A6.035,6.035,0,0,1,14,8v2.76a3.016,3.016,0,0,0,.879,2.12l.831.83a1.008,1.008,0,0,1,.29.7V15A1,1,0,0,1,15,16ZM6.5,4a1,1,0,0,0-.8.4L4.8,5.6A4.03,4.03,0,0,0,4,8v6h8V8a4.03,4.03,0,0,0-.8-2.4l-.9-1.2A1,1,0,0,0,9.5,4Z" transform="translate(4 2)"/>
+    </g>
+  </g>
+</svg>

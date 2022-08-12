@@ -7,6 +7,7 @@ class TalebBorderRadius {
   static double r16 = SizeUtil.setRadius(16.0);
   static double r24 = SizeUtil.setRadius(24.0);
   static double r32 = SizeUtil.setRadius(32.0);
+  static double r80 = SizeUtil.setRadius(80.0);
 }
 
 class TalebPadding {
@@ -25,6 +26,7 @@ class TalebPadding {
 
 class TalebSizes {
   //* Hieght Sizes
+  static double h2 = SizeUtil.setHeight(2.0);
   static double h3 = SizeUtil.setHeight(3.0);
   static double h7 = SizeUtil.setHeight(7.0);
   static double h8 = SizeUtil.setHeight(8.0);
@@ -35,13 +37,22 @@ class TalebSizes {
   static double h24 = SizeUtil.setHeight(24.0);
   static double h32 = SizeUtil.setHeight(32.0);
   static double h36 = SizeUtil.setHeight(36.0);
+  static double h38 = SizeUtil.setHeight(38.0);
+  static double h40 = SizeUtil.setHeight(40.0);
   static double h44 = SizeUtil.setHeight(44.0);
+  static double h45 = SizeUtil.setHeight(45.0);
   static double h48 = SizeUtil.setHeight(48.0);
   static double h56 = SizeUtil.setHeight(56.0);
   static double h64 = SizeUtil.setHeight(64.0);
+  static double h78 = SizeUtil.setHeight(78.0);
+  static double h80 = SizeUtil.setHeight(80.0);
+  static double h82 = SizeUtil.setHeight(82.0);
   static double h86 = SizeUtil.setHeight(86.0);
+  static double h90 = SizeUtil.setHeight(90.0);
   static double h111 = SizeUtil.setHeight(111.0);
+  static double h170 = SizeUtil.setHeight(170.0);
   static double h200 = SizeUtil.setHeight(200.0);
+  static double h240 = SizeUtil.setHeight(240.0);
   static double h405 = SizeUtil.setHeight(405.0);
 
   //* Width Sizes
@@ -50,8 +61,10 @@ class TalebSizes {
   static double w8 = SizeUtil.setWidth(8.0);
   static double w10 = SizeUtil.setWidth(10.0);
   static double w12 = SizeUtil.setWidth(12.0);
+  static double w16 = SizeUtil.setWidth(16.0);
   static double w20 = SizeUtil.setWidth(20.0);
   static double w24 = SizeUtil.setWidth(24.0);
+  static double w48 = SizeUtil.setWidth(48.0);
   static double w64 = SizeUtil.setWidth(64.0);
   static double w86 = SizeUtil.setWidth(86.0);
   static double w120 = SizeUtil.setWidth(120.0);

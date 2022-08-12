@@ -1,13 +1,15 @@
 import 'dart:io';
 
+import 'package:taleb/core/theme/bond_light_theme_data.dart';
+import 'package:taleb/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:one_studio_core/external_packages.dart';
-import 'package:taleb/core/theme/bond_light_theme_data.dart';
-import 'package:taleb/routes/app_router.dart';
 
 import 'injection_container.dart';
+String url =
+    'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

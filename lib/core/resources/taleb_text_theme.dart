@@ -6,42 +6,58 @@ import 'taleb_styles.dart';
 
 class TalebTextTheme extends TextTheme {
   @override
-  TextStyle get displayMedium => getMediumStyle(
-      fontSize: TalebFontSize.s32, color: TalebColors.brightGray);
+  TextStyle get displayMedium =>
+      getTextStyle(fontSize: TalebFontSize.s32, color: TalebColors.brightGray);
 
   @override
-  TextStyle get displaySmall =>
-      getBoldStyle(fontSize: TalebFontSize.s24, color: TalebColors.blueRegular);
+  TextStyle get bodySmall => getSemiBoldStyle(
+      fontSize: TalebFontSize.s20, color: TalebColors.brightGray);
 
   @override
-  TextStyle get headlineMedium => getMediumStyle(
-      fontSize: TalebFontSize.s24, color: TalebColors.blueRegular);
+  TextStyle get headlineMedium =>
+      getBoldStyle(fontSize: TalebFontSize.s20, color: TalebColors.blueRegular);
 
   @override
   TextStyle get headlineSmall =>
-      getTextStyle(fontSize: TalebFontSize.s20, color: TalebColors.brightGray);
+      getBoldStyle(fontSize: TalebFontSize.s16, color: TalebColors.brightGray);
 
   @override
-  TextStyle get titleLarge => getMediumStyle(
-      fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
+  TextStyle get labelMedium => getSemiBoldStyle(
+      fontSize: TalebFontSize.s16, color: TalebColors.dimGrayRegular);
 
   @override
   TextStyle get titleMedium => getMediumStyle(
+      fontSize: TalebFontSize.s16, color: TalebColors.dimGrayRegular);
+
+  @override
+  TextStyle get labelLarge => getRegularStyle(
+      fontSize: TalebFontSize.s16, color: TalebColors.dimGrayRegular);
+
+  @override
+  TextStyle get headlineLarge => getBoldStyle(
       fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
 
   @override
-  TextStyle get labelLarge => getMediumStyle(
+  TextStyle get labelSmall => getSemiBoldStyle(
       fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
 
   @override
-  TextStyle get labelMedium => getMediumStyle(
+  TextStyle get displayLarge => getMediumStyle(
       fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
 
   @override
-  TextStyle get bodyLarge => getMediumStyle(
-      fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
+  TextStyle get bodyMedium => getBoldStyle(
+      fontSize: TalebFontSize.s12, color: TalebColors.dimGrayRegular);
 
   @override
-  TextStyle get bodyMedium => getMediumStyle(
-      fontSize: TalebFontSize.s14, color: TalebColors.dimGrayRegular);
+  TextStyle get bodyLarge => getSemiBoldStyle(
+      fontSize: TalebFontSize.s12, color: TalebColors.dimGrayRegular);
+
+  @override
+  TextStyle get titleSmall => getBoldStyle(
+      fontSize: TalebFontSize.s10, color: TalebColors.dimGrayRegular);
+
+  @override
+  TextStyle get displaySmall => getSemiBoldStyle(
+      fontSize: TalebFontSize.s10, color: TalebColors.dimGrayRegular);
 }
