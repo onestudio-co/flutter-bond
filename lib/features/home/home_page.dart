@@ -6,7 +6,7 @@ import 'package:taleb/core/resources/taleb_icons.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_styles.dart';
 
-import 'news_page.dart';
+import 'news/ui/pages/news_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
