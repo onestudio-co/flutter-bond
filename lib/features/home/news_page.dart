@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/features/home/news/widgets/ads_widget.dart';
 
 import 'news/widgets/news_card_widget.dart';
 import 'widgets/filter_widget.dart';
@@ -29,8 +30,18 @@ class NewsPage extends StatelessWidget {
               ],
             ),
             Expanded(
-              child: ListView(
-                children: list,
+              child: ListView.separated(
+                itemCount: list.length,
+                separatorBuilder: (context, index) {
+                  if (index < list1.length) {
+                  return  list1[index];
+                  }
+
+                  return const SizedBox();
+                },
+                itemBuilder: (context, index) {
+                  return list[index];
+                },
               ),
             ),
           ],
@@ -40,7 +51,12 @@ class NewsPage extends StatelessWidget {
   }
 }
 
-var list = List.generate(
+List<NewsCardWidget> list = List.generate(
   100,
   (index) => const NewsCardWidget(),
+);
+
+List<NewsAds> list1 = List.generate(
+  3,
+  (index) => const NewsAds(),
 );
