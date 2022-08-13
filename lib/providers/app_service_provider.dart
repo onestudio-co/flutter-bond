@@ -9,23 +9,7 @@ class AppServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
     it.registerSingleton(
-      () => Dio(
-        BaseOptions(
-          connectTimeout: 100 * 1000,
-          sendTimeout: 1000 * 1000,
-          receiveTimeout: 1000 * 1000,
-          receiveDataWhenStatusError: true,
-          baseUrl: ApiConfig.baseUrl,
-        ),
-      )..interceptors.add(
-          PrettyDioLogger(
-            requestHeader: true,
-            requestBody: true,
-            responseBody: true,
-            responseHeader: false,
-            compact: false,
-          ),
-        ),
+      () => _dio(),
     );
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
@@ -35,5 +19,25 @@ class AppServiceProvider extends ServiceProvider {
     it.registerLazySingleton(() => packageInfo);
 
     it.registerLazySingleton(() => AppRouter(AuthGuard()));
+  }
+
+  Dio _dio() {
+    return Dio(
+      BaseOptions(
+        connectTimeout: 100 * 1000,
+        sendTimeout: 1000 * 1000,
+        receiveTimeout: 1000 * 1000,
+        receiveDataWhenStatusError: true,
+        baseUrl: ApiConfig.baseUrl,
+      ),
+    )..interceptors.add(
+        PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: false,
+          compact: false,
+        ),
+      );
   }
 }
