@@ -8,21 +8,16 @@ class DecorationLabelSimilerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: TalebSizes.w22,
-      height: TalebSizes.h22,
-      decoration: const BoxDecoration(
-        color: TalebColors.blueRegular,
-        shape: BoxShape.circle,
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(TalebPadding.p4),
-        child: Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: TalebColors.white,
+    return CircleAvatar(
+      radius: TalebBorderRadius.r12,
+      backgroundColor: TalebColors.white,
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: TalebColors.blueRegular,
+            width: TalebSizes.w4,
           ),
-          child: Container(),
         ),
       ),
     );

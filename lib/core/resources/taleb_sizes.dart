@@ -63,6 +63,7 @@ class TalebSizes {
 
   //* Width Sizes
   static double w2 = SizeUtil.setWidth(2.0);
+  static double w4 = SizeUtil.setWidth(4.0);
   static double w7 = SizeUtil.setWidth(7.0);
   static double w8 = SizeUtil.setWidth(8.0);
   static double w10 = SizeUtil.setWidth(10.0);
