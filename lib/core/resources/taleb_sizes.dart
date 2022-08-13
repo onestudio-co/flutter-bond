@@ -5,6 +5,7 @@ class TalebBorderRadius {
   static double r8 = SizeUtil.setRadius(8.0);
   static double r12 = SizeUtil.setRadius(12.0);
   static double r16 = SizeUtil.setRadius(16.0);
+  static double r20 = SizeUtil.setRadius(20.0);
   static double r24 = SizeUtil.setRadius(24.0);
   static double r32 = SizeUtil.setRadius(32.0);
   static double r80 = SizeUtil.setRadius(80.0);
@@ -33,6 +34,7 @@ class TalebSizes {
   static double h10 = SizeUtil.setHeight(10.0);
   static double h12 = SizeUtil.setHeight(12.0);
   static double h13 = SizeUtil.setHeight(13.0);
+  static double h16 = SizeUtil.setHeight(16.0);
   static double h20 = SizeUtil.setHeight(20.0);
   static double h22 = SizeUtil.setHeight(22.0);
   static double h24 = SizeUtil.setHeight(24.0);
@@ -50,6 +52,7 @@ class TalebSizes {
   static double h82 = SizeUtil.setHeight(82.0);
   static double h86 = SizeUtil.setHeight(86.0);
   static double h90 = SizeUtil.setHeight(90.0);
+  static double h108 = SizeUtil.setHeight(108.0);
   static double h111 = SizeUtil.setHeight(111.0);
   static double h170 = SizeUtil.setHeight(170.0);
   static double h200 = SizeUtil.setHeight(200.0);
@@ -68,6 +71,7 @@ class TalebSizes {
   static double w20 = SizeUtil.setWidth(20.0);
   static double w22 = SizeUtil.setWidth(22.0);
   static double w24 = SizeUtil.setWidth(24.0);
+  static double w32 = SizeUtil.setWidth(32.0);
   static double w48 = SizeUtil.setWidth(48.0);
   static double w64 = SizeUtil.setWidth(64.0);
   static double w86 = SizeUtil.setWidth(86.0);
@@ -75,4 +79,6 @@ class TalebSizes {
   static double w133 = SizeUtil.setWidth(133.0);
   static double w199 = SizeUtil.setWidth(199.0);
   static double w200 = SizeUtil.setWidth(200.0);
+  static double w232 = SizeUtil.setWidth(232.0);
+  static double w265 = SizeUtil.setWidth(265.0);
 }

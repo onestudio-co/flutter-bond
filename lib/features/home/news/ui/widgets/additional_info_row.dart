@@ -6,8 +6,10 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 import '../pages/searvice_provider.dart';
 
 class RowAdditionalInfo extends StatelessWidget {
+  final bool hasCity;
   const RowAdditionalInfo({
     Key? key,
+    required this.hasCity,
   }) : super(key: key);
 
   @override
@@ -16,29 +18,30 @@ class RowAdditionalInfo extends StatelessWidget {
       height: TalebSizes.h24,
       child: Row(
         children: [
-          Text(
-            '2 أغسطس 2022',
-            style: Theme.of(context).textTheme.displaySmall!.coolGrey,
-          ),
-          const Spacer(),
           SearviceProviderLabel(
             padding: TalebPadding.p2,
           ),
-          const SizedBox(width: 4),
-          Container(
-            height: 24,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 2.0,
+          if (hasCity) const SizedBox(width: 4),
+          if (hasCity)
+            Container(
+              height: 24,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 2.0,
+              ),
+              decoration: BoxDecoration(
+                color: const Color(0xff37b0cc),
+                borderRadius: BorderRadius.circular(100.0),
+              ),
+              child: Text(
+                'عمان',
+                style: Theme.of(context).textTheme.titleSmall!.white,
+              ),
             ),
-            decoration: BoxDecoration(
-              color: const Color(0xff37b0cc),
-              borderRadius: BorderRadius.circular(100.0),
-            ),
-            child: Text(
-              'عمان',
-              style: Theme.of(context).textTheme.titleSmall!.white,
-            ),
+          const Spacer(),
+          Text(
+            '2 أغسطس 2022',
+            style: Theme.of(context).textTheme.displaySmall!.coolGrey,
           ),
         ],
       ),

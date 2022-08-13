@@ -4,10 +4,12 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 class NewsImageWidget extends StatelessWidget {
   final String image;
   final double height;
+  final double? borderRadius;
   const NewsImageWidget({
     Key? key,
     required this.height,
     required this.image,
+    this.borderRadius,
   }) : super(key: key);
 
   @override
@@ -15,7 +17,8 @@ class NewsImageWidget extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(TalebBorderRadius.r12),
+        borderRadius:
+            BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
         image: DecorationImage(
           fit: BoxFit.cover,
           image: NetworkImage(

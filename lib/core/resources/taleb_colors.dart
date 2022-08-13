@@ -29,6 +29,7 @@ class TalebColors {
   static const Color metallicSilver = Color(0xFFB4C8CC);
   static const Color coolGrey = Color(0xFF92A2A6);
   static const Color paleAqua = Color(0xFFBFD4D9);
+  static const Color custome1 = Color(0xFFEBEFF0);
 }
 
 extension CustomTextStyle on TextStyle {

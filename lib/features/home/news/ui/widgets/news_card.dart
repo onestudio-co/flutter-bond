@@ -33,7 +33,7 @@ class NewsCardWidget extends StatelessWidget {
               height: TalebSizes.h240,
             ),
             VerticalSpace(TalebSizes.h8),
-            const RowAdditionalInfo(),
+            const RowAdditionalInfo(hasCity: true),
             VerticalSpace(TalebSizes.h8),
             const TitleNews(),
           ],
