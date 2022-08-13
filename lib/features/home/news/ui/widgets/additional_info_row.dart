@@ -21,36 +21,8 @@ class RowAdditionalInfo extends StatelessWidget {
             style: Theme.of(context).textTheme.displaySmall!.coolGrey,
           ),
           const Spacer(),
-          GestureDetector(
-            onTap: () =>
-                context.router.pushWidget(const SearviceProviderNewsPage()),
-            child: Container(
-              padding: EdgeInsets.only(
-                right: TalebPadding.p2,
-                left: TalebPadding.p8,
-                top: TalebPadding.p2,
-                bottom: TalebPadding.p2,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xff37b0cc),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 10,
-                    backgroundImage: NetworkImage(
-                      'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    'وزارة الشباب',
-                    style: Theme.of(context).textTheme.titleSmall!.white,
-                  ),
-                ],
-              ),
-            ),
+          SearviceProviderLabel(
+            padding: TalebPadding.p2,
           ),
           const SizedBox(width: 4),
           Container(
@@ -69,6 +41,50 @@ class RowAdditionalInfo extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class SearviceProviderLabel extends StatelessWidget {
+  final double padding;
+  final double? radius;
+  const SearviceProviderLabel({
+    Key? key,
+    required this.padding,
+    this.radius,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => context.router.pushWidget(const SearviceProviderNewsPage()),
+      child: Container(
+        padding: EdgeInsets.only(
+          right: padding,
+          left: TalebPadding.p8,
+          top: padding,
+          bottom: padding,
+        ),
+        decoration: BoxDecoration(
+          color: const Color(0xff37b0cc),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: radius ?? 10,
+              backgroundImage: const NetworkImage(
+                'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+              ),
+            ),
+            const SizedBox(width: 4),
+            Text(
+              'وزارة الشباب',
+              style: Theme.of(context).textTheme.titleSmall!.white,
+            ),
+          ],
+        ),
       ),
     );
   }

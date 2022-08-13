@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/features/home/news/ui/widgets/ads_widget.dart';
-import 'package:taleb/features/home/news/ui/widgets/news_card_widget.dart';
+import 'package:taleb/features/home/news/ui/widgets/news_card.dart';
 
 import '../../../widgets/filter_widget.dart';
 import '../../../widgets/search_widget.dart';
