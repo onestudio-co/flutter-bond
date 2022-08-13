@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 
-class TitleNews extends StatelessWidget {
-  const TitleNews({
+class TitleNewsCard extends StatelessWidget {
+  const TitleNewsCard({
     Key? key,
   }) : super(key: key);
 

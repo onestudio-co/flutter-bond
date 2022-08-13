@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 
-import '../pages/searvice_provider.dart';
+import '../searvice_provider_news/searvice_provider.dart';
 
-class RowAdditionalInfo extends StatelessWidget {
+class RowAdditionalInfoWithCity extends StatelessWidget {
   final bool hasCity;
-  const RowAdditionalInfo({
+  const RowAdditionalInfoWithCity({
     Key? key,
     required this.hasCity,
   }) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 
-import 'additional_info_row.dart';
+import '../../widgets/additional_info_row_with_city.dart';
 
 class NewsDateAndSearviceProviderWidget extends StatelessWidget {
   const NewsDateAndSearviceProviderWidget({

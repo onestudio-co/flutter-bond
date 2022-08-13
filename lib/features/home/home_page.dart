@@ -6,7 +6,7 @@ import 'package:taleb/core/resources/taleb_icons.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_styles.dart';
 
-import 'news/ui/pages/news_page.dart';
+import 'news/ui/all_news/news_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
       Container(
         child: const Text('2'),
       ),
-      const NewsPage(),
       Container(
         child: const Text('3'),
       ),
+      const NewsPage(),
       Container(
         child: const Text('3'),
       ),

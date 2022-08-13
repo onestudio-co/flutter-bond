@@ -6,8 +6,8 @@ import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/main.dart';
 
-import '../widgets/additional_info_row.dart';
-import '../widgets/news_date_and_searvice_provider.dart';
+import '../widgets/additional_info_row_with_city.dart';
+import 'widget/news_date_and_searvice_provider.dart';
 import '../widgets/news_image.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -133,7 +133,7 @@ class SimilerNewsContentWidget extends StatelessWidget {
                           Theme.of(context).textTheme.headlineLarge?.elephant,
                     ),
                     VerticalSpace(TalebSizes.h8),
-                    const RowAdditionalInfo(hasCity: false),
+                    const RowAdditionalInfoWithCity(hasCity: false),
                   ],
                 ),
               ),
