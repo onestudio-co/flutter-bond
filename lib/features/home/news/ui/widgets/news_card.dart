@@ -5,7 +5,7 @@ import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/main.dart';
 
-import '../news_details/details_page.dart';
+import '../news_details/news_details_page.dart';
 import 'additional_info_row_with_city.dart';
 import 'news_image.dart';
 import 'title_news_card.dart';
@@ -18,7 +18,7 @@ class NewsCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.pushWidget(const DetailsPage()),
+      onTap: () => context.router.pushWidget(const NewsDetailsPage()),
       child: Container(
         padding: EdgeInsets.all(TalebPadding.p12),
         margin: EdgeInsets.only(top: TalebPadding.p12),
