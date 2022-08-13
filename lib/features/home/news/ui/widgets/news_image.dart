@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 
-class TalebImageNews extends StatelessWidget {
-  const TalebImageNews({
+class NewsImageWidget extends StatelessWidget {
+  final String image;
+  final double height;
+  final double? borderRadius;
+  final EdgeInsets? margin;
+  const NewsImageWidget({
     Key? key,
+    required this.height,
+    required this.image,
+    this.borderRadius,
+    this.margin,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      margin: margin,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: const DecorationImage(
+        borderRadius:
+            BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
+        image: DecorationImage(
           fit: BoxFit.cover,
           image: NetworkImage(
-            'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            image,
           ),
         ),
       ),
       child: SizedBox(
-        height: TalebSizes.h240,
+        height: height,
         width: MediaQuery.of(context).size.width,
       ),
     );
