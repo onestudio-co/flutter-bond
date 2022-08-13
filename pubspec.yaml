@@ -25,6 +25,7 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_image_slideshow: ^0.1.3
   pretty_dio_logger: ^1.2.0-beta-1
+  modal_bottom_sheet: ^2.1.0
 
 dev_dependencies:
   flutter_test:
