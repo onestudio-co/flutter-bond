@@ -5,17 +5,20 @@ class NewsImageWidget extends StatelessWidget {
   final String image;
   final double height;
   final double? borderRadius;
+  final EdgeInsets? margin;
   const NewsImageWidget({
     Key? key,
     required this.height,
     required this.image,
     this.borderRadius,
+    this.margin,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
+      margin: margin,
       decoration: BoxDecoration(
         borderRadius:
             BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
