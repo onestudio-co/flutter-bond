@@ -30,6 +30,7 @@ class TalebColors {
   static const Color coolGrey = Color(0xFF92A2A6);
   static const Color paleAqua = Color(0xFFBFD4D9);
   static const Color custome1 = Color(0xFFEBEFF0);
+  static const Color custome2 = Color(0xff999999);
 }
 
 extension CustomTextStyle on TextStyle {
@@ -40,4 +41,6 @@ extension CustomTextStyle on TextStyle {
   TextStyle get paleAqua => copyWith(color: TalebColors.paleAqua);
   TextStyle get spanishGray => copyWith(color: TalebColors.spanishGray);
   TextStyle get elephant => copyWith(color: TalebColors.elephant);
+  TextStyle get darkJungleGreen => copyWith(color: TalebColors.darkJungleGreen);
+  TextStyle get custome2 => copyWith(color: TalebColors.custome2);
 }

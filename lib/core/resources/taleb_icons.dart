@@ -14,4 +14,5 @@ class TalebIcons {
   static const String moreNavBar = 'assets/icons/more_nav_bar.svg';
   static const String share = 'assets/icons/share.svg';
   static const String favorites = 'assets/icons/favorite.svg';
+  static const String downArrow = 'assets/icons/down_arrow.svg';
 }

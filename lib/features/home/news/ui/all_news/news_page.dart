@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/features/home/news/ui/widgets/ads_widget.dart';
@@ -7,6 +8,7 @@ import 'package:taleb/features/home/news/ui/widgets/news_card.dart';
 import '../../../widgets/filter_widget.dart';
 import '../../../widgets/search_widget.dart';
 import '../../../widgets/taleb_app_bar.dart';
+import 'widget/filter_bottom_sheet.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({Key? key}) : super(key: key);
@@ -20,25 +22,27 @@ class NewsPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
         child: Column(
-          children: [
+          children: <Widget>[
             HorizontalSpace(TalebSizes.w8),
             Row(
-              children: [
+              children: <Widget>[
                 const SearchWidget(),
                 HorizontalSpace(TalebSizes.w8),
-                const FilterWidget(),
+                FilterWidget(
+                  onTap: () => _showCountryBottomSheet(context),
+                ),
               ],
             ),
             Expanded(
               child: ListView.separated(
                 itemCount: list.length,
-                separatorBuilder: (context, index) {
+                separatorBuilder: (BuildContext context, int index) {
                   if (index < list1.length) {
-                  return  list1[index];
+                    return list1[index];
                   }
                   return const SizedBox();
                 },
-                itemBuilder: (context, index) {
+                itemBuilder: (BuildContext context, int index) {
                   return list[index];
                 },
               ),
@@ -50,12 +54,21 @@ class NewsPage extends StatelessWidget {
   }
 }
 
-List<NewsCardWidget> list = List.generate(
+void _showCountryBottomSheet(BuildContext context) {
+  showBarModalBottomSheet(
+    // expand: true,
+    context: context,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) => const FilterNewsBottomSheet(),
+  );
+}
+
+List<NewsCardWidget> list = List<NewsCardWidget>.generate(
   100,
-  (index) => const NewsCardWidget(),
+  (int index) => const NewsCardWidget(),
 );
 
-List<NewsAds> list1 = List.generate(
+List<NewsAds> list1 = List<NewsAds>.generate(
   3,
-  (index) => const NewsAds(),
+  (int index) => const NewsAds(),
 );
