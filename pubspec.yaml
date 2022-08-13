@@ -29,7 +29,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   auto_route_generator: ^4.2.1
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.0
   http_mock_adapter:
     git:
       url: https://github.com/lomsa-dev/http-mock-adapter.git

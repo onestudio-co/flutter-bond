@@ -23,7 +23,20 @@ linter:
   # producing the lint.
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
+    avoid_dynamic_calls: true
+    avoid_empty_else: true
+    avoid_relative_lib_imports: true
+    avoid_returning_null_for_future: true
+    avoid_types_as_parameter_names: true
+    avoid_web_libraries_in_flutter: true
+    close_sinks: true
+    control_flow_in_finally: true
+    always_declare_return_types: true
+    always_put_control_body_on_new_line: true
+    always_put_required_named_parameters_first: true
+    always_require_non_null_named_parameters: true
+    always_specify_types: true
+    annotate_overrides: true
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
