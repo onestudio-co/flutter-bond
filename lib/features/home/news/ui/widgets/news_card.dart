@@ -12,13 +12,17 @@ import 'title_news_card.dart';
 
 class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({
+    required this.index,
     Key? key,
   }) : super(key: key);
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.pushWidget(const NewsDetailsPage()),
+      onTap: () => context.router.pushWidget(NewsDetailsPage(
+        index: index,
+      )),
       child: Container(
         padding: EdgeInsets.all(TalebPadding.p12),
         margin: EdgeInsets.only(top: TalebPadding.p12),
@@ -28,9 +32,12 @@ class NewsCardWidget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            NewsImageWidget(
-              image: url,
-              height: TalebSizes.h240,
+            Hero(
+              tag: index,
+              child: NewsImageWidget(
+                image: url,
+                height: TalebSizes.h240,
+              ),
             ),
             VerticalSpace(TalebSizes.h8),
             const RowAdditionalInfoWithCity(hasCity: true),

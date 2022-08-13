@@ -6,35 +6,41 @@ import 'package:taleb/main.dart';
 
 class SliderNews extends StatelessWidget {
   const SliderNews({
+    required this.index,
     Key? key,
   }) : super(key: key);
 
+  final int index;
+
   @override
   Widget build(BuildContext context) {
-    return ImageSlideshow(
-      height: TalebSizes.h290,
-      initialPage: 0,
-      indicatorColor: TalebColors.blueRegular,
-      indicatorBackgroundColor: TalebColors.greyRegular,
-      children: [
-        NewsImageWidget(
-          image: url,
-          margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
-          height: TalebSizes.h290,
-        ),
-        NewsImageWidget(
-          image: url,
-          margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
-          height: TalebSizes.h290,
-        ),
-        NewsImageWidget(
-          image: url,
-          margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
-          height: TalebSizes.h290,
-        ),
-      ],
-      autoPlayInterval: 3000,
-      isLoop: true,
+    return Hero(
+      tag: index,
+      child: ImageSlideshow(
+        height: TalebSizes.h290,
+        initialPage: 0,
+        indicatorColor: TalebColors.blueRegular,
+        indicatorBackgroundColor: TalebColors.greyRegular,
+        autoPlayInterval: 3000,
+        isLoop: true,
+        children: [
+          NewsImageWidget(
+            image: url,
+            margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
+            height: TalebSizes.h290,
+          ),
+          NewsImageWidget(
+            image: url,
+            margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
+            height: TalebSizes.h290,
+          ),
+          NewsImageWidget(
+            image: url,
+            margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
+            height: TalebSizes.h290,
+          ),
+        ],
+      ),
     );
   }
 }

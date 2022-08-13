@@ -65,7 +65,9 @@ void _showCountryBottomSheet(BuildContext context) {
 
 List<NewsCardWidget> list = List<NewsCardWidget>.generate(
   100,
-  (int index) => const NewsCardWidget(),
+  (int index) => NewsCardWidget(
+    index: index,
+  ),
 );
 
 List<NewsAds> list1 = List<NewsAds>.generate(
