@@ -26,7 +26,7 @@ class NewsPage extends StatelessWidget {
             HorizontalSpace(TalebSizes.w8),
             Row(
               children: <Widget>[
-                const SearchWidget(),
+                const Expanded(child: SearchWidget(hintText: 'ابحث في الأخبار',)),
                 HorizontalSpace(TalebSizes.w8),
                 FilterWidget(
                   onTap: () => _showCountryBottomSheet(context),

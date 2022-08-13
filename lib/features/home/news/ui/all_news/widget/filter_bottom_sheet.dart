@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/features/home/news/ui/all_news/widget/search_city_bottom_sheet.dart';
 
 import 'row_selected_filter_widget.dart';
+import 'search_searvice_provider_bottom_sheet.dart';
 
 class FilterNewsBottomSheet extends StatelessWidget {
   const FilterNewsBottomSheet({
@@ -36,12 +39,12 @@ class FilterNewsBottomSheet extends StatelessWidget {
                 children: <Widget>[
                   RowSelectedFilterWidget(
                     title: 'الناشر',
-                    onTap: () {},
+                    onTap: () => _showSearviceProvidersBottomSheet(context),
                   ),
                   const TalebDivider(),
                   RowSelectedFilterWidget(
                     title: 'المدينة',
-                    onTap: () {},
+                    onTap: () => _showCityBottomSheet(context),
                   ),
                 ],
               ),
@@ -55,6 +58,25 @@ class FilterNewsBottomSheet extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _showSearviceProvidersBottomSheet(BuildContext context) {
+    showBarModalBottomSheet(
+      expand: true,
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) =>
+          const SearchSearviceProviderBottomSheet(),
+    );
+  }
+
+  void _showCityBottomSheet(BuildContext context) {
+    showBarModalBottomSheet(
+      expand: true,
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) => const SearchCityBottomSheet(),
     );
   }
 }
