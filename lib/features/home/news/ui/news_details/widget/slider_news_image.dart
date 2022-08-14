@@ -24,17 +24,17 @@ class SliderNews extends StatelessWidget {
         autoPlayInterval: 3000,
         isLoop: true,
         children: [
-          NewsImageWidget(
+          TalebImageWidget(
             image: url,
             margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
             height: TalebSizes.h290,
           ),
-          NewsImageWidget(
+          TalebImageWidget(
             image: url,
             margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
             height: TalebSizes.h290,
           ),
-          NewsImageWidget(
+          TalebImageWidget(
             image: url,
             margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
             height: TalebSizes.h290,

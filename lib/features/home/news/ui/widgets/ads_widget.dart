@@ -12,7 +12,7 @@ class NewsAds extends StatelessWidget {
       padding: EdgeInsets.only(top: TalebSizes.h12),
       child: InkWell(
         onTap: () {},
-        child: NewsImageWidget(
+        child: TalebImageWidget(
           height: TalebSizes.h80,
           image: adsUrl,
         ),

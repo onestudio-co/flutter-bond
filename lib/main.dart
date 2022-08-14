@@ -25,6 +25,7 @@ Future<void> main() async {
         Locale('en'),
         Locale('ar'),
       ],
+      startLocale:  const Locale('ar'),
       fallbackLocale: const Locale('en'),
       path: 'assets/langs',
       child: TalebApp(appRouter: sl<AppRouter>()),

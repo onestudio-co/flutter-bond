@@ -34,7 +34,7 @@ class NewsCardWidget extends StatelessWidget {
           children: [
             Hero(
               tag: index,
-              child: NewsImageWidget(
+              child: TalebImageWidget(
                 image: url,
                 height: TalebSizes.h240,
               ),
