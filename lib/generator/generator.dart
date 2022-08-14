@@ -20,10 +20,10 @@ final ArgParser parser = ArgParser(allowTrailingOptions: true);
 
 List<NyCommand> _allCommands = [
   NyCommand(
-      name: "feature",
+      name: 'feature',
       options: 2,
-      arguments: ["-m", '-name'],
-      category: "make",
+      arguments: ['-m', '-name'],
+      category: 'make',
       action: _feature),
 ];
 
@@ -37,10 +37,10 @@ Future<void> commands(List<String> arguments) async {
     return;
   }
 
-  List<String> argumentSplit = arguments[0].split(":");
+  List<String> argumentSplit = arguments[0].split(':');
 
   if (argumentSplit.isEmpty || argumentSplit.length <= 1) {
-    MetroConsole.writeInBlack('Invalid arguments ' + arguments.toString());
+    MetroConsole.writeInBlack('Invalid arguments $arguments');
     exit(2);
   }
 
@@ -48,10 +48,10 @@ Future<void> commands(List<String> arguments) async {
   String action = argumentSplit[1];
 
   NyCommand? nyCommand = _allCommands.firstWhereOrNull(
-      (command) => type == command.category && command.name == action);
+      (NyCommand command) => type == command.category && command.name == action);
 
   if (nyCommand == null) {
-    MetroConsole.writeInBlack('Invalid arguments ' + arguments.toString());
+    MetroConsole.writeInBlack('Invalid arguments $arguments');
     exit(1);
   }
 
@@ -166,6 +166,6 @@ extension StringCasingExtension on String {
       length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
   String toTitleCase() => replaceAll(RegExp(' +'), ' ')
       .split(' ')
-      .map((str) => str.toCapitalized())
+      .map((String str) => str.toCapitalized())
       .join(' ');
 }

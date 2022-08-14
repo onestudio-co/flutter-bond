@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_studio_core/core.dart';
 
 class TalebFontFamily {
-  static const String fontFamily = "Cairo";
+  static const String fontFamily = 'Cairo';
 }
 
 class TalebFontWeight {

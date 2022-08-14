@@ -28,7 +28,7 @@ class SimilarMainWidget extends StatelessWidget {
             child: ListView.builder(
               itemCount: 10,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
+              itemBuilder: (BuildContext context, int index) {
                 return const SimilerStackWidget();
               },
             ),

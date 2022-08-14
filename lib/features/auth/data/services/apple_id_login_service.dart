@@ -26,7 +26,7 @@ class AppleIdLoginService {
       final String userIdentifier = appleID.userIdentifier!;
       _encryptedEmail = json.decode(utf8.decode(base64
           .decode(base64.normalize(identityToken.split('.')[1]))))['email'];
-      final socialAccountUser = SocialAccountUser(
+      final SocialAccountUser socialAccountUser = SocialAccountUser(
           email: _encryptedEmail ?? email,
           provider: 'apple',
           providerId: userIdentifier,

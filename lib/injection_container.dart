@@ -6,7 +6,7 @@ import 'features/app/bloc/app_bloc.dart';
 App appBloc = App();
 
 Future<void> init() async {
-  for (var provider in providers) {
+  for (core.ServiceProvider provider in providers) {
     await provider.register(core.sl);
   }
   core.providers = providers;

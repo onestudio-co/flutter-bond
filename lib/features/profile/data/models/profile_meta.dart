@@ -1,11 +1,10 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 
 part 'profile_meta.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class ProfileMeta extends Model {
-  @JsonKey(name: "restored_user", defaultValue: false)
+  @JsonKey(name: 'restored_user', defaultValue: false)
   final bool restoredUser;
 
   const ProfileMeta({required int id, required this.restoredUser})

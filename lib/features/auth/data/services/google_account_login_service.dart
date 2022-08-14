@@ -24,7 +24,7 @@ class GoogleAccountLoginService {
       final String accessToken = googleSignInAuthentication.accessToken!;
       final String email = currentUser.email;
       final String id = currentUser.id;
-      final socialAccountUser = SocialAccountUser(
+      final SocialAccountUser socialAccountUser = SocialAccountUser(
           email: email, provider: 'google', providerId: id, token: accessToken);
       return socialAccountUser;
     } else {

@@ -1,5 +1,5 @@
 import 'package:flutter_config/flutter_config.dart';
 
-env(String key, [defaultValue]) {
+dynamic env(String key, [String? defaultValue]) {
   return FlutterConfig.get(key) ?? defaultValue;
 }

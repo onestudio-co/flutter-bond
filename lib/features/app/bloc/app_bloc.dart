@@ -10,6 +10,5 @@ class App {
 
   String? fullMobile;
 
-
-  clearAppData() {}
+  void clearAppData() {}
 }
