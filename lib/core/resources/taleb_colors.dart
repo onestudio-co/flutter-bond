@@ -31,6 +31,7 @@ class TalebColors {
   static const Color paleAqua = Color(0xFFBFD4D9);
   static const Color custome1 = Color(0xFFEBEFF0);
   static const Color custome2 = Color(0xff999999);
+  static const Color custome3 = Color(0xff7A8799);
 }
 
 extension CustomTextStyle on TextStyle {

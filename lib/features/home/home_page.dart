@@ -7,6 +7,7 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_styles.dart';
 
 import 'news/ui/all_news/news_page.dart';
+import 'opportunities/ui/all_opportunities.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -104,20 +105,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget currentPage() {
-    return [
-      Container(
-        child: const Text('2'),
-      ),
-      Container(
-        child: const Text('3'),
-      ),
+    return <Widget>[
+      const Text('2'),
+      const Text('3'),
       const NewsPage(),
-      Container(
-        child: const Text('3'),
-      ),
-      Container(
-        child: const Text('3'),
-      ),
+      const OpportunitiesPage(),
+      const Text('3'),
     ][_selectedIndex];
   }
 

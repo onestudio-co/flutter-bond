@@ -17,7 +17,7 @@ class SimilerStackWidget extends StatelessWidget {
         width: TalebSizes.w265,
         child: Stack(
           children: [
-            NewsImageWidget(
+            TalebImageWidget(
               height: TalebSizes.h200,
               borderRadius: TalebBorderRadius.r20,
               image: url,
