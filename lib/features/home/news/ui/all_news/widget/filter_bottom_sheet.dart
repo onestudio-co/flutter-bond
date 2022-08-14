@@ -4,10 +4,10 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/home/news/ui/all_news/widget/search_city_bottom_sheet.dart';
+import 'package:taleb/features/home/widgets/search_city_bottom_sheet.dart';
+import 'package:taleb/features/home/widgets/search_searvice_provider_bottom_sheet.dart';
 
 import 'row_selected_filter_widget.dart';
-import 'search_searvice_provider_bottom_sheet.dart';
 
 class FilterNewsBottomSheet extends StatelessWidget {
   const FilterNewsBottomSheet({
