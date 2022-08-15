@@ -16,4 +16,20 @@ class AuthLocalDataSource extends AuthStore<User> {
 
   @override
   String? get token => null;
+
+  @override
+  Future<void> clearAppData() {
+    // TODO: implement clearAppData
+    throw UnimplementedError();
+  }
+
+  @override
+  set token(String? token) {
+    // TODO: implement token
+  }
+
+  @override
+  set user(User? user) {
+    // TODO: implement user
+  }
 }

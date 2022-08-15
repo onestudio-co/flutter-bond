@@ -1,10 +1,9 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:one_studio_core/external_packages.dart';
 import 'package:taleb/core/theme/bond_light_theme_data.dart';
 import 'package:taleb/routes/app_router.dart';
 
@@ -25,7 +24,7 @@ Future<void> main() async {
         Locale('en'),
         Locale('ar'),
       ],
-      startLocale:  const Locale('ar'),
+      startLocale: const Locale('ar'),
       fallbackLocale: const Locale('en'),
       path: 'assets/langs',
       child: TalebApp(appRouter: sl<AppRouter>()),
