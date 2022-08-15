@@ -4,8 +4,8 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/home/news/ui/widgets/news_image.dart';
 import 'package:taleb/main.dart';
 
-class SliderNews extends StatelessWidget {
-  const SliderNews({
+class TalebSliderImagesWidget extends StatelessWidget {
+  const TalebSliderImagesWidget({
     required this.index,
     Key? key,
   }) : super(key: key);
