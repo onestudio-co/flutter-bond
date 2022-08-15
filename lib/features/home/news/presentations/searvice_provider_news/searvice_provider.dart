@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
-import 'package:taleb/features/home/news/presentations/ui/all_news/news_page.dart';
+import 'package:taleb/features/home/news/presentations/all_news/news_page.dart';
 import 'package:taleb/main.dart';
 
 class SearviceProviderNewsPage extends StatelessWidget {

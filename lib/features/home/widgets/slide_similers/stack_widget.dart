@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/news/presentations/ui/widgets/additional_info_row_with_city.dart';
-import 'package:taleb/features/home/news/presentations/ui/widgets/news_image.dart';
+import 'package:taleb/features/home/news/presentations/widgets/additional_info_row_with_city.dart';
+import 'package:taleb/features/home/news/presentations/widgets/news_image.dart';
 import 'package:taleb/main.dart';
 
 class SimilerStackWidget extends StatelessWidget {
