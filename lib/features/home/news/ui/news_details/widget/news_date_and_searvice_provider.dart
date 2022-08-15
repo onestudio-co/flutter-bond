@@ -4,8 +4,8 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 
 import '../../widgets/additional_info_row_with_city.dart';
 
-class NewsDateAndSearviceProviderWidget extends StatelessWidget {
-  const NewsDateAndSearviceProviderWidget({
+class DateAndSearviceProviderWidget extends StatelessWidget {
+  const DateAndSearviceProviderWidget({
     Key? key,
   }) : super(key: key);
 

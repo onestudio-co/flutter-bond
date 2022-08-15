@@ -33,13 +33,13 @@ class NewsDetailsPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
           child: Column(
             children: [
-              SliderNews(index: index),
+              TalebSliderImagesWidget(index: index),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                 child: Column(
                   children: [
                     VerticalSpace(TalebSizes.h16),
-                    const NewsDateAndSearviceProviderWidget(),
+                    const DateAndSearviceProviderWidget(),
                     VerticalSpace(TalebSizes.h12),
                     Text(
                       'ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك',
