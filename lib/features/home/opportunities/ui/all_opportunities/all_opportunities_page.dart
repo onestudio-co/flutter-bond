@@ -6,8 +6,8 @@ import 'package:taleb/features/home/widgets/search_city_bottom_sheet.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 
-import '../widgets/categories.dart';
-import '../widgets/list_of_opportunities.dart';
+import '../../widgets/categories.dart';
+import '../../widgets/list_of_opportunities.dart';
 
 class OpportunitiesPage extends StatelessWidget {
   const OpportunitiesPage({Key? key}) : super(key: key);
