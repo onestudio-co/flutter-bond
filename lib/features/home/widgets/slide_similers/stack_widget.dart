@@ -26,13 +26,13 @@ class SimilerStackWidget extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.all(TalebPadding.p12),
-                height: TalebSizes.h111,
                 width: TalebSizes.w232,
                 decoration: BoxDecoration(
                   color: TalebColors.white,
                   borderRadius: BorderRadius.circular(TalebBorderRadius.r8),
                 ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min ,
                   children: [
                     Text(
                       'ترجمة لرؤى و تطلعات جلالة الملك عبدالله الثاني المعظم ',

@@ -7,7 +7,7 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_styles.dart';
 
 import 'news/ui/all_news/news_page.dart';
-import 'opportunities/ui/all_opportunities.dart';
+import 'opportunities/ui/all_opportunities/all_opportunities_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
