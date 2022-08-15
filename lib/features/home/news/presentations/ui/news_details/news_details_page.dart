@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/news/ui/news_details/widget/slider_news_image.dart';
+import 'package:taleb/features/home/news/presentations/ui/news_details/widget/slider_news_image.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget.dart';
 
 import 'widget/news_date_and_searvice_provider.dart';

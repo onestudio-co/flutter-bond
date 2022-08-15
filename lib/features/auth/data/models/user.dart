@@ -25,11 +25,11 @@ class User extends Model implements Authenticable {
       name: name ?? this.name,
     );
   }
-  
+
   @override
   // TODO: implement email
   String? get email => throw UnimplementedError();
-  
+
   @override
   // TODO: implement phone
   String? get phone => throw UnimplementedError();
