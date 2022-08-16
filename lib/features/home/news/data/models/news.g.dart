@@ -13,6 +13,8 @@ News _$NewsFromJson(Map<String, dynamic> json) => News(
       content: json['content'] as String,
       cityId: json['city_id'] as int,
       city: City.fromJson(json['city'] as Map<String, dynamic>),
+      image: json['image'] as String? ??
+          'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: json['id'] as int,
     );
 
@@ -24,4 +26,5 @@ Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
       'city': instance.city.toJson(),
       'title': instance.title,
       'content': instance.content,
+      'image': instance.image,
     };

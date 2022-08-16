@@ -2,16 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/features/home/news/data/models/news.dart';
 
 import '../searvice_provider_news/searvice_provider.dart';
 
 class RowAdditionalInfoWithCity extends StatelessWidget {
-  final bool hasCity;
   const RowAdditionalInfoWithCity({
-    Key? key,
     required this.hasCity,
+    required this.news,
+    Key? key,
   }) : super(key: key);
 
+  final bool hasCity;
+  final News news;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,6 +23,7 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
         children: [
           SearviceProviderLabel(
             padding: TalebPadding.p2,
+            news: news,
           ),
           if (hasCity) const SizedBox(width: 4),
           if (hasCity)
@@ -34,7 +38,7 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100.0),
               ),
               child: Text(
-                'عمان',
+                news.city.name,
                 style: Theme.of(context).textTheme.titleSmall!.white,
               ),
             ),
@@ -52,9 +56,12 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
 class SearviceProviderLabel extends StatelessWidget {
   final double padding;
   final double? radius;
+  final News? news;
+
   const SearviceProviderLabel({
-    Key? key,
     required this.padding,
+     this.news,
+    Key? key,
     this.radius,
   }) : super(key: key);
 
@@ -77,13 +84,13 @@ class SearviceProviderLabel extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: radius ?? 10,
-              backgroundImage: const NetworkImage(
-                'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+              backgroundImage: NetworkImage(
+                news!.image,
               ),
             ),
             const SizedBox(width: 4),
             Text(
-              'وزارة الشباب',
+              news!.user.name,
               style: Theme.of(context).textTheme.titleSmall!.white,
             ),
           ],

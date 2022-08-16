@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -28,10 +30,9 @@ class NewsCubit extends Cubit<NewsState> {
         await _repository.allNews();
     emit(
       response.fold(
-        (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
-        (ListResponse<News> news) =>
-            news.data.isEmpty ? NewsEmpty() : NewsLoadSuccess(news: news),
-      ),
+          (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
+          (ListResponse<News> news) =>
+              news.data.isEmpty ? NewsEmpty() : NewsLoadSuccess(news: news)),
     );
   }
 
@@ -39,11 +40,15 @@ class NewsCubit extends Cubit<NewsState> {
     required NewsLoadSuccess currentState,
   }) async {
     if (currentState.noMorePages) {
+      log('no more page', name: 'no more page');
       return;
     }
     if (currentState is NewsLoadMoreState) {
+      log('NewsLoadMoreState', name: 'NewsLoadMoreState');
       return;
     }
+
+    log('emit(NewsLoadMoreState', name: 'emit(NewsLoadMoreState');
     emit(NewsLoadMoreState(
       news: currentState.news,
     ));
@@ -53,7 +58,7 @@ class NewsCubit extends Cubit<NewsState> {
 
     response.fold(
       (Failure failure) => emit(NewsLoadFailed(error: failure.toString())),
-      (ListResponse<News> news) => {
+      (ListResponse<News> news) => <void>{
         emit(
           currentState.copyWith(
             news: currentState.news.copyWith(

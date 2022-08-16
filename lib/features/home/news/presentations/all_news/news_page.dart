@@ -1,9 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:taleb/core/resources/taleb_size_box.dart';
-import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
@@ -22,10 +23,12 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage> {
   final ScrollController _scrollController = ScrollController();
+  late NewsCubit newsCubit;
 
   @override
   void initState() {
     super.initState();
+    newsCubit = sl<NewsCubit>();
     _scrollController.addListener(_scrollControllerListener);
   }
 
@@ -39,46 +42,83 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<NewsCubit>(
-      create: (BuildContext context) => sl<NewsCubit>()..loadNews(),
+      create: (BuildContext context) => newsCubit..loadNews(),
       child: Scaffold(
         appBar: const HomeAppBar(
           title: 'الأخبار',
         ),
         body: GestureDetector(
           onTap: _scrollToTop,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-            child: Column(
-              children: <Widget>[
-                HorizontalSpace(TalebSizes.w8),
-                Row(
-                  children: <Widget>[
-                    const Expanded(
-                        child: SearchWidget(
-                      hintText: 'ابحث في الأخبار',
-                    )),
-                    HorizontalSpace(TalebSizes.w8),
-                    FilterWidget(
-                      onTap: () => _showCountryBottomSheet(context),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: ListView.separated(
-                    itemCount: list.length,
-                    separatorBuilder: (BuildContext context, int index) {
-                      if (index < list1.length) {
-                        return list1[index];
-                      }
-                      return const SizedBox();
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      return list[index];
-                    },
+          child: BlocConsumer<NewsCubit, NewsState>(
+            listener: (BuildContext context, NewsState state) {
+              state is NewsLoadFailed ? log(state.error) : null;
+            },
+            builder: (BuildContext context, NewsState state) {
+              if (state is NewsEmpty) {
+                return const Center(child: Text('لا يوجد بيانات ....'));
+              } else if (state is NewsLoadSuccess) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                  child: Column(
+                    children: <Widget>[
+                      HorizontalSpace(TalebSizes.w8),
+                      Row(
+                        children: <Widget>[
+                          const Expanded(
+                              child: SearchWidget(
+                            hintText: 'ابحث في الأخبار',
+                          )),
+                          HorizontalSpace(TalebSizes.w8),
+                          FilterWidget(
+                            onTap: () => _showCountryBottomSheet(context),
+                          ),
+                        ],
+                      ),
+                      VerticalSpace(TalebSizes.h8),
+                      Expanded(
+                        child: ListView.separated(
+                          controller: _scrollController,
+                          itemCount: state.news.data.length,
+                          separatorBuilder: (BuildContext context, int index) {
+                            if (index < list1.length) {
+                              return list1[index];
+                            }
+                            return const SizedBox();
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            return NewsCardWidget(news: state.news.data[index]);
+                          },
+                        ),
+                      ),
+                      if (state is NewsLoadMoreState)
+                        // log(state.news.data.length.toString(),name: 'kos');
+                        Column(
+                          children: const [
+                            SizedBox(height: 12),
+                            CircularProgressIndicator(
+                              color: TalebColors.yellowRegular,
+                              strokeWidth: 4,
+                            ),
+                          ],
+                        )
+                    ],
                   ),
-                ),
-              ],
-            ),
+                );
+              } else if (state is NewsLoading) {
+                return Container(
+                  margin: const EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                    bottom: 0,
+                    top: 24.0,
+                  ),
+                  color: Colors.white,
+                  child: const Center(child: Text('Loading .........')),
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
           ),
         ),
       ),
@@ -94,9 +134,11 @@ class _NewsPageState extends State<NewsPage> {
     double maxScroll = _scrollController.position.maxScrollExtent;
     double currentScroll = _scrollController.position.pixels;
     double delta = 200.0;
+    log('maxScroll $maxScroll');
+    log('currentScroll $currentScroll');
     if (maxScroll - currentScroll <= delta) {
-      final NewsCubit cubit = context.read<NewsCubit>();
-      cubit.loadNews();
+      // final NewsCubit cubit = context.read<NewsCubit>();
+      newsCubit.loadNews();
     }
   }
 }
@@ -110,11 +152,9 @@ void _showCountryBottomSheet(BuildContext context) {
   );
 }
 
-List<NewsCardWidget> list = List<NewsCardWidget>.generate(
+List list = List.generate(
   100,
-  (int index) => NewsCardWidget(
-    index: index,
-  ),
+  (int index) => Container(),
 );
 
 List<NewsAds> list1 = List<NewsAds>.generate(

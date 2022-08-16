@@ -8,11 +8,11 @@ import 'widget/news_date_and_searvice_provider.dart';
 
 class NewsDetailsPage extends StatelessWidget {
   const NewsDetailsPage({
-    required this.index,
+ 
     Key? key,
   }) : super(key: key);
 
-  final int index;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class NewsDetailsPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
           child: Column(
             children: [
-              TalebSliderImagesWidget(index: index),
+              const TalebSliderImagesWidget(index: 1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                 child: Column(
