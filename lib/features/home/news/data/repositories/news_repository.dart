@@ -9,9 +9,10 @@ class NewsRepository {
 
   NewsRepository(this._remoteDataSource);
 
-  Future<Either<Failure, ListResponse<News>>> allNews() async {
+  Future<Either<Failure, ListResponse<News>>> allNews({String? nextUrl}) async {
     try {
-      final ListResponse<News> response = await _remoteDataSource.allNews();
+      final ListResponse<News> response =
+          await _remoteDataSource.allNews(nextUrl: nextUrl);
       return Right(response);
     } on ServerException catch (e) {
       return Left(e.toFailure());

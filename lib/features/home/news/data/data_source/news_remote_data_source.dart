@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:one_studio_core/core.dart';
 
 import '../models/news.dart';
