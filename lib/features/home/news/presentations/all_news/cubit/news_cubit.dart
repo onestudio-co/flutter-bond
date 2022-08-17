@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -40,15 +39,12 @@ class NewsCubit extends Cubit<NewsState> {
     required NewsLoadSuccess currentState,
   }) async {
     if (currentState.noMorePages) {
-      log('no more page', name: 'no more page');
       return;
     }
     if (currentState is NewsLoadMoreState) {
-      log('NewsLoadMoreState', name: 'NewsLoadMoreState');
       return;
     }
 
-    log('emit(NewsLoadMoreState', name: 'emit(NewsLoadMoreState');
     emit(NewsLoadMoreState(
       news: currentState.news,
     ));

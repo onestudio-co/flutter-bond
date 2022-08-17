@@ -5,11 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/features/ad/data/models/ad.dart';
+import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
+import 'package:taleb/main.dart';
 
 import 'cubit/news_cubit.dart';
 import 'widget/filter_bottom_sheet.dart';
@@ -41,8 +44,15 @@ class _NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<NewsCubit>(
-      create: (BuildContext context) => newsCubit..loadNews(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NewsCubit>(
+          create: (BuildContext context) => newsCubit..loadNews(),
+        ),
+        BlocProvider<AdCubit>(
+          create: (BuildContext context) => sl<AdCubit>()..getAds(),
+        ),
+      ],
       child: Scaffold(
         appBar: const HomeAppBar(
           title: 'الأخبار',
@@ -57,6 +67,7 @@ class _NewsPageState extends State<NewsPage> {
               if (state is NewsEmpty) {
                 return const Center(child: Text('لا يوجد بيانات ....'));
               } else if (state is NewsLoadSuccess) {
+                final List news = state.news.data;
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                   child: Column(
@@ -78,15 +89,16 @@ class _NewsPageState extends State<NewsPage> {
                       Expanded(
                         child: ListView.separated(
                           controller: _scrollController,
-                          itemCount: state.news.data.length,
+                          itemCount: news.length,
                           separatorBuilder: (BuildContext context, int index) {
-                            if (index < list1.length) {
-                              return list1[index];
+                            List<Ad> ads = sl<AdCubit>().ads;
+                            if (index < ads.length) {
+                              return NewsAds(image: ads[index].image);
                             }
                             return const SizedBox();
                           },
                           itemBuilder: (BuildContext context, int index) {
-                            return NewsCardWidget(news: state.news.data[index]);
+                            return NewsCardWidget(news: news[index]);
                           },
                         ),
                       ),
@@ -133,8 +145,8 @@ class _NewsPageState extends State<NewsPage> {
     double maxScroll = _scrollController.position.maxScrollExtent;
     double currentScroll = _scrollController.position.pixels;
     double delta = 200.0;
-    log('maxScroll $maxScroll');
-    log('currentScroll $currentScroll');
+    // log('maxScroll $maxScroll');
+    // log('currentScroll $currentScroll');
     if (maxScroll - currentScroll <= delta) {
       // final NewsCubit cubit = context.read<NewsCubit>();
       newsCubit.loadNews();
@@ -158,5 +170,7 @@ List list = List.generate(
 
 List<NewsAds> list1 = List<NewsAds>.generate(
   3,
-  (int index) => const NewsAds(),
+  (int index) => NewsAds(
+    image: url,
+  ),
 );

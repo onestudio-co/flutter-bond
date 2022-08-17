@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/core/widget/taleb_image.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 
 import '../../../widgets/additional_info_row_with_city.dart';
 import '../news_details/news_details_page.dart';
-import 'news_image.dart';
 import 'title_news_card.dart';
 
 class NewsCardWidget extends StatelessWidget {

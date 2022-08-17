@@ -1,3 +1,4 @@
+import 'package:taleb/features/ad/ad_service_provider.dart';
 import 'package:taleb/features/home/news/news_service_provider.dart';
 
 import '../features/auth/auth_service_provider.dart';
@@ -17,4 +18,5 @@ final providers = [
 
   /// Modules [features]
   NewsServiceProvider(),
+  AdServiceProvider(),
 ];
