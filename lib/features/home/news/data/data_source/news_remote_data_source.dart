@@ -12,9 +12,10 @@ class NewsRemoteDataSource extends DataSource {
 
   Future<ListResponse<News>> allNews({String? nextUrl}) async {
     final Response<dynamic> response = await _client.get(
-      nextUrl ?? NewsApis.allNews(),
+      nextUrl ?? NewsApis.allNews,
       headers: Api.headers(),
     );
+    //TODO: return mapListResponse
     if ((response.statusCode ?? 0) <= 204) {
       return ListResponse<News>.fromJson(response.data);
     } else {
@@ -31,6 +32,7 @@ class NewsRemoteDataSource extends DataSource {
       nextUrl ?? NewsApis.serviceProviderNews(serviceProviderId!),
       headers: Api.headers(),
     );
+    //TODO: return mapListResponse
     if ((response.statusCode ?? 0) <= 204) {
       return ListResponse<News>.fromJson(response.data);
     } else {
@@ -40,14 +42,24 @@ class NewsRemoteDataSource extends DataSource {
       );
     }
   }
+
+  Future<ListResponse<News>> similerNews(int newsId) async {
+    final Response<dynamic> response = await _client.get(
+      NewsApis.similerNews(newsId),
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
 }
 
 extension NewsApis on Api {
-  static String allNews() {
-    return 'news';
-  }
+  static String get allNews => 'news';
 
   static String serviceProviderNews(int serviceProviderId) {
     return 'service-provider-news/$serviceProviderId';
+  }
+
+  static String similerNews(int newsId) {
+    return 'similar-news/$newsId';
   }
 }

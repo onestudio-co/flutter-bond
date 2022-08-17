@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/widgets/searvie_provider_image_and_name.dart';
 
 class RowAdditionalInfoWithCity extends StatelessWidget {
   const RowAdditionalInfoWithCity({
     required this.hasCity,
+    required this.cityName,
     Key? key,
     this.user,
-    required this.cityName,
   }) : super(key: key);
 
   final bool hasCity;

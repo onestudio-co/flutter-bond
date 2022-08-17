@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/features/auth/presentation/login_page.dart';
+import 'package:taleb/features/home/news/data/models/news.dart';
+import 'package:taleb/features/home/news/presentations/news_details/news_details_page.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/searvice_provider_page.dart';
 
 import '../features/app/launch_page.dart';
@@ -16,9 +18,8 @@ part 'app_router.gr.dart';
     AutoRoute(page: LaunchPage, initial: true),
     AutoRoute(page: HomePage, guards: <Type>[AuthGuard]),
     ...authRoutes,
-    AutoRoute(
-      page: SearviceProviderNewsPage,
-    ),
+    AutoRoute(page: SearviceProviderNewsPage),
+    AutoRoute(page: NewsDetailsPage),
   ],
 )
 class AppRouter extends _$AppRouter {

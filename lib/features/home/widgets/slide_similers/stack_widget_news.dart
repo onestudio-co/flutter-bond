@@ -5,8 +5,8 @@ import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/widgets/additional_info_row_with_city.dart';
 import 'package:taleb/main.dart';
 
-class SimilerStackWidget extends StatelessWidget {
-  const SimilerStackWidget({
+class SimilerStackNewsWidget extends StatelessWidget {
+  const SimilerStackNewsWidget({
     this.news,
     Key? key,
   }) : super(key: key);

@@ -39,6 +39,12 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: SearviceProviderNewsPage(
               searviceProviderId: args.searviceProviderId, key: args.key));
+    },
+    NewsDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<NewsDetailsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: NewsDetailsPage(news: args.news, key: args.key));
     }
   };
 
@@ -48,7 +54,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard]),
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(SearviceProviderNewsRoute.name,
-            path: '/searvice-provider-news-page')
+            path: '/searvice-provider-news-page'),
+        RouteConfig(NewsDetailsRoute.name, path: '/news-details-page')
       ];
 }
 
@@ -100,5 +107,29 @@ class SearviceProviderNewsRouteArgs {
   @override
   String toString() {
     return 'SearviceProviderNewsRouteArgs{searviceProviderId: $searviceProviderId, key: $key}';
+  }
+}
+
+/// generated route for
+/// [NewsDetailsPage]
+class NewsDetailsRoute extends PageRouteInfo<NewsDetailsRouteArgs> {
+  NewsDetailsRoute({required News news, Key? key})
+      : super(NewsDetailsRoute.name,
+            path: '/news-details-page',
+            args: NewsDetailsRouteArgs(news: news, key: key));
+
+  static const String name = 'NewsDetailsRoute';
+}
+
+class NewsDetailsRouteArgs {
+  const NewsDetailsRouteArgs({required this.news, this.key});
+
+  final News news;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'NewsDetailsRouteArgs{news: $news, key: $key}';
   }
 }

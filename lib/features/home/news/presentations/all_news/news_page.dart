@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
 import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
@@ -107,10 +108,7 @@ class _NewsPageState extends State<NewsPage> {
                         Column(
                           children: const [
                             SizedBox(height: 12),
-                            CircularProgressIndicator(
-                              color: TalebColors.yellowRegular,
-                              strokeWidth: 4,
-                            ),
+                            TalebCircularProgressIndicator(),
                           ],
                         )
                     ],
