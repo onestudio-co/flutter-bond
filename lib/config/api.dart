@@ -1,3 +1,3 @@
 class ApiConfig {
-  static String baseUrl = 'https://backend-develop.famcare.app/api/v2/';
+  static String baseUrl = 'https://f29c-85-184-243-222.eu.ngrok.io/api/';
 }

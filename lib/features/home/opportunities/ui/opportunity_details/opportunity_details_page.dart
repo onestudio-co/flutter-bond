@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/news/ui/news_details/widget/news_date_and_searvice_provider.dart';
-import 'package:taleb/features/home/news/ui/news_details/widget/slider_news_image.dart';
+import 'package:taleb/features/home/news/presentations/news_details/widget/news_date_and_searvice_provider.dart';
+import 'package:taleb/features/home/news/presentations/news_details/widget/slider_news_image.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget.dart';
 
 class OpportunityDetailsPage extends StatelessWidget {
@@ -40,7 +40,7 @@ class OpportunityDetailsPage extends StatelessWidget {
                 child: Column(
                   children: [
                     VerticalSpace(TalebSizes.h16),
-                    const DateAndSearviceProviderWidget(),
+                     DateAndSearviceProviderWidget(),
                     VerticalSpace(TalebSizes.h12),
                     Text(
                       'ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك',

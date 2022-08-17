@@ -3,26 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
-import 'package:taleb/main.dart';
+import 'package:taleb/core/widget/taleb_image.dart';
+import 'package:taleb/features/home/news/data/models/news.dart';
 
+import '../../../widgets/additional_info_row_with_city.dart';
 import '../news_details/news_details_page.dart';
-import 'additional_info_row_with_city.dart';
-import 'news_image.dart';
 import 'title_news_card.dart';
 
 class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({
-    required this.index,
+    required this.news,
     Key? key,
   }) : super(key: key);
-  final int index;
+  final News news;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.pushWidget(NewsDetailsPage(
-        index: index,
-      )),
+      onTap: () => context.router.pushWidget(NewsDetailsPage(news: news)),
       child: Container(
         padding: EdgeInsets.all(TalebPadding.p12),
         margin: EdgeInsets.only(top: TalebPadding.p12),
@@ -33,16 +31,22 @@ class NewsCardWidget extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              tag: index,
+              tag: news.id,
               child: TalebImageWidget(
-                image: url,
+                image: news.image,
                 height: TalebSizes.h240,
               ),
             ),
             VerticalSpace(TalebSizes.h8),
-            const RowAdditionalInfoWithCity(hasCity: true),
+            RowAdditionalInfoWithCity(
+              hasCity: true,
+              user: news.user,
+              cityName: news.city.name,
+            ),
             VerticalSpace(TalebSizes.h8),
-            const TitleNewsCard(),
+            TitleNewsCard(
+              title: news.title,
+            ),
           ],
         ),
       ),

@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
-
-import '../../widgets/additional_info_row_with_city.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
+import 'package:taleb/features/home/widgets/searvie_provider_image_and_name.dart';
 
 class DateAndSearviceProviderWidget extends StatelessWidget {
   const DateAndSearviceProviderWidget({
+    this.user,
     Key? key,
   }) : super(key: key);
+
+  final User? user;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SearviceProviderLabel(
+        SearviceProviderImageAndName(
           padding: TalebPadding.p4,
           radius: 14,
+          user: user,
         ),
         Text(
           '2 أغسطس 2022',

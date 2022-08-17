@@ -20,7 +20,6 @@ class TalebImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      // width: width,
       margin: margin,
       decoration: BoxDecoration(
         borderRadius:

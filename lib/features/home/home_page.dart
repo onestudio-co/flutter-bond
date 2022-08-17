@@ -5,8 +5,8 @@ import 'package:taleb/core/resources/taleb_fonts.dart';
 import 'package:taleb/core/resources/taleb_icons.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_styles.dart';
+import 'package:taleb/features/home/news/presentations/all_news/news_page.dart';
 
-import 'news/ui/all_news/news_page.dart';
 import 'opportunities/ui/all_opportunities/all_opportunities_page.dart';
 
 class HomePage extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
-import 'package:taleb/features/home/news/ui/widgets/news_image.dart';
+import 'package:taleb/core/widget/taleb_image.dart';
 import 'package:taleb/features/home/opportunities/ui/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/home/opportunities/widgets/container_tag.dart';
 import 'package:taleb/main.dart';
