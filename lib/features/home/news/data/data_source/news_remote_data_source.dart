@@ -43,7 +43,7 @@ extension NewsApis on Api {
   static String get allNews => 'news';
 
   static String serviceProviderNews(int serviceProviderId) {
-    return 'service-provider-news/$serviceProviderId';
+    return 'news/user/$serviceProviderId';
   }
 
   static String similerNews(int newsId) {
