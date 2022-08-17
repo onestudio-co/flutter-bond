@@ -1,19 +1,32 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/presentations/news_details/widget/slider_news_image.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_news.dart';
 
+import 'cubit/similer_cubit.dart';
 import 'widget/news_date_and_searvice_provider.dart';
 
-class NewsDetailsPage extends StatelessWidget {
+class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   const NewsDetailsPage({
     required this.news,
     Key? key,
   }) : super(key: key);
 
   final News news;
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider<SimilerCubit>(
+      create: (BuildContext context) =>
+          sl<SimilerCubit>()..similerNews(news.id),
+      child: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

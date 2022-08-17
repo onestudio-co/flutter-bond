@@ -3,8 +3,8 @@ import 'package:taleb/core/resources/import_resources.dart';
 
 import 'decoration_labal_widget.dart';
 
-class SimilerTitleWidget extends StatelessWidget {
-  const SimilerTitleWidget({
+class SimilerLabelWidget extends StatelessWidget {
+  const SimilerLabelWidget({
     Key? key,
   }) : super(key: key);
 

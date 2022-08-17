@@ -5,9 +5,9 @@ import 'package:taleb/features/home/news/data/models/news.dart';
 import 'stack_widget_opp.dart';
 import 'title_widget.dart';
 
-class SimilarMainWidget extends StatelessWidget {
-  const SimilarMainWidget({
-     this.news,
+class SimilarMainOpportunitiesWidget extends StatelessWidget {
+  const SimilarMainOpportunitiesWidget({
+    this.news,
     Key? key,
   }) : super(key: key);
 
@@ -25,14 +25,14 @@ class SimilarMainWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SimilerTitleWidget(),
+          const SimilerLabelWidget(),
           VerticalSpace(TalebSizes.h16),
           Expanded(
             child: ListView.builder(
               itemCount: 10,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return SimilerStackWidget(news: news);
+                return SimilerStackWidget(news: news!);
               },
             ),
           ),

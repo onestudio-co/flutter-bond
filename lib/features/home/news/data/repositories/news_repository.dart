@@ -13,9 +13,9 @@ class NewsRepository {
     try {
       final ListResponse<News> response =
           await _remoteDataSource.allNews(nextUrl: nextUrl);
-      return Right(response);
+      return Right<Failure, ListResponse<News>>(response);
     } on ServerException catch (e) {
-      return Left(e.toFailure());
+      return Left<Failure, ListResponse<News>>(e.toFailure());
     }
   }
 
@@ -25,9 +25,19 @@ class NewsRepository {
       final ListResponse<News> response =
           await _remoteDataSource.allServiceProviderNews(
               serviceProviderId: serviceProviderId, nextUrl: nextUrl);
-      return Right(response);
+      return Right<Failure, ListResponse<News>>(response);
     } on ServerException catch (e) {
-      return Left(e.toFailure());
+      return Left<Failure, ListResponse<News>>(e.toFailure());
+    }
+  }
+
+  Future<Either<Failure, ListResponse<News>>> similerNews(int newsId) async {
+    try {
+      final ListResponse<News> response =
+          await _remoteDataSource.similerNews(newsId);
+      return Right<Failure, ListResponse<News>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<News>>(e.toFailure());
     }
   }
 }
