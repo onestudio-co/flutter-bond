@@ -1,8 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/features/home/news/data/models/city.dart';
-import 'package:taleb/main.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 
 part 'news.g.dart';
 

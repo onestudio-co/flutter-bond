@@ -5,15 +5,15 @@ part 'city.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class City extends Model {
+  @JsonKey(defaultValue: '')
   final String name;
 
-const City({
+  const City({
     required int id,
     required this.name,
   }) : super(id: id);
 
-  factory City.fromJson(Map<String, dynamic> json) =>
-      _$CityFromJson(json);
+  factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$CityToJson(this);

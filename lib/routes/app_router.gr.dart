@@ -45,6 +45,14 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData,
           child: NewsDetailsPage(news: args.news, key: args.key));
+    },
+    SearchCityRoute.name: (routeData) {
+      return CustomPage<int>(
+          routeData: routeData,
+          child: const SearchCityPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -55,7 +63,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
-        RouteConfig(NewsDetailsRoute.name, path: '/news-details-page')
+        RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
+        RouteConfig(SearchCityRoute.name, path: '/search-city-page')
       ];
 }
 
@@ -132,4 +141,13 @@ class NewsDetailsRouteArgs {
   String toString() {
     return 'NewsDetailsRouteArgs{news: $news, key: $key}';
   }
+}
+
+/// generated route for
+/// [SearchCityPage]
+class SearchCityRoute extends PageRouteInfo<void> {
+  const SearchCityRoute()
+      : super(SearchCityRoute.name, path: '/search-city-page');
+
+  static const String name = 'SearchCityRoute';
 }

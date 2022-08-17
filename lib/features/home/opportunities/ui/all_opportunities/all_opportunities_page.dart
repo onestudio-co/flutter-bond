@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
-import 'package:taleb/features/home/widgets/search_city_bottom_sheet.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 
@@ -33,8 +32,8 @@ class OpportunitiesPage extends StatelessWidget {
                 ),
                 HorizontalSpace(TalebSizes.w8),
                 FilterWidget(
-                  onTap: () => _showCityBottomSheet(context),
-                ),
+                    // onTap: () => _showCityBottomSheet(context),
+                    onTap: () => {}),
               ],
             ),
             const Expanded(child: ListOfOpportunities()),
@@ -44,12 +43,12 @@ class OpportunitiesPage extends StatelessWidget {
     );
   }
 
-  void _showCityBottomSheet(BuildContext context) {
-    showBarModalBottomSheet(
-      expand: true,
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (BuildContext context) => const SearchCityBottomSheet(),
-    );
-  }
+  // void _showCityBottomSheet(BuildContext context) {
+  //   showBarModalBottomSheet(
+  //     expand: true,
+  //     context: context,
+  //     backgroundColor: Colors.transparent,
+  //     builder: (BuildContext context) => const SearchCityBottomSheet(),
+  //   );
+  // }
 }

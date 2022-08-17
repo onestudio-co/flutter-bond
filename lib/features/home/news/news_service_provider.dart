@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/features/home/news/data/models/city.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit.dart';
 import 'package:taleb/features/home/news/presentations/news_details/cubit/similer_cubit.dart';
 
