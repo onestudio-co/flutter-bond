@@ -9,10 +9,10 @@ class ServiceProviderRepository {
 
   ServiceProviderRepository(this._remoteDataSource);
 
-  Future<Either<Failure, ListResponse<User>>> getServiceProviders() async {
+  Future<Either<Failure, ListResponse<User>>> getServiceProviders({String? textSearch}) async {
     try {
       final ListResponse<User> response =
-          await _remoteDataSource.getServiceProviers();
+          await _remoteDataSource.getServiceProviers(textSearch:textSearch);
       return Right<Failure, ListResponse<User>>(response);
     } on ServerException catch (e) {
       return Left<Failure, ListResponse<User>>(e.toFailure());

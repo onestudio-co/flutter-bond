@@ -13,11 +13,11 @@ class ServiceProviderCubit extends Cubit<ServiceProviderState> {
   ServiceProviderCubit(this._cityRepository)
       : super(ServiceProviderInitialState());
 
-  void getServiceProviders() async {
+  void getServiceProviders({String? textSearch}) async {
     emit(ServiceProviderLoadingState());
 
     final Either<Failure, ListResponse<User>> response =
-        await _cityRepository.getServiceProviders();
+        await _cityRepository.getServiceProviders(textSearch: textSearch);
     response.fold(
       (Failure failure) =>
           emit(ServiceProviderLoadFailure(failure.toMessage())),

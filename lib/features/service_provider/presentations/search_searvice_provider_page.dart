@@ -36,75 +36,90 @@ class _SearchSearviceProviderPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ServiceProviderCubit, ServiceProviderState>(
-      builder: (BuildContext context, ServiceProviderState state) {
-        if (state is ServiceProviderLoadedSuccessState) {
-          return Container(
-            color: TalebColors.ghostWhite,
-            child: SafeArea(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-                child: Column(
-                  children: [
-                    VerticalSpace(TalebSizes.h24),
-                    Text(
-                      'اختيار الناشر',
-                      style: Theme.of(context).textTheme.labelMedium?.elephant,
-                    ),
-                    VerticalSpace(TalebSizes.h24),
-                    SizedBox(
-                      width: double.infinity,
-                      height: TalebSizes.h53,
-                      child: const SearchWidget(
-                        hintText: 'أكتب اسم الناشر',
-                      ),
-                    ),
-                    VerticalSpace(TalebSizes.h12),
-                    Expanded(
-                      child: ListView.separated(
-                        itemCount: state.serviceProviders.length,
-                        separatorBuilder: (BuildContext context, int index) {
-                          return const TalebDivider(
-                            color: TalebColors.brightGray,
-                            thickness: 1,
-                          );
-                        },
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedIndex = index;
-                                serviceProviderId =
-                                    state.serviceProviders[index].id;
-                              });
-                            },
-                            child: ItemListViewWidget(
-                              name: state.serviceProviders[index].name,
-                              selectedIndex: selectedIndex ?? -1,
-                              index: index,
-                              logo: state.serviceProviders[index].image,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    TalebButtonWidget(
-                      onPressed: () async =>
-                          await context.router.pop<int>(serviceProviderId),
-                      title: 'حفظ',
-                    ),
-                    VerticalSpace(TalebSizes.h16),
-                  ],
+    return Container(
+      color: TalebColors.ghostWhite,
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+          child: Column(
+            children: [
+              VerticalSpace(TalebSizes.h24),
+              Text(
+                'اختيار الناشر',
+                style: Theme.of(context).textTheme.labelMedium?.elephant,
+              ),
+              VerticalSpace(TalebSizes.h24),
+              SizedBox(
+                width: double.infinity,
+                height: TalebSizes.h53,
+                child: SearchWidget(
+                  hintText: 'أكتب اسم الناشر',
+                  onChanged: _onChangeSearch,
                 ),
               ),
-            ),
-          );
-        } else if (state is CityLoadingState) {
-          return const Center(child: TalebCircularProgressIndicator());
-        } else {
-          return const SizedBox.shrink();
-        }
-      },
+              VerticalSpace(TalebSizes.h12),
+              Expanded(
+                child: BlocBuilder<ServiceProviderCubit, ServiceProviderState>(
+                  builder: (BuildContext context, ServiceProviderState state) {
+                    if (state is ServiceProviderLoadedSuccessState) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: TalebSizes.h500,
+                            child: ListView.separated(
+                              itemCount: state.serviceProviders.length,
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return const TalebDivider(
+                                  color: TalebColors.brightGray,
+                                  thickness: 1,
+                                );
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                return InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedIndex = index;
+                                      serviceProviderId =
+                                          state.serviceProviders[index].id;
+                                    });
+                                  },
+                                  child: ItemListViewWidget(
+                                    name: state.serviceProviders[index].name,
+                                    selectedIndex: selectedIndex ?? -1,
+                                    index: index,
+                                    logo: state.serviceProviders[index].image,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          const Spacer(),
+                          TalebButtonWidget(
+                            onPressed: () async => await context.router
+                                .pop<int?>(serviceProviderId),
+                            title: 'حفظ',
+                          ),
+                          VerticalSpace(TalebSizes.h16),
+                        ],
+                      );
+                    } else if (state is CityLoadingState) {
+                      return const Center(
+                          child: TalebCircularProgressIndicator());
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
+  }
+
+  void _onChangeSearch(String value) {
+    context.read<ServiceProviderCubit>().getServiceProviders(textSearch: value);
   }
 }

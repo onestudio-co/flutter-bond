@@ -7,16 +7,19 @@ class ServiceProviderRemoteDataSource extends DataSource {
 
   ServiceProviderRemoteDataSource(this._client);
 
-  Future<ListResponse<User>> getServiceProviers() async {
+  Future<ListResponse<User>> getServiceProviers({String? textSearch}) async {
     final Response<dynamic> response = await _client.get(
-      Apis.serviceProvider(),
+      ServiceProviderApis.serviceProvider(),
       headers: Api.headers(),
+      queryParameters: <String, dynamic>{
+        'name': textSearch,
+      },
     );
     return mapListResponse(response);
   }
 }
 
-extension Apis on Api {
+extension ServiceProviderApis on Api {
   static String serviceProvider() {
     return 'service-providers';
   }
