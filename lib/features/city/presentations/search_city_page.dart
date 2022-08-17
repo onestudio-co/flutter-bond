@@ -6,7 +6,6 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
@@ -67,7 +66,7 @@ class SearchCityPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                     ),
                     TalebButtonWidget(
-                      onPressed: () => context.router.pop<City>(),
+                      onPressed: () => context.router.pop<int>(36),
                       title: 'حفظ',
                     ),
                     VerticalSpace(TalebSizes.h16),

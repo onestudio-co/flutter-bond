@@ -47,7 +47,7 @@ class _$AppRouter extends RootStackRouter {
           child: NewsDetailsPage(news: args.news, key: args.key));
     },
     SearchCityRoute.name: (routeData) {
-      return CustomPage<City>(
+      return CustomPage<int>(
           routeData: routeData,
           child: const SearchCityPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
@@ -55,7 +55,7 @@ class _$AppRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     SearchSearviceProviderRoute.name: (routeData) {
-      return CustomPage<User>(
+      return CustomPage<int>(
           routeData: routeData,
           child: const SearchSearviceProviderPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
@@ -63,9 +63,10 @@ class _$AppRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     FilterNewsRoute.name: (routeData) {
+      final args = routeData.argsAs<FilterNewsRouteArgs>();
       return CustomPage<Search>(
           routeData: routeData,
-          child: const FilterNewsPage(),
+          child: FilterNewsPage(newsCubit: args.newsCubit, key: args.key),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
@@ -183,9 +184,24 @@ class SearchSearviceProviderRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [FilterNewsPage]
-class FilterNewsRoute extends PageRouteInfo<void> {
-  const FilterNewsRoute()
-      : super(FilterNewsRoute.name, path: '/filter-news-page');
+class FilterNewsRoute extends PageRouteInfo<FilterNewsRouteArgs> {
+  FilterNewsRoute({required NewsCubit newsCubit, Key? key})
+      : super(FilterNewsRoute.name,
+            path: '/filter-news-page',
+            args: FilterNewsRouteArgs(newsCubit: newsCubit, key: key));
 
   static const String name = 'FilterNewsRoute';
+}
+
+class FilterNewsRouteArgs {
+  const FilterNewsRouteArgs({required this.newsCubit, this.key});
+
+  final NewsCubit newsCubit;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FilterNewsRouteArgs{newsCubit: $newsCubit, key: $key}';
+  }
 }
