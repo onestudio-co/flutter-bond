@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
-
-import '../news/presentations/searvice_provider_news/searvice_provider_page.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class SearviceProviderImageAndName extends StatelessWidget {
   final double padding;
@@ -21,7 +20,8 @@ class SearviceProviderImageAndName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.pushWidget(const SearviceProviderNewsPage()),
+      onTap: () => context.router
+          .push(SearviceProviderNewsRoute(searviceProviderId: user!.id)),
       child: Container(
         padding: EdgeInsets.only(
           right: padding,

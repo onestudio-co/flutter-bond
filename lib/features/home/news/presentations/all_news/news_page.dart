@@ -146,8 +146,6 @@ class _NewsPageState extends State<NewsPage> {
     double maxScroll = _scrollController.position.maxScrollExtent;
     double currentScroll = _scrollController.position.pixels;
     double delta = 200.0;
-    // log('maxScroll $maxScroll');
-    // log('currentScroll $currentScroll');
     if (maxScroll - currentScroll <= delta) {
       // final NewsCubit cubit = context.read<NewsCubit>();
       newsCubit.loadNews();
