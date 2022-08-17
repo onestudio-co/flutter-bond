@@ -47,9 +47,17 @@ class _$AppRouter extends RootStackRouter {
           child: NewsDetailsPage(news: args.news, key: args.key));
     },
     SearchCityRoute.name: (routeData) {
-      return CustomPage<int>(
+      return CustomPage<City>(
           routeData: routeData,
           child: const SearchCityPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    SearchSearviceProviderRoute.name: (routeData) {
+      return CustomPage<User>(
+          routeData: routeData,
+          child: const SearchSearviceProviderPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
@@ -64,7 +72,9 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
-        RouteConfig(SearchCityRoute.name, path: '/search-city-page')
+        RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
+        RouteConfig(SearchSearviceProviderRoute.name,
+            path: '/search-searvice-provider-page')
       ];
 }
 
@@ -150,4 +160,14 @@ class SearchCityRoute extends PageRouteInfo<void> {
       : super(SearchCityRoute.name, path: '/search-city-page');
 
   static const String name = 'SearchCityRoute';
+}
+
+/// generated route for
+/// [SearchSearviceProviderPage]
+class SearchSearviceProviderRoute extends PageRouteInfo<void> {
+  const SearchSearviceProviderRoute()
+      : super(SearchSearviceProviderRoute.name,
+            path: '/search-searvice-provider-page');
+
+  static const String name = 'SearchSearviceProviderRoute';
 }

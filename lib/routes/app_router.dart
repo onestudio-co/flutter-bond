@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/auth/presentation/login_page.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/search_city_page.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/presentations/news_details/news_details_page.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/searvice_provider_page.dart';
+import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
 import 'package:taleb/routes/router_helpers.dart';
 
 import '../features/app/launch_page.dart';
@@ -25,6 +27,10 @@ part 'app_router.gr.dart';
     AutoRoute(page: NewsDetailsPage),
     CustomRoute<City>(
       page: SearchCityPage,
+      customRouteBuilder: RouterHelpers.modalSheetBuilder,
+    ),
+    CustomRoute<User>(
+      page: SearchSearviceProviderPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
   ],
