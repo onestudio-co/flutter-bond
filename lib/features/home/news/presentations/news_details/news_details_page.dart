@@ -39,6 +39,7 @@ class NewsDetailsPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     VerticalSpace(TalebSizes.h16),
                     DateAndSearviceProviderWidget(user: news.user),

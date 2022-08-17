@@ -91,7 +91,6 @@ class _NewsPageState extends State<NewsPage> {
                         ),
                       ),
                       if (state is NewsLoadMoreState)
-                        // log(state.news.data.length.toString(),name: 'kos');
                         Column(
                           children: const [
                             SizedBox(height: 12),
