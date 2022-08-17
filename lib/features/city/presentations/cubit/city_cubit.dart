@@ -11,12 +11,12 @@ class CityCubit extends Cubit<CityState> {
   final CityRepository _cityRepository;
 
   CityCubit(this._cityRepository) : super(CityInitialState());
-  
-  void getCitys() async {
+
+  void getCitys({String? textSearch}) async {
     emit(CityLoadingState());
 
     final Either<Failure, ListResponse<City>> response =
-        await _cityRepository.getCities();
+        await _cityRepository.getCities(textSearch: textSearch);
     response.fold(
       (Failure failure) => emit(CityLoadFailure(failure.toMessage())),
       (ListResponse<City> response) {
