@@ -15,7 +15,8 @@ class SearchCityPage extends StatefulWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<CityCubit>(
-      create: (BuildContext context) => sl<CityCubit>()..getCitys(),
+      create: (BuildContext context) =>
+          sl<CityCubit>()..getCitys(textSearch: null),
       child: this,
     );
   }
@@ -30,72 +31,87 @@ class _SearchCityPageState extends State<SearchCityPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CityCubit, CityState>(
-      builder: (BuildContext context, CityState state) {
-        if (state is CityLoadedSuccessState) {
-          return Container(
-            color: TalebColors.ghostWhite,
-            child: SafeArea(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-                child: Column(
-                  children: [
-                    VerticalSpace(TalebSizes.h24),
-                    Text(
-                      'اختيار المدينة',
-                      style: Theme.of(context).textTheme.labelMedium?.elephant,
-                    ),
-                    VerticalSpace(TalebSizes.h24),
-                    SizedBox(
-                      width: double.infinity,
-                      height: TalebSizes.h53,
-                      child: const SearchWidget(
-                        hintText: 'أكتب اسم المدينة',
-                      ),
-                    ),
-                    VerticalSpace(TalebSizes.h12),
-                    Expanded(
-                      child: ListView.separated(
-                        itemCount: state.cities.length,
-                        separatorBuilder: (BuildContext context, int index) {
-                          return const TalebDivider(
-                            color: TalebColors.brightGray,
-                            thickness: 1,
-                          );
-                        },
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedIndex = index;
-                                cityId = state.cities[index].id;
-                              });
-                            },
-                            child: ItemListViewWidget(
-                              name: state.cities[index].name,
-                              selectedIndex: selectedIndex ?? -1,
-                              index: index,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    TalebButtonWidget(
-                      onPressed: () => context.router.pop<int>(cityId),
-                      title: 'حفظ',
-                    ),
-                    VerticalSpace(TalebSizes.h16),
-                  ],
+    return Container(
+      color: TalebColors.ghostWhite,
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+          child: Column(
+            children: [
+              VerticalSpace(TalebSizes.h24),
+              Text(
+                'اختيار المدينة',
+                style: Theme.of(context).textTheme.labelMedium?.elephant,
+              ),
+              VerticalSpace(TalebSizes.h24),
+              SizedBox(
+                width: double.infinity,
+                height: TalebSizes.h53,
+                child: SearchWidget(
+                  hintText: 'أكتب اسم المدينة',
+                  onChanged: _onChangeSearch,
                 ),
               ),
-            ),
-          );
-        } else if (state is CityLoadingState) {
-          return const Center(child: TalebCircularProgressIndicator());
-        } else {
-          return const SizedBox.shrink();
-        }
-      },
+              VerticalSpace(TalebSizes.h12),
+              Expanded(
+                child: BlocBuilder<CityCubit, CityState>(
+                  builder: (BuildContext context, CityState state) {
+                    if (state is CityLoadedSuccessState) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: TalebSizes.h500,
+                            child: ListView.separated(
+                              itemCount: state.cities.length,
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return const TalebDivider(
+                                  color: TalebColors.brightGray,
+                                  thickness: 1,
+                                );
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                return InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedIndex = index;
+                                      cityId = state.cities[index].id;
+                                    });
+                                  },
+                                  child: ItemListViewWidget(
+                                    name: state.cities[index].name,
+                                    selectedIndex: selectedIndex ?? -1,
+                                    index: index,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          const Spacer(),
+                          TalebButtonWidget(
+                            onPressed: () => context.router.pop<int?>(cityId),
+                            title: 'حفظ',
+                          ),
+                          VerticalSpace(TalebSizes.h16),
+                        ],
+                      );
+                    } else if (state is CityLoadingState) {
+                      return const Center(
+                          child: TalebCircularProgressIndicator());
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
+  }
+
+  void _onChangeSearch(String value) {
+    context.read<CityCubit>().getCitys(textSearch: value);
   }
 }
