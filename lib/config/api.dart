@@ -1,3 +1,3 @@
 class ApiConfig {
-  static String baseUrl = 'https://c77c-37-8-8-189.eu.ngrok.io/api/';
+  static String baseUrl = 'https://6a9e-37-8-2-40.eu.ngrok.io/api/';
 }

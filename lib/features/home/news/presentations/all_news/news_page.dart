@@ -62,79 +62,92 @@ class _NewsPageState extends State<NewsPage> {
           ),
           body: GestureDetector(
             onTap: _scrollToTop,
-            child: BlocConsumer<NewsCubit, NewsState>(
-              listener: (BuildContext context, NewsState state) {
-                state is NewsLoadFailed ? log(state.error) : null;
-              },
-              builder: (BuildContext context, NewsState state) {
-                sl<AdCubit>().getAds();
-                if (state is NewsEmpty) {
-                  return const Center(child: Text('لا يوجد بيانات ....'));
-                } else if (state is NewsLoadSuccess) {
-                  final List news = state.news.data;
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-                    child: Column(
-                      children: <Widget>[
-                        HorizontalSpace(TalebSizes.w8),
-                        Row(
-                          children: <Widget>[
-                            const Expanded(
-                                child: SearchWidget(
-                              hintText: 'ابحث في الأخبار',
-                            )),
-                            HorizontalSpace(TalebSizes.w8),
-                            FilterWidget(
-                              onTap: () async {
-                                context.router.push(FilterNewsRoute(
-                                    newsCubit: context.read<NewsCubit>()));
-                              },
-                            ),
-                          ],
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+              child: Column(
+                children: [
+                  HorizontalSpace(TalebSizes.w8),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: SearchWidget(
+                          hintText: 'ابحث في الأخبار',
+                          onChanged: context.read<NewsCubit>().searchNews,
                         ),
-                        VerticalSpace(TalebSizes.h8),
-                        Expanded(
-                          child: ListView.separated(
-                            controller: _scrollController,
-                            itemCount: news.length,
-                            separatorBuilder:
-                                (BuildContext context, int index) {
-                              List<Ad> ads = sl<AdCubit>().ads;
-                              if (index < ads.length) {
-                                return NewsAds(image: ads[index].image);
-                              }
-                              return const SizedBox();
-                            },
-                            itemBuilder: (BuildContext context, int index) {
-                              return NewsCardWidget(news: news[index]);
-                            },
-                          ),
-                        ),
-                        if (state is NewsLoadMoreState)
-                          Column(
-                            children: const [
-                              SizedBox(height: 12),
-                              TalebCircularProgressIndicator(),
+                      ),
+                      HorizontalSpace(TalebSizes.w8),
+                      FilterWidget(
+                        onTap: () async {
+                          context.router.push(FilterNewsRoute(
+                              newsCubit: context.read<NewsCubit>()));
+                        },
+                      ),
+                    ],
+                  ),
+                  VerticalSpace(TalebSizes.h8),
+                  Expanded(
+                    child: BlocConsumer<NewsCubit, NewsState>(
+                      listener: (BuildContext context, NewsState state) {
+                        state is NewsLoadFailed
+                            ? log(state.error, name: 'news page')
+                            : null;
+                      },
+                      builder: (BuildContext context, NewsState state) {
+                        sl<AdCubit>().getAds();
+                        if (state is NewsEmpty) {
+                          return const Center(
+                              child: Text('لا يوجد بيانات ....'));
+                        } else if (state is NewsLoadSuccess) {
+                          final List news = state.news.data;
+                          return Column(
+                            children: <Widget>[
+                              Expanded(
+                                child: ListView.separated(
+                                  controller: _scrollController,
+                                  itemCount: news.length,
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    List<Ad> ads = sl<AdCubit>().ads;
+                                    if (index < ads.length) {
+                                      return NewsAds(image: ads[index].image);
+                                    }
+                                    return const SizedBox();
+                                  },
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return NewsCardWidget(news: news[index]);
+                                  },
+                                ),
+                              ),
+                              if (state is NewsLoadMoreState)
+                                Column(
+                                  children: const [
+                                    SizedBox(height: 12),
+                                    TalebCircularProgressIndicator(),
+                                  ],
+                                )
                             ],
-                          )
-                      ],
+                          );
+                        } else if (state is NewsLoading) {
+                          return Container(
+                            margin: const EdgeInsets.only(
+                              left: 16.0,
+                              right: 16.0,
+                              bottom: 0,
+                              top: 24.0,
+                            ),
+                            color: Colors.white,
+                            child:
+                                const Center(child: Text('Loading .........')),
+                          );
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      },
                     ),
-                  );
-                } else if (state is NewsLoading) {
-                  return Container(
-                    margin: const EdgeInsets.only(
-                      left: 16.0,
-                      right: 16.0,
-                      bottom: 0,
-                      top: 24.0,
-                    ),
-                    color: Colors.white,
-                    child: const Center(child: Text('Loading .........')),
-                  );
-                } else {
-                  return const SizedBox.shrink();
-                }
-              },
+                  ),
+                ],
+              ),
             ),
           ),
         );

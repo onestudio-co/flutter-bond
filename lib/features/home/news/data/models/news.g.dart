@@ -7,12 +7,16 @@ part of 'news.dart';
 // **************************************************************************
 
 News _$NewsFromJson(Map<String, dynamic> json) => News(
-      userId: json['user_id'] as int,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      userId: json['user_id'] == null ? 0 : json['user_id'] as int,
+      user: json['user'] == null
+          ? User(id: 1, name: '', image: url)
+          : User.fromJson(json['user'] as Map<String, dynamic>),
       title: json['title'] as String,
       content: json['content'] as String,
-      cityId: json['city_id'] as int,
-      city: City.fromJson(json['city'] as Map<String, dynamic>),
+      cityId: json['city_id'] == null ? 0 : json['city_id'] as int,
+      city: json['city'] == null
+          ? City(id: 1, name: 'gg')
+          : City.fromJson(json['city'] as Map<String, dynamic>),
       image: json['image'] as String? ??
           'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: json['id'] as int,
