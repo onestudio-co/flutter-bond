@@ -24,14 +24,6 @@ class NewsRemoteDataSource extends DataSource {
       );
     }
   }
-
-  // Future<ListResponse<Product>> productDetails({required int productId}) async {
-  //   final Response response = await _client.get(
-  //     NewsApis.allNews(),
-  //     headers: Api.headers(),
-  //   );
-  //   return mapListResponse(response);
-  // }
 }
 
 extension NewsApis on Api {

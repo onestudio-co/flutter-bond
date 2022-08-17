@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/presentations/news_details/widget/slider_news_image.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget.dart';
 
@@ -8,10 +9,11 @@ import 'widget/news_date_and_searvice_provider.dart';
 
 class NewsDetailsPage extends StatelessWidget {
   const NewsDetailsPage({
- 
+    required this.news,
     Key? key,
   }) : super(key: key);
 
+  final News news;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +41,10 @@ class NewsDetailsPage extends StatelessWidget {
                 child: Column(
                   children: [
                     VerticalSpace(TalebSizes.h16),
-                    const DateAndSearviceProviderWidget(),
+                    DateAndSearviceProviderWidget(user: news.user),
                     VerticalSpace(TalebSizes.h12),
                     Text(
-                      'ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك',
+                      news.title,
                       style:
                           Theme.of(context).textTheme.headlineMedium!.elephant,
                     ),
@@ -50,12 +52,12 @@ class NewsDetailsPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(bottom: TalebPadding.p32),
                       child: Text(
-                        'ترجمة لرؤى وتطلعات جلالة الملك عبدالله الثاني المعظم في إيجاد جيل من الشباب المسلح بالمعرفة والعلم والانتماء، ليكون شريكا فاعلا في بناء حياتنا السياسية والاقتصادية والثقافية بعيدا عن التطرف والغلو، وفقا لما جاء في كتاب التكليف السامي لحكومة الدكتور هاني الملقي، وتنفيذا للتوجيهات الملكية في كتاب التكليف فيما يتعلق بالشباب ونقتبس منه " وأما قطاع الشباب، فإنه بحاجة إلى اهتمام حكومي أكبر نظراً لما عاناه العمل الشبابي خلال السنوات الماضية من افتقار للرعاية الكافية، التي تساعد الشباب على إيجاد فرص الحياة الكريمة.',
+                        news.content,
                         style:
                             Theme.of(context).textTheme.displayLarge!.elephant,
                       ),
                     ),
-                    const SimilarMainWidget(),
+                    SimilarMainWidget(news: news),
                   ],
                 ),
               )

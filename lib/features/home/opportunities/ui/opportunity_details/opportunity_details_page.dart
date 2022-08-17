@@ -40,7 +40,7 @@ class OpportunityDetailsPage extends StatelessWidget {
                 child: Column(
                   children: [
                     VerticalSpace(TalebSizes.h16),
-                    const DateAndSearviceProviderWidget(),
+                     DateAndSearviceProviderWidget(),
                     VerticalSpace(TalebSizes.h12),
                     Text(
                       'ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك ترجمة لرؤى وتطلعات جلالة الملك',
