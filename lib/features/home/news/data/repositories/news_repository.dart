@@ -18,4 +18,16 @@ class NewsRepository {
       return Left(e.toFailure());
     }
   }
+
+  Future<Either<Failure, ListResponse<News>>> allServiceProviderNews(
+      {int? serviceProviderId, String? nextUrl}) async {
+    try {
+      final ListResponse<News> response =
+          await _remoteDataSource.allServiceProviderNews(
+              serviceProviderId: serviceProviderId, nextUrl: nextUrl);
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.toFailure());
+    }
+  }
 }
