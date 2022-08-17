@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -19,11 +17,9 @@ class AdCubit extends Cubit<AdState> {
   List<Ad> get ads => _ads;
 
   void getAds() async {
-    log('message');
     emit(AdLoadingState());
     final Either<Failure, ListResponse<Ad>> response =
         await _addRepository.getAds();
-    log(response.toString());
     response.fold(
       (Failure failure) => emit(AdLoadFailure(failure.toMessage())),
       (ListResponse<Ad> response) {

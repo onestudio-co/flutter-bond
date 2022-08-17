@@ -64,6 +64,7 @@ class _NewsPageState extends State<NewsPage> {
               state is NewsLoadFailed ? log(state.error) : null;
             },
             builder: (BuildContext context, NewsState state) {
+              sl<AdCubit>().getAds();
               if (state is NewsEmpty) {
                 return const Center(child: Text('لا يوجد بيانات ....'));
               } else if (state is NewsLoadSuccess) {

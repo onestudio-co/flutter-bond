@@ -12,9 +12,9 @@ class AdRepository {
   Future<Either<Failure, ListResponse<Ad>>> getAds() async {
     try {
       final ListResponse<Ad> response = await _remoteDataSource.getAds();
-      return Right(response);
+      return Right<Failure, ListResponse<Ad>>(response);
     } on ServerException catch (e) {
-      return Left(e.toFailure());
+      return Left<Failure, ListResponse<Ad>>(e.toFailure());
     }
   }
 }

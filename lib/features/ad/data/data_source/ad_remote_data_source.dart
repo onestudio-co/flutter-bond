@@ -9,9 +9,9 @@ class AdRemoteDataSource extends DataSource {
 
   AdRemoteDataSource(this._client);
 
-  Future<ListResponse<Ad>> getAds({String? nextUrl}) async {
+  Future<ListResponse<Ad>> getAds() async {
     final Response<dynamic> response = await _client.get(
-      nextUrl ?? AdsApis.ads(),
+      AdsApis.ads(),
       headers: Api.headers(),
     );
     if ((response.statusCode ?? 0) <= 204) {
