@@ -4,13 +4,16 @@ import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/data/repositories/news_repository.dart';
+import 'package:taleb/features/home/news/data/services/algolia_news_service.dart';
 
 part 'news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
-  NewsCubit(this._repository) : super(NewsInitial());
+  NewsCubit(this._repository, this.algoliaSubspecialtiesService)
+      : super(NewsInitial());
 
   final NewsRepository _repository;
+  final AlgoliaNewsService algoliaSubspecialtiesService;
 
   Future<void> loadNews(
       {int? cityId, int? searviceProviderId, bool emitLoading = false}) async {
@@ -69,5 +72,17 @@ class NewsCubit extends Cubit<NewsState> {
         ),
       },
     );
+  }
+
+  Future<void> searchNews(String text) async {
+    try {
+      emit(NewsLoading());
+      final List<News> response =
+          await algoliaSubspecialtiesService.searchNews(text);
+      ListResponse<News> listResponse = ListResponse<News>(data: response);
+      emit(NewsLoadSuccess(news: listResponse));
+    } catch (error) {
+      emit(NewsLoadFailed(error: error.toString()));
+    }
   }
 }
