@@ -64,7 +64,7 @@ class _$AppRouter extends RootStackRouter {
     },
     FilterNewsRoute.name: (routeData) {
       final args = routeData.argsAs<FilterNewsRouteArgs>();
-      return CustomPage<Search>(
+      return CustomPage<dynamic>(
           routeData: routeData,
           child: FilterNewsPage(newsCubit: args.newsCubit, key: args.key),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,

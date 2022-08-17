@@ -16,7 +16,6 @@ import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 import 'package:taleb/routes/app_router.dart';
 
 import 'cubit/news_cubit.dart';
-import 'widget/filter_bottom_sheet.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key? key}) : super(key: key);
@@ -87,9 +86,8 @@ class _NewsPageState extends State<NewsPage> {
                             HorizontalSpace(TalebSizes.w8),
                             FilterWidget(
                               onTap: () async {
-                                Search? x = await context.router.push<Search>(
-                                    FilterNewsRoute(
-                                        newsCubit: context.read<NewsCubit>()));
+                                context.router.push(FilterNewsRoute(
+                                    newsCubit: context.read<NewsCubit>()));
                               },
                             ),
                           ],

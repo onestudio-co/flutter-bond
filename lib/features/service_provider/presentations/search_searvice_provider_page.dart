@@ -11,7 +11,7 @@ import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
 import 'package:taleb/features/service_provider/presentations/cubit/service_provider_cubit.dart';
 
-class SearchSearviceProviderPage extends StatelessWidget
+class SearchSearviceProviderPage extends StatefulWidget
     implements AutoRouteWrapper {
   const SearchSearviceProviderPage({Key? key}) : super(key: key);
 
@@ -23,6 +23,16 @@ class SearchSearviceProviderPage extends StatelessWidget
       child: this,
     );
   }
+
+  @override
+  State<SearchSearviceProviderPage> createState() =>
+      _SearchSearviceProviderPageState();
+}
+
+class _SearchSearviceProviderPageState
+    extends State<SearchSearviceProviderPage> {
+  int? selectedIndex;
+  int? serviceProviderId;
 
   @override
   Widget build(BuildContext context) {
@@ -60,17 +70,27 @@ class SearchSearviceProviderPage extends StatelessWidget
                           );
                         },
                         itemBuilder: (BuildContext context, int index) {
-                          return ItemListViewWidget(
-                            name: state.serviceProviders[index].name,
-                            selectedIndex: 3,
-                            index: index,
-                            logo: state.serviceProviders[index].image,
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                                serviceProviderId =
+                                    state.serviceProviders[index].id;
+                              });
+                            },
+                            child: ItemListViewWidget(
+                              name: state.serviceProviders[index].name,
+                              selectedIndex: selectedIndex ?? -1,
+                              index: index,
+                              logo: state.serviceProviders[index].image,
+                            ),
                           );
                         },
                       ),
                     ),
                     TalebButtonWidget(
-                      onPressed: () async => await context.router.pop<int>(2),
+                      onPressed: () async =>
+                          await context.router.pop<int>(serviceProviderId),
                       title: 'حفظ',
                     ),
                     VerticalSpace(TalebSizes.h16),

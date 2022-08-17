@@ -10,9 +10,8 @@ import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
 
-class SearchCityPage extends StatelessWidget implements AutoRouteWrapper {
+class SearchCityPage extends StatefulWidget implements AutoRouteWrapper {
   const SearchCityPage({Key? key}) : super(key: key);
-
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider<CityCubit>(
@@ -20,6 +19,14 @@ class SearchCityPage extends StatelessWidget implements AutoRouteWrapper {
       child: this,
     );
   }
+
+  @override
+  State<SearchCityPage> createState() => _SearchCityPageState();
+}
+
+class _SearchCityPageState extends State<SearchCityPage> {
+  int? selectedIndex;
+  int? cityId;
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +64,24 @@ class SearchCityPage extends StatelessWidget implements AutoRouteWrapper {
                           );
                         },
                         itemBuilder: (BuildContext context, int index) {
-                          return ItemListViewWidget(
-                            name: state.cities[index].name,
-                            selectedIndex: 3,
-                            index: index,
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                                cityId = state.cities[index].id;
+                              });
+                            },
+                            child: ItemListViewWidget(
+                              name: state.cities[index].name,
+                              selectedIndex: selectedIndex ?? -1,
+                              index: index,
+                            ),
                           );
                         },
                       ),
                     ),
                     TalebButtonWidget(
-                      onPressed: () => context.router.pop<int>(36),
+                      onPressed: () => context.router.pop<int>(cityId),
                       title: 'حفظ',
                     ),
                     VerticalSpace(TalebSizes.h16),

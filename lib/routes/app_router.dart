@@ -35,7 +35,7 @@ part 'app_router.gr.dart';
       page: SearchSearviceProviderPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
-    CustomRoute<Search>(
+    CustomRoute(
       page: FilterNewsPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),

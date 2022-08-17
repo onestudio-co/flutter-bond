@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,8 +12,9 @@ import 'package:taleb/routes/app_router.dart';
 
 import 'row_selected_filter_widget.dart';
 
+// ignore: must_be_immutable
 class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
-  const FilterNewsPage({
+  FilterNewsPage({
     required this.newsCubit,
     Key? key,
   }) : super(key: key);
@@ -26,10 +29,11 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
+  int? cityId;
+  int? userId;
+
   @override
   Widget build(BuildContext context) {
-    int? cityId;
-    int? userId;
     return BlocBuilder<NewsCubit, NewsState>(
       builder: (BuildContext context, NewsState state) {
         return Container(
@@ -76,7 +80,6 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                 const Spacer(),
                 TalebButtonWidget(
                   onPressed: () {
-                    // context.router.pop<Search>(Search(1, 2));
                     context
                         .read<NewsCubit>()
                         .loadNews(cityId: cityId, searviceProviderId: userId);
@@ -92,11 +95,4 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
       },
     );
   }
-}
-
-class Search {
-  final int serviceProviders;
-  final int city;
-
-  Search(this.serviceProviders, this.city);
 }
