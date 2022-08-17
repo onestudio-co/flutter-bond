@@ -5,6 +5,7 @@ import 'package:taleb/features/auth/presentation/login_page.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/search_city_page.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
+import 'package:taleb/features/home/news/presentations/all_news/widget/filter_bottom_sheet.dart';
 import 'package:taleb/features/home/news/presentations/news_details/news_details_page.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/searvice_provider_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
@@ -31,6 +32,10 @@ part 'app_router.gr.dart';
     ),
     CustomRoute<User>(
       page: SearchSearviceProviderPage,
+      customRouteBuilder: RouterHelpers.modalSheetBuilder,
+    ),
+    CustomRoute<Search>(
+      page: FilterNewsPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
   ],

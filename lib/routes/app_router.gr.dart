@@ -61,6 +61,14 @@ class _$AppRouter extends RootStackRouter {
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
+    },
+    FilterNewsRoute.name: (routeData) {
+      return CustomPage<Search>(
+          routeData: routeData,
+          child: const FilterNewsPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -74,7 +82,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
         RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
         RouteConfig(SearchSearviceProviderRoute.name,
-            path: '/search-searvice-provider-page')
+            path: '/search-searvice-provider-page'),
+        RouteConfig(FilterNewsRoute.name, path: '/filter-news-page')
       ];
 }
 
@@ -170,4 +179,13 @@ class SearchSearviceProviderRoute extends PageRouteInfo<void> {
             path: '/search-searvice-provider-page');
 
   static const String name = 'SearchSearviceProviderRoute';
+}
+
+/// generated route for
+/// [FilterNewsPage]
+class FilterNewsRoute extends PageRouteInfo<void> {
+  const FilterNewsRoute()
+      : super(FilterNewsRoute.name, path: '/filter-news-page');
+
+  static const String name = 'FilterNewsRoute';
 }

@@ -70,7 +70,7 @@ class SearchSearviceProviderPage extends StatelessWidget
                       ),
                     ),
                     TalebButtonWidget(
-                      onPressed: () {},
+                      onPressed: () async => await context.router.pop(),
                       title: 'حفظ',
                     ),
                     VerticalSpace(TalebSizes.h16),

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -14,6 +15,7 @@ import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 import 'package:taleb/main.dart';
+import 'package:taleb/routes/app_router.dart';
 
 import 'cubit/news_cubit.dart';
 import 'widget/filter_bottom_sheet.dart';
@@ -83,7 +85,12 @@ class _NewsPageState extends State<NewsPage> {
                           )),
                           HorizontalSpace(TalebSizes.w8),
                           FilterWidget(
-                            onTap: () => _showCountryBottomSheet(context),
+                            onTap: () async {
+                              Search? x = await context.router
+                                  .push<Search>(const FilterNewsRoute());
+
+                              log('${x?.city} ${x?.serviceProviders}');
+                            },
                           ),
                         ],
                       ),
@@ -145,29 +152,7 @@ class _NewsPageState extends State<NewsPage> {
     double currentScroll = _scrollController.position.pixels;
     double delta = 200.0;
     if (maxScroll - currentScroll <= delta) {
-      // final NewsCubit cubit = context.read<NewsCubit>();
       newsCubit.loadNews();
     }
   }
 }
-
-void _showCountryBottomSheet(BuildContext context) {
-  showBarModalBottomSheet(
-    // expand: true,
-    context: context,
-    backgroundColor: Colors.transparent,
-    builder: (BuildContext context) => const FilterNewsBottomSheet(),
-  );
-}
-
-List list = List.generate(
-  100,
-  (int index) => Container(),
-);
-
-List<NewsAds> list1 = List<NewsAds>.generate(
-  3,
-  (int index) => NewsAds(
-    image: url,
-  ),
-);
