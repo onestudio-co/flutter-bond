@@ -12,8 +12,9 @@ class NewsCubit extends Cubit<NewsState> {
 
   final NewsRepository _repository;
 
-  Future<void> loadNews({int? cityId, int? searviceProviderId}) async {
-    if (cityId != null || searviceProviderId != null) {
+  Future<void> loadNews(
+      {int? cityId, int? searviceProviderId, bool emitLoading = false}) async {
+    if (emitLoading) {
       emit(NewsLoading());
     }
 

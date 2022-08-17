@@ -78,9 +78,10 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                 const Spacer(),
                 TalebButtonWidget(
                   onPressed: () {
-                    context
-                        .read<NewsCubit>()
-                        .loadNews(cityId: cityId, searviceProviderId: userId);
+                    context.read<NewsCubit>().loadNews(
+                        cityId: cityId,
+                        searviceProviderId: userId,
+                        emitLoading: true);
                     cityId = null;
                     userId = null;
                     context.router.pop();
