@@ -9,30 +9,36 @@ import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
+import 'package:taleb/features/service_provider/presentations/cubit/service_provider_cubit.dart';
 
-class SearchCityPage extends StatefulWidget implements AutoRouteWrapper {
-  const SearchCityPage({Key? key}) : super(key: key);
+class SearchSearviceProviderPage extends StatefulWidget
+    implements AutoRouteWrapper {
+  const SearchSearviceProviderPage({Key? key}) : super(key: key);
+
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<CityCubit>(
-      create: (BuildContext context) => sl<CityCubit>()..getCitys(),
+    return BlocProvider<ServiceProviderCubit>(
+      create: (BuildContext context) =>
+          sl<ServiceProviderCubit>()..getServiceProviders(),
       child: this,
     );
   }
 
   @override
-  State<SearchCityPage> createState() => _SearchCityPageState();
+  State<SearchSearviceProviderPage> createState() =>
+      _SearchSearviceProviderPageState();
 }
 
-class _SearchCityPageState extends State<SearchCityPage> {
+class _SearchSearviceProviderPageState
+    extends State<SearchSearviceProviderPage> {
   int? selectedIndex;
-  int? cityId;
+  int? serviceProviderId;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CityCubit, CityState>(
-      builder: (BuildContext context, CityState state) {
-        if (state is CityLoadedSuccessState) {
+    return BlocBuilder<ServiceProviderCubit, ServiceProviderState>(
+      builder: (BuildContext context, ServiceProviderState state) {
+        if (state is ServiceProviderLoadedSuccessState) {
           return Container(
             color: TalebColors.ghostWhite,
             child: SafeArea(
@@ -42,7 +48,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
                   children: [
                     VerticalSpace(TalebSizes.h24),
                     Text(
-                      'اختيار المدينة',
+                      'اختيار الناشر',
                       style: Theme.of(context).textTheme.labelMedium?.elephant,
                     ),
                     VerticalSpace(TalebSizes.h24),
@@ -50,13 +56,13 @@ class _SearchCityPageState extends State<SearchCityPage> {
                       width: double.infinity,
                       height: TalebSizes.h53,
                       child: const SearchWidget(
-                        hintText: 'أكتب اسم المدينة',
+                        hintText: 'أكتب اسم الناشر',
                       ),
                     ),
                     VerticalSpace(TalebSizes.h12),
                     Expanded(
                       child: ListView.separated(
-                        itemCount: state.cities.length,
+                        itemCount: state.serviceProviders.length,
                         separatorBuilder: (BuildContext context, int index) {
                           return const TalebDivider(
                             color: TalebColors.brightGray,
@@ -68,20 +74,23 @@ class _SearchCityPageState extends State<SearchCityPage> {
                             onTap: () {
                               setState(() {
                                 selectedIndex = index;
-                                cityId = state.cities[index].id;
+                                serviceProviderId =
+                                    state.serviceProviders[index].id;
                               });
                             },
                             child: ItemListViewWidget(
-                              name: state.cities[index].name,
+                              name: state.serviceProviders[index].name,
                               selectedIndex: selectedIndex ?? -1,
                               index: index,
+                              logo: state.serviceProviders[index].image,
                             ),
                           );
                         },
                       ),
                     ),
                     TalebButtonWidget(
-                      onPressed: () => context.router.pop<int>(cityId),
+                      onPressed: () async =>
+                          await context.router.pop<int>(serviceProviderId),
                       title: 'حفظ',
                     ),
                     VerticalSpace(TalebSizes.h16),

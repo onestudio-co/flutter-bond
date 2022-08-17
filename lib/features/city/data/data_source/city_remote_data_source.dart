@@ -9,7 +9,7 @@ class CityRemoteDataSource extends DataSource {
 
   Future<ListResponse<City>> getCities() async {
     final Response<dynamic> response = await _client.get(
-      AdsApis.ads(),
+      AdsApis.city(),
       headers: Api.headers(),
     );
     return mapListResponse(response);
@@ -17,7 +17,7 @@ class CityRemoteDataSource extends DataSource {
 }
 
 extension AdsApis on Api {
-  static String ads() {
+  static String city() {
     return 'cities';
   }
 }

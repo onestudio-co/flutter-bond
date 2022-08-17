@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -13,20 +12,24 @@ class NewsCubit extends Cubit<NewsState> {
 
   final NewsRepository _repository;
 
-  Future<void> loadNews() async {
+  Future<void> loadNews({int? cityId, int? searviceProviderId}) async {
+    if (cityId != null || searviceProviderId != null) {
+      emit(NewsLoading());
+    }
+
     if (state is NewsLoadSuccess) {
       await _loadNewsNextPage(
         currentState: state as NewsLoadSuccess,
       );
     } else {
-      await _loadNews();
+      await _loadNews(cityId: cityId, searviceProviderId: searviceProviderId);
     }
   }
 
-  Future<void> _loadNews() async {
+  Future<void> _loadNews({int? cityId, int? searviceProviderId}) async {
     emit(NewsLoading());
-    final Either<Failure, ListResponse<News>> response =
-        await _repository.allNews();
+    final Either<Failure, ListResponse<News>> response = await _repository
+        .allNews(cityId: cityId, searviceProviderId: searviceProviderId);
     emit(
       response.fold(
           (Failure failure) => NewsLoadFailed(error: failure.toMessage()),

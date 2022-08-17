@@ -11,7 +11,7 @@ class CityCubit extends Cubit<CityState> {
   final CityRepository _cityRepository;
 
   CityCubit(this._cityRepository) : super(CityInitialState());
-
+  
   void getCitys() async {
     emit(CityLoadingState());
 

@@ -53,6 +53,23 @@ class _$AppRouter extends RootStackRouter {
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
+    },
+    SearchSearviceProviderRoute.name: (routeData) {
+      return CustomPage<int>(
+          routeData: routeData,
+          child: const SearchSearviceProviderPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    FilterNewsRoute.name: (routeData) {
+      final args = routeData.argsAs<FilterNewsRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: FilterNewsPage(newsCubit: args.newsCubit, key: args.key),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -64,7 +81,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
-        RouteConfig(SearchCityRoute.name, path: '/search-city-page')
+        RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
+        RouteConfig(SearchSearviceProviderRoute.name,
+            path: '/search-searvice-provider-page'),
+        RouteConfig(FilterNewsRoute.name, path: '/filter-news-page')
       ];
 }
 
@@ -150,4 +170,38 @@ class SearchCityRoute extends PageRouteInfo<void> {
       : super(SearchCityRoute.name, path: '/search-city-page');
 
   static const String name = 'SearchCityRoute';
+}
+
+/// generated route for
+/// [SearchSearviceProviderPage]
+class SearchSearviceProviderRoute extends PageRouteInfo<void> {
+  const SearchSearviceProviderRoute()
+      : super(SearchSearviceProviderRoute.name,
+            path: '/search-searvice-provider-page');
+
+  static const String name = 'SearchSearviceProviderRoute';
+}
+
+/// generated route for
+/// [FilterNewsPage]
+class FilterNewsRoute extends PageRouteInfo<FilterNewsRouteArgs> {
+  FilterNewsRoute({required NewsCubit newsCubit, Key? key})
+      : super(FilterNewsRoute.name,
+            path: '/filter-news-page',
+            args: FilterNewsRouteArgs(newsCubit: newsCubit, key: key));
+
+  static const String name = 'FilterNewsRoute';
+}
+
+class FilterNewsRouteArgs {
+  const FilterNewsRouteArgs({required this.newsCubit, this.key});
+
+  final NewsCubit newsCubit;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FilterNewsRouteArgs{newsCubit: $newsCubit, key: $key}';
+  }
 }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -10,20 +8,17 @@ class NewsRemoteDataSource extends DataSource {
 
   NewsRemoteDataSource(this._client);
 
-  Future<ListResponse<News>> allNews({String? nextUrl}) async {
+  Future<ListResponse<News>> allNews(
+      {String? nextUrl, int? cityId, int? searviceProviderId}) async {
     final Response<dynamic> response = await _client.get(
       nextUrl ?? NewsApis.allNews,
+      queryParameters: <String, dynamic>{
+        'user': searviceProviderId,
+        'city': cityId,
+      },
       headers: Api.headers(),
     );
-    //TODO: return mapListResponse
-    if ((response.statusCode ?? 0) <= 204) {
-      return ListResponse<News>.fromJson(response.data);
-    } else {
-      throw ServerException.fromResponse(
-        json.encode(response.data),
-        response.statusCode,
-      );
-    }
+    return mapListResponse(response);
   }
 
   Future<ListResponse<News>> allServiceProviderNews(
@@ -32,15 +27,7 @@ class NewsRemoteDataSource extends DataSource {
       nextUrl ?? NewsApis.serviceProviderNews(serviceProviderId!),
       headers: Api.headers(),
     );
-    //TODO: return mapListResponse
-    if ((response.statusCode ?? 0) <= 204) {
-      return ListResponse<News>.fromJson(response.data);
-    } else {
-      throw ServerException.fromResponse(
-        json.encode(response.data),
-        response.statusCode,
-      );
-    }
+    return mapListResponse(response);
   }
 
   Future<ListResponse<News>> similerNews(int newsId) async {
