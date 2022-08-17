@@ -36,6 +36,7 @@ dependencies:
   package_info_plus: ^1.4.3+1
   shared_preferences: ^2.0.15
   equatable: ^2.0.3
+  algolia: ^1.1.1
   
 
 dev_dependencies:

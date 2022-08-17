@@ -5,6 +5,7 @@ import 'package:taleb/routes/app_router.dart';
 import 'package:taleb/taleb_app.dart';
 
 import 'injection_container.dart';
+import 'integrations/integrations.dart';
 
 String url =
     'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
@@ -15,6 +16,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await init();
+  await sl<Integrations>().init();
   runApp(
     EasyLocalization(
       supportedLocales: const <Locale>[
