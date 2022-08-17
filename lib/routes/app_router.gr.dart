@@ -32,6 +32,13 @@ class _$AppRouter extends RootStackRouter {
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
+    },
+    SearviceProviderNewsRoute.name: (routeData) {
+      final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: SearviceProviderNewsPage(
+              searviceProviderId: args.searviceProviderId, key: args.key));
     }
   };
 
@@ -39,7 +46,9 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
         RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard]),
-        RouteConfig(LoginRoute.name, path: '/login-page')
+        RouteConfig(LoginRoute.name, path: '/login-page'),
+        RouteConfig(SearviceProviderNewsRoute.name,
+            path: '/searvice-provider-news-page')
       ];
 }
 
@@ -65,4 +74,31 @@ class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [SearviceProviderNewsPage]
+class SearviceProviderNewsRoute
+    extends PageRouteInfo<SearviceProviderNewsRouteArgs> {
+  SearviceProviderNewsRoute({required int searviceProviderId, Key? key})
+      : super(SearviceProviderNewsRoute.name,
+            path: '/searvice-provider-news-page',
+            args: SearviceProviderNewsRouteArgs(
+                searviceProviderId: searviceProviderId, key: key));
+
+  static const String name = 'SearviceProviderNewsRoute';
+}
+
+class SearviceProviderNewsRouteArgs {
+  const SearviceProviderNewsRouteArgs(
+      {required this.searviceProviderId, this.key});
+
+  final int searviceProviderId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SearviceProviderNewsRouteArgs{searviceProviderId: $searviceProviderId, key: $key}';
+  }
 }
