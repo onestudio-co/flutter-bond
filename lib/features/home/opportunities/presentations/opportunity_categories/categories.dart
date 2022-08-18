@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 
-
 class OpportunityCategories extends StatefulWidget {
   const OpportunityCategories({Key? key}) : super(key: key);
   @override

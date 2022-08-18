@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/opportunities/presentations/widgets/categories.dart';
+import 'package:taleb/features/home/opportunities/presentations/opportunity_categories/categories.dart';
 import 'package:taleb/features/home/opportunities/presentations/widgets/list_of_opportunities.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
