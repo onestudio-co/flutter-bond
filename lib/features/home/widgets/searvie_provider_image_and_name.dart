@@ -8,7 +8,7 @@ import 'package:taleb/routes/app_router.dart';
 class SearviceProviderImageAndName extends StatelessWidget {
   final double padding;
   final double? radius;
-  final User? user;
+  final User user;
 
   const SearviceProviderImageAndName({
     required this.padding,
@@ -21,7 +21,7 @@ class SearviceProviderImageAndName extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.router
-          .push(SearviceProviderNewsRoute(searviceProviderId: user!.id)),
+          .push(SearviceProviderNewsRoute(searviceProviderId: user.id)),
       child: Container(
         padding: EdgeInsets.only(
           right: padding,
@@ -38,12 +38,12 @@ class SearviceProviderImageAndName extends StatelessWidget {
             CircleAvatar(
               radius: radius ?? 10,
               backgroundImage: NetworkImage(
-                user!.image,
+                user.image,
               ),
             ),
             const SizedBox(width: 4),
             Text(
-              user!.name,
+              user.name,
               style: Theme.of(context).textTheme.titleSmall!.white,
             ),
           ],

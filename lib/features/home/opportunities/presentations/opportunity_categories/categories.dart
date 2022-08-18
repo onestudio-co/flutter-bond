@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
+import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_categories/cubit/opportunity_category_cubit.dart';
 
 class OpportunityCategories extends StatefulWidget {
@@ -41,6 +42,9 @@ class _OpportunityCategoriesState extends State<OpportunityCategories> {
   Widget buildCategory(int index, OpportunityCategory opportunityCategory) {
     return GestureDetector(
       onTap: () {
+        context
+            .read<OpportunityCubit>()
+            .loadOppertunities(categoryId: opportunityCategory.id,emitLoading: true);
         setState(() {
           _selectedIndex = index;
         });

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
+import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_news.dart';
 
 import 'cubit/similer_cubit.dart';
@@ -35,7 +35,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.favorites),
+            icon: SvgPicture.asset(TalebIcons.favorite),
           ),
           IconButton(
             onPressed: () {},

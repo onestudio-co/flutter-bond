@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Trailing_icon" data-name="Trailing icon" transform="translate(-48 -145)">
+    <g id="check-icon" transform="translate(46 143)">
+      <path id="Ellipse_3" data-name="Ellipse 3" d="M9-1A10,10,0,1,1-1,9,10.011,10.011,0,0,1,9-1ZM9,17A8,8,0,1,0,1,9,8.009,8.009,0,0,0,9,17Z" transform="translate(3 3)" fill="#113740"/>
+      <path id="Path_13225" data-name="Path 13225" d="M11,16.007a1,1,0,0,1-.708-.293l-3-3A1,1,0,0,1,8.709,11.3l2.3,2.3,4.3-4.3a1,1,0,1,1,1.416,1.416l-5,5A1,1,0,0,1,11,16.007Z" transform="translate(-0.005 -0.004)" fill="#113740"/>
+    </g>
+  </g>
+</svg>

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/features/home/news/presentations/news_details/widget/news_date_and_searvice_provider.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
+import 'package:taleb/features/home/news/presentations/news_details/widget/news_date_and_searvice_provider.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
-import 'package:taleb/features/home/widgets/slide_similers/main_widget_news.dart';
 
 class OpportunityDetailsPage extends StatelessWidget {
   const OpportunityDetailsPage({
@@ -22,7 +21,7 @@ class OpportunityDetailsPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.favorites),
+            icon: SvgPicture.asset(TalebIcons.favorite),
           ),
           IconButton(
             onPressed: () {},
@@ -44,7 +43,9 @@ class OpportunityDetailsPage extends StatelessWidget {
                 child: Column(
                   children: [
                     VerticalSpace(TalebSizes.h16),
-                    const DateAndSearviceProviderWidget(),
+                    DateAndSearviceProviderWidget(
+                      user: opportunity.user,
+                    ),
                     VerticalSpace(TalebSizes.h12),
                     Text(
                       opportunity.title,
@@ -60,7 +61,7 @@ class OpportunityDetailsPage extends StatelessWidget {
                             Theme.of(context).textTheme.displayLarge!.elephant,
                       ),
                     ),
-                    const SimilarMainNewsWidget(),
+                    // const SimilarMainNewsWidget(),
                   ],
                 ),
               )

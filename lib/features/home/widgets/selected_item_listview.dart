@@ -44,7 +44,7 @@ class ItemListViewWidget extends StatelessWidget {
                     : Theme.of(context).textTheme.labelMedium?.elephant,
               ),
               const Spacer(),
-              if (_selectedIndex == index) SvgPicture.asset(TalebIcons.share)
+              if (_selectedIndex == index) SvgPicture.asset(TalebIcons.checkSelectedItem,color: TalebColors.blueDark,)
             ],
           ),
         ),
