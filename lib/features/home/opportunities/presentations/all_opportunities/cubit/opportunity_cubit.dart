@@ -110,7 +110,7 @@ class OpportunityCubit extends Cubit<OpportunityState> {
     );
   }
 
-  Future<void> searchNews(String text) async {
+  Future<void> searchOpportnities(String text) async {
     try {
       emit(OpportunityLoading());
       final List<Opportunity> response =

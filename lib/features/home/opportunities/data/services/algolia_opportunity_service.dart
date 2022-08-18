@@ -26,7 +26,7 @@ class AlgoliaOpportunityService {
 
   Future<List<Opportunity>> searchOpportunity(String text) async {
     final AlgoliaIndexReference index =
-        algoliaService!.instance.index('opportuity_index');
+        algoliaService!.instance.index('opportunity_index');
     List<dynamic>? results;
     try {
       await index.query(text).getObjects().then((AlgoliaQuerySnapshot value) {

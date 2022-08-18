@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,9 +30,14 @@ class OpportunitiesPage extends StatelessWidget {
               sl<OpportunityCubit>()..loadOppertunities(),
         ),
       ],
-      child: Builder(
-        builder: (BuildContext context) {
-          return Scaffold(
+      child: Builder(builder: (BuildContext context) {
+        return BlocListener<OpportunityCubit, OpportunityState>(
+          listener: (BuildContext context, OpportunityState state) {
+            state is OpportunityLoadFailed
+                ? log(state.error, name: 'all opportunities page')
+                : null;
+          },
+          child: Scaffold(
             appBar: const HomeAppBar(
               title: 'الفرص',
             ),
@@ -42,16 +49,20 @@ class OpportunitiesPage extends StatelessWidget {
                   VerticalSpace(TalebSizes.h10),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                         child: SearchWidget(
                           hintText: 'ابحث في الفرص',
+                          onChanged: context
+                              .read<OpportunityCubit>()
+                              .searchOpportnities,
                         ),
                       ),
                       HorizontalSpace(TalebSizes.w8),
                       FilterWidget(
                         onTap: () async => context.router.push(
                           FilterOpportunityRoute(
-                              opportunityCubit: context.read<OpportunityCubit>()),
+                              opportunityCubit:
+                                  context.read<OpportunityCubit>()),
                         ),
                       ),
                     ],
@@ -60,9 +71,9 @@ class OpportunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        }
-      ),
+          ),
+        );
+      }),
     );
   }
 }
