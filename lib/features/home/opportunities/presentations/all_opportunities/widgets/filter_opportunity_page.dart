@@ -4,36 +4,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
-import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit.dart';
+import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
+import 'package:taleb/features/home/widgets/row_selected_filter_widget.dart';
 import 'package:taleb/routes/app_router.dart';
 
-import '../../../../widgets/row_selected_filter_widget.dart';
-
 // ignore: must_be_immutable
-class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
-  FilterNewsPage({
-    required this.newsCubit,
+class FilterOpportunityPage extends StatelessWidget
+    implements AutoRouteWrapper {
+  FilterOpportunityPage({
+    required this.opportunityCubit,
     Key? key,
   }) : super(key: key);
 
-  final NewsCubit newsCubit;
+  final OpportunityCubit opportunityCubit;
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<NewsCubit>.value(
-      value: newsCubit,
+    return BlocProvider<OpportunityCubit>.value(
+      value: opportunityCubit,
       child: this,
     );
   }
 
   int? cityId;
-  int? userId;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewsCubit, NewsState>(
-      builder: (BuildContext context, NewsState state) {
+    return BlocBuilder<OpportunityCubit, OpportunityState>(
+      builder: (BuildContext context, OpportunityState state) {
         return Container(
           height: TalebSizes.h375,
           width: double.infinity,
@@ -56,34 +54,20 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                 ),
                 VerticalSpace(TalebSizes.h8),
                 TalebContainer(
-                  child: Column(
-                    children: <Widget>[
-                      RowSelectedFilterWidget(
-                        title: 'الناشر',
-                        onTap: () async {
-                          userId = await context.router
-                              .push<int>(const SearchSearviceProviderRoute());
-                        },
-                      ),
-                      const TalebDivider(),
-                      RowSelectedFilterWidget(
-                          title: 'المدينة',
-                          onTap: () async {
-                            cityId = await context.router
-                                .push<int>(const SearchCityRoute());
-                          }),
-                    ],
-                  ),
+                  child: RowSelectedFilterWidget(
+                      title: 'المدينة',
+                      onTap: () async {
+                        cityId = await context.router
+                            .push<int>(const SearchCityRoute());
+                      }),
                 ),
                 const Spacer(),
                 TalebButtonWidget(
                   onPressed: () {
-                    context.read<NewsCubit>().loadNews(
-                        cityId: cityId,
-                        searviceProviderId: userId,
-                        emitLoading: true);
+                    context
+                        .read<OpportunityCubit>()
+                        .loadOppertunitiesForSpecificCity(cityId: cityId);
                     cityId = null;
-                    userId = null;
                     context.router.pop();
                   },
                   title: 'حفظ',

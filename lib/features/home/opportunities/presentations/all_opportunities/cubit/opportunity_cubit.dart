@@ -16,7 +16,7 @@ class OpportunityCubit extends Cubit<OpportunityState> {
   final AlgoliaOpportunityService _algoliaOpportunityService;
 
   Future<void> loadOppertunities(
-      {int? cityId, int categoryId = 1, bool emitLoading = false}) async {
+      {int categoryId = 1, bool emitLoading = false}) async {
     if (emitLoading) {
       emit(OpportunityLoading());
     }
@@ -26,15 +26,45 @@ class OpportunityCubit extends Cubit<OpportunityState> {
         currentState: state as OpportunityLoadSuccess,
       );
     } else {
-      await _loadOpportunities(cityId: cityId, categoryId: categoryId);
+      await _loadOpportunities(categoryId: categoryId);
     }
   }
 
-  Future<void> _loadOpportunities({required int categoryId, int? cityId}) async {
+  Future<void> loadOppertunitiesForSpecificCity(
+      {int? cityId = 1, bool emitLoading = false}) async {
+    // if (emitLoading) {
+    emit(OpportunityLoading());
+    // }
+
+    if (state is OpportunityLoadSuccess) {
+      await _loadOppertunitiesNextPage(
+        currentState: state as OpportunityLoadSuccess,
+      );
+    } else {
+      await _loadOppertunitiesForSpecificCity(cityId: cityId!);
+    }
+  }
+
+  Future<void> _loadOpportunities({required int categoryId}) async {
     emit(OpportunityLoading());
     final Either<Failure, ListResponse<Opportunity>> response =
         await _repository.opportunitiesForSpecifiecCategory(
-            categoryId: categoryId, cityId: cityId);
+            categoryId: categoryId);
+    emit(
+      response.fold(
+          (Failure failure) =>
+              OpportunityLoadFailed(error: failure.toMessage()),
+          (ListResponse<Opportunity> oppertunities) =>
+              oppertunities.data.isEmpty
+                  ? OpportunityEmpty()
+                  : OpportunityLoadSuccess(oppertunities: oppertunities)),
+    );
+  }
+
+  Future<void> _loadOppertunitiesForSpecificCity({required int cityId}) async {
+    emit(OpportunityLoading());
+    final Either<Failure, ListResponse<Opportunity>> response =
+        await _repository.opportunityForSpecificCity(cityId: cityId);
     emit(
       response.fold(
           (Failure failure) =>

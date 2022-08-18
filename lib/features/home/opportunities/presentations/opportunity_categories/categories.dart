@@ -42,9 +42,8 @@ class _OpportunityCategoriesState extends State<OpportunityCategories> {
   Widget buildCategory(int index, OpportunityCategory opportunityCategory) {
     return GestureDetector(
       onTap: () {
-        context
-            .read<OpportunityCubit>()
-            .loadOppertunities(categoryId: opportunityCategory.id,emitLoading: true);
+        context.read<OpportunityCubit>().loadOppertunities(
+            categoryId: opportunityCategory.id, emitLoading: true);
         setState(() {
           _selectedIndex = index;
         });

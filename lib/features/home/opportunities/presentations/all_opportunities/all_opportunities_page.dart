@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
@@ -9,6 +10,7 @@ import 'package:taleb/features/home/opportunities/presentations/widgets/list_of_
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class OpportunitiesPage extends StatelessWidget {
   const OpportunitiesPage({Key? key}) : super(key: key);
@@ -26,44 +28,41 @@ class OpportunitiesPage extends StatelessWidget {
               sl<OpportunityCubit>()..loadOppertunities(),
         ),
       ],
-      child: Scaffold(
-        appBar: const HomeAppBar(
-          title: 'الفرص',
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-          child: Column(
-            children: <Widget>[
-              const OpportunityCategories(),
-              VerticalSpace(TalebSizes.h10),
-              Row(
+      child: Builder(
+        builder: (BuildContext context) {
+          return Scaffold(
+            appBar: const HomeAppBar(
+              title: 'الفرص',
+            ),
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+              child: Column(
                 children: <Widget>[
-                  const Expanded(
-                    child: SearchWidget(
-                      hintText: 'ابحث في الفرص',
-                    ),
+                  const OpportunityCategories(),
+                  VerticalSpace(TalebSizes.h10),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                        child: SearchWidget(
+                          hintText: 'ابحث في الفرص',
+                        ),
+                      ),
+                      HorizontalSpace(TalebSizes.w8),
+                      FilterWidget(
+                        onTap: () async => context.router.push(
+                          FilterOpportunityRoute(
+                              opportunityCubit: context.read<OpportunityCubit>()),
+                        ),
+                      ),
+                    ],
                   ),
-                  HorizontalSpace(TalebSizes.w8),
-                  FilterWidget(
-                    // onTap: () => _showCityBottomSheet(context),
-                    onTap: () => {},
-                  ),
+                  const Expanded(child: ListOfOpportunities()),
                 ],
               ),
-              const Expanded(child: ListOfOpportunities()),
-            ],
-          ),
-        ),
+            ),
+          );
+        }
       ),
     );
   }
-
-  // void _showCityBottomSheet(BuildContext context) {
-  //   showBarModalBottomSheet(
-  //     expand: true,
-  //     context: context,
-  //     backgroundColor: Colors.transparent,
-  //     builder: (BuildContext context) => const SearchCityBottomSheet(),
-  //   );
-  // }
 }
