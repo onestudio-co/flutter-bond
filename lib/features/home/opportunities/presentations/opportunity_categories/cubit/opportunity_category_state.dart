@@ -12,11 +12,11 @@ class OpportunityCategoryInitial extends OpportunityCategoryState {}
 class OpportunityCategoryLoading extends OpportunityCategoryState {}
 
 class OpportunityCategoryLoadedSuccess extends OpportunityCategoryState {
-  final List<OpportunityCategory> news;
+  final List<OpportunityCategory> categories;
 
-  const OpportunityCategoryLoadedSuccess(this.news);
+  const OpportunityCategoryLoadedSuccess(this.categories);
   @override
-  List<Object> get props => [news];
+  List<Object> get props => [categories];
 }
 
 class OpportunityCategoryLoadFailure extends OpportunityCategoryState {

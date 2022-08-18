@@ -6,6 +6,7 @@ import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
 import 'package:taleb/features/home/opportunities/data/repositories/opportunity_repository.dart';
 import 'package:taleb/features/home/opportunities/data/services/algolia_opportunity_service.dart';
+import 'package:taleb/features/home/opportunities/presentations/opportunity_categories/cubit/opportunity_category_cubit.dart';
 import 'package:taleb/integrations/algolia.dart';
 
 class OpportunityServiceProvider extends ServiceProvider {
@@ -15,6 +16,7 @@ class OpportunityServiceProvider extends ServiceProvider {
         algoliaService: AlgoliaInitialization.algoliaObject));
     it.registerFactory(() => OpportunityRemoteDataSource(it()));
     it.registerFactory(() => OpportunityRepository(it()));
+    it.registerFactory(() => OpportunityCategoryCubit(it()));
     // it.registerFactory(() => OpportunityCubit(it(), it()));
     // it.registerFactory(() => SimilerOpportunityCubit(it()));
   }
