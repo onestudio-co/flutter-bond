@@ -138,7 +138,7 @@ class _NewsPageState extends State<NewsPage> {
                             top: 24.0,
                           ),
                           color: Colors.white,
-                          child: const Center(child: Text('Loading .........')),
+                          child: const Center(child: Text('جاري التحميل .........')),
                         );
                       } else {
                         return const SizedBox.shrink();

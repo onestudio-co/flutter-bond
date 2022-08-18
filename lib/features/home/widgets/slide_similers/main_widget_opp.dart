@@ -30,7 +30,7 @@ class SimilarMainOpportunitiesWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SimilerLabelWidget(),
+                const SimilerLabelWidget(title: 'فرص مماثلة'),
                 VerticalSpace(TalebSizes.h16),
                 Expanded(
                   child: ListView.builder(

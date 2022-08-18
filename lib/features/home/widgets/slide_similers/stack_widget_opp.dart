@@ -29,7 +29,7 @@ class SimilerStackOpportunityWidget extends StatelessWidget {
               TalebImageWidget(
                 height: TalebSizes.h200,
                 borderRadius: TalebBorderRadius.r20,
-                image: url,
+                image: opportunity.image,
               ),
               Align(
                 alignment: Alignment.bottomCenter,

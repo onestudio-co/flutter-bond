@@ -5,7 +5,6 @@ import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
-import 'package:taleb/main.dart';
 import 'package:taleb/routes/app_router.dart';
 
 class OpportunityCard extends StatelessWidget {
@@ -34,7 +33,7 @@ class OpportunityCard extends StatelessWidget {
                   Hero(
                     tag: opportunity.id,
                     child: TalebImageWidget(
-                      image: url,
+                      image: opportunity.image,
                       height: TalebSizes.h230,
                     ),
                   ),
