@@ -28,10 +28,12 @@ class NewsCardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(TalebBorderRadius.r12),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Hero(
                     tag: news.id,

@@ -48,6 +48,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TalebDivider2(),
               VerticalSpace(TalebSizes.h16),

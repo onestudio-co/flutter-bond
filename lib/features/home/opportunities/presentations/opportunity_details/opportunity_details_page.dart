@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
+import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/news/presentations/news_details/widget/news_date_and_searvice_provider.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/cubit/similer_opportunity_cubit.dart';
@@ -76,6 +77,7 @@ class OpportunityDetailsPage extends StatelessWidget
                             Theme.of(context).textTheme.displayLarge!.elephant,
                       ),
                     ),
+                    const TalebDivider2(),
                     SimilarMainOpportunitiesWidget(opportunity: opportunity),
                   ],
                 ),
