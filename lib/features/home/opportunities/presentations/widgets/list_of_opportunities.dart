@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-
-import '../ui/all_opportunities/widgets/opportunity_card.dart';
+import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/opportunity_card.dart';
 
 class ListOfOpportunities extends StatelessWidget {
   const ListOfOpportunities({
