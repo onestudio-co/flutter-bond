@@ -41,29 +41,29 @@ class _HomePageState extends State<HomePage> {
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             //* Home Tab
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(bottom: TalebPadding.p4),
-                child: SvgPicture.asset(
-                  TalebIcons.homeNavBar,
-                  width: TalebSizes.w20,
-                  height: TalebSizes.h20,
-                  color: selectedSvgIconColor(_selectedIndex == 0),
-                ),
-              ),
-              label: 'الرئيسية',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Padding(
+            //     padding: EdgeInsets.only(bottom: TalebPadding.p4),
+            //     child: SvgPicture.asset(
+            //       TalebIcons.homeNavBar,
+            //       width: TalebSizes.w20,
+            //       height: TalebSizes.h20,
+            //       color: selectedSvgIconColor(_selectedIndex == 0),
+            //     ),
+            //   ),
+            //   label: 'الرئيسية',
+            // ),
             //* Sooq Tab
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(bottom: TalebPadding.p4),
-                child: SvgPicture.asset(
-                  TalebIcons.sooqNavBar,
-                  color: selectedSvgIconColor(_selectedIndex == 1),
-                ),
-              ),
-              label: 'السوق',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Padding(
+            //     padding: EdgeInsets.only(bottom: TalebPadding.p4),
+            //     child: SvgPicture.asset(
+            //       TalebIcons.sooqNavBar,
+            //       color: selectedSvgIconColor(_selectedIndex == 1),
+            //     ),
+            //   ),
+            //   label: 'السوق',
+            // ),
             //* News Tab
             BottomNavigationBarItem(
               icon: Padding(
@@ -87,16 +87,16 @@ class _HomePageState extends State<HomePage> {
               label: 'الفرص',
             ),
             //* More Tab
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(bottom: TalebPadding.p4),
-                child: SvgPicture.asset(
-                  TalebIcons.moreNavBar,
-                  color: selectedSvgIconColor(_selectedIndex == 4),
-                ),
-              ),
-              label: 'المزيد',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Padding(
+            //     padding: EdgeInsets.only(bottom: TalebPadding.p4),
+            //     child: SvgPicture.asset(
+            //       TalebIcons.moreNavBar,
+            //       color: selectedSvgIconColor(_selectedIndex == 4),
+            //     ),
+            //   ),
+            //   label: 'المزيد',
+            // ),
           ],
         ),
       ),
@@ -105,11 +105,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget currentPage() {
     return <Widget>[
-      const Text('2'),
-      const Text('3'),
+      // const Text('2'),
+      // const Text('3'),
       const NewsPage(),
       const OpportunitiesPage(),
-      const Text('3'),
+      // const Text('3'),
     ][_selectedIndex];
   }
 

@@ -18,11 +18,11 @@ class OpportunityRemoteDataSource extends DataSource {
   }
 
   Future<ListResponse<Opportunity>> opportunitiesForSpecifiecCategory(
-      {String? nextUrl, int? cityId}) async {
+      {required int categoryId, String? nextUrl}) async {
     final Response<dynamic> response = await _client.get(
-      nextUrl ?? OpportunityApis.opportunitySpecificCategory,
+      nextUrl ?? OpportunityApis.opportunitySpecificCategory(categoryId),
       queryParameters: <String, dynamic>{
-        'city': cityId,
+        'city': categoryId,
       },
       headers: Api.headers(),
     );
@@ -40,9 +40,11 @@ class OpportunityRemoteDataSource extends DataSource {
 }
 
 extension OpportunityApis on Api {
-  static String get opportunitiesCategory => 'category';
+  static String get opportunitiesCategory => 'opportunities-categories';
 
-  static String get opportunitySpecificCategory => 'oooo';
+  static String opportunitySpecificCategory(int categoryId) {
+    return 'opportunities/category/$categoryId';
+  }
 
   static String similerOpportunities(int opportunityId) {
     return 'similar-opportunity/$opportunityId';

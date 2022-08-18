@@ -22,12 +22,13 @@ class OpportunityRepository {
   }
 
   Future<Either<Failure, ListResponse<Opportunity>>>
-      opportunitiesForSpecifiecCategory({String? nextUrl, int? cityId}) async {
+      opportunitiesForSpecifiecCategory(
+          {required int categoryId, String? nextUrl}) async {
     try {
       final ListResponse<Opportunity> response =
           await _remoteDataSource.opportunitiesForSpecifiecCategory(
         nextUrl: nextUrl,
-        cityId: cityId,
+        categoryId: categoryId,
       );
       return Right<Failure, ListResponse<Opportunity>>(response);
     } on ServerException catch (e) {
