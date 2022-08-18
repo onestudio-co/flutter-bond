@@ -4,9 +4,9 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
-import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/widgets/container_tag.dart';
 import 'package:taleb/main.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class OpportunityCard extends StatelessWidget {
   const OpportunityCard({
@@ -19,7 +19,7 @@ class OpportunityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.pushWidget(OpportunityDetailsPage(
+      onTap: () => context.router.push(OpportunityDetailsRoute(
         opportunity: opportunity,
       )),
       child: TalebContainer(

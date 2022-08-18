@@ -57,6 +57,6 @@ extension OpportunityApis on Api {
   }
 
   static String similerOpportunities(int opportunityId) {
-    return 'similar-opportunity/$opportunityId';
+    return 'similar-opportunities/$opportunityId';
   }
 }

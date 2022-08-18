@@ -7,8 +7,10 @@ import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit
 import 'package:taleb/features/home/news/presentations/all_news/widget/filter_news_page.dart';
 import 'package:taleb/features/home/news/presentations/news_details/news_details_page.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/searvice_provider_page.dart';
+import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/filter_opportunity_page.dart';
+import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
 import 'package:taleb/routes/router_helpers.dart';
 
@@ -27,6 +29,7 @@ part 'app_router.gr.dart';
     ...authRoutes,
     AutoRoute(page: SearviceProviderNewsPage),
     AutoRoute(page: NewsDetailsPage),
+    AutoRoute(page: OpportunityDetailsPage),
     CustomRoute<int>(
       page: SearchCityPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,

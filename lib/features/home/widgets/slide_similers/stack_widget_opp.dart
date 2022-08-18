@@ -2,23 +2,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
-import 'package:taleb/features/home/news/data/models/news.dart';
+import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/widgets/additional_info_row_with_city.dart';
 import 'package:taleb/main.dart';
 import 'package:taleb/routes/app_router.dart';
 
-class SimilerStackWidget extends StatelessWidget {
-  const SimilerStackWidget({
-    required this.news,
+class SimilerStackOpportunityWidget extends StatelessWidget {
+  const SimilerStackOpportunityWidget({
+    required this.opportunity,
     Key? key,
   }) : super(key: key);
 
-  final News news;
+  final Opportunity opportunity;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.push(NewsDetailsRoute(news: news)),
+      onTap: () => context.router
+          .push(OpportunityDetailsRoute(opportunity: opportunity)),
       child: Padding(
         padding: EdgeInsets.only(left: TalebSizes.w32),
         child: SizedBox(
@@ -43,7 +44,7 @@ class SimilerStackWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        news.title,
+                        opportunity.title,
                         style:
                             Theme.of(context).textTheme.headlineLarge?.elephant,
                         maxLines: 2,
@@ -53,7 +54,7 @@ class SimilerStackWidget extends StatelessWidget {
                       RowAdditionalInfoWithCity(
                         hasCity: false,
                         cityName: null,
-                        user: news.user,
+                        user: opportunity.user,
                       ),
                     ],
                   ),

@@ -1,13 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/presentations/news_details/cubit/similer_cubit.dart';
+import 'package:taleb/features/home/widgets/slide_similers/stack_widget_news.dart';
 
-import 'stack_widget_opp.dart';
 import 'title_widget.dart';
 
 class SimilarMainNewsWidget extends StatelessWidget {
@@ -22,8 +20,6 @@ class SimilarMainNewsWidget extends StatelessWidget {
     return BlocBuilder<SimilerCubit, SimilerState>(
       builder: (BuildContext context, SimilerState state) {
         if (state is SimilerLoadedSuccess) {
-          log(state.news.length.toString(), name: 'ffff');
-
           return Container(
             height: TalebSizes.h370,
             width: MediaQuery.of(context).size.width,
@@ -42,7 +38,7 @@ class SimilarMainNewsWidget extends StatelessWidget {
                     itemCount: state.news.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return SimilerStackWidget(news: state.news[index]);
+                      return SimilerStackNewsWidget(news: state.news[index]);
                     },
                   ),
                 ),

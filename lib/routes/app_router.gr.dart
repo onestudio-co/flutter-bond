@@ -46,6 +46,13 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: NewsDetailsPage(news: args.news, key: args.key));
     },
+    OpportunityDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<OpportunityDetailsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: OpportunityDetailsPage(
+              opportunity: args.opportunity, key: args.key));
+    },
     SearchCityRoute.name: (routeData) {
       return CustomPage<int>(
           routeData: routeData,
@@ -91,6 +98,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
+        RouteConfig(OpportunityDetailsRoute.name,
+            path: '/opportunity-details-page'),
         RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
         RouteConfig(SearchSearviceProviderRoute.name,
             path: '/search-searvice-provider-page'),
@@ -172,6 +181,32 @@ class NewsDetailsRouteArgs {
   @override
   String toString() {
     return 'NewsDetailsRouteArgs{news: $news, key: $key}';
+  }
+}
+
+/// generated route for
+/// [OpportunityDetailsPage]
+class OpportunityDetailsRoute
+    extends PageRouteInfo<OpportunityDetailsRouteArgs> {
+  OpportunityDetailsRoute({required Opportunity opportunity, Key? key})
+      : super(OpportunityDetailsRoute.name,
+            path: '/opportunity-details-page',
+            args: OpportunityDetailsRouteArgs(
+                opportunity: opportunity, key: key));
+
+  static const String name = 'OpportunityDetailsRoute';
+}
+
+class OpportunityDetailsRouteArgs {
+  const OpportunityDetailsRouteArgs({required this.opportunity, this.key});
+
+  final Opportunity opportunity;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'OpportunityDetailsRouteArgs{opportunity: $opportunity, key: $key}';
   }
 }
 
