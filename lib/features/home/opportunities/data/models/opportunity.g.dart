@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'news.dart';
+part of 'opportunity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-News _$NewsFromJson(Map<String, dynamic> json) => News(
+Opportunity _$OpportunityFromJson(Map<String, dynamic> json) => Opportunity(
       userId: json['user_id'] as int,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       title: json['title'] as String,
@@ -18,7 +18,8 @@ News _$NewsFromJson(Map<String, dynamic> json) => News(
       id: json['id'] as int,
     );
 
-Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
+Map<String, dynamic> _$OpportunityToJson(Opportunity instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'user_id': instance.userId,
       'user': instance.user.toJson(),
