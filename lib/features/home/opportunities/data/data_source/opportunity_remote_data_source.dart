@@ -18,11 +18,11 @@ class OpportunityRemoteDataSource extends DataSource {
   }
 
   Future<ListResponse<Opportunity>> opportunitiesForSpecifiecCategory(
-      {required int categoryId, String? nextUrl}) async {
+      {int? categoryId, int? cityId, String? nextUrl}) async {
     final Response<dynamic> response = await _client.get(
-      nextUrl ?? OpportunityApis.opportunitySpecificCategory(categoryId),
+      nextUrl ?? OpportunityApis.opportunitySpecificCategory(categoryId!),
       queryParameters: <String, dynamic>{
-        'city': categoryId,
+        'city': cityId,
       },
       headers: Api.headers(),
     );

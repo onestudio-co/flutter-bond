@@ -8,23 +8,23 @@ class AlgoliaOpportunityService {
 
   AlgoliaOpportunityService({this.algoliaService});
 
-  Future<List<Opportunity>> getAllNews() async {
-    final AlgoliaIndexReference index =
-        algoliaService!.instance.index('opportuity_index');
-    try {
-      final AlgoliaQuerySnapshot resultsObjects =
-          await index.setHitsPerPage(25).getObjects();
-      final List<dynamic> results = await resultsObjects.toMap()['hits'];
-      return results
-          .map((dynamic element) =>
-              Opportunity.fromJson(element as Map<String, dynamic>))
-          .toList();
-    } catch (error) {
-      throw ServerException.fromResponse(error.toString());
-    }
-  }
+  // Future<List<Opportunity>> getAllOpportunities() async {
+  //   final AlgoliaIndexReference index =
+  //       algoliaService!.instance.index('opportuity_index');
+  //   try {
+  //     final AlgoliaQuerySnapshot resultsObjects =
+  //         await index.setHitsPerPage(25).getObjects();
+  //     final List<dynamic> results = await resultsObjects.toMap()['hits'];
+  //     return results
+  //         .map((dynamic element) =>
+  //             Opportunity.fromJson(element as Map<String, dynamic>))
+  //         .toList();
+  //   } catch (error) {
+  //     throw ServerException.fromResponse(error.toString());
+  //   }
+  // }
 
-  Future<List<Opportunity>> searchNews(String text) async {
+  Future<List<Opportunity>> searchOpportunity(String text) async {
     final AlgoliaIndexReference index =
         algoliaService!.instance.index('opportuity_index');
     List<dynamic>? results;
@@ -43,7 +43,3 @@ class AlgoliaOpportunityService {
     }
   }
 }
-
-//  if (element != null && element is Map) {
-//               return News.fromJson(element as Map<String, dynamic>);
-//             }

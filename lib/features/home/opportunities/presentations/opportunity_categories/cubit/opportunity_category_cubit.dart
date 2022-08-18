@@ -25,4 +25,6 @@ class OpportunityCategoryCubit extends Cubit<OpportunityCategoryState> {
       },
     );
   }
+
+  
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_categories/categories.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_categories/cubit/opportunity_category_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/widgets/list_of_opportunities.dart';
@@ -19,6 +20,10 @@ class OpportunitiesPage extends StatelessWidget {
         BlocProvider<OpportunityCategoryCubit>(
           create: (BuildContext context) =>
               sl<OpportunityCategoryCubit>()..allCategories(),
+        ),
+        BlocProvider<OpportunityCubit>(
+          create: (BuildContext context) =>
+              sl<OpportunityCubit>()..loadOppertunities(),
         ),
       ],
       child: Scaffold(

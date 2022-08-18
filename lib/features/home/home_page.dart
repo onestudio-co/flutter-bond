@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(bottom: TalebPadding.p4),
                 child: SvgPicture.asset(
                   TalebIcons.newsNavBar,
-                  color: selectedSvgIconColor(_selectedIndex == 2),
+                  color: selectedSvgIconColor(_selectedIndex == 0),
                 ),
               ),
               label: 'الأخبار',
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(bottom: TalebPadding.p4),
                 child: SvgPicture.asset(
                   TalebIcons.opportunityNavBar,
-                  color: selectedSvgIconColor(_selectedIndex == 3),
+                  color: selectedSvgIconColor(_selectedIndex == 1),
                 ),
               ),
               label: 'الفرص',
