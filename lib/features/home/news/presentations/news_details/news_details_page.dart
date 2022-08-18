@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
+import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_news.dart';
 
@@ -48,6 +49,8 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
           child: Column(
             children: [
+              const TalebDivider2(),
+              VerticalSpace(TalebSizes.h16),
               TalebSliderImagesWidget(
                 index: news.id,
                 image: news.image,
@@ -74,6 +77,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                             Theme.of(context).textTheme.displayLarge!.elephant,
                       ),
                     ),
+                    const TalebDivider2(),
                     SimilarMainNewsWidget(news: news),
                   ],
                 ),

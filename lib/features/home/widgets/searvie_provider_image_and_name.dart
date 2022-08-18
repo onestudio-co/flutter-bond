@@ -30,7 +30,7 @@ class SearviceProviderImageAndName extends StatelessWidget {
           bottom: padding,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xff37b0cc),
+          color: TalebColors.blueDark,
           borderRadius: BorderRadius.circular(100),
         ),
         child: Row(
