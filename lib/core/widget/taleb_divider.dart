@@ -21,3 +21,24 @@ class TalebDivider extends StatelessWidget {
     );
   }
 }
+
+class TalebDivider2 extends StatelessWidget {
+  final double height;
+  final Color color;
+  final double? thickness;
+  const TalebDivider2({
+    Key? key,
+    this.height = 0,
+    this.color = TalebColors.softPeach,
+    this.thickness = 1,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Divider(
+      height: height,
+      color: color,
+      thickness: thickness,
+    );
+  }
+}

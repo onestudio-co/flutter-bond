@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
+import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
 import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
@@ -62,12 +63,12 @@ class _NewsPageState extends State<NewsPage> {
           ),
           body: GestureDetector(
             onTap: _scrollToTop,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-              child: Column(
-                children: [
-                  HorizontalSpace(TalebSizes.w8),
-                  Row(
+            child: Column(
+              children: [
+                HorizontalSpace(TalebSizes.w8),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                  child: Row(
                     children: <Widget>[
                       Expanded(
                         child: SearchWidget(
@@ -83,70 +84,69 @@ class _NewsPageState extends State<NewsPage> {
                       ),
                     ],
                   ),
-                  VerticalSpace(TalebSizes.h8),
-                  Expanded(
-                    child: BlocConsumer<NewsCubit, NewsState>(
-                      listener: (BuildContext context, NewsState state) {
-                        state is NewsLoadFailed
-                            ? log(state.error, name: 'news page')
-                            : null;
-                      },
-                      builder: (BuildContext context, NewsState state) {
-                        sl<AdCubit>().getAds();
-                        if (state is NewsEmpty) {
-                          return const Center(
-                              child: Text('لا يوجد بيانات ....'));
-                        } else if (state is NewsLoadSuccess) {
-                          final List news = state.news.data;
-                          return Column(
-                            children: <Widget>[
-                              Expanded(
-                                child: ListView.separated(
-                                  controller: _scrollController,
-                                  itemCount: news.length,
-                                  separatorBuilder:
-                                      (BuildContext context, int index) {
-                                    List<Ad> ads = sl<AdCubit>().ads;
-                                    if (index < ads.length) {
-                                      return NewsAds(image: ads[index].image);
-                                    }
-                                    return const SizedBox();
-                                  },
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return NewsCardWidget(news: news[index]);
-                                  },
-                                ),
+                ),
+                Expanded(
+                  child: BlocConsumer<NewsCubit, NewsState>(
+                    listener: (BuildContext context, NewsState state) {
+                      state is NewsLoadFailed
+                          ? log(state.error, name: 'news page')
+                          : null;
+                    },
+                    builder: (BuildContext context, NewsState state) {
+                      sl<AdCubit>().getAds();
+                      if (state is NewsEmpty) {
+                        return const Center(child: Text('لا يوجد بيانات ....'));
+                      } else if (state is NewsLoadSuccess) {
+                        final List news = state.news.data;
+                        return Column(
+                          children: <Widget>[
+                            VerticalSpace(TalebSizes.h16),
+                            const TalebDivider2(),
+                            VerticalSpace(TalebSizes.h16),
+                            Expanded(
+                              child: ListView.separated(
+                                controller: _scrollController,
+                                itemCount: news.length,
+                                separatorBuilder:
+                                    (BuildContext context, int index) {
+                                  List<Ad> ads = sl<AdCubit>().ads;
+                                  if (index < ads.length) {
+                                    return NewsAds(image: ads[index].image);
+                                  }
+                                  return const SizedBox();
+                                },
+                                itemBuilder: (BuildContext context, int index) {
+                                  return NewsCardWidget(news: news[index]);
+                                },
                               ),
-                              if (state is NewsLoadMoreState)
-                                Column(
-                                  children: const [
-                                    SizedBox(height: 12),
-                                    TalebCircularProgressIndicator(),
-                                  ],
-                                )
-                            ],
-                          );
-                        } else if (state is NewsLoading) {
-                          return Container(
-                            margin: const EdgeInsets.only(
-                              left: 16.0,
-                              right: 16.0,
-                              bottom: 0,
-                              top: 24.0,
                             ),
-                            color: Colors.white,
-                            child:
-                                const Center(child: Text('Loading .........')),
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
-                      },
-                    ),
+                            if (state is NewsLoadMoreState)
+                              Column(
+                                children: const [
+                                  SizedBox(height: 12),
+                                  TalebCircularProgressIndicator(),
+                                ],
+                              )
+                          ],
+                        );
+                      } else if (state is NewsLoading) {
+                        return Container(
+                          margin: const EdgeInsets.only(
+                            left: 16.0,
+                            right: 16.0,
+                            bottom: 0,
+                            top: 24.0,
+                          ),
+                          color: Colors.white,
+                          child: const Center(child: Text('Loading .........')),
+                        );
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

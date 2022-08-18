@@ -29,6 +29,7 @@ class TalebColors {
   static const Color metallicSilver = Color(0xFFB4C8CC);
   static const Color coolGrey = Color(0xFF92A2A6);
   static const Color paleAqua = Color(0xFFBFD4D9);
+  static const Color softPeach = Color(0xFFEEEEEE);
   static const Color custome1 = Color(0xFFEBEFF0);
   static const Color custome2 = Color(0xff999999);
   static const Color custome3 = Color(0xff7A8799);

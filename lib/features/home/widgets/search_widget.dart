@@ -33,7 +33,7 @@ class SearchWidget extends StatelessWidget {
           hintStyle: Theme.of(context).textTheme.bodyLarge!.metallicSilver,
           filled: true,
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: TalebColors.white),
+            borderSide: const BorderSide(color: TalebColors.softPeach),
             borderRadius: BorderRadius.circular(12.0),
           ),
           focusedBorder: OutlineInputBorder(
