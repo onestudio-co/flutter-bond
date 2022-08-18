@@ -77,10 +77,9 @@ class _NewsPageState extends State<NewsPage> {
                       ),
                       HorizontalSpace(TalebSizes.w8),
                       FilterWidget(
-                        onTap: () async {
-                          context.router.push(FilterNewsRoute(
-                              newsCubit: context.read<NewsCubit>()));
-                        },
+                        onTap: () async => context.router.push(
+                          FilterNewsRoute(newsCubit: context.read<NewsCubit>()),
+                        ),
                       ),
                     ],
                   ),

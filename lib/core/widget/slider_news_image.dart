@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
-import 'package:taleb/main.dart';
 
 class TalebSliderImagesWidget extends StatelessWidget {
   const TalebSliderImagesWidget({
+    required this.image,
     required this.index,
     Key? key,
   }) : super(key: key);
 
+  final String image;
   final int index;
 
   @override
@@ -25,20 +26,20 @@ class TalebSliderImagesWidget extends StatelessWidget {
         isLoop: true,
         children: [
           TalebImageWidget(
-            image: url,
+            image: image,
             margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
             height: TalebSizes.h290,
           ),
-          TalebImageWidget(
-            image: url,
-            margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
-            height: TalebSizes.h290,
-          ),
-          TalebImageWidget(
-            image: url,
-            margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
-            height: TalebSizes.h290,
-          ),
+          // TalebImageWidget(
+          //   image: url,
+          //   margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
+          //   height: TalebSizes.h290,
+          // ),
+          // TalebImageWidget(
+          //   image: url,
+          //   margin: EdgeInsets.symmetric(horizontal: TalebSizes.w16),
+          //   height: TalebSizes.h290,
+          // ),
         ],
       ),
     );

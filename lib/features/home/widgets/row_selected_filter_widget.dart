@@ -29,7 +29,7 @@ class RowSelectedFilterWidget extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.labelLarge?.custome2,
             ),
-            SvgPicture.asset(TalebIcons.favorites),
+            SvgPicture.asset(TalebIcons.downArrow, color: TalebColors.custome2),
           ],
         ),
       ),

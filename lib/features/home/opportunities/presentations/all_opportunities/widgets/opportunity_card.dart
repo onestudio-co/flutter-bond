@@ -3,23 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
-import 'package:taleb/features/home/opportunities/ui/opportunity_details/opportunity_details_page.dart';
-import 'package:taleb/features/home/opportunities/widgets/container_tag.dart';
+import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
+import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
+import 'package:taleb/features/home/opportunities/presentations/widgets/container_tag.dart';
 import 'package:taleb/main.dart';
 
 class OpportunityCard extends StatelessWidget {
   const OpportunityCard({
-    required this.index,
+    required this.opportunity,
     Key? key,
   }) : super(key: key);
 
-  final int index;
+  final Opportunity opportunity;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.router.pushWidget(OpportunityDetailsPage(
-        index: index,
+        opportunity: opportunity,
       )),
       child: TalebContainer(
         padding: EdgeInsets.all(TalebPadding.p12),
@@ -27,7 +28,7 @@ class OpportunityCard extends StatelessWidget {
         child: Row(
           children: [
             Hero(
-              tag: index,
+              tag: opportunity.id,
               child: TalebImageWidget(
                 image: url,
                 width: TalebSizes.w145,
@@ -42,19 +43,21 @@ class OpportunityCard extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       ContainerTagWidget(
-                        title: 'فرص أكاديمية',
+                        title: opportunity.opportunityCategory.name,
                       ),
                       ContainerTagWidget(
-                        title: 'الطفيلة',
+                        title: opportunity.city.name,
                       ),
                     ],
                   ),
                   VerticalSpace(TalebSizes.h8),
                   Text(
-                    'لقاء ارشادي و توجيهي لطلبة توجيهي 2005',
+                    opportunity.title,
                     style: Theme.of(context).textTheme.labelSmall?.chathamsBlue,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   VerticalSpace(TalebSizes.h4),
                   SizedBox(

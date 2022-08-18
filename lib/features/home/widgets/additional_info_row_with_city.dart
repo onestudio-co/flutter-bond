@@ -8,12 +8,12 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
   const RowAdditionalInfoWithCity({
     required this.hasCity,
     required this.cityName,
+    required this.user,
     Key? key,
-    this.user,
   }) : super(key: key);
 
   final bool hasCity;
-  final User? user;
+  final User user;
   final String? cityName;
 
   @override
@@ -39,7 +39,7 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100.0),
               ),
               child: Text(
-                cityName ?? 'ffffffffffff',
+                cityName ?? '',
                 style: Theme.of(context).textTheme.titleSmall!.white,
               ),
             ),

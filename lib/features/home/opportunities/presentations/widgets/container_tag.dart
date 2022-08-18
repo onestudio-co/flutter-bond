@@ -12,6 +12,9 @@ class ContainerTagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: const BoxConstraints(
+        maxWidth: 80,
+      ),
       padding: EdgeInsets.symmetric(
         horizontal: TalebSizes.w7,
         vertical: TalebSizes.w2,
@@ -22,6 +25,8 @@ class ContainerTagWidget extends StatelessWidget {
       child: Text(
         title,
         style: Theme.of(context).textTheme.titleSmall?.white,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }

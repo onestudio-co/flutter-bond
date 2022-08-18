@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'news.dart';
+part of 'opportunity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-News _$NewsFromJson(Map<String, dynamic> json) => News(
+Opportunity _$OpportunityFromJson(Map<String, dynamic> json) => Opportunity(
+      id: json['id'] as int,
       userId: json['user_id'] as int,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       title: json['title'] as String,
@@ -15,11 +16,17 @@ News _$NewsFromJson(Map<String, dynamic> json) => News(
       city: City.fromJson(json['city'] as Map<String, dynamic>),
       image: json['image'] as String? ??
           'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      id: json['id'] as int,
+      opportunityCategotyId: json['opportunity_category_id'] as int,
+      opportunityCategory: OpportunityCategory.fromJson(
+          json['opportunity_category'] as Map<String, dynamic>),
+      createdAt: json['created_at'] as String,
     );
 
-Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
+Map<String, dynamic> _$OpportunityToJson(Opportunity instance) =>
+    <String, dynamic>{
       'id': instance.id,
+      'opportunity_category_id': instance.opportunityCategotyId,
+      'opportunity_category': instance.opportunityCategory.toJson(),
       'user_id': instance.userId,
       'user': instance.user.toJson(),
       'city_id': instance.cityId,
@@ -27,4 +34,5 @@ Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
       'title': instance.title,
       'content': instance.content,
       'image': instance.image,
+      'created_at': instance.createdAt,
     };

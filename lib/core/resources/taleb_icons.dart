@@ -13,6 +13,8 @@ class TalebIcons {
       'assets/icons/opportunity_nav_bar.svg';
   static const String moreNavBar = 'assets/icons/more_nav_bar.svg';
   static const String share = 'assets/icons/share.svg';
-  static const String favorites = 'assets/icons/favorite.svg';
+  static const String favorite = 'assets/icons/favorite.svg';
   static const String downArrow = 'assets/icons/down_arrow.svg';
+  static const String checkSelectedItem =
+      'assets/icons/check_selected_item.svg';
 }

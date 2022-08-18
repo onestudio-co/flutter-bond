@@ -6,11 +6,11 @@ import 'package:taleb/features/home/widgets/searvie_provider_image_and_name.dart
 
 class DateAndSearviceProviderWidget extends StatelessWidget {
   const DateAndSearviceProviderWidget({
-    this.user,
+    required this.user,
     Key? key,
   }) : super(key: key);
 
-  final User? user;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
