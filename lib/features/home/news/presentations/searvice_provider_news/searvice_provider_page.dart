@@ -10,7 +10,6 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/cubit/searvice_provider_news_cubit.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
-import 'package:taleb/main.dart';
 
 class SearviceProviderNewsPage extends StatefulWidget
     implements AutoRouteWrapper {
@@ -82,7 +81,8 @@ class _SearviceProviderNewsPageState extends State<SearviceProviderNewsPage> {
                             backgroundColor: TalebColors.greyRegular,
                             child: CircleAvatar(
                               radius: TalebSizes.h38,
-                              backgroundImage: NetworkImage(url),
+                              backgroundImage:
+                                  NetworkImage(state.news.data[0].user.image),
                             ),
                           ),
                           VerticalSpace(TalebSizes.h8),

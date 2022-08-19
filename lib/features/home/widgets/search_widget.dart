@@ -19,8 +19,8 @@ class SearchWidget extends StatelessWidget {
       height: TalebSizes.h48,
       child: TextField(
         onChanged: onChanged,
-        // cursorHeight: TalebSizes.h15,
-        textAlignVertical: TextAlignVertical.top,
+        textAlignVertical: TextAlignVertical.center,
+        style: Theme.of(context).textTheme.labelSmall?.elephant,
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding:
@@ -34,16 +34,16 @@ class SearchWidget extends StatelessWidget {
           filled: true,
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: TalebColors.softPeach),
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(TalebBorderRadius.r12),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: TalebColors.blueRegular),
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(TalebBorderRadius.r12),
           ),
           fillColor: TalebColors.white,
           border: OutlineInputBorder(
             borderSide: const BorderSide(color: TalebColors.white),
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(TalebBorderRadius.r12),
           ),
         ),
       ),

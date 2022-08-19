@@ -67,6 +67,7 @@ class OpportunitiesPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                VerticalSpace(TalebSizes.h16),
                 const Expanded(child: ListOfOpportunities()),
               ],
             ),
