@@ -60,4 +60,15 @@ class OpportunityRepository {
       return Left<Failure, ListResponse<Opportunity>>(e.toFailure());
     }
   }
+
+  Future<Either<Failure, ListResponse<Opportunity>>> searchOpportnities(
+      {required String text}) async {
+    try {
+      final ListResponse<Opportunity> response =
+          await _remoteDataSource.searchOpportnities(text: text);
+      return Right<Failure, ListResponse<Opportunity>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<Opportunity>>(e.toFailure());
+    }
+  }
 }

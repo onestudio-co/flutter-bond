@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -74,15 +76,27 @@ class NewsCubit extends Cubit<NewsState> {
     );
   }
 
+  // Future<void> searchNews(String text) async {
+  //   try {
+  //     emit(NewsLoading());
+  //     final List<News> response =
+  //         await algoliaSubspecialtiesService.searchNews(text);
+  //     ListResponse<News> listResponse = ListResponse<News>(data: response);
+  //     emit(NewsLoadSuccess(news: listResponse));
+  //   } catch (error) {
+  //     emit(NewsLoadFailed(error: error.toString()));
+  //   }
+  // }
+
   Future<void> searchNews(String text) async {
-    try {
-      emit(NewsLoading());
-      final List<News> response =
-          await algoliaSubspecialtiesService.searchNews(text);
-      ListResponse<News> listResponse = ListResponse<News>(data: response);
-      emit(NewsLoadSuccess(news: listResponse));
-    } catch (error) {
-      emit(NewsLoadFailed(error: error.toString()));
-    }
+    emit(NewsLoading());
+    final Either<Failure, ListResponse<News>> response =
+        await _repository.searchNews(text: text);
+    emit(
+      response.fold(
+          (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
+          (ListResponse<News> news) =>
+              news.data.isEmpty ? NewsEmpty() : NewsLoadSuccess(news: news)),
+    );
   }
 }
