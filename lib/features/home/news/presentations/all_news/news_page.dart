@@ -130,17 +130,7 @@ class _NewsPageState extends State<NewsPage> {
                           ],
                         );
                       } else if (state is NewsLoading) {
-                        return Container(
-                          margin: const EdgeInsets.only(
-                            left: 16.0,
-                            right: 16.0,
-                            bottom: 0,
-                            top: 24.0,
-                          ),
-                          color: Colors.white,
-                          child: const Center(
-                              child: Text('جاري التحميل .........')),
-                        );
+                         return const Center(child: TalebCircularProgressIndicator());
                       } else {
                         return const SizedBox.shrink();
                       }
