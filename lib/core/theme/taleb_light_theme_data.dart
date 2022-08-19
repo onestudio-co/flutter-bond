@@ -31,6 +31,9 @@ ThemeData talebLightThemeData() {
       disabledColor: TalebColors.greyLight,
       buttonColor: TalebColors.blueDark,
     ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: TalebColors.blueRegular,
+    ),
 
     /// Text Theme
     textTheme: TalebTextTheme(),

@@ -65,7 +65,7 @@ class _NewsPageState extends State<NewsPage> {
             onTap: _scrollToTop,
             child: Column(
               children: [
-                HorizontalSpace(TalebSizes.w8),
+                VerticalSpace(TalebSizes.h16),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                   child: Row(
@@ -138,7 +138,8 @@ class _NewsPageState extends State<NewsPage> {
                             top: 24.0,
                           ),
                           color: Colors.white,
-                          child: const Center(child: Text('جاري التحميل .........')),
+                          child: const Center(
+                              child: Text('جاري التحميل .........')),
                         );
                       } else {
                         return const SizedBox.shrink();

@@ -28,7 +28,7 @@ class ListOfOpportunities extends StatelessWidget {
           return const Center(child: TalebCircularProgressIndicator());
         } else {
           return const Center(
-            child: Text('حدث خطا ما ...'),
+            child: Text('لا يوجد بيانات'),
           );
         }
       },
