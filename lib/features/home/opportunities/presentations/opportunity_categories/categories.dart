@@ -19,7 +19,10 @@ class _OpportunityCategoriesState extends State<OpportunityCategories> {
       builder: (BuildContext context, OpportunityCategoryState state) {
         if (state is OpportunityCategoryLoadedSuccess) {
           return Padding(
-            padding: EdgeInsets.only(top: TalebPadding.p8),
+            padding: EdgeInsets.only(
+                top: TalebPadding.p8,
+                left: TalebPadding.p16,
+                right: TalebPadding.p16),
             child: SizedBox(
               height: TalebSizes.h44,
               child: ListView.builder(
@@ -31,8 +34,14 @@ class _OpportunityCategoriesState extends State<OpportunityCategories> {
             ),
           );
         } else {
-          return SizedBox(
-            height: TalebSizes.h44,
+          return Padding(
+            padding: EdgeInsets.only(
+                top: TalebPadding.p8,
+                left: TalebPadding.p16,
+                right: TalebPadding.p16),
+            child: SizedBox(
+              height: TalebSizes.h44,
+            ),
           );
         }
       },

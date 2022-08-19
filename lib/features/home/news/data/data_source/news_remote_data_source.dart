@@ -37,6 +37,17 @@ class NewsRemoteDataSource extends DataSource {
     );
     return mapListResponse(response);
   }
+
+  Future<ListResponse<News>> searchNews({required String text}) async {
+    final Response<dynamic> response = await _client.get(
+      NewsApis.searchNews,
+      queryParameters: <String, dynamic>{
+        'text': text,
+      },
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
 }
 
 extension NewsApis on Api {
@@ -49,4 +60,6 @@ extension NewsApis on Api {
   static String similerNews(int newsId) {
     return 'similar-news/$newsId';
   }
+
+  static String get searchNews => 'search-news';
 }

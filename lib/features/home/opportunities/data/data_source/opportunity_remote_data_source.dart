@@ -43,6 +43,18 @@ class OpportunityRemoteDataSource extends DataSource {
     );
     return mapListResponse(response);
   }
+
+  Future<ListResponse<Opportunity>> searchOpportnities(
+      {required String text}) async {
+    final Response<dynamic> response = await _client.get(
+      OpportunityApis.searchOpportunities,
+      queryParameters: <String, dynamic>{
+        'text': text,
+      },
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
 }
 
 extension OpportunityApis on Api {
@@ -59,4 +71,6 @@ extension OpportunityApis on Api {
   static String similerOpportunities(int opportunityId) {
     return 'similar-opportunities/$opportunityId';
   }
+
+  static String get searchOpportunities => 'search-opportunities';
 }

@@ -110,16 +110,30 @@ class OpportunityCubit extends Cubit<OpportunityState> {
     );
   }
 
+  // Future<void> searchOpportnities(String text) async {
+  //   try {
+  //     emit(OpportunityLoading());
+  //     final List<Opportunity> response =
+  //         await _algoliaOpportunityService.searchOpportunity(text);
+  //     ListResponse<Opportunity> listResponse =
+  //         ListResponse<Opportunity>(data: response);
+  //     emit(OpportunityLoadSuccess(oppertunities: listResponse));
+  //   } catch (error) {
+  //     emit(OpportunityLoadFailed(error: error.toString()));
+  //   }
+  // }
+
   Future<void> searchOpportnities(String text) async {
-    try {
-      emit(OpportunityLoading());
-      final List<Opportunity> response =
-          await _algoliaOpportunityService.searchOpportunity(text);
-      ListResponse<Opportunity> listResponse =
-          ListResponse<Opportunity>(data: response);
-      emit(OpportunityLoadSuccess(oppertunities: listResponse));
-    } catch (error) {
-      emit(OpportunityLoadFailed(error: error.toString()));
-    }
+    emit(OpportunityLoading());
+    final Either<Failure, ListResponse<Opportunity>> response =
+        await _repository.searchOpportnities(text: text);
+    emit(
+      response.fold(
+        (Failure failure) => OpportunityLoadFailed(error: failure.toMessage()),
+        (ListResponse<Opportunity> opportunities) => opportunities.data.isEmpty
+            ? OpportunityEmpty()
+            : OpportunityLoadSuccess(oppertunities: opportunities),
+      ),
+    );
   }
 }

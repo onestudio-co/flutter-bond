@@ -41,13 +41,12 @@ class OpportunitiesPage extends StatelessWidget {
             appBar: const HomeAppBar(
               title: 'الفرص',
             ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-              child: Column(
-                children: <Widget>[
-                  const OpportunityCategories(),
-                  VerticalSpace(TalebSizes.h10),
-                  Row(
+            body: Column(
+              children: <Widget>[
+                const OpportunityCategories(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                  child: Row(
                     children: <Widget>[
                       Expanded(
                         child: SearchWidget(
@@ -67,9 +66,10 @@ class OpportunitiesPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Expanded(child: ListOfOpportunities()),
-                ],
-              ),
+                ),
+                VerticalSpace(TalebSizes.h16),
+                const Expanded(child: ListOfOpportunities()),
+              ],
             ),
           ),
         );

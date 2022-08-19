@@ -7,7 +7,7 @@ class TalebCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CircularProgressIndicator(
-      color: TalebColors.yellowRegular,
+      color: TalebColors.blueExtraDark,
       strokeWidth: 4,
     );
   }

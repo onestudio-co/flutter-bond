@@ -23,9 +23,8 @@ class SimilarMainNewsWidget extends StatelessWidget {
           return Container(
             height: TalebSizes.h370,
             width: MediaQuery.of(context).size.width,
-            color: TalebColors.custome1,
+            color: TalebColors.white,
             padding: EdgeInsets.symmetric(
-              horizontal: TalebPadding.p16,
               vertical: TalebPadding.p32,
             ),
             child: Column(

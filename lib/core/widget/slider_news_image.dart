@@ -20,10 +20,10 @@ class TalebSliderImagesWidget extends StatelessWidget {
       child: ImageSlideshow(
         height: TalebSizes.h290,
         initialPage: 0,
-        indicatorColor: TalebColors.blueRegular,
+        indicatorColor: Colors.transparent,
         indicatorBackgroundColor: TalebColors.greyRegular,
         autoPlayInterval: 3000,
-        isLoop: true,
+        isLoop: false,
         children: [
           TalebImageWidget(
             image: image,

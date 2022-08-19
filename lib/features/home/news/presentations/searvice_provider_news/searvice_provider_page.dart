@@ -7,9 +7,9 @@ import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/features/home/news/presentations/searvice_provider_news/cubit/searvice_provider_news_cubit.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
-import 'package:taleb/main.dart';
 
 class SearviceProviderNewsPage extends StatefulWidget
     implements AutoRouteWrapper {
@@ -81,7 +81,8 @@ class _SearviceProviderNewsPageState extends State<SearviceProviderNewsPage> {
                             backgroundColor: TalebColors.greyRegular,
                             child: CircleAvatar(
                               radius: TalebSizes.h38,
-                              backgroundImage: NetworkImage(url),
+                              backgroundImage:
+                                  NetworkImage(state.news.data[0].user.image),
                             ),
                           ),
                           VerticalSpace(TalebSizes.h8),
@@ -116,10 +117,7 @@ class _SearviceProviderNewsPageState extends State<SearviceProviderNewsPage> {
                       Column(
                         children: const [
                           SizedBox(height: 12),
-                          CircularProgressIndicator(
-                            color: TalebColors.yellowRegular,
-                            strokeWidth: 4,
-                          ),
+                          TalebCircularProgressIndicator(),
                         ],
                       ),
                   ],
@@ -134,7 +132,7 @@ class _SearviceProviderNewsPageState extends State<SearviceProviderNewsPage> {
                   top: 24.0,
                 ),
                 color: Colors.white,
-                child: const Center(child: Text('Loading .........')),
+                child: const Center(child: Text('جاري التحميل .........')),
               );
             } else {
               return const SizedBox.shrink();

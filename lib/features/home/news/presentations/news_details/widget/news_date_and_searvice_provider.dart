@@ -19,8 +19,10 @@ class DateAndSearviceProviderWidget extends StatelessWidget {
       children: [
         SearviceProviderImageAndName(
           padding: TalebPadding.p4,
-          radius: 14,
+          radius: TalebSizes.h14,
+          height: TalebSizes.h36,
           user: user,
+          textStyle: Theme.of(context).textTheme.displayLarge?.white,
         ),
         Text(
           '2 أغسطس 2022',

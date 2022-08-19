@@ -1,3 +1,3 @@
 class ApiConfig {
-  static String baseUrl = 'https://1e78-37-8-4-28.eu.ngrok.io/api/';
+  static String baseUrl = 'http://taleb.one-studio.link/api/';
 }

@@ -23,15 +23,14 @@ class SimilarMainOpportunitiesWidget extends StatelessWidget {
           return Container(
             height: TalebSizes.h370,
             width: MediaQuery.of(context).size.width,
-            color: TalebColors.custome1,
+            color: TalebColors.white,
             padding: EdgeInsets.symmetric(
-              horizontal: TalebPadding.p16,
               vertical: TalebPadding.p32,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SimilerLabelWidget(),
+                const SimilerLabelWidget(title: 'فرص مماثلة'),
                 VerticalSpace(TalebSizes.h16),
                 Expanded(
                   child: ListView.builder(
