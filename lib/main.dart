@@ -4,14 +4,15 @@ import 'package:one_studio_core/core.dart';
 import 'package:taleb/routes/app_router.dart';
 import 'package:taleb/taleb_app.dart';
 
+import 'generator/langs/codegen_loader.g.dart';
 import 'injection_container.dart';
 import 'integrations/integrations.dart';
 
-// String url =
-//     'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-// String adsUrl =
-//     'https://cdn.searchenginejournal.com/wp-content/uploads/2020/01/responsive-display-ads-5e260c98e00db-1520x800.jpg';
-
+/*
+* This Command to generate translation keys
+* FIRST: [fvm flutter pub run easy_localization:generate -S "assets/langs" -O "lib/generator/langs"]
+* SECOND: [fvm flutter pub run easy_localization:generate -S "assets/langs" -O "lib/generator/langs" -o "locale_keys.g.dart" -f keys]
+* */
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -24,8 +25,9 @@ Future<void> main() async {
         Locale('ar'),
       ],
       startLocale: const Locale('ar'),
-      fallbackLocale: const Locale('en'),
+      fallbackLocale: const Locale('ar'),
       path: 'assets/langs',
+      assetLoader: const CodegenLoader(),
       child: TalebApp(appRouter: sl<AppRouter>()),
     ),
   );

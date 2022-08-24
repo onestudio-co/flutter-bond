@@ -1,6 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:taleb/generator/langs/locale_keys.g.dart';
+
 class TalebStrings {
-  // OnBoarding
-  static const String next = 'التالي';
-  static const String skip = 'تخطي';
-  static const String startNow = 'ابدأ الآن';
+  //* News Page
+  static String newsHomeTitleAppbar = LocaleKeys.homeTitle.tr();
+  static String skip = 'تخطي';
+  static String startNow = 'ابدأ الآن';
 }
+

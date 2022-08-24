@@ -58,8 +58,8 @@ class _NewsPageState extends State<NewsPage> {
           _scrollControllerListener(context);
         });
         return Scaffold(
-          appBar: const HomeAppBar(
-            title: 'الأخبار',
+          appBar: HomeAppBar(
+            title: TalebStrings.newsHomeTitleAppbar,
           ),
           body: GestureDetector(
             onTap: _scrollToTop,
@@ -130,7 +130,8 @@ class _NewsPageState extends State<NewsPage> {
                           ],
                         );
                       } else if (state is NewsLoading) {
-                         return const Center(child: TalebCircularProgressIndicator());
+                        return const Center(
+                            child: TalebCircularProgressIndicator());
                       } else {
                         return const SizedBox.shrink();
                       }
