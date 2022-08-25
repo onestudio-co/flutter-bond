@@ -8,13 +8,13 @@ class OfferRemoteDataSource extends DataSource {
 
   OfferRemoteDataSource(this._client);
 
-  Future<ListResponse<Offer>> allOffer(
-      {String? nextUrl, int? cityId, int? searviceProviderId}) async {
+  Future<ListResponse<Offer>> allOffers(
+      {String? nextUrl, int? cityId, int? serviceProviderId}) async {
     final Response<dynamic> response = await _client.get(
-      nextUrl ?? OfferApis.allOffer,
+      nextUrl ?? OfferApis.offers,
       queryParameters: <String, dynamic>{
-        'user': searviceProviderId,
-        'city': cityId,
+        'user_id': serviceProviderId,
+        'city_id': cityId,
       },
       headers: Api.headers(),
     );
@@ -30,9 +30,9 @@ class OfferRemoteDataSource extends DataSource {
     return mapListResponse(response);
   }
 
-  Future<ListResponse<Offer>> similerOffer(int offerId) async {
+  Future<ListResponse<Offer>> similarOffer(int offerId) async {
     final Response<dynamic> response = await _client.get(
-      OfferApis.similerOffer(offerId),
+      OfferApis.similarOffer(offerId),
       headers: Api.headers(),
     );
     return mapListResponse(response);
@@ -51,15 +51,14 @@ class OfferRemoteDataSource extends DataSource {
 }
 
 extension OfferApis on Api {
-  static String get allOffer => 'offer';
+  static String get offers => 'offers';
 
-  static String serviceProviderOffer(int serviceProviderId) {
-    return 'offer/user/$serviceProviderId';
-  }
-
-  static String similerOffer(int offerId) {
-    return 'similar-offer/$offerId';
-  }
+  static String get premiumServiceProviders => 'premium-service-providers';
 
   static String get searchOffer => 'search-offer';
+
+  static String serviceProviderOffer(int serviceProviderId) =>
+      'offer/user/$serviceProviderId';
+
+  static String similarOffer(int offerId) => 'similar-offer/$offerId';
 }

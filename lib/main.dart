@@ -12,6 +12,8 @@ import 'integrations/integrations.dart';
 * This Command to generate translation keys
 * FIRST: [fvm flutter pub run easy_localization:generate -S "assets/langs" -O "lib/generator/langs"]
 * SECOND: [fvm flutter pub run easy_localization:generate -S "assets/langs" -O "lib/generator/langs" -o "locale_keys.g.dart" -f keys]
+* THIRD: [fvm flutter pub run build_runner build --delete-conflicting-outputs]
+*
 * */
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

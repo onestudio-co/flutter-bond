@@ -52,7 +52,7 @@ class ServiceProviderOfferCubit extends Cubit<ServiceProviderOfferState> {
     ));
 
     final Either<Failure, ListResponse<Offer>> response =
-        await _repository.allOffer(nextUrl: currentState.offer.links?.next);
+        await _repository.allOffers(nextUrl: currentState.offer.links?.next);
 
     response.fold(
       (Failure failure) =>

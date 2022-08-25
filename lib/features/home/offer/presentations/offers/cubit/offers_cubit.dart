@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -11,11 +9,11 @@ import 'package:taleb/features/home/offer/data/services/algolia_offer_service.da
 part 'offers_state.dart';
 
 class OffersCubit extends Cubit<OffersState> {
-  OffersCubit(this._repository, this.algoliaSubspecialtiesService)
+  OffersCubit(this._repository, this.algoliaOffersService)
       : super(OffersInitial());
 
   final OfferRepository _repository;
-  final AlgoliaOfferService algoliaSubspecialtiesService;
+  final AlgoliaOfferService algoliaOffersService;
 
   Future<void> loadOffers(
       {int? cityId, int? serviceProviderId, bool emitLoading = false}) async {
@@ -35,12 +33,13 @@ class OffersCubit extends Cubit<OffersState> {
   Future<void> _loadOffer({int? cityId, int? serviceProviderId}) async {
     emit(OffersLoading());
     final Either<Failure, ListResponse<Offer>> response = await _repository
-        .allOffer(cityId: cityId, searviceProviderId: serviceProviderId);
+        .allOffers(cityId: cityId, serviceProviderId: serviceProviderId);
     emit(
       response.fold(
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
-          (ListResponse<Offer> offer) =>
-              offer.data.isEmpty ? OffersEmpty() : OffersLoadSuccess(offer: offer)),
+          (ListResponse<Offer> offer) => offer.data.isEmpty
+              ? OffersEmpty()
+              : OffersLoadSuccess(offer: offer)),
     );
   }
 
@@ -59,7 +58,7 @@ class OffersCubit extends Cubit<OffersState> {
     ));
 
     final Either<Failure, ListResponse<Offer>> response =
-        await _repository.allOffer(nextUrl: currentState.offer.links?.next);
+        await _repository.allOffers(nextUrl: currentState.offer.links?.next);
 
     response.fold(
       (Failure failure) => emit(OffersLoadFailed(error: failure.toString())),
@@ -95,8 +94,9 @@ class OffersCubit extends Cubit<OffersState> {
     emit(
       response.fold(
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
-          (ListResponse<Offer> offer) =>
-              offer.data.isEmpty ? OffersEmpty() : OffersLoadSuccess(offer: offer)),
+          (ListResponse<Offer> offer) => offer.data.isEmpty
+              ? OffersEmpty()
+              : OffersLoadSuccess(offer: offer)),
     );
   }
 }

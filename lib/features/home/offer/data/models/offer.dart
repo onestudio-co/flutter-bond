@@ -19,8 +19,14 @@ class Offer extends Model {
       defaultValue:
           'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
   final String image;
+  final double price;
+  @JsonKey(name: 'created_at')
+  final String createdAt;
+  @JsonKey(name: 'updated_at')
+  final String updatedAt;
 
   const Offer({
+    required int id,
     required this.userId,
     required this.user,
     required this.title,
@@ -28,7 +34,9 @@ class Offer extends Model {
     required this.cityId,
     required this.city,
     required this.image,
-    required int id,
+    required this.price,
+    required this.createdAt,
+    required this.updatedAt,
   }) : super(id: id);
 
   factory Offer.fromJson(Map<String, dynamic> json) => _$OfferFromJson(json);

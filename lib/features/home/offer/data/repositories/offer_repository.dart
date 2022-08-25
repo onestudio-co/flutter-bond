@@ -9,13 +9,14 @@ class OfferRepository {
 
   OfferRepository(this._remoteDataSource);
 
-  Future<Either<Failure, ListResponse<Offer>>> allOffer(
-      {String? nextUrl, int? cityId, int? searviceProviderId}) async {
+  Future<Either<Failure, ListResponse<Offer>>> allOffers(
+      {String? nextUrl, int? cityId, int? serviceProviderId}) async {
     try {
-      final ListResponse<Offer> response = await _remoteDataSource.allOffer(
-          nextUrl: nextUrl,
-          cityId: cityId,
-          searviceProviderId: searviceProviderId);
+      final ListResponse<Offer> response = await _remoteDataSource.allOffers(
+        nextUrl: nextUrl,
+        serviceProviderId: serviceProviderId,
+        cityId: cityId,
+      );
       return Right<Failure, ListResponse<Offer>>(response);
     } on ServerException catch (e) {
       return Left<Failure, ListResponse<Offer>>(e.toFailure());
@@ -37,7 +38,7 @@ class OfferRepository {
   Future<Either<Failure, ListResponse<Offer>>> similerOffer(int offerId) async {
     try {
       final ListResponse<Offer> response =
-          await _remoteDataSource.similerOffer(offerId);
+          await _remoteDataSource.similarOffer(offerId);
       return Right<Failure, ListResponse<Offer>>(response);
     } on ServerException catch (e) {
       return Left<Failure, ListResponse<Offer>>(e.toFailure());
