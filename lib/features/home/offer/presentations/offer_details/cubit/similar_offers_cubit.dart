@@ -7,15 +7,15 @@ import 'package:taleb/features/home/offer/data/repositories/offer_repository.dar
 
 part 'similar_offers_state.dart';
 
-class SimilarCubit extends Cubit<SimilarOffersState> {
+class SimilarOffersCubit extends Cubit<SimilarOffersState> {
   final OfferRepository _offerRepository;
 
-  SimilarCubit(this._offerRepository) : super(SimilarOffersInitial());
+  SimilarOffersCubit(this._offerRepository) : super(SimilarOffersInitial());
 
   void similarOffer(int offerId) async {
     emit(SimilarOffersLoading());
     final Either<Failure, ListResponse<Offer>> response =
-        await _offerRepository.similerOffer(offerId);
+        await _offerRepository.similarOffer(offerId);
     response.fold(
       (Failure failure) => emit(SimilarOfferLoadFailure(failure.toMessage())),
       (ListResponse<Offer> response) {

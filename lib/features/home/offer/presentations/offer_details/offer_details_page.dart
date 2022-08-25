@@ -21,9 +21,9 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<SimilarCubit>(
+    return BlocProvider<SimilarOffersCubit>(
       create: (BuildContext context) =>
-          sl<SimilarCubit>()..similarOffer(offer.id),
+          sl<SimilarOffersCubit>()..similarOffer(offer.id),
       child: this,
     );
   }

@@ -35,7 +35,7 @@ class OfferRepository {
     }
   }
 
-  Future<Either<Failure, ListResponse<Offer>>> similerOffer(int offerId) async {
+  Future<Either<Failure, ListResponse<Offer>>> similarOffer(int offerId) async {
     try {
       final ListResponse<Offer> response =
           await _remoteDataSource.similarOffer(offerId);
