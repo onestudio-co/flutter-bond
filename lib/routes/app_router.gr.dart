@@ -13,11 +13,7 @@
 part of 'app_router.dart';
 
 class _$AppRouter extends RootStackRouter {
-  _$AppRouter(
-      {GlobalKey<NavigatorState>? navigatorKey, required this.authGuard})
-      : super(navigatorKey);
-
-  final AuthGuard authGuard;
+  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
   final Map<String, PageFactory> pagesMap = {
@@ -25,13 +21,13 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LaunchPage());
     },
-    HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HomePage());
-    },
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
+    },
+    HomeRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HomePage());
     },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
@@ -87,14 +83,33 @@ class _$AppRouter extends RootStackRouter {
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
+    },
+    NewsRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const NewsPage());
+    },
+    OffersRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const OffersPage());
+    },
+    OpportunitiesRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const OpportunitiesPage());
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
-        RouteConfig(HomeRoute.name, path: '/home-page', guards: [authGuard]),
         RouteConfig(LoginRoute.name, path: '/login-page'),
+        RouteConfig(HomeRoute.name, path: '/home-page', children: [
+          RouteConfig(NewsRoute.name,
+              path: 'news-page', parent: HomeRoute.name),
+          RouteConfig(OffersRoute.name,
+              path: 'offers-page', parent: HomeRoute.name),
+          RouteConfig(OpportunitiesRoute.name,
+              path: 'opportunities-page', parent: HomeRoute.name)
+        ]),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -118,19 +133,20 @@ class LaunchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '/home-page');
-
-  static const String name = 'HomeRoute';
-}
-
-/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
+
+  static const String name = 'HomeRoute';
 }
 
 /// generated route for
@@ -276,4 +292,29 @@ class FilterOpportunityRouteArgs {
   String toString() {
     return 'FilterOpportunityRouteArgs{opportunityCubit: $opportunityCubit, key: $key}';
   }
+}
+
+/// generated route for
+/// [NewsPage]
+class NewsRoute extends PageRouteInfo<void> {
+  const NewsRoute() : super(NewsRoute.name, path: 'news-page');
+
+  static const String name = 'NewsRoute';
+}
+
+/// generated route for
+/// [OffersPage]
+class OffersRoute extends PageRouteInfo<void> {
+  const OffersRoute() : super(OffersRoute.name, path: 'offers-page');
+
+  static const String name = 'OffersRoute';
+}
+
+/// generated route for
+/// [OpportunitiesPage]
+class OpportunitiesRoute extends PageRouteInfo<void> {
+  const OpportunitiesRoute()
+      : super(OpportunitiesRoute.name, path: 'opportunities-page');
+
+  static const String name = 'OpportunitiesRoute';
 }
