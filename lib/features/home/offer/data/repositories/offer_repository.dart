@@ -1,8 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:one_studio_core/core.dart';
-
-import '../data_source/offer_remote_data_source.dart';
-import '../models/offer.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
 
 class OfferRepository {
   final OfferRemoteDataSource _remoteDataSource;

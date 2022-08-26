@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:one_studio_core/core.dart';
-
-import '../models/offer.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
 
 class OfferRemoteDataSource extends DataSource {
   final ApiClient _client;

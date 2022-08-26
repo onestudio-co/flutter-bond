@@ -2,8 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:taleb/features/home/offer/data/models/offer.dart';
-import 'package:taleb/features/home/offer/data/repositories/offer_repository.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
 
 part 'service_provider_offer_state.dart';
 
