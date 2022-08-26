@@ -29,6 +29,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const HomePage());
     },
+    OfferDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<OfferDetailsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: OfferDetailsPage(offer: args.offer, key: args.key));
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -110,6 +116,7 @@ class _$AppRouter extends RootStackRouter {
           RouteConfig(OpportunitiesRoute.name,
               path: 'opportunities-page', parent: HomeRoute.name)
         ]),
+        RouteConfig(OfferDetailsRoute.name, path: '/offer-details-page'),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -147,6 +154,30 @@ class HomeRoute extends PageRouteInfo<void> {
       : super(HomeRoute.name, path: '/home-page', initialChildren: children);
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [OfferDetailsPage]
+class OfferDetailsRoute extends PageRouteInfo<OfferDetailsRouteArgs> {
+  OfferDetailsRoute({required Offer offer, Key? key})
+      : super(OfferDetailsRoute.name,
+            path: '/offer-details-page',
+            args: OfferDetailsRouteArgs(offer: offer, key: key));
+
+  static const String name = 'OfferDetailsRoute';
+}
+
+class OfferDetailsRouteArgs {
+  const OfferDetailsRouteArgs({required this.offer, this.key});
+
+  final Offer offer;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'OfferDetailsRouteArgs{offer: $offer, key: $key}';
+  }
 }
 
 /// generated route for
