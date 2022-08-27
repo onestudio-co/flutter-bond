@@ -37,7 +37,7 @@ dependencies:
   shared_preferences: ^2.0.15
   equatable: ^2.0.3
   algolia: ^1.1.1
-  
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:
