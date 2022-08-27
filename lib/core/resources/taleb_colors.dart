@@ -18,6 +18,7 @@ class TalebColors {
   static const Color porcelain = Color(0xFFEDF3F5);
   static const Color chathamsBlue = Color(0xFF1C5866);
   static const Color elephant = Color(0xFF113740);
+  static const Color elephantShadow = Color(0x1A113740);
   static const Color darkJungleGreen = Color(0xFF242424);
   //* White
   static const Color brightGray = Color(0xFFE8F0F2);
@@ -47,4 +48,5 @@ extension CustomTextStyle on TextStyle {
   TextStyle get custome2 => copyWith(color: TalebColors.custome2);
   TextStyle get blueDark => copyWith(color: TalebColors.blueDark);
   TextStyle get blueRegular => copyWith(color: TalebColors.blueRegular);
+  TextStyle get blueExtraDark => copyWith(color: TalebColors.blueExtraDark);
 }

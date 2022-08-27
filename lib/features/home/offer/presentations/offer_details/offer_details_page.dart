@@ -49,15 +49,58 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
             children: [
               const TalebDivider2(thickness: 2),
               VerticalSpace(TalebSizes.h16),
-              TalebSliderImagesWidget(
-                index: offer.id,
-                image: offer.image,
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: TalebSizes.h300,
+                      child: Stack(
+                        children: [
+                          TalebSliderImagesWidget(
+                            index: offer.id,
+                            image: offer.image,
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: TalebPadding.defaultPadding),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: TalebPadding.p16,
+                              ),
+                              decoration: BoxDecoration(
+                                color: TalebColors.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(
+                                      TalebPadding.defaultPadding),
+                                  bottomRight: Radius.circular(
+                                      TalebPadding.defaultPadding),
+                                ),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: TalebColors.elephantShadow,
+                                    offset: Offset(4, 8),
+                                    blurRadius: 8,
+                                  ),
+                                ],
+                              ),
+                              child: SizedBox(
+                                height: TalebSizes.h34,
+                                child: Text(
+                                  '${offer.price} ${offer.currency.name}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.blueExtraDark,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                     VerticalSpace(TalebSizes.h16),
                     DateAndServiceProviderWidget(user: offer.user),
                     VerticalSpace(TalebSizes.h12),
