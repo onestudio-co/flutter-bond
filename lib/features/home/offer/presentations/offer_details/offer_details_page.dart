@@ -7,6 +7,8 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/offer/data/models/offer.dart';
+import 'package:taleb/features/home/widgets/slide_similers/main_widget_offers.dart';
+import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 
 import 'cubit/similar_offers_cubit.dart';
 import 'widget/offer_date_and_service_provider.dart';
@@ -31,15 +33,11 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: TalebAppBar(
         actions: [
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.favorite),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.share),
+            icon: SvgPicture.asset(TalebIcons.call),
           ),
         ],
       ),
@@ -49,7 +47,7 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TalebDivider2(),
+              const TalebDivider2(thickness: 2),
               VerticalSpace(TalebSizes.h16),
               TalebSliderImagesWidget(
                 index: offer.id,
@@ -78,7 +76,7 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                     ),
                     const TalebDivider2(),
-                    // SimilarMainOfferWidget(offer: offer),
+                    const SimilarMainOffersWidget(),
                   ],
                 ),
               )

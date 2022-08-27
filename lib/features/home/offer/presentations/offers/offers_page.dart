@@ -8,7 +8,6 @@ import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
-import 'package:taleb/main.dart';
 
 import '../../offer_imports.dart';
 
@@ -48,7 +47,8 @@ class _OffersPageState extends State<OffersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HomeAppBar(
+      appBar: TalebAppBar(
+        showBack: false,
         title: TalebStrings.bottomNavBarSooq,
       ),
       body: GestureDetector(

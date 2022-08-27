@@ -1,17 +1,35 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 
-class HomeAppBar extends StatelessWidget implements PreferredSize {
+class TalebAppBar extends StatelessWidget implements PreferredSize {
   final String? title;
-  const HomeAppBar({
+  final List<Widget>? actions;
+  final VoidCallback? onPressBack;
+  final bool showBack;
+
+  const TalebAppBar({
     Key? key,
     this.title,
+    this.actions,
+    this.onPressBack,
+    this.showBack = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: title != null ? Text(title!) : null,
+      leading: Visibility(
+        visible: showBack,
+        child: IconButton(
+          onPressed: onPressBack ?? () => context.router.pop(),
+          // icon: SvgPicture.asset(TalebIcons.downArrow),
+          icon: const Icon(Icons.arrow_right_alt_sharp),
+        ),
+      ),
+      actions: actions,
     );
   }
 

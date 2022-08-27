@@ -21,6 +21,9 @@ ThemeData talebLightThemeData() {
         centerTitle: true,
         color: TalebColors.white,
         elevation: 0,
+        actionsIconTheme: const IconThemeData(
+          color: TalebColors.darkJungleGreen,
+        ),
         titleTextStyle: getBoldStyle(
             color: TalebColors.chathamsBlue, fontSize: TalebFontSize.s16),
         iconTheme: const IconThemeData(color: TalebColors.chathamsBlue)),

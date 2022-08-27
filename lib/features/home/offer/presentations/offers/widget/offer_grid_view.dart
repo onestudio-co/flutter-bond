@@ -1,10 +1,13 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offers/widget/offer_list_card_item.dart';
 import 'package:taleb/features/home/offer/presentations/offers/widget/offers_list_item_shimmer.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class OffersGridView extends StatelessWidget {
   const OffersGridView({
@@ -32,7 +35,7 @@ class OffersGridView extends StatelessWidget {
                 final Offer offer = state.offer.data[index];
                 return OfferListCardItem(
                   onTap: () =>
-                      context.read<OffersCubit>().loadOffers(emitLoading: true),
+                      context.router.push(OfferDetailsRoute(offer: offer)),
                   urlImage: offer.image,
                   title: offer.title,
                   price: offer.price.toString(),
@@ -42,9 +45,11 @@ class OffersGridView extends StatelessWidget {
                 );
               },
             );
-          } else {
-            return const OffersListItemShimmer();
           }
+          if (state is OffersLoadFailed) {
+            logger.e(state.error);
+          }
+          return const OffersListItemShimmer();
         },
       ),
     );

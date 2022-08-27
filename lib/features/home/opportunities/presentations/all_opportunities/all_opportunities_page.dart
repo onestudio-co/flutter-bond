@@ -38,7 +38,7 @@ class OpportunitiesPage extends StatelessWidget {
                 : null;
           },
           child: Scaffold(
-            appBar: const HomeAppBar(
+            appBar: const TalebAppBar(
               title: 'الفرص',
             ),
             body: Column(

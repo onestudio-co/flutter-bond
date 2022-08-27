@@ -58,7 +58,7 @@ class _NewsPageState extends State<NewsPage> {
           _scrollControllerListener(context);
         });
         return Scaffold(
-          appBar: HomeAppBar(
+          appBar: TalebAppBar(
             title: TalebStrings.newsHomeTitleAppbar,
           ),
           body: GestureDetector(
