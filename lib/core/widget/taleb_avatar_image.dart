@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/core/resources/import_resources.dart';
 
 class TalebAvatarImage extends StatelessWidget {
   final double width;
@@ -11,7 +11,7 @@ class TalebAvatarImage extends StatelessWidget {
     required this.width,
     required this.height,
     required this.urlImage,
-    required this.borderColor,
+    this.borderColor = TalebColors.softPeach,
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +21,6 @@ class TalebAvatarImage extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: const Color(0xff7c94b6),
         shape: BoxShape.circle,
         image: DecorationImage(
           image: NetworkImage(urlImage),

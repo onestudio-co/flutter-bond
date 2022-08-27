@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 
 class OfferRepository {
@@ -51,6 +52,17 @@ class OfferRepository {
       return Right<Failure, ListResponse<Offer>>(response);
     } on ServerException catch (e) {
       return Left<Failure, ListResponse<Offer>>(e.toFailure());
+    }
+  }
+
+  Future<Either<Failure, ListResponse<User>>>
+      getPremiumServiceProvider() async {
+    try {
+      final ListResponse<User> response =
+          await _remoteDataSource.getPremiumServiceProvider();
+      return Right<Failure, ListResponse<User>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<User>>(e.toFailure());
     }
   }
 }

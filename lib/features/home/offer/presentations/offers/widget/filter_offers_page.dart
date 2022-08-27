@@ -6,9 +6,8 @@ import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/routes/app_router.dart';
-
 import '../../../../widgets/row_selected_filter_widget.dart';
-import '../cubit/offers_cubit.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
 
 // ignore: must_be_immutable
 class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
