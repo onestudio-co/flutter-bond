@@ -2,5 +2,18 @@
   "noInternet": "No internet connection",
   "reconnect": "Reconnect",
   "homeTitle": "News",
-  "categoryTitle": "E-commerce"
+  "categoryTitle": "E-commerce",
+  "offer": {
+    "offers_page": {
+      "appbar_title": "Sooq",
+      "hint_search_text_field": "Search in offers"
+    }
+  },
+  "home_bottom_nav_bar": {
+    "sooq": "Sooq",
+    "news": "News",
+    "more": "more",
+    "home": "Home",
+    "opportunities": "Opportunities"
+  }
 }

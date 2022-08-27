@@ -1,6 +1,7 @@
 import 'package:taleb/features/ad/ad_service_provider.dart';
 import 'package:taleb/features/city/city_service_provider.dart';
 import 'package:taleb/features/home/news/news_service_provider.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/opportunities/opportuities_service_provider.dart';
 import 'package:taleb/features/service_provider/service_provider_service_provider.dart';
 import 'package:taleb/integrations/integration_service_provider.dart';
@@ -27,4 +28,5 @@ final providers = [
   CityServiceProvider(),
   ServiceProviderServiceProvider(),
   OpportunityServiceProvider(),
+  OfferServiceProvider(),
 ];

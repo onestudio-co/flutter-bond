@@ -2,5 +2,18 @@
   "noInternet": "لا يوجد اتصال بالانترنت",
   "reconnect": "اعادة الاتصال",
   "homeTitle": "الأخبار",
-  "categoryTitle": "المتجر"
+  "categoryTitle": "المتجر",
+  "offer": {
+    "offers_page": {
+      "appbar_title": "السوق",
+      "hint_search_text_field": "ابحث في العروض"
+    }
+  },
+  "home_bottom_nav_bar": {
+    "sooq": "السوق",
+    "news": "الأخبار",
+    "more": "المزيد",
+    "home": "الرئيسية",
+    "opportunities": "الفرص"
+  }
 }

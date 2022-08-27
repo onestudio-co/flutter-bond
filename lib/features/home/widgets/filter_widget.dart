@@ -17,12 +17,15 @@ class FilterWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: TalebSizes.h48,
-        width: TalebSizes.w48,
+        height: TalebSizes.h47,
+        width: TalebSizes.w47,
         padding: EdgeInsets.all(TalebPadding.p12),
         decoration: BoxDecoration(
-            color: TalebColors.blueRegular,
-            borderRadius: BorderRadius.circular(TalebBorderRadius.r12)),
+          color: TalebColors.blueRegular,
+          borderRadius: BorderRadius.circular(
+            TalebBorderRadius.r12,
+          ),
+        ),
         child: SvgPicture.asset(
           TalebIcons.filter,
           color: TalebColors.white,
