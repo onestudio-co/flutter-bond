@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taleb/core/widget/taleb_avatar_image.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/core/widget/taleb_avatar_image.dart';
+import 'package:taleb/main.dart';
 
 class ServiceProvidersSlider extends StatelessWidget {
-  final String image;
-  final String name;
-
   const ServiceProvidersSlider({
-    required this.image,
-    required this.name,
     Key? key,
   }) : super(key: key);
 
@@ -30,10 +26,10 @@ class ServiceProvidersSlider extends StatelessWidget {
                 TalebAvatarImage(
                   width: TalebSizes.w60,
                   height: TalebSizes.h60,
-                  urlImage: image,
+                  urlImage: url,
                 ),
                 Text(
-                  name,
+                  'جامعة الزيتونة الأردنية',
                   textAlign: TextAlign.center,
                   softWrap: true,
                   style: Theme.of(context).textTheme.bodyLarge?.elephant,

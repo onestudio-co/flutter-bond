@@ -75,10 +75,7 @@ class _OffersPageState extends State<OffersPage> {
             ),
             VerticalSpace(TalebSizes.h16),
             const TalebDivider2(),
-            ServiceProvidersSlider(
-              name: 'جامعة الزيتونة الأردنية',
-              image: url,
-            ),
+            const ServiceProvidersSlider(),
             const OffersGridView(),
           ],
         ),
