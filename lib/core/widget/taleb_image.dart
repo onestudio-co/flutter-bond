@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 
 class TalebImageWidget extends StatelessWidget {
@@ -7,34 +9,38 @@ class TalebImageWidget extends StatelessWidget {
   final double? width;
   final double? borderRadius;
   final EdgeInsets? margin;
+  final BoxFit? fit;
   const TalebImageWidget({
     required this.image,
     this.height,
     this.width,
     this.borderRadius,
     this.margin,
+    this.fit,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return CachedNetworkImage(
+      imageUrl: image,
       height: height,
-      margin: margin,
-      decoration: BoxDecoration(
-        borderRadius:
-            BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(
-            image,
+      width: width,
+      imageBuilder: (context, imageProvider) => Container(
+        decoration: BoxDecoration(
+          borderRadius:
+              BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
+          image: DecorationImage(
+            image: imageProvider,
+            fit: fit ?? BoxFit.cover,
           ),
         ),
       ),
-      child: SizedBox(
-        height: height,
-        width: width ?? MediaQuery.of(context).size.width,
+      placeholder: (context, url) => Container(
+        height: MediaQuery.of(context).size.height,
+        color: TalebColors.greyRegular,
       ),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
 }

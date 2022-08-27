@@ -27,34 +27,42 @@ class OfferListCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(TalebPadding.defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TalebImageWidget(
-              height: TalebSizes.h107,
-              image: urlImage,
+      child: GridTile(
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: TalebColors.softPeach,
+              width: 0.5,
             ),
-            VerticalSpace(TalebSizes.h8),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.labelSmall?.chathamsBlue,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
-            VerticalSpace(TalebSizes.h4),
-            Text(
-              '$price $currancy',
-              style: Theme.of(context).textTheme.bodyMedium?.blueRegular,
-            ),
-            VerticalSpace(TalebSizes.h12),
-            OfferServiceProivderButton(
-              name: serviceProvidarName,
-              urlImage: serviceProvidarImage,
-            ),
-          ],
+          ),
+          padding: EdgeInsets.all(TalebPadding.defaultPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TalebImageWidget(
+                image: urlImage,
+                height: TalebSizes.h107,
+              ),
+              VerticalSpace(TalebSizes.h8),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.labelSmall?.chathamsBlue,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+              VerticalSpace(TalebSizes.h4),
+              Text(
+                '$price $currancy',
+                style: Theme.of(context).textTheme.bodyMedium?.blueRegular,
+              ),
+              VerticalSpace(TalebSizes.h12),
+              OfferServiceProivderButton(
+                name: serviceProvidarName,
+                urlImage: serviceProvidarImage,
+              ),
+            ],
+          ),
         ),
       ),
     );

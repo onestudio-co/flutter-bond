@@ -26,9 +26,7 @@ class OffersGridView extends StatelessWidget {
               itemCount: state.offer.data.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 8,
-                childAspectRatio: .765,
+                childAspectRatio: .85,
               ),
               itemBuilder: (BuildContext context, int index) {
                 final Offer offer = state.offer.data[index];
