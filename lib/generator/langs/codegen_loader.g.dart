@@ -18,13 +18,39 @@ class CodegenLoader extends AssetLoader{
   "noInternet": "No internet connection",
   "reconnect": "Reconnect",
   "homeTitle": "News",
-  "categoryTitle": "E-commerce"
+  "categoryTitle": "E-commerce",
+  "offer": {
+    "offers_page": {
+      "appbar_title": "Sooq",
+      "hint_search_text_field": "Search in offers"
+    }
+  },
+  "home_bottom_nav_bar": {
+    "sooq": "Sooq",
+    "news": "News",
+    "more": "more",
+    "home": "Home",
+    "opportunities": "Opportunities"
+  }
 };
 static const Map<String,dynamic> ar = {
   "noInternet": "لا يوجد اتصال بالانترنت",
   "reconnect": "اعادة الاتصال",
   "homeTitle": "الأخبار",
-  "categoryTitle": "المتجر"
+  "categoryTitle": "المتجر",
+  "offer": {
+    "offers_page": {
+      "appbar_title": "السوق",
+      "hint_search_text_field": "ابحث في العروض"
+    }
+  },
+  "home_bottom_nav_bar": {
+    "sooq": "السوق",
+    "news": "الأخبار",
+    "more": "المزيد",
+    "home": "الرئيسية",
+    "opportunities": "الفرص"
+  }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ar": ar};
 }

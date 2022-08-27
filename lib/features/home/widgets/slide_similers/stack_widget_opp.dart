@@ -4,7 +4,6 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/widgets/additional_info_row_with_city.dart';
-import 'package:taleb/main.dart';
 import 'package:taleb/routes/app_router.dart';
 
 class SimilerStackOpportunityWidget extends StatelessWidget {

@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
+        OffersRoute(),
         NewsRoute(),
         OpportunitiesRoute(),
       ],
@@ -38,11 +39,15 @@ class HomePage extends StatelessWidget {
                 fontSize: TalebFontSize.s10, color: TalebColors.blueDark),
             items: [
               HomeBottomNavBarItem(
-                title: 'الأخبار',
+                title: TalebStrings.bottomNavBarSooq,
                 image: TalebIcons.newsNavBar,
               ),
               HomeBottomNavBarItem(
-                title: 'الفرص',
+                title: TalebStrings.bottomNavBarNews,
+                image: TalebIcons.newsNavBar,
+              ),
+              HomeBottomNavBarItem(
+                title: TalebStrings.bottomNavBarOpportunities,
                 image: TalebIcons.opportunityNavBar,
               ),
             ],

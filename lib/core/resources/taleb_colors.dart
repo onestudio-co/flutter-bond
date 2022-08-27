@@ -46,4 +46,5 @@ extension CustomTextStyle on TextStyle {
   TextStyle get darkJungleGreen => copyWith(color: TalebColors.darkJungleGreen);
   TextStyle get custome2 => copyWith(color: TalebColors.custome2);
   TextStyle get blueDark => copyWith(color: TalebColors.blueDark);
+  TextStyle get blueRegular => copyWith(color: TalebColors.blueRegular);
 }

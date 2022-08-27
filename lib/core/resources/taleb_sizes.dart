@@ -23,6 +23,7 @@ class TalebPadding {
   static double p32 = SizeUtil.setPadding(32.0);
   static double p48 = SizeUtil.setPadding(48.0);
   static double p96 = SizeUtil.setPadding(96.0);
+  static double defaultPadding = p12;
 }
 
 class TalebSizes {
@@ -38,6 +39,7 @@ class TalebSizes {
   static double h14 = SizeUtil.setHeight(14.0);
   static double h15 = SizeUtil.setHeight(15.0);
   static double h16 = SizeUtil.setHeight(16.0);
+  static double h18 = SizeUtil.setHeight(18.0);
   static double h20 = SizeUtil.setHeight(20.0);
   static double h22 = SizeUtil.setHeight(22.0);
   static double h24 = SizeUtil.setHeight(24.0);
@@ -47,6 +49,7 @@ class TalebSizes {
   static double h40 = SizeUtil.setHeight(40.0);
   static double h44 = SizeUtil.setHeight(44.0);
   static double h45 = SizeUtil.setHeight(45.0);
+  static double h47 = SizeUtil.setHeight(47.0);
   static double h48 = SizeUtil.setHeight(48.0);
   static double h53 = SizeUtil.setHeight(53.0);
   static double h56 = SizeUtil.setHeight(56.0);
@@ -56,6 +59,7 @@ class TalebSizes {
   static double h82 = SizeUtil.setHeight(82.0);
   static double h86 = SizeUtil.setHeight(86.0);
   static double h90 = SizeUtil.setHeight(90.0);
+  static double h107 = SizeUtil.setHeight(107.0);
   static double h108 = SizeUtil.setHeight(108.0);
   static double h111 = SizeUtil.setHeight(111.0);
   static double h130 = SizeUtil.setHeight(130.0);
@@ -70,6 +74,7 @@ class TalebSizes {
   static double h500 = SizeUtil.setHeight(400.0);
 
   //* Width Sizes
+  static double w1 = SizeUtil.setWidth(1.0);
   static double w2 = SizeUtil.setWidth(2.0);
   static double w4 = SizeUtil.setWidth(4.0);
   static double w7 = SizeUtil.setWidth(7.0);
@@ -82,6 +87,7 @@ class TalebSizes {
   static double w24 = SizeUtil.setWidth(24.0);
   static double w32 = SizeUtil.setWidth(32.0);
   static double w40 = SizeUtil.setWidth(40.0);
+  static double w47 = SizeUtil.setWidth(47.0);
   static double w48 = SizeUtil.setWidth(48.0);
   static double w64 = SizeUtil.setWidth(64.0);
   static double w86 = SizeUtil.setWidth(86.0);
