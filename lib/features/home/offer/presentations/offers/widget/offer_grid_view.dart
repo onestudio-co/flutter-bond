@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offers/widget/offer_list_card_item.dart';
+import 'package:taleb/features/home/offer/presentations/offers/widget/offers_list_item_shimmer.dart';
 
 class OffersGridView extends StatelessWidget {
   const OffersGridView({
@@ -45,7 +45,7 @@ class OffersGridView extends StatelessWidget {
               },
             );
           } else {
-            return const Center(child: TalebCircularProgressIndicator());
+            return const OffersListItemShimmer();
           }
         },
       ),
