@@ -10,6 +10,7 @@ class OfferListCardItem extends StatelessWidget {
   final String currancy;
   final String serviceProvidarName;
   final String serviceProvidarImage;
+  final VoidCallback onTap;
 
   const OfferListCardItem({
     required this.urlImage,
@@ -18,39 +19,43 @@ class OfferListCardItem extends StatelessWidget {
     required this.currancy,
     required this.serviceProvidarName,
     required this.serviceProvidarImage,
+    required this.onTap,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(TalebPadding.defaultPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TalebImageWidget(
-            height: TalebSizes.h107,
-            image: urlImage,
-          ),
-          VerticalSpace(TalebSizes.h8),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.labelSmall?.chathamsBlue,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          VerticalSpace(TalebSizes.h4),
-          Text(
-            '$price $currancy',
-            style: Theme.of(context).textTheme.bodyMedium?.blueRegular,
-          ),
-          VerticalSpace(TalebSizes.h12),
-          OfferServiceProivderButton(
-            name: serviceProvidarName,
-            urlImage: serviceProvidarImage,
-          )
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(TalebPadding.defaultPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TalebImageWidget(
+              height: TalebSizes.h107,
+              image: urlImage,
+            ),
+            VerticalSpace(TalebSizes.h8),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.labelSmall?.chathamsBlue,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
+            VerticalSpace(TalebSizes.h4),
+            Text(
+              '$price $currancy',
+              style: Theme.of(context).textTheme.bodyMedium?.blueRegular,
+            ),
+            VerticalSpace(TalebSizes.h12),
+            OfferServiceProivderButton(
+              name: serviceProvidarName,
+              urlImage: serviceProvidarImage,
+            ),
+          ],
+        ),
       ),
     );
   }

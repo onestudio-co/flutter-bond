@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
             selectedLabelStyle: getBoldStyle(
                 fontSize: TalebFontSize.s10, color: TalebColors.blueDark),
             items: [
-                 HomeBottomNavBarItem(
+              HomeBottomNavBarItem(
                 title: TalebStrings.bottomNavBarSooq,
                 image: TalebIcons.newsNavBar,
               ),

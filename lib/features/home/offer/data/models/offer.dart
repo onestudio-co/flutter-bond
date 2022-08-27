@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
+import 'package:taleb/features/home/offer/data/models/currency.dart';
 
 part 'offer.g.dart';
 
@@ -20,10 +21,11 @@ class Offer extends Model {
           'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
   final String image;
   final double price;
+  final Currency currency;
   @JsonKey(name: 'created_at')
-  final String createdAt;
+  final String? createdAt;
   @JsonKey(name: 'updated_at')
-  final String updatedAt;
+  final String? updatedAt;
 
   const Offer({
     required int id,
@@ -35,6 +37,7 @@ class Offer extends Model {
     required this.city,
     required this.image,
     required this.price,
+    required this.currency,
     required this.createdAt,
     required this.updatedAt,
   }) : super(id: id);

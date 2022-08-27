@@ -17,8 +17,9 @@ Offer _$OfferFromJson(Map<String, dynamic> json) => Offer(
       image: json['image'] as String? ??
           'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       price: (json['price'] as num).toDouble(),
-      createdAt: json['created_at'] as String,
-      updatedAt: json['updated_at'] as String,
+      currency: Currency.fromJson(json['currency'] as Map<String, dynamic>),
+      createdAt: json['created_at'] as String?,
+      updatedAt: json['updated_at'] as String?,
     );
 
 Map<String, dynamic> _$OfferToJson(Offer instance) => <String, dynamic>{
@@ -31,6 +32,7 @@ Map<String, dynamic> _$OfferToJson(Offer instance) => <String, dynamic>{
       'content': instance.content,
       'image': instance.image,
       'price': instance.price,
+      'currency': instance.currency.toJson(),
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
     };
