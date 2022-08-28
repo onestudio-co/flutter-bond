@@ -21,8 +21,14 @@ class OffersEmpty extends OffersState {
 
 class OffersLoadSuccess extends OffersState {
   final ListResponse<Offer> offer;
+  final User? user;
+  final City? city;
 
-  OffersLoadSuccess({required this.offer});
+  OffersLoadSuccess({
+    required this.offer,
+    this.user,
+    this.city,
+  });
 
   bool get noMorePages => offer.links?.next == null;
 
@@ -31,9 +37,13 @@ class OffersLoadSuccess extends OffersState {
 
   OffersLoadSuccess copyWith({
     ListResponse<Offer>? offer,
+    User? user,
+    City? city,
   }) {
     return OffersLoadSuccess(
       offer: offer ?? this.offer,
+      user: user ?? this.user,
+      city: city ?? this.city,
     );
   }
 }
