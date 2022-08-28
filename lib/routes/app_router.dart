@@ -13,7 +13,7 @@ import 'package:taleb/features/home/news/presentations/searvice_provider_news/se
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offer_details/offer_details_page.dart';
 import 'package:taleb/features/home/offer/presentations/offers/offers_page.dart';
-import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offer_service_provider_page.dart';
+import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offer_service_provider_offers_tab_bar_page.dart';
 import 'package:taleb/features/home/offer/routes.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/all_opportunities_page.dart';

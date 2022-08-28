@@ -36,7 +36,7 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
       builder: (context, child, controller) {
         return Scaffold(
           appBar: AppBar(
-            bottom: ServiceTest(controller: controller),
+            bottom: BottomTabBar(controller: controller),
           ),
           body: child,
         );
@@ -45,30 +45,8 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
   }
 }
 
-class Tab1Page extends StatelessWidget {
-  const Tab1Page({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Center(child: Text('Tab1 ')),
-    );
-  }
-}
-
-class Tab2Page extends StatelessWidget {
-  const Tab2Page({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Center(child: Text('Tab2')),
-    );
-  }
-}
-
-class ServiceTest extends StatelessWidget implements PreferredSize {
-  const ServiceTest({
+class BottomTabBar extends StatelessWidget implements PreferredSize {
+  const BottomTabBar({
     required this.controller,
     Key? key,
   }) : super(key: key);

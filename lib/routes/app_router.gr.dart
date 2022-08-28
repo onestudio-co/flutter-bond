@@ -106,13 +106,15 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const OpportunitiesPage());
     },
-    Tab1Route.name: (routeData) {
+    ServiceProviderOffersDetailsTabRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const Tab1Page());
+          routeData: routeData,
+          child: const ServiceProviderOffersDetailsTabPage());
     },
-    Tab2Route.name: (routeData) {
+    ServiceProviderOffersOffersTabRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const Tab2Page());
+          routeData: routeData,
+          child: const ServiceProviderOffersOffersTabPage());
     }
   };
 
@@ -132,11 +134,11 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(ServiceProviderOffersTabBarRoute.name,
             path: '/service-provider-offers-tab-bar-page',
             children: [
-              RouteConfig(Tab1Route.name,
-                  path: 'tab1-page',
+              RouteConfig(ServiceProviderOffersDetailsTabRoute.name,
+                  path: 'service-provider-offers-details-tab-page',
                   parent: ServiceProviderOffersTabBarRoute.name),
-              RouteConfig(Tab2Route.name,
-                  path: 'tab2-page',
+              RouteConfig(ServiceProviderOffersOffersTabRoute.name,
+                  path: 'service-provider-offers-offers-tab-page',
                   parent: ServiceProviderOffersTabBarRoute.name)
             ]),
         RouteConfig(SearviceProviderNewsRoute.name,
@@ -384,17 +386,21 @@ class OpportunitiesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [Tab1Page]
-class Tab1Route extends PageRouteInfo<void> {
-  const Tab1Route() : super(Tab1Route.name, path: 'tab1-page');
+/// [ServiceProviderOffersDetailsTabPage]
+class ServiceProviderOffersDetailsTabRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersDetailsTabRoute()
+      : super(ServiceProviderOffersDetailsTabRoute.name,
+            path: 'service-provider-offers-details-tab-page');
 
-  static const String name = 'Tab1Route';
+  static const String name = 'ServiceProviderOffersDetailsTabRoute';
 }
 
 /// generated route for
-/// [Tab2Page]
-class Tab2Route extends PageRouteInfo<void> {
-  const Tab2Route() : super(Tab2Route.name, path: 'tab2-page');
+/// [ServiceProviderOffersOffersTabPage]
+class ServiceProviderOffersOffersTabRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersOffersTabRoute()
+      : super(ServiceProviderOffersOffersTabRoute.name,
+            path: 'service-provider-offers-offers-tab-page');
 
-  static const String name = 'Tab2Route';
+  static const String name = 'ServiceProviderOffersOffersTabRoute';
 }
