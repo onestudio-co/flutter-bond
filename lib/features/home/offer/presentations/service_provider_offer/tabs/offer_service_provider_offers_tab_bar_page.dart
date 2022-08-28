@@ -29,9 +29,9 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      routes: const [
-        ServiceProviderOffersDetailsTabRoute(),
-        ServiceProviderOffersOffersTabRoute(),
+      routes:  [
+        ServiceProviderOffersDetailsTabRoute(user: user),
+        const ServiceProviderOffersOffersTabRoute(),
       ],
       builder: (context, child, controller) {
         return Scaffold(
