@@ -35,7 +35,7 @@ class SimilerStackOffersWidget extends StatelessWidget {
                   padding: EdgeInsets.all(TalebPadding.p12),
                   width: TalebSizes.w232,
                   decoration: BoxDecoration(
-                    color: TalebColors.white,
+                    color: TalebColors.ghostWhite,
                     borderRadius: BorderRadius.circular(TalebBorderRadius.r8),
                   ),
                   child: Column(
