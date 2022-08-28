@@ -35,6 +35,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: OfferDetailsPage(offer: args.offer, key: args.key));
     },
+    ServiceProviderOffersTabBarRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ServiceProviderOffersTabBarPage());
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -101,6 +105,14 @@ class _$AppRouter extends RootStackRouter {
     OpportunitiesRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const OpportunitiesPage());
+    },
+    Tab1Route.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const Tab1Page());
+    },
+    Tab2Route.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const Tab2Page());
     }
   };
 
@@ -117,6 +129,16 @@ class _$AppRouter extends RootStackRouter {
               path: 'opportunities-page', parent: HomeRoute.name)
         ]),
         RouteConfig(OfferDetailsRoute.name, path: '/offer-details-page'),
+        RouteConfig(ServiceProviderOffersTabBarRoute.name,
+            path: '/service-provider-offers-tab-bar-page',
+            children: [
+              RouteConfig(Tab1Route.name,
+                  path: 'tab1-page',
+                  parent: ServiceProviderOffersTabBarRoute.name),
+              RouteConfig(Tab2Route.name,
+                  path: 'tab2-page',
+                  parent: ServiceProviderOffersTabBarRoute.name)
+            ]),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -178,6 +200,17 @@ class OfferDetailsRouteArgs {
   String toString() {
     return 'OfferDetailsRouteArgs{offer: $offer, key: $key}';
   }
+}
+
+/// generated route for
+/// [ServiceProviderOffersTabBarPage]
+class ServiceProviderOffersTabBarRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersTabBarRoute({List<PageRouteInfo>? children})
+      : super(ServiceProviderOffersTabBarRoute.name,
+            path: '/service-provider-offers-tab-bar-page',
+            initialChildren: children);
+
+  static const String name = 'ServiceProviderOffersTabBarRoute';
 }
 
 /// generated route for
@@ -348,4 +381,20 @@ class OpportunitiesRoute extends PageRouteInfo<void> {
       : super(OpportunitiesRoute.name, path: 'opportunities-page');
 
   static const String name = 'OpportunitiesRoute';
+}
+
+/// generated route for
+/// [Tab1Page]
+class Tab1Route extends PageRouteInfo<void> {
+  const Tab1Route() : super(Tab1Route.name, path: 'tab1-page');
+
+  static const String name = 'Tab1Route';
+}
+
+/// generated route for
+/// [Tab2Page]
+class Tab2Route extends PageRouteInfo<void> {
+  const Tab2Route() : super(Tab2Route.name, path: 'tab2-page');
+
+  static const String name = 'Tab2Route';
 }
