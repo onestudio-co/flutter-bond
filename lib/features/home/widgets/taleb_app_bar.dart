@@ -8,6 +8,7 @@ class TalebAppBar extends StatelessWidget implements PreferredSize {
   final List<Widget>? actions;
   final VoidCallback? onPressBack;
   final bool showBack;
+  final PreferredSizeWidget? bottom;
 
   const TalebAppBar({
     Key? key,
@@ -15,6 +16,7 @@ class TalebAppBar extends StatelessWidget implements PreferredSize {
     this.actions,
     this.onPressBack,
     this.showBack = true,
+    this.bottom,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class TalebAppBar extends StatelessWidget implements PreferredSize {
         ),
       ),
       actions: actions,
+      bottom: bottom,
     );
   }
 

@@ -20,4 +20,8 @@ class TalebStrings {
   static String bottomNavBarOpportunities =
       LocaleKeys.home_bottom_nav_bar_opportunities.tr();
   static String bottomNavBarMore = LocaleKeys.home_bottom_nav_bar_more.tr();
+
+  /// [OfferServiceProvider TabBar]
+  static String serviceProviderOffersDetailsTab = 'التفاصيل';
+  static String serviceProviderOffersOffersTab = 'العروض';
 }

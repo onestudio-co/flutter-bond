@@ -18,4 +18,9 @@ class TalebIcons {
   static const String downArrow = 'assets/icons/down_arrow.svg';
   static const String checkSelectedItem =
       'assets/icons/check_selected_item.svg';
+
+  static const String email = 'assets/icons/email.svg';
+  static const String urlSite = 'assets/icons/url_site.svg';
+  static const String facebook = 'assets/icons/facebook.svg';
+  static const String instagram = 'assets/icons/instagram.svg';
 }

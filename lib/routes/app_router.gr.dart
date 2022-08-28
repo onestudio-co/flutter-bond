@@ -35,6 +35,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: OfferDetailsPage(offer: args.offer, key: args.key));
     },
+    ServiceProviderOffersTabBarRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ServiceProviderOffersTabBarPage());
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -101,6 +105,16 @@ class _$AppRouter extends RootStackRouter {
     OpportunitiesRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const OpportunitiesPage());
+    },
+    ServiceProviderOffersDetailsTabRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const ServiceProviderOffersDetailsTabPage());
+    },
+    ServiceProviderOffersOffersTabRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const ServiceProviderOffersOffersTabPage());
     }
   };
 
@@ -117,6 +131,16 @@ class _$AppRouter extends RootStackRouter {
               path: 'opportunities-page', parent: HomeRoute.name)
         ]),
         RouteConfig(OfferDetailsRoute.name, path: '/offer-details-page'),
+        RouteConfig(ServiceProviderOffersTabBarRoute.name,
+            path: '/service-provider-offers-tab-bar-page',
+            children: [
+              RouteConfig(ServiceProviderOffersDetailsTabRoute.name,
+                  path: 'service-provider-offers-details-tab-page',
+                  parent: ServiceProviderOffersTabBarRoute.name),
+              RouteConfig(ServiceProviderOffersOffersTabRoute.name,
+                  path: 'service-provider-offers-offers-tab-page',
+                  parent: ServiceProviderOffersTabBarRoute.name)
+            ]),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -178,6 +202,17 @@ class OfferDetailsRouteArgs {
   String toString() {
     return 'OfferDetailsRouteArgs{offer: $offer, key: $key}';
   }
+}
+
+/// generated route for
+/// [ServiceProviderOffersTabBarPage]
+class ServiceProviderOffersTabBarRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersTabBarRoute({List<PageRouteInfo>? children})
+      : super(ServiceProviderOffersTabBarRoute.name,
+            path: '/service-provider-offers-tab-bar-page',
+            initialChildren: children);
+
+  static const String name = 'ServiceProviderOffersTabBarRoute';
 }
 
 /// generated route for
@@ -348,4 +383,24 @@ class OpportunitiesRoute extends PageRouteInfo<void> {
       : super(OpportunitiesRoute.name, path: 'opportunities-page');
 
   static const String name = 'OpportunitiesRoute';
+}
+
+/// generated route for
+/// [ServiceProviderOffersDetailsTabPage]
+class ServiceProviderOffersDetailsTabRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersDetailsTabRoute()
+      : super(ServiceProviderOffersDetailsTabRoute.name,
+            path: 'service-provider-offers-details-tab-page');
+
+  static const String name = 'ServiceProviderOffersDetailsTabRoute';
+}
+
+/// generated route for
+/// [ServiceProviderOffersOffersTabPage]
+class ServiceProviderOffersOffersTabRoute extends PageRouteInfo<void> {
+  const ServiceProviderOffersOffersTabRoute()
+      : super(ServiceProviderOffersOffersTabRoute.name,
+            path: 'service-provider-offers-offers-tab-page');
+
+  static const String name = 'ServiceProviderOffersOffersTabRoute';
 }
