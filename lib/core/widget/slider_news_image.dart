@@ -18,7 +18,7 @@ class TalebSliderImagesWidget extends StatelessWidget {
     return Hero(
       tag: index,
       child: ImageSlideshow(
-        height: TalebSizes.h290,
+        height: TalebSizes.h285,
         initialPage: 0,
         indicatorColor: Colors.transparent,
         indicatorBackgroundColor: TalebColors.greyRegular,

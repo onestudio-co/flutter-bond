@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
-import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/widgets/searvie_provider_image_and_name.dart';
 
 class DateAndServiceProviderWidget extends StatelessWidget {
+  final String name;
+  final String image;
+  final VoidCallback onPress;
+
   const DateAndServiceProviderWidget({
-    required this.user,
+    required this.name,
+    required this.image,
+    required this.onPress,
     Key? key,
   }) : super(key: key);
-
-  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,9 @@ class DateAndServiceProviderWidget extends StatelessWidget {
           padding: TalebPadding.p4,
           radius: TalebSizes.h14,
           height: TalebSizes.h36,
-          user: user,
+          image: image,
+          name: name,
+          onPress: onPress,
           textStyle: Theme.of(context).textTheme.displayLarge?.white,
         ),
         Text(

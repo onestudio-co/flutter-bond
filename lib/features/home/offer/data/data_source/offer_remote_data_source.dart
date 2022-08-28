@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 
 class OfferRemoteDataSource extends DataSource {
@@ -47,6 +48,14 @@ class OfferRemoteDataSource extends DataSource {
     );
     return mapListResponse(response);
   }
+
+  Future<ListResponse<User>> getPremiumServiceProvider() async {
+    final Response<dynamic> response = await _client.get(
+      OfferApis.premiumServiceProviders,
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
 }
 
 extension OfferApis on Api {
@@ -59,5 +68,5 @@ extension OfferApis on Api {
   static String serviceProviderOffer(int serviceProviderId) =>
       'offer/user/$serviceProviderId';
 
-  static String similarOffer(int offerId) => 'similar-offer/$offerId';
+  static String similarOffer(int offerId) => 'similar-offers/$offerId';
 }

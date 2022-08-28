@@ -30,7 +30,9 @@ class SimilarMainNewsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SimilerLabelWidget(),
+                const SimilerLabelWidget(
+                  title: 'أخبار مماثلة',
+                ),
                 VerticalSpace(TalebSizes.h16),
                 Expanded(
                   child: ListView.builder(

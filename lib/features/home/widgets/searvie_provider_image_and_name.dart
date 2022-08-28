@@ -1,21 +1,22 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
-import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/routes/app_router.dart';
 
 class SearviceProviderImageAndName extends StatelessWidget {
   final double padding;
   final double? radius;
   final double? height;
-  final User user;
   final TextStyle? textStyle;
+  final VoidCallback onPress;
+  final String image;
+  final String name;
 
   const SearviceProviderImageAndName({
+    required this.onPress,
+    required this.image,
+    required this.name,
     required this.padding,
-    required this.user,
     Key? key,
     this.radius,
     this.height,
@@ -25,8 +26,7 @@ class SearviceProviderImageAndName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router
-          .push(SearviceProviderNewsRoute(searviceProviderId: user.id)),
+      onTap: onPress,
       child: Container(
         height: height ?? TalebSizes.h24,
         decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class SearviceProviderImageAndName extends StatelessWidget {
               child: CircleAvatar(
                 radius: radius ?? TalebSizes.h10,
                 backgroundImage: NetworkImage(
-                  user.image,
+                  image,
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class SearviceProviderImageAndName extends StatelessWidget {
                 bottom: TalebPadding.p2,
               ),
               child: Text(
-                user.name,
+                name,
                 style:
                     textStyle ?? Theme.of(context).textTheme.titleSmall!.white,
               ),

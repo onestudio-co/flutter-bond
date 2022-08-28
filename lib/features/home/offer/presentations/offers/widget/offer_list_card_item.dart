@@ -51,7 +51,7 @@ class OfferListCardItem extends StatelessWidget {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
-              VerticalSpace(TalebSizes.h4),
+              const Spacer(),
               Text(
                 '$price $currancy',
                 style: Theme.of(context).textTheme.bodyMedium?.blueRegular,
