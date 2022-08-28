@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
@@ -102,7 +103,13 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                     ),
                     VerticalSpace(TalebSizes.h16),
-                    DateAndServiceProviderWidget(user: offer.user),
+                    DateAndServiceProviderWidget(
+                      name: offer.user.name,
+                      image: offer.user.image,
+                      onPress: () {
+                        logger.i('This is offers Details Page');
+                      },
+                    ),
                     VerticalSpace(TalebSizes.h12),
                     Text(
                       offer.title,

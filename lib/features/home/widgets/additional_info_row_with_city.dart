@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_colors.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
@@ -25,7 +26,11 @@ class RowAdditionalInfoWithCity extends StatelessWidget {
         children: [
           SearviceProviderImageAndName(
             padding: TalebPadding.p2,
-            user: user,
+            image: user.image,
+            name: user.name,
+            onPress: () {
+              logger.wtf('void call back');
+            },
           ),
           if (hasCity) HorizontalSpace(TalebSizes.w4),
           if (hasCity)
