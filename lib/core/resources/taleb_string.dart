@@ -24,4 +24,11 @@ class TalebStrings {
   /// [OfferServiceProvider TabBar]
   static String serviceProviderOffersDetailsTab = 'التفاصيل';
   static String serviceProviderOffersOffersTab = 'العروض';
+
+  /// [FilterOffer Page]
+  static String offerFilterTitle = 'تصفية النتائج';
+  static String offerFilterDescription = 'الرجاء أختيار معلومات التصفية';
+  static String offerFilterServiceProviderType = 'نوع مزود الخدمة';
+  static String offerFilterCity = 'المدينة';
+
 }

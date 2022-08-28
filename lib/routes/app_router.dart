@@ -14,6 +14,7 @@ import 'package:taleb/features/home/news/presentations/searvice_provider_news/se
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offer_details/offer_details_page.dart';
 import 'package:taleb/features/home/offer/presentations/offers/offers_page.dart';
+import 'package:taleb/features/home/offer/presentations/offers/widget/filter_offers_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/details_tab_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offer_service_provider_offers_tab_bar_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offers_tab_page.dart';
@@ -34,7 +35,7 @@ part 'app_router.gr.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
-  preferRelativeImports: true,
+  preferRelativeImports: false,
   routes: <AutoRoute>[
     AutoRoute(page: LaunchPage, initial: true),
     ...authRoutes,

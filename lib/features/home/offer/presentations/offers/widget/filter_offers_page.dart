@@ -41,13 +41,13 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
             padding: EdgeInsets.all(TalebPadding.p16),
             child: Column(
               children: <Widget>[
-                Text('تصفية النتائج',
+                Text(TalebStrings.offerFilterTitle,
                     style:
                         Theme.of(context).textTheme.bodySmall?.darkJungleGreen),
                 VerticalSpace(TalebSizes.h20),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text('الرجاء أختيار معلومات التصفية',
+                  child: Text(TalebStrings.offerFilterDescription,
                       style: Theme.of(context)
                           .textTheme
                           .labelMedium
@@ -58,7 +58,7 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                   child: Column(
                     children: <Widget>[
                       RowSelectedFilterWidget(
-                        title: 'الناشر',
+                        title: TalebStrings.offerFilterServiceProviderType,
                         onTap: () async {
                           userId = await context.router
                               .push<int>(const SearchSearviceProviderRoute());
@@ -66,7 +66,7 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                       const TalebDivider(),
                       RowSelectedFilterWidget(
-                          title: 'المدينة',
+                          title: TalebStrings.offerFilterCity,
                           onTap: () async {
                             cityId = await context.router
                                 .push<int>(const SearchCityRoute());

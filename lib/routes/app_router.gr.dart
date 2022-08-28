@@ -42,6 +42,15 @@ class _$AppRouter extends RootStackRouter {
           child:
               ServiceProviderOffersTabBarPage(user: args.user, key: args.key));
     },
+    FilterOfferRoute.name: (routeData) {
+      final args = routeData.argsAs<FilterOfferRouteArgs>();
+      return CustomPage<int>(
+          routeData: routeData,
+          child: FilterOfferPage(offersCubit: args.offersCubit, key: args.key),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -148,6 +157,7 @@ class _$AppRouter extends RootStackRouter {
                   path: 'service-provider-offers-offers-tab-page',
                   parent: ServiceProviderOffersTabBarRoute.name)
             ]),
+        RouteConfig(FilterOfferRoute.name, path: '/filter-offer-page'),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -235,6 +245,30 @@ class ServiceProviderOffersTabBarRouteArgs {
   @override
   String toString() {
     return 'ServiceProviderOffersTabBarRouteArgs{user: $user, key: $key}';
+  }
+}
+
+/// generated route for
+/// [FilterOfferPage]
+class FilterOfferRoute extends PageRouteInfo<FilterOfferRouteArgs> {
+  FilterOfferRoute({required OffersCubit offersCubit, Key? key})
+      : super(FilterOfferRoute.name,
+            path: '/filter-offer-page',
+            args: FilterOfferRouteArgs(offersCubit: offersCubit, key: key));
+
+  static const String name = 'FilterOfferRoute';
+}
+
+class FilterOfferRouteArgs {
+  const FilterOfferRouteArgs({required this.offersCubit, this.key});
+
+  final OffersCubit offersCubit;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FilterOfferRouteArgs{offersCubit: $offersCubit, key: $key}';
   }
 }
 
