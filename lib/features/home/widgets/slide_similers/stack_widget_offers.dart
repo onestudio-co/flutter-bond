@@ -34,12 +34,13 @@ class SimilerStackOffersWidget extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(TalebPadding.p12),
                   width: TalebSizes.w232,
+                  height: TalebSizes.h111,
                   decoration: BoxDecoration(
                     color: TalebColors.ghostWhite,
                     borderRadius: BorderRadius.circular(TalebBorderRadius.r8),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         offer.title,
@@ -49,12 +50,42 @@ class SimilerStackOffersWidget extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       VerticalSpace(TalebSizes.h8),
+                      const Spacer(),
                       RowAdditionalInfoWithCity(
                         hasCity: false,
                         cityName: offer.city.name,
                         user: offer.user,
                       ),
                     ],
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  height: TalebSizes.h34,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: TalebPadding.p16, vertical: TalebPadding.p2),
+                  decoration: BoxDecoration(
+                    color: TalebColors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TalebBorderRadius.r12),
+                      bottomRight: Radius.circular(TalebBorderRadius.r20),
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: TalebColors.elephantShadow,
+                        offset: Offset(4, 6),
+                        blurRadius: 15,
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    '${offer.price} ${offer.currency.name}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.blueExtraDark,
                   ),
                 ),
               ),
