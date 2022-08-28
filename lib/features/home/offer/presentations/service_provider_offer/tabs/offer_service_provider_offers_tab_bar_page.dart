@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_avatar_image.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/main.dart';
 import 'package:taleb/routes/app_router.dart';
@@ -12,10 +13,10 @@ import 'offers_service_provider_tab_item.dart';
 
 class ServiceProviderOffersTabBarPage extends StatelessWidget
     implements AutoRouteWrapper {
-  // final Offer offer;
+  final User user;
 
   const ServiceProviderOffersTabBarPage({
-    // required this.offer,
+    required this.user,
     Key? key,
   }) : super(key: key);
 
@@ -36,7 +37,7 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
       builder: (context, child, controller) {
         return Scaffold(
           appBar: AppBar(
-            bottom: BottomTabBar(controller: controller),
+            bottom: BottomTabBar(controller: controller, user: user),
           ),
           body: child,
         );
@@ -48,10 +49,12 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
 class BottomTabBar extends StatelessWidget implements PreferredSize {
   const BottomTabBar({
     required this.controller,
+    required this.user,
     Key? key,
   }) : super(key: key);
 
   final TabController controller;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +68,12 @@ class BottomTabBar extends StatelessWidget implements PreferredSize {
             borderColor: TalebColors.greyRegular),
         VerticalSpace(TalebSizes.h8),
         Text(
-          'جامعة الزيتونة الأردنية',
+          user.name,
           style: Theme.of(context).textTheme.labelMedium?.chathamsBlue,
         ),
         VerticalSpace(TalebSizes.h2),
         Text(
-          'اربد، الأردن',
+          user.name,
           style: Theme.of(context).textTheme.bodyLarge?.coolGrey,
         ),
         VerticalSpace(TalebSizes.h12),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/auth/presentation/login_page.dart';
 import 'package:taleb/features/city/presentations/search_city_page.dart';
 import 'package:taleb/features/home/home_bottom_nav_bar/home_page.dart';
