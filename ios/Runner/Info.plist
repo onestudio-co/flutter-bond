@@ -50,5 +50,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Taleb need to Access your Location to know if your location is supported to use our services</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Taleb need to Access your Location to know if your location is supported to use our services</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Taleb need to Access your Location to know if your location is supported to use our services</string>
 </dict>
 </plist>

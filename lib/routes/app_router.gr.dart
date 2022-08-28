@@ -110,9 +110,11 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const OpportunitiesPage());
     },
     ServiceProviderOffersDetailsTabRoute.name: (routeData) {
+      final args = routeData.argsAs<ServiceProviderOffersDetailsTabRouteArgs>();
       return MaterialPageX<dynamic>(
           routeData: routeData,
-          child: const ServiceProviderOffersDetailsTabPage());
+          child: ServiceProviderOffersDetailsTabPage(
+              user: args.user, key: args.key));
     },
     ServiceProviderOffersOffersTabRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -406,12 +408,29 @@ class OpportunitiesRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ServiceProviderOffersDetailsTabPage]
-class ServiceProviderOffersDetailsTabRoute extends PageRouteInfo<void> {
-  const ServiceProviderOffersDetailsTabRoute()
+class ServiceProviderOffersDetailsTabRoute
+    extends PageRouteInfo<ServiceProviderOffersDetailsTabRouteArgs> {
+  ServiceProviderOffersDetailsTabRoute({required User user, Key? key})
       : super(ServiceProviderOffersDetailsTabRoute.name,
-            path: 'service-provider-offers-details-tab-page');
+            path: 'service-provider-offers-details-tab-page',
+            args:
+                ServiceProviderOffersDetailsTabRouteArgs(user: user, key: key));
 
   static const String name = 'ServiceProviderOffersDetailsTabRoute';
+}
+
+class ServiceProviderOffersDetailsTabRouteArgs {
+  const ServiceProviderOffersDetailsTabRouteArgs(
+      {required this.user, this.key});
+
+  final User user;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ServiceProviderOffersDetailsTabRouteArgs{user: $user, key: $key}';
+  }
 }
 
 /// generated route for

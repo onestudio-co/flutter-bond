@@ -6,7 +6,6 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_avatar_image.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
-import 'package:taleb/main.dart';
 import 'package:taleb/routes/app_router.dart';
 
 import 'offers_service_provider_tab_item.dart';
@@ -30,9 +29,9 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      routes: const [
-        ServiceProviderOffersDetailsTabRoute(),
-        ServiceProviderOffersOffersTabRoute(),
+      routes:  [
+        ServiceProviderOffersDetailsTabRoute(user: user),
+        const ServiceProviderOffersOffersTabRoute(),
       ],
       builder: (context, child, controller) {
         return Scaffold(
@@ -64,7 +63,7 @@ class BottomTabBar extends StatelessWidget implements PreferredSize {
         TalebAvatarImage(
             width: TalebSizes.w80,
             height: TalebSizes.h80,
-            urlImage: url,
+            urlImage: user.image,
             borderColor: TalebColors.greyRegular),
         VerticalSpace(TalebSizes.h8),
         Text(
