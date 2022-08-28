@@ -10,6 +10,7 @@ import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/offer/data/models/offer.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_offers.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
+import 'package:taleb/routes/app_router.dart';
 
 import 'cubit/similar_offers_cubit.dart';
 import 'widget/offer_date_and_service_provider.dart';
@@ -106,9 +107,8 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                     DateAndServiceProviderWidget(
                       name: offer.user.name,
                       image: offer.user.image,
-                      onPress: () {
-                        logger.i('This is offers Details Page');
-                      },
+                      onPress: () => context.router.push(
+                          ServiceProviderOffersTabBarRoute(user: offer.user)),
                     ),
                     VerticalSpace(TalebSizes.h12),
                     Text(
