@@ -66,7 +66,7 @@ extension OfferApis on Api {
   static String get searchOffer => 'search-offer';
 
   static String serviceProviderOffer(int serviceProviderId) =>
-      'offer/user/$serviceProviderId';
+      'offers/user/$serviceProviderId';
 
   static String similarOffer(int offerId) => 'similar-offers/$offerId';
 }

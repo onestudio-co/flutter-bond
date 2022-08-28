@@ -1,12 +1,63 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taleb/core/helpers/logger.dart';
+import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
+import 'package:taleb/features/home/offer/offer_imports.dart';
+import 'package:taleb/features/home/offer/presentations/offers/widget/offer_list_card_item.dart';
+import 'package:taleb/features/home/offer/presentations/offers/widget/offers_list_item_shimmer.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class ServiceProviderOffersOffersTabPage extends StatelessWidget {
-  const ServiceProviderOffersOffersTabPage({Key? key}) : super(key: key);
+  final User user;
+
+  const ServiceProviderOffersOffersTabPage({
+    required this.user,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Center(child: Text('Tab2')),
+    return Padding(
+        padding: EdgeInsets.only(top: TalebPadding.p16),
+      child: BlocConsumer<ServiceProviderOfferCubit, ServiceProviderOfferState>(
+        listener: (BuildContext context, ServiceProviderOfferState state) {
+          state is ServiceProviderOfferLoadFailed
+              ? log(state.error, name: 'offer page')
+              : null;
+        },
+        builder: (BuildContext context, ServiceProviderOfferState state) {
+          if (state is ServiceProviderOfferLoadSuccess) {
+            return GridView.builder(
+              itemCount: state.offer.data.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: .6,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                final Offer offer = state.offer.data[index];
+                return OfferListCardItem(
+                  onTap: () =>
+                      context.router.push(OfferDetailsRoute(offer: offer)),
+                  urlImage: offer.image,
+                  title: offer.title,
+                  price: offer.price.toString(),
+                  currancy: offer.currency.name,
+                  serviceProvidarName: offer.user.name,
+                  serviceProvidarImage: offer.user.image,
+                );
+              },
+            );
+          }
+          if (state is ServiceProviderOfferLoadFailed) {
+            logger.e(state.error);
+          }
+          return const OffersListItemShimmer();
+        },
+      ),
     );
   }
 }

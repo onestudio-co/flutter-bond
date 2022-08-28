@@ -22,16 +22,17 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
   @override
   Widget wrappedRoute(BuildContext context) =>
       BlocProvider<ServiceProviderOfferCubit>(
-        create: (context) => sl<ServiceProviderOfferCubit>(),
+        create: (context) => sl<ServiceProviderOfferCubit>()
+          ..loadServiceProviderOffer(serviceProviderId: user.id),
         child: this,
       );
 
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      routes:  [
+      routes: [
         ServiceProviderOffersDetailsTabRoute(user: user),
-        const ServiceProviderOffersOffersTabRoute(),
+        ServiceProviderOffersOffersTabRoute(user: user),
       ],
       builder: (context, child, controller) {
         return Scaffold(
