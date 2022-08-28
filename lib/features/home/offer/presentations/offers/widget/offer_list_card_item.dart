@@ -29,6 +29,7 @@ class OfferListCardItem extends StatelessWidget {
       onTap: onTap,
       child: GridTile(
         child: Container(
+          height: TalebSizes.h315,
           decoration: BoxDecoration(
             border: Border.all(
               color: TalebColors.softPeach,

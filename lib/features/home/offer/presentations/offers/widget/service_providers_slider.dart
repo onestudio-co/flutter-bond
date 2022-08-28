@@ -11,15 +11,15 @@ class ServiceProvidersSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: TalebSizes.h200,
+      height: TalebSizes.h140,
       padding: EdgeInsets.all(TalebPadding.p16),
       child: ListView.builder(
         itemCount: 12,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            width: TalebSizes.w90,
-            padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+            width: TalebSizes.w96,
+            margin: EdgeInsets.only(left: TalebPadding.p8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
