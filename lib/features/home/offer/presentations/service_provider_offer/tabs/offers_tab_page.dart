@@ -22,7 +22,7 @@ class ServiceProviderOffersOffersTabPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: TalebPadding.p16),
+      padding: EdgeInsets.only(top: TalebPadding.p16),
       child: BlocConsumer<ServiceProviderOfferCubit, ServiceProviderOfferState>(
         listener: (BuildContext context, ServiceProviderOfferState state) {
           state is ServiceProviderOfferLoadFailed
@@ -40,8 +40,10 @@ class ServiceProviderOffersOffersTabPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final Offer offer = state.offer.data[index];
                 return OfferListCardItem(
-                  onTap: () =>
+                  onTapCard: () =>
                       context.router.push(OfferDetailsRoute(offer: offer)),
+                  onTapServiceProvider: () => context.router.push(
+                      ServiceProviderOffersDetailsTabRoute(user: offer.user)),
                   urlImage: offer.image,
                   title: offer.title,
                   price: offer.price.toString(),

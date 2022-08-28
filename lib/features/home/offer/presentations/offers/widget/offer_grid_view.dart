@@ -34,8 +34,14 @@ class OffersGridView extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final Offer offer = state.offer.data[index];
                 return OfferListCardItem(
-                  onTap: () =>
+                  onTapCard: () =>
                       context.router.push(OfferDetailsRoute(offer: offer)),
+                  onTapServiceProvider: () {
+                    final router = context.innerRouterOf<TabsRouter>(
+                        ServiceProviderOffersTabBarRoute.name);
+                    router?.navigate(
+                        ServiceProviderOffersDetailsTabRoute(user: offer.user));
+                  },
                   urlImage: offer.image,
                   title: offer.title,
                   price: offer.price.toString(),

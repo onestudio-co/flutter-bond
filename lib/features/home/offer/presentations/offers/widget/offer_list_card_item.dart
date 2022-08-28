@@ -10,7 +10,8 @@ class OfferListCardItem extends StatelessWidget {
   final String currancy;
   final String serviceProvidarName;
   final String serviceProvidarImage;
-  final VoidCallback onTap;
+  final VoidCallback onTapCard;
+  final VoidCallback onTapServiceProvider;
 
   const OfferListCardItem({
     required this.urlImage,
@@ -19,14 +20,15 @@ class OfferListCardItem extends StatelessWidget {
     required this.currancy,
     required this.serviceProvidarName,
     required this.serviceProvidarImage,
-    required this.onTap,
+    required this.onTapCard,
+    required this.onTapServiceProvider,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: onTapCard,
       child: GridTile(
         child: Container(
           height: TalebSizes.h315,
@@ -61,6 +63,7 @@ class OfferListCardItem extends StatelessWidget {
               OfferServiceProivderButton(
                 name: serviceProvidarName,
                 urlImage: serviceProvidarImage,
+                onTap: onTapServiceProvider,
               ),
             ],
           ),
