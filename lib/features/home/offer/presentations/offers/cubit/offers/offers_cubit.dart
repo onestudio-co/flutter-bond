@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
@@ -98,5 +99,13 @@ class OffersCubit extends Cubit<OffersState> {
               ? OffersEmpty()
               : OffersLoadSuccess(offer: offer)),
     );
+  }
+
+  void selectUser({User? user}) {
+    if (state is OffersLoadSuccess) {
+      final currentState = state as OffersLoadSuccess;
+      emit(currentState.copyWith(user: user));
+      logger.d(user?.name);
+    }
   }
 }

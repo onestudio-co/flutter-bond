@@ -6,6 +6,7 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
@@ -32,7 +33,7 @@ class SearchSearviceProviderPage extends StatefulWidget
 class _SearchSearviceProviderPageState
     extends State<SearchSearviceProviderPage> {
   int? selectedIndex;
-  int? serviceProviderId;
+  User? serviceProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +81,8 @@ class _SearchSearviceProviderPageState
                                   onTap: () {
                                     setState(() {
                                       selectedIndex = index;
-                                      serviceProviderId =
-                                          state.serviceProviders[index].id;
+                                      serviceProvider =
+                                          state.serviceProviders[index];
                                     });
                                   },
                                   child: ItemListViewWidget(
@@ -97,7 +98,7 @@ class _SearchSearviceProviderPageState
                           const Spacer(),
                           TalebButtonWidget(
                             onPressed: () async => await context.router
-                                .pop<int?>(serviceProviderId),
+                                .pop<User?>(serviceProvider),
                             title: 'حفظ',
                           ),
                           VerticalSpace(TalebSizes.h16),

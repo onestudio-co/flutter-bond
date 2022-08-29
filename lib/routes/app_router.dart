@@ -48,7 +48,7 @@ part 'app_router.gr.dart';
       page: SearchCityPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
-    CustomRoute<int>(
+    CustomRoute<User>(
       page: SearchSearviceProviderPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),

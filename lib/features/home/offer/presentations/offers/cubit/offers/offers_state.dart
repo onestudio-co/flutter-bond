@@ -30,6 +30,8 @@ class OffersLoadSuccess extends OffersState {
     this.city,
   });
 
+  User? get selectedUser => user;
+
   bool get noMorePages => offer.links?.next == null;
 
   @override

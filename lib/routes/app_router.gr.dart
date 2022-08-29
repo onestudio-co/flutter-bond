@@ -80,7 +80,7 @@ class _$AppRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     SearchSearviceProviderRoute.name: (routeData) {
-      return CustomPage<int>(
+      return CustomPage<User>(
           routeData: routeData,
           child: const SearchSearviceProviderPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,

@@ -5,9 +5,11 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/routes/app_router.dart';
-import '../../../../widgets/row_selected_filter_widget.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
+import 'package:taleb/routes/app_router.dart';
+
+import '../../../../widgets/row_selected_filter_widget.dart';
 
 // ignore: must_be_immutable
 class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
@@ -27,12 +29,13 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
   }
 
   int? cityId;
-  int? userId;
+  // User? serviceProvider;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OffersCubit, OffersState>(
       builder: (BuildContext context, OffersState state) {
+        state as OffersLoadSuccess;
         return Container(
           height: TalebSizes.h375,
           width: double.infinity,
@@ -58,11 +61,9 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                   child: Column(
                     children: <Widget>[
                       RowSelectedFilterWidget(
-                        title: TalebStrings.offerFilterServiceProviderType,
-                        onTap: () async {
-                          userId = await context.router
-                              .push<int>(const SearchSearviceProviderRoute());
-                        },
+                        title: state.user?.name ??
+                            TalebStrings.offerFilterServiceProviderType,
+                        onTap: () => updateServiceProvider(context),
                       ),
                       const TalebDivider(),
                       RowSelectedFilterWidget(
@@ -79,10 +80,10 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                   onPressed: () {
                     context.read<OffersCubit>().loadOffers(
                         cityId: cityId,
-                        serviceProviderId: userId,
+                        // serviceProviderId: serviceProvider?.id,
                         emitLoading: true);
                     cityId = null;
-                    userId = null;
+                    // serviceProvider = null;
                     context.router.pop();
                   },
                   title: 'حفظ',
@@ -94,5 +95,12 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
         );
       },
     );
+  }
+
+  void updateServiceProvider(BuildContext context) async {
+    User? serviceProvider =
+        await context.router.push<User>(const SearchSearviceProviderRoute());
+
+    context.read<OffersCubit>().selectUser(user: serviceProvider);
   }
 }
