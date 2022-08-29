@@ -34,8 +34,10 @@ class LastNewsSlider extends StatelessWidget {
                       news: news,
                       heightImage: TalebSizes.h192,
                       widthCard: TalebSizes.h282,
+                      showDivider: false,
                       padding: EdgeInsets.symmetric(
-                          horizontal: TalebPadding.defaultPadding),
+                        horizontal: TalebPadding.defaultPadding,
+                      ),
                     );
                   },
                 ),

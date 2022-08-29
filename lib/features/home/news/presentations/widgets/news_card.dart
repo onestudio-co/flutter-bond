@@ -15,7 +15,7 @@ class NewsCardWidget extends StatelessWidget {
   final News news;
   final double? heightImage;
   final double? widthCard;
-  final bool hideDivider;
+  final bool showDivider;
   final EdgeInsets? padding;
 
   const NewsCardWidget({
@@ -23,7 +23,7 @@ class NewsCardWidget extends StatelessWidget {
     Key? key,
     this.heightImage,
     this.widthCard,
-    this.hideDivider = false,
+    this.showDivider = true,
     this.padding,
   }) : super(key: key);
 
@@ -66,9 +66,9 @@ class NewsCardWidget extends StatelessWidget {
                 ],
               ),
             ),
-            if (hideDivider) VerticalSpace(TalebSizes.h16),
-            if (hideDivider) const TalebDivider2(),
-            if (hideDivider) VerticalSpace(TalebSizes.h16),
+            if (showDivider) VerticalSpace(TalebSizes.h16),
+            if (showDivider) const TalebDivider2(),
+            if (showDivider) VerticalSpace(TalebSizes.h16),
           ],
         ),
       ),
