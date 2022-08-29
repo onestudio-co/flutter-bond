@@ -1,13 +1,28 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/home/main/widgets/header_slider.dart';
+import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
+import 'package:taleb/features/home/main/last_offers/offers_slider.dart';
 import 'package:taleb/main.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatelessWidget implements AutoRouteWrapper {
   const MainPage({Key? key}) : super(key: key);
+
+  @override
+  Widget wrappedRoute(BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider<LastOffersCubit>(
+            create: (BuildContext context) =>
+                sl<LastOffersCubit>()..lastOffers(),
+          ),
+        ],
+        child: this,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +46,9 @@ class MainPage extends StatelessWidget {
               image: url,
             ),
             VerticalSpace(TalebSizes.h44),
-            HeaderSlider(
-              title: TalebStrings.homeSliderLastOffers,
-              onTapSeeMore: () {},
-            ),
-            SizedBox(
-              height: TalebSizes.h312,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                itemBuilder: (BuildContext context, int index) {
-                  // return NewsCardWidget(news: );
-                  return Container(
-                    width: 90,
-                    color: Colors.red,
-                  );
-                },
-              ),
-            ),
+            const LastOfferSlider(),
+            VerticalSpace(TalebSizes.h44),
+            VerticalSpace(TalebSizes.h44),
           ],
         ),
       ),

@@ -44,6 +44,15 @@ class OfferRepository {
     }
   }
 
+  Future<Either<Failure, ListResponse<Offer>>> lastOffers() async {
+    try {
+      final ListResponse<Offer> response = await _remoteDataSource.lastOffers();
+      return Right<Failure, ListResponse<Offer>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<Offer>>(e.toFailure());
+    }
+  }
+
   Future<Either<Failure, ListResponse<Offer>>> searchOffer(
       {required String text}) async {
     try {
