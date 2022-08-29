@@ -38,6 +38,14 @@ class NewsRemoteDataSource extends DataSource {
     return mapListResponse(response);
   }
 
+  Future<ListResponse<News>> lastNews() async {
+    final Response<dynamic> response = await _client.get(
+      NewsApis.lastNews,
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
+
   Future<ListResponse<News>> searchNews({required String text}) async {
     final Response<dynamic> response = await _client.get(
       NewsApis.searchNews,
@@ -52,6 +60,8 @@ class NewsRemoteDataSource extends DataSource {
 
 extension NewsApis on Api {
   static String get allNews => 'news';
+
+  static String get lastNews => 'limited-news';
 
   static String serviceProviderNews(int serviceProviderId) {
     return 'news/user/$serviceProviderId';
