@@ -22,12 +22,12 @@ class OffersEmpty extends OffersState {
 }
 
 class OffersLoadSuccess extends OffersState {
-  final ListResponse<Offer> offer;
+  final ListResponse<Offer> offers;
   final ServiceProviderCategory? serviceProviderCategory;
   final City? city;
 
   const OffersLoadSuccess({
-    required this.offer,
+    required this.offers,
     this.serviceProviderCategory,
     this.city,
   });
@@ -40,10 +40,12 @@ class OffersLoadSuccess extends OffersState {
   bool get isSlectedNotNull =>
       selectedServiceProviderCategory != null || selectedCity != null;
 
-  bool get noMorePages => offer.links?.next == null;
+  OffersLoadSuccess clearSelected() {
+    return OffersLoadSuccess(
+        offers: offers, city: null, serviceProviderCategory: null);
+  }
 
-  @override
-  List<Object?> get props => [offer, serviceProviderCategory, city];
+  bool get noMorePages => offers.links?.next == null;
 
   OffersLoadSuccess copyWith({
     ListResponse<Offer>? offer,
@@ -51,12 +53,15 @@ class OffersLoadSuccess extends OffersState {
     City? city,
   }) {
     return OffersLoadSuccess(
-      offer: offer ?? this.offer,
+      offers: offer ?? offers,
       serviceProviderCategory:
           serviceProviderCategory ?? this.serviceProviderCategory,
       city: city ?? this.city,
     );
   }
+
+  @override
+  List<Object?> get props => [offers, serviceProviderCategory, city];
 }
 
 class OffersLoadMoreState extends OffersLoadSuccess {
@@ -65,12 +70,12 @@ class OffersLoadMoreState extends OffersLoadSuccess {
     ServiceProviderCategory? serviceProviderCategory,
     City? city,
   }) : super(
-            offer: offer,
+            offers: offer,
             serviceProviderCategory: serviceProviderCategory,
             city: city);
 
   @override
-  List<Object?> get props => [offer, serviceProviderCategory, city];
+  List<Object?> get props => [offers, serviceProviderCategory, city];
 }
 
 class OffersLoadFailed extends OffersState {

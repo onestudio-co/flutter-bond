@@ -14,7 +14,7 @@ import '../../../../widgets/row_selected_filter_widget.dart';
 
 // ignore: must_be_immutable
 class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
-  FilterOfferPage({
+  const FilterOfferPage({
     required this.offersCubit,
     Key? key,
   }) : super(key: key);
@@ -29,9 +29,6 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  int? cityId;
-  // User? serviceProvider;
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OffersCubit, OffersState>(
@@ -45,11 +42,29 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
               padding: EdgeInsets.all(TalebPadding.p16),
               child: Column(
                 children: <Widget>[
-                  Text(TalebStrings.offerFilterTitle,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.darkJungleGreen),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Spacer(flex: 3),
+                      Center(
+                        child: Text(TalebStrings.offerFilterTitle,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.darkJungleGreen),
+                      ),
+                      const Spacer(flex: 2),
+                      TextButton(
+                        onPressed: () =>
+                            _clearFilterResult(context, offersCubit),
+                        child: Text(
+                          TalebStrings.clearButton,
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.elephant,
+                        ),
+                      ),
+                    ],
+                  ),
                   VerticalSpace(TalebSizes.h20),
                   Align(
                     alignment: Alignment.centerRight,
@@ -68,13 +83,13 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                               TalebStrings.offerFilterServiceProviderType,
                           isSlected: state.serviceProviderCategory != null,
                           onTap: () =>
-                              updateServiceProvider(context, offersCubit),
+                              _updateServiceProvider(context, offersCubit),
                         ),
                         const TalebDivider(),
                         RowSelectedFilterWidget(
                             title: TalebStrings.offerFilterCity,
                             isSlected: state.city != null,
-                            onTap: () => updateCity(context, offersCubit)),
+                            onTap: () => _updateCity(context, offersCubit)),
                       ],
                     ),
                   ),
@@ -83,14 +98,13 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                     enable: state.isSlectedNotNull,
                     onPressed: () {
                       context.read<OffersCubit>().loadOffers(
-                          cityId: cityId,
-                          // serviceProviderId: serviceProvider?.id,
+                          cityId: state.city?.id,
+                          serviceProviderCategoryId:
+                              state.selectedServiceProviderCategory?.id,
                           emitLoading: true);
-                      cityId = null;
-                      // serviceProvider = null;
                       context.router.pop();
                     },
-                    title: 'حفظ',
+                    title: TalebStrings.saveButton,
                   ),
                   VerticalSpace(TalebSizes.h16),
                 ],
@@ -104,7 +118,7 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  void updateServiceProvider(
+  void _updateServiceProvider(
       BuildContext context, OffersCubit offersCubit) async {
     final serviceProviderCategory = await context.router
         .push<ServiceProviderCategory>(const ServiceProviderCategoriesRoute());
@@ -113,9 +127,13 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
         serviceProviderCategory: serviceProviderCategory);
   }
 
-  void updateCity(BuildContext context, OffersCubit offersCubit) async {
+  void _updateCity(BuildContext context, OffersCubit offersCubit) async {
     final city = await context.router.push<City>(const SearchCityRoute());
 
     offersCubit.selectCategoryAndCity(city: city);
+  }
+
+  void _clearFilterResult(BuildContext context, OffersCubit offersCubit) async {
+    offersCubit.clearFilterResult();
   }
 }

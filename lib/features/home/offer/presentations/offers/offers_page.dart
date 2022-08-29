@@ -62,8 +62,7 @@ class _OffersPageState extends State<OffersPage> {
                   ),
                   HorizontalSpace(TalebSizes.w8),
                   FilterWidget(
-                    onTap: () => context.router.push(FilterOfferRoute(
-                        offersCubit: context.read<OffersCubit>())),
+                    onTap: () => _goToFilterOffer(context),
                   ),
                 ],
               ),
@@ -74,6 +73,14 @@ class _OffersPageState extends State<OffersPage> {
             const OffersGridView(),
           ],
         ),
+      ),
+    );
+  }
+
+  Future<Object?> _goToFilterOffer(BuildContext context) {
+    return context.router.push(
+      FilterOfferRoute(
+        offersCubit: context.read<OffersCubit>(),
       ),
     );
   }

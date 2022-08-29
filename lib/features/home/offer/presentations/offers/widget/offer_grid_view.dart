@@ -26,22 +26,17 @@ class OffersGridView extends StatelessWidget {
         builder: (BuildContext context, OffersState state) {
           if (state is OffersLoadSuccess) {
             return GridView.builder(
-              itemCount: state.offer.data.length,
+              itemCount: state.offers.data.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.6,
               ),
               itemBuilder: (BuildContext context, int index) {
-                final Offer offer = state.offer.data[index];
+                final Offer offer = state.offers.data[index];
                 return OfferListCardItem(
-                  onTapCard: () =>
-                      context.router.push(OfferDetailsRoute(offer: offer)),
-                  onTapServiceProvider: () {
-                    // final router = context.innerRouterOf<TabsRouter>(
-                    //     ServiceProviderOffersTabBarRoute.name);
-                    // router?.navigate(
-                    //     ServiceProviderOffersDetailsTabRoute(user: offer.user));
-                  },
+                  onTapCard: () => _goToOfferDetailsPage(context, offer),
+                  onTapServiceProvider: () =>
+                      _serviceProviderOffersTabBarRoute(context, offer),
                   urlImage: offer.image,
                   title: offer.title,
                   price: offer.price.toString(),
@@ -60,4 +55,13 @@ class OffersGridView extends StatelessWidget {
       ),
     );
   }
+
+  Future<Object?> _serviceProviderOffersTabBarRoute(
+      BuildContext context, Offer offer) {
+    return context.router
+        .push(ServiceProviderOffersTabBarRoute(user: offer.user));
+  }
+
+  Future<Object?> _goToOfferDetailsPage(BuildContext context, Offer offer) =>
+      context.router.push(OfferDetailsRoute(offer: offer));
 }

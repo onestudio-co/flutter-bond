@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
@@ -16,7 +17,9 @@ class OffersCubit extends Cubit<OffersState> {
   final AlgoliaOfferService algoliaOffersService;
 
   Future<void> loadOffers(
-      {int? cityId, int? serviceProviderId, bool emitLoading = false}) async {
+      {int? cityId,
+      int? serviceProviderCategoryId,
+      bool emitLoading = false}) async {
     if (emitLoading) {
       emit(OffersLoading());
     }
@@ -26,20 +29,23 @@ class OffersCubit extends Cubit<OffersState> {
         currentState: state as OffersLoadSuccess,
       );
     } else {
-      await _loadOffer(cityId: cityId, serviceProviderId: serviceProviderId);
+      await _loadOffer(
+          cityId: cityId, serviceProviderCategoryId: serviceProviderCategoryId);
     }
   }
 
-  Future<void> _loadOffer({int? cityId, int? serviceProviderId}) async {
+  Future<void> _loadOffer({int? cityId, int? serviceProviderCategoryId}) async {
     emit(OffersLoading());
-    final Either<Failure, ListResponse<Offer>> response = await _repository
-        .allOffers(cityId: cityId, serviceProviderId: serviceProviderId);
+    final Either<Failure, ListResponse<Offer>> response =
+        await _repository.allOffers(
+            cityId: cityId,
+            serviceProviderCategoryId: serviceProviderCategoryId);
     emit(
       response.fold(
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
           (ListResponse<Offer> offer) => offer.data.isEmpty
               ? const OffersEmpty()
-              : OffersLoadSuccess(offer: offer)),
+              : OffersLoadSuccess(offers: offer)),
     );
   }
 
@@ -54,19 +60,19 @@ class OffersCubit extends Cubit<OffersState> {
     }
 
     emit(OffersLoadMoreState(
-      offer: currentState.offer,
+      offer: currentState.offers,
     ));
 
     final Either<Failure, ListResponse<Offer>> response =
-        await _repository.allOffers(nextUrl: currentState.offer.links?.next);
+        await _repository.allOffers(nextUrl: currentState.offers.links?.next);
 
     response.fold(
       (Failure failure) => emit(OffersLoadFailed(error: failure.toString())),
       (ListResponse<Offer> offer) => <void>{
         emit(
           currentState.copyWith(
-            offer: currentState.offer.copyWith(
-              data: currentState.offer.data + offer.data,
+            offer: currentState.offers.copyWith(
+              data: currentState.offers.data + offer.data,
               links: offer.links,
             ),
           ),
@@ -96,7 +102,7 @@ class OffersCubit extends Cubit<OffersState> {
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
           (ListResponse<Offer> offer) => offer.data.isEmpty
               ? const OffersEmpty()
-              : OffersLoadSuccess(offer: offer)),
+              : OffersLoadSuccess(offers: offer)),
     );
   }
 
@@ -106,6 +112,13 @@ class OffersCubit extends Cubit<OffersState> {
       final currentState = state as OffersLoadSuccess;
       emit(currentState.copyWith(
           serviceProviderCategory: serviceProviderCategory, city: city));
+    }
+  }
+
+  void clearFilterResult() {
+    if (state is OffersLoadSuccess) {
+      final currentState = state as OffersLoadSuccess;
+      emit(currentState.clearSelected());
     }
   }
 }
