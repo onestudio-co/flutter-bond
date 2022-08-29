@@ -27,6 +27,7 @@ class TalebImageWidget extends StatelessWidget {
       height: height,
       width: width,
       imageBuilder: (context, imageProvider) => Container(
+        margin: margin,
         decoration: BoxDecoration(
           borderRadius:
               BorderRadius.circular(borderRadius ?? TalebBorderRadius.r12),
