@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
@@ -8,7 +7,6 @@ import 'package:taleb/core/widget/taleb_shimmer.dart';
 import 'package:taleb/features/home/main/last_news/cubit/last_news_cubit.dart';
 import 'package:taleb/features/home/main/widgets/header_slider.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
-import 'package:taleb/routes/app_router.dart';
 
 class LastNewsSlider extends StatelessWidget {
   const LastNewsSlider({Key? key}) : super(key: key);
