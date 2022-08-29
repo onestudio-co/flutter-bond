@@ -56,6 +56,14 @@ class OfferRemoteDataSource extends DataSource {
     );
     return mapListResponse(response);
   }
+
+  Future<ListResponse<Offer>> lastOffers() async {
+    final Response<dynamic> response = await _client.get(
+      OfferApis.lastOffers,
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
 }
 
 extension OfferApis on Api {
@@ -69,4 +77,6 @@ extension OfferApis on Api {
       'offers/user/$serviceProviderId';
 
   static String similarOffer(int offerId) => 'similar-offers/$offerId';
+
+  static String get lastOffers => 'limited-offers';
 }

@@ -68,18 +68,22 @@ class TalebSizes {
   static double h130 = SizeUtil.setHeight(130.0);
   static double h140 = SizeUtil.setHeight(140.0);
   static double h170 = SizeUtil.setHeight(170.0);
+  static double h192 = SizeUtil.setHeight(192.0);
   static double h198 = SizeUtil.setHeight(198.0);
   static double h200 = SizeUtil.setHeight(200.0);
   static double h230 = SizeUtil.setHeight(230.0);
   static double h240 = SizeUtil.setHeight(240.0);
   static double h260 = SizeUtil.setHeight(260.0);
+  static double h282 = SizeUtil.setHeight(282.0);
   static double h285 = SizeUtil.setHeight(285.0);
   static double h290 = SizeUtil.setHeight(290.0);
   static double h300 = SizeUtil.setHeight(300.0);
   static double h306 = SizeUtil.setHeight(306.0);
+  static double h312 = SizeUtil.setHeight(312.0);
   static double h315 = SizeUtil.setHeight(315.0);
   static double h370 = SizeUtil.setHeight(370.0);
   static double h375 = SizeUtil.setHeight(375.0);
+  static double h378 = SizeUtil.setHeight(378.0);
   static double h405 = SizeUtil.setHeight(405.0);
   static double h500 = SizeUtil.setHeight(400.0);
 

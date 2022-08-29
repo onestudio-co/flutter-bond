@@ -5,6 +5,7 @@ class TalebStrings {
   /// [General Strings]
   static String saveButton = 'حفظ';
   static String clearButton = 'مسح';
+  static String seeMore = 'شاهد المزيد';
 
   /// [News Page]
   static String newsHomeTitleAppbar = LocaleKeys.homeTitle.tr();
@@ -39,4 +40,9 @@ class TalebStrings {
   static String searchServiceProviderCategoryTitle = 'اختيار نوع مزود الخدمة';
   static String searchServiceProviderCategoryHintTextField =
       'أكتب نوع مزود الخدمة';
+
+  /// [Main Page]
+  static String homeSliderLastOffers = 'آخر العروض';
+  static String homeSliderLastNews = 'آخر الأخبار';
+  static String homeSliderLastOpportunities = 'آخر الفرص';
 }

@@ -6,6 +6,7 @@ import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/search_city_page.dart';
 import 'package:taleb/features/home/home_bottom_nav_bar/home_page.dart';
 import 'package:taleb/features/home/home_bottom_nav_bar/routes.dart';
+import 'package:taleb/features/home/main/main_page.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit.dart';
 import 'package:taleb/features/home/news/presentations/all_news/news_page.dart';

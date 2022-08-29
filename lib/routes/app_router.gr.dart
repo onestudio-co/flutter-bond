@@ -114,6 +114,10 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    MainRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const MainPage());
+    },
     NewsRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const NewsPage());
@@ -147,6 +151,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LaunchRoute.name, path: '/'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(HomeRoute.name, path: '/home-page', children: [
+          RouteConfig(MainRoute.name,
+              path: 'main-page', parent: HomeRoute.name),
           RouteConfig(NewsRoute.name,
               path: 'news-page', parent: HomeRoute.name),
           RouteConfig(OffersRoute.name,
@@ -435,6 +441,14 @@ class FilterOpportunityRouteArgs {
   String toString() {
     return 'FilterOpportunityRouteArgs{opportunityCubit: $opportunityCubit, key: $key}';
   }
+}
+
+/// generated route for
+/// [MainPage]
+class MainRoute extends PageRouteInfo<void> {
+  const MainRoute() : super(MainRoute.name, path: 'main-page');
+
+  static const String name = 'MainRoute';
 }
 
 /// generated route for
