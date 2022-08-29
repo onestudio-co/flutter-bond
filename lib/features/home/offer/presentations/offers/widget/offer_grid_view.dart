@@ -37,10 +37,10 @@ class OffersGridView extends StatelessWidget {
                   onTapCard: () =>
                       context.router.push(OfferDetailsRoute(offer: offer)),
                   onTapServiceProvider: () {
-                    final router = context.innerRouterOf<TabsRouter>(
-                        ServiceProviderOffersTabBarRoute.name);
-                    router?.navigate(
-                        ServiceProviderOffersDetailsTabRoute(user: offer.user));
+                    // final router = context.innerRouterOf<TabsRouter>(
+                    //     ServiceProviderOffersTabBarRoute.name);
+                    // router?.navigate(
+                    //     ServiceProviderOffersDetailsTabRoute(user: offer.user));
                   },
                   urlImage: offer.image,
                   title: offer.title,

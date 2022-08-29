@@ -1,10 +1,7 @@
 part of 'offers_cubit.dart';
 
 abstract class OffersState extends Equatable {
-  final ServiceProviderCategory? serviceProviderCategory;
-  final City? city;
-
-  const OffersState({this.serviceProviderCategory, this.city});
+  const OffersState();
 }
 
 class OffersInitial extends OffersState {
@@ -26,23 +23,27 @@ class OffersEmpty extends OffersState {
 
 class OffersLoadSuccess extends OffersState {
   final ListResponse<Offer> offer;
+  final ServiceProviderCategory? serviceProviderCategory;
+  final City? city;
 
   const OffersLoadSuccess({
     required this.offer,
-    ServiceProviderCategory? serviceProviderCategory,
-    City? city,
-  }) : super(
-          serviceProviderCategory: serviceProviderCategory,
-          city: city,
-        );
+    this.serviceProviderCategory,
+    this.city,
+  });
 
   ServiceProviderCategory? get selectedServiceProviderCategory =>
       serviceProviderCategory;
 
+  City? get selectedCity => city;
+
+  bool get isSlectedNotNull =>
+      selectedServiceProviderCategory != null || selectedCity != null;
+
   bool get noMorePages => offer.links?.next == null;
 
   @override
-  List<Object?> get props => [offer];
+  List<Object?> get props => [offer, serviceProviderCategory, city];
 
   OffersLoadSuccess copyWith({
     ListResponse<Offer>? offer,
@@ -61,10 +62,15 @@ class OffersLoadSuccess extends OffersState {
 class OffersLoadMoreState extends OffersLoadSuccess {
   const OffersLoadMoreState({
     required ListResponse<Offer> offer,
-  }) : super(offer: offer);
+    ServiceProviderCategory? serviceProviderCategory,
+    City? city,
+  }) : super(
+            offer: offer,
+            serviceProviderCategory: serviceProviderCategory,
+            city: city);
 
   @override
-  List<Object> get props => [offer];
+  List<Object?> get props => [offer, serviceProviderCategory, city];
 }
 
 class OffersLoadFailed extends OffersState {

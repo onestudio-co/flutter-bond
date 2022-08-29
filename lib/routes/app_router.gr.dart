@@ -72,7 +72,7 @@ class _$AppRouter extends RootStackRouter {
               opportunity: args.opportunity, key: args.key));
     },
     SearchCityRoute.name: (routeData) {
-      return CustomPage<int>(
+      return CustomPage<City>(
           routeData: routeData,
           child: const SearchCityPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,

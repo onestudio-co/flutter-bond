@@ -27,8 +27,7 @@ class TalebAppBar extends StatelessWidget implements PreferredSize {
         visible: showBack,
         child: IconButton(
           onPressed: onPressBack ?? () => context.router.pop(),
-          // icon: SvgPicture.asset(TalebIcons.downArrow),
-          icon: const Icon(Icons.arrow_right_alt_sharp),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       actions: actions,

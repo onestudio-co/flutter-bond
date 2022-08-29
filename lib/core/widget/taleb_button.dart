@@ -47,7 +47,7 @@ class TalebButtonWidget extends StatelessWidget {
               ? onPressed
               : null,
       color: enable ? backgroundColor : TalebColors.ghostWhite,
-      disabledColor: enable ? backgroundColor : TalebColors.ghostWhite,
+      disabledColor: enable ? backgroundColor : TalebColors.magnolia,
       elevation: 0,
       highlightElevation: 0,
       minWidth: width ?? double.infinity,
@@ -63,12 +63,9 @@ class TalebButtonWidget extends StatelessWidget {
       ),
       child: Text(
         title ?? '',
-        style: titleColor == null
+        style: enable
             ? Theme.of(context).textTheme.bodySmall?.white
-            : Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.copyWith(color: titleColor),
+            : Theme.of(context).textTheme.bodySmall?.greyRegular,
       ),
     );
   }
