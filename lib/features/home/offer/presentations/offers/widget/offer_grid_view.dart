@@ -29,7 +29,7 @@ class OffersGridView extends StatelessWidget {
               itemCount: state.offer.data.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: .6,
+                childAspectRatio: 0.6,
               ),
               itemBuilder: (BuildContext context, int index) {
                 final Offer offer = state.offer.data[index];
@@ -37,10 +37,10 @@ class OffersGridView extends StatelessWidget {
                   onTapCard: () =>
                       context.router.push(OfferDetailsRoute(offer: offer)),
                   onTapServiceProvider: () {
-                    final router = context.innerRouterOf<TabsRouter>(
-                        ServiceProviderOffersTabBarRoute.name);
-                    router?.navigate(
-                        ServiceProviderOffersDetailsTabRoute(user: offer.user));
+                    // final router = context.innerRouterOf<TabsRouter>(
+                    //     ServiceProviderOffersTabBarRoute.name);
+                    // router?.navigate(
+                    //     ServiceProviderOffersDetailsTabRoute(user: offer.user));
                   },
                   urlImage: offer.image,
                   title: offer.title,

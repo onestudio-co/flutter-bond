@@ -34,6 +34,7 @@ class TalebColors {
   static const Color custome1 = Color(0xFFEBEFF0);
   static const Color custome2 = Color(0xff999999);
   static const Color custome3 = Color(0xff7A8799);
+  static const Color magnolia = Color(0xffF8F7FB);
 }
 
 extension CustomTextStyle on TextStyle {
@@ -49,4 +50,5 @@ extension CustomTextStyle on TextStyle {
   TextStyle get blueDark => copyWith(color: TalebColors.blueDark);
   TextStyle get blueRegular => copyWith(color: TalebColors.blueRegular);
   TextStyle get blueExtraDark => copyWith(color: TalebColors.blueExtraDark);
+  TextStyle get greyRegular => copyWith(color: TalebColors.greyRegular);
 }

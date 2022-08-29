@@ -8,16 +8,16 @@ import 'package:taleb/features/service_provider/data/repositories/service_provid
 part 'service_provider_state.dart';
 
 class ServiceProviderCubit extends Cubit<ServiceProviderState> {
-  final ServiceProviderRepository _cityRepository;
+  final ServiceProviderRepository _repository;
 
-  ServiceProviderCubit(this._cityRepository)
+  ServiceProviderCubit(this._repository)
       : super(ServiceProviderInitialState());
 
   void getServiceProviders({String? textSearch}) async {
     emit(ServiceProviderLoadingState());
 
     final Either<Failure, ListResponse<User>> response =
-        await _cityRepository.getServiceProviders(textSearch: textSearch);
+        await _repository.getServiceProviders(textSearch: textSearch);
     response.fold(
       (Failure failure) =>
           emit(ServiceProviderLoadFailure(failure.toMessage())),

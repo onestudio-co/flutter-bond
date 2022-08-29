@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
+import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
 
 part 'offers_state.dart';
 
@@ -36,7 +38,7 @@ class OffersCubit extends Cubit<OffersState> {
       response.fold(
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
           (ListResponse<Offer> offer) => offer.data.isEmpty
-              ? OffersEmpty()
+              ? const OffersEmpty()
               : OffersLoadSuccess(offer: offer)),
     );
   }
@@ -93,8 +95,17 @@ class OffersCubit extends Cubit<OffersState> {
       response.fold(
           (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
           (ListResponse<Offer> offer) => offer.data.isEmpty
-              ? OffersEmpty()
+              ? const OffersEmpty()
               : OffersLoadSuccess(offer: offer)),
     );
+  }
+
+  void selectCategoryAndCity(
+      {ServiceProviderCategory? serviceProviderCategory, City? city}) {
+    if (state is OffersLoadSuccess) {
+      final currentState = state as OffersLoadSuccess;
+      emit(currentState.copyWith(
+          serviceProviderCategory: serviceProviderCategory, city: city));
+    }
   }
 }

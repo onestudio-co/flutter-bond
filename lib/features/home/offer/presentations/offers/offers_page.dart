@@ -8,6 +8,7 @@ import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
+import 'package:taleb/routes/app_router.dart';
 
 import '../../offer_imports.dart';
 
@@ -19,15 +20,8 @@ class OffersPage extends StatefulWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<OffersCubit>(
-          create: (BuildContext context) => sl<OffersCubit>()..loadOffers(),
-        ),
-        BlocProvider<AdCubit>(
-          create: (BuildContext context) => sl<AdCubit>()..getAds(),
-        ),
-      ],
+    return BlocProvider<OffersCubit>(
+      create: (BuildContext context) => sl<OffersCubit>()..loadOffers(),
       child: this,
     );
   }
@@ -68,7 +62,8 @@ class _OffersPageState extends State<OffersPage> {
                   ),
                   HorizontalSpace(TalebSizes.w8),
                   FilterWidget(
-                    onTap: () {},
+                    onTap: () => context.router.push(FilterOfferRoute(
+                        offersCubit: context.read<OffersCubit>())),
                   ),
                 ],
               ),

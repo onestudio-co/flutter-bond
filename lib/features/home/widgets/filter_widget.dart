@@ -10,11 +10,11 @@ class FilterWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final Function() onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Container(
         height: TalebSizes.h47,

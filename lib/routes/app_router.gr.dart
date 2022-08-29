@@ -42,6 +42,15 @@ class _$AppRouter extends RootStackRouter {
           child:
               ServiceProviderOffersTabBarPage(user: args.user, key: args.key));
     },
+    FilterOfferRoute.name: (routeData) {
+      final args = routeData.argsAs<FilterOfferRouteArgs>();
+      return CustomPage<int>(
+          routeData: routeData,
+          child: FilterOfferPage(offersCubit: args.offersCubit, key: args.key),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -63,7 +72,7 @@ class _$AppRouter extends RootStackRouter {
               opportunity: args.opportunity, key: args.key));
     },
     SearchCityRoute.name: (routeData) {
-      return CustomPage<int>(
+      return CustomPage<City>(
           routeData: routeData,
           child: const SearchCityPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
@@ -71,9 +80,17 @@ class _$AppRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     SearchSearviceProviderRoute.name: (routeData) {
-      return CustomPage<int>(
+      return CustomPage<User>(
           routeData: routeData,
           child: const SearchSearviceProviderPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    ServiceProviderCategoriesRoute.name: (routeData) {
+      return CustomPage<ServiceProviderCategory>(
+          routeData: routeData,
+          child: const ServiceProviderCategoriesPage(),
           customRouteBuilder: RouterHelpers.modalSheetBuilder,
           opaque: true,
           barrierDismissible: false);
@@ -148,6 +165,7 @@ class _$AppRouter extends RootStackRouter {
                   path: 'service-provider-offers-offers-tab-page',
                   parent: ServiceProviderOffersTabBarRoute.name)
             ]),
+        RouteConfig(FilterOfferRoute.name, path: '/filter-offer-page'),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -156,6 +174,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
         RouteConfig(SearchSearviceProviderRoute.name,
             path: '/search-searvice-provider-page'),
+        RouteConfig(ServiceProviderCategoriesRoute.name,
+            path: '/service-provider-categories-page'),
         RouteConfig(FilterNewsRoute.name, path: '/filter-news-page'),
         RouteConfig(FilterOpportunityRoute.name,
             path: '/filter-opportunity-page')
@@ -235,6 +255,30 @@ class ServiceProviderOffersTabBarRouteArgs {
   @override
   String toString() {
     return 'ServiceProviderOffersTabBarRouteArgs{user: $user, key: $key}';
+  }
+}
+
+/// generated route for
+/// [FilterOfferPage]
+class FilterOfferRoute extends PageRouteInfo<FilterOfferRouteArgs> {
+  FilterOfferRoute({required OffersCubit offersCubit, Key? key})
+      : super(FilterOfferRoute.name,
+            path: '/filter-offer-page',
+            args: FilterOfferRouteArgs(offersCubit: offersCubit, key: key));
+
+  static const String name = 'FilterOfferRoute';
+}
+
+class FilterOfferRouteArgs {
+  const FilterOfferRouteArgs({required this.offersCubit, this.key});
+
+  final OffersCubit offersCubit;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FilterOfferRouteArgs{offersCubit: $offersCubit, key: $key}';
   }
 }
 
@@ -332,6 +376,16 @@ class SearchSearviceProviderRoute extends PageRouteInfo<void> {
             path: '/search-searvice-provider-page');
 
   static const String name = 'SearchSearviceProviderRoute';
+}
+
+/// generated route for
+/// [ServiceProviderCategoriesPage]
+class ServiceProviderCategoriesRoute extends PageRouteInfo<void> {
+  const ServiceProviderCategoriesRoute()
+      : super(ServiceProviderCategoriesRoute.name,
+            path: '/service-provider-categories-page');
+
+  static const String name = 'ServiceProviderCategoriesRoute';
 }
 
 /// generated route for

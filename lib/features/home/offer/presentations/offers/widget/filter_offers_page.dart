@@ -5,9 +5,12 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/routes/app_router.dart';
-import '../../../../widgets/row_selected_filter_widget.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
+import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
+import 'package:taleb/routes/app_router.dart';
+
+import '../../../../widgets/row_selected_filter_widget.dart';
 
 // ignore: must_be_immutable
 class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
@@ -27,72 +30,92 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
   }
 
   int? cityId;
-  int? userId;
+  // User? serviceProvider;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OffersCubit, OffersState>(
       builder: (BuildContext context, OffersState state) {
-        return Container(
-          height: TalebSizes.h375,
-          width: double.infinity,
-          color: TalebColors.ghostWhite,
-          child: Padding(
-            padding: EdgeInsets.all(TalebPadding.p16),
-            child: Column(
-              children: <Widget>[
-                Text('تصفية النتائج',
-                    style:
-                        Theme.of(context).textTheme.bodySmall?.darkJungleGreen),
-                VerticalSpace(TalebSizes.h20),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text('الرجاء أختيار معلومات التصفية',
+        if (state is OffersLoadSuccess) {
+          return Container(
+            height: TalebSizes.h375,
+            width: double.infinity,
+            color: TalebColors.ghostWhite,
+            child: Padding(
+              padding: EdgeInsets.all(TalebPadding.p16),
+              child: Column(
+                children: <Widget>[
+                  Text(TalebStrings.offerFilterTitle,
                       style: Theme.of(context)
                           .textTheme
-                          .labelMedium
+                          .bodySmall
                           ?.darkJungleGreen),
-                ),
-                VerticalSpace(TalebSizes.h8),
-                TalebContainer(
-                  child: Column(
-                    children: <Widget>[
-                      RowSelectedFilterWidget(
-                        title: 'الناشر',
-                        onTap: () async {
-                          userId = await context.router
-                              .push<int>(const SearchSearviceProviderRoute());
-                        },
-                      ),
-                      const TalebDivider(),
-                      RowSelectedFilterWidget(
-                          title: 'المدينة',
-                          onTap: () async {
-                            cityId = await context.router
-                                .push<int>(const SearchCityRoute());
-                          }),
-                    ],
+                  VerticalSpace(TalebSizes.h20),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(TalebStrings.offerFilterDescription,
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium
+                            ?.darkJungleGreen),
                   ),
-                ),
-                const Spacer(),
-                TalebButtonWidget(
-                  onPressed: () {
-                    context.read<OffersCubit>().loadOffers(
-                        cityId: cityId,
-                        serviceProviderId: userId,
-                        emitLoading: true);
-                    cityId = null;
-                    userId = null;
-                    context.router.pop();
-                  },
-                  title: 'حفظ',
-                ),
-                VerticalSpace(TalebSizes.h16),
-              ],
+                  VerticalSpace(TalebSizes.h8),
+                  TalebContainer(
+                    child: Column(
+                      children: <Widget>[
+                        RowSelectedFilterWidget(
+                          title: state.serviceProviderCategory?.name ??
+                              TalebStrings.offerFilterServiceProviderType,
+                          isSlected: state.serviceProviderCategory != null,
+                          onTap: () =>
+                              updateServiceProvider(context, offersCubit),
+                        ),
+                        const TalebDivider(),
+                        RowSelectedFilterWidget(
+                            title: TalebStrings.offerFilterCity,
+                            isSlected: state.city != null,
+                            onTap: () => updateCity(context, offersCubit)),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  TalebButtonWidget(
+                    enable: state.isSlectedNotNull,
+                    onPressed: () {
+                      context.read<OffersCubit>().loadOffers(
+                          cityId: cityId,
+                          // serviceProviderId: serviceProvider?.id,
+                          emitLoading: true);
+                      cityId = null;
+                      // serviceProvider = null;
+                      context.router.pop();
+                    },
+                    title: 'حفظ',
+                  ),
+                  VerticalSpace(TalebSizes.h16),
+                ],
+              ),
             ),
-          ),
-        );
+          );
+        } else {
+          return const SizedBox.shrink();
+        }
       },
     );
+  }
+
+  void updateServiceProvider(
+      BuildContext context, OffersCubit offersCubit) async {
+    final serviceProviderCategory = await context.router
+        .push<ServiceProviderCategory>(const ServiceProviderCategoriesRoute());
+
+    offersCubit.selectCategoryAndCity(
+        serviceProviderCategory: serviceProviderCategory);
+  }
+
+  void updateCity(BuildContext context, OffersCubit offersCubit) async {
+    final city = await context.router.push<City>(const SearchCityRoute());
+
+    offersCubit.selectCategoryAndCity(city: city);
   }
 }

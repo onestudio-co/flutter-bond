@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/auth/presentation/login_page.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/search_city_page.dart';
 import 'package:taleb/features/home/home_bottom_nav_bar/home_page.dart';
 import 'package:taleb/features/home/home_bottom_nav_bar/routes.dart';
@@ -14,6 +15,7 @@ import 'package:taleb/features/home/news/presentations/searvice_provider_news/se
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offer_details/offer_details_page.dart';
 import 'package:taleb/features/home/offer/presentations/offers/offers_page.dart';
+import 'package:taleb/features/home/offer/presentations/offers/widget/filter_offers_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/details_tab_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offer_service_provider_offers_tab_bar_page.dart';
 import 'package:taleb/features/home/offer/presentations/service_provider_offer/tabs/offers_tab_page.dart';
@@ -24,6 +26,8 @@ import 'package:taleb/features/home/opportunities/presentations/all_opportunitie
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/filter_opportunity_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
+import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
+import 'package:taleb/features/service_provider_category/presentations/service_provider_categories_page.dart';
 import 'package:taleb/routes/router_helpers.dart';
 
 import '../features/app/launch_page.dart';
@@ -34,7 +38,7 @@ part 'app_router.gr.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
-  preferRelativeImports: true,
+  preferRelativeImports: false,
   routes: <AutoRoute>[
     AutoRoute(page: LaunchPage, initial: true),
     ...authRoutes,
@@ -43,12 +47,16 @@ part 'app_router.gr.dart';
     AutoRoute(page: SearviceProviderNewsPage),
     AutoRoute(page: NewsDetailsPage),
     AutoRoute(page: OpportunityDetailsPage),
-    CustomRoute<int>(
+    CustomRoute<City>(
       page: SearchCityPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
-    CustomRoute<int>(
+    CustomRoute<User>(
       page: SearchSearviceProviderPage,
+      customRouteBuilder: RouterHelpers.modalSheetBuilder,
+    ),
+    CustomRoute<ServiceProviderCategory>(
+      page: ServiceProviderCategoriesPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
     CustomRoute(

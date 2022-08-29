@@ -14,7 +14,6 @@ class SimilarOffersCubit extends Cubit<SimilarOffersState> {
 
   void similarOffer(int offerId) async {
     emit(SimilarOffersLoading());
-   await Future.delayed(Duration(seconds: 3));
     final Either<Failure, ListResponse<Offer>> response =
         await _offerRepository.similarOffer(offerId);
     response.fold(

@@ -1,6 +1,8 @@
 part of 'offers_cubit.dart';
 
-abstract class OffersState extends Equatable {}
+abstract class OffersState extends Equatable {
+  const OffersState();
+}
 
 class OffersInitial extends OffersState {
   @override
@@ -13,7 +15,7 @@ class OffersLoading extends OffersState {
 }
 
 class OffersEmpty extends OffersState {
-  OffersEmpty();
+  const OffersEmpty();
 
   @override
   List<Object?> get props => [];
@@ -21,36 +23,60 @@ class OffersEmpty extends OffersState {
 
 class OffersLoadSuccess extends OffersState {
   final ListResponse<Offer> offer;
+  final ServiceProviderCategory? serviceProviderCategory;
+  final City? city;
 
-  OffersLoadSuccess({required this.offer});
+  const OffersLoadSuccess({
+    required this.offer,
+    this.serviceProviderCategory,
+    this.city,
+  });
+
+  ServiceProviderCategory? get selectedServiceProviderCategory =>
+      serviceProviderCategory;
+
+  City? get selectedCity => city;
+
+  bool get isSlectedNotNull =>
+      selectedServiceProviderCategory != null || selectedCity != null;
 
   bool get noMorePages => offer.links?.next == null;
 
   @override
-  List<Object?> get props => [offer];
+  List<Object?> get props => [offer, serviceProviderCategory, city];
 
   OffersLoadSuccess copyWith({
     ListResponse<Offer>? offer,
+    ServiceProviderCategory? serviceProviderCategory,
+    City? city,
   }) {
     return OffersLoadSuccess(
       offer: offer ?? this.offer,
+      serviceProviderCategory:
+          serviceProviderCategory ?? this.serviceProviderCategory,
+      city: city ?? this.city,
     );
   }
 }
 
 class OffersLoadMoreState extends OffersLoadSuccess {
-  OffersLoadMoreState({
+  const OffersLoadMoreState({
     required ListResponse<Offer> offer,
-  }) : super(offer: offer);
+    ServiceProviderCategory? serviceProviderCategory,
+    City? city,
+  }) : super(
+            offer: offer,
+            serviceProviderCategory: serviceProviderCategory,
+            city: city);
 
   @override
-  List<Object> get props => [offer];
+  List<Object?> get props => [offer, serviceProviderCategory, city];
 }
 
 class OffersLoadFailed extends OffersState {
   final String error;
 
-  OffersLoadFailed({required this.error});
+  const OffersLoadFailed({required this.error});
 
   @override
   List<Object?> get props => [error];

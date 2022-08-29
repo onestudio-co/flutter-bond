@@ -6,11 +6,13 @@ class RowSelectedFilterWidget extends StatelessWidget {
   const RowSelectedFilterWidget({
     required this.title,
     required this.onTap,
+    this.isSlected = false,
     Key? key,
   }) : super(key: key);
 
   final String title;
   final Function() onTap;
+  final bool isSlected;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,14 @@ class RowSelectedFilterWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: Theme.of(context).textTheme.labelLarge?.custome2,
+              style: isSlected
+                  ? Theme.of(context).textTheme.labelLarge?.elephant
+                  : Theme.of(context).textTheme.labelLarge?.custome2,
             ),
-            SvgPicture.asset(TalebIcons.downArrow, color: TalebColors.custome2),
+            SvgPicture.asset(
+              TalebIcons.downArrow,
+              color: isSlected ? TalebColors.elephant : TalebColors.custome2,
+            ),
           ],
         ),
       ),
