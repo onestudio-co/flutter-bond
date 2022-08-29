@@ -7,7 +7,7 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
-import 'package:taleb/features/home/main/last_offers/offers_slider.dart';
+import 'package:taleb/features/home/main/last_offers/last_offers_slider.dart';
 import 'package:taleb/main.dart';
 
 class MainPage extends StatelessWidget implements AutoRouteWrapper {

@@ -5,7 +5,7 @@ import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_string.dart';
 import 'package:taleb/core/widget/taleb_shimmer.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
-import 'package:taleb/features/home/main/last_offers/offers_item_slider.dart';
+import 'package:taleb/features/home/main/last_offers/last_offers_item_slider.dart';
 import 'package:taleb/features/home/main/widgets/header_slider.dart';
 import 'package:taleb/features/home/offer/data/models/offer.dart';
 import 'package:taleb/routes/app_router.dart';
