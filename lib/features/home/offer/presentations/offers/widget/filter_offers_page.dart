@@ -35,7 +35,6 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return BlocBuilder<OffersCubit, OffersState>(
       builder: (BuildContext context, OffersState state) {
-        state as OffersLoadSuccess;
         return Container(
           height: TalebSizes.h375,
           width: double.infinity,

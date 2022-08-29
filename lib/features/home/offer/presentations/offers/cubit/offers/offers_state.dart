@@ -1,6 +1,11 @@
 part of 'offers_cubit.dart';
 
-abstract class OffersState extends Equatable {}
+abstract class OffersState extends Equatable {
+  final User? user;
+  final City? city;
+
+  const OffersState({this.user, this.city});
+}
 
 class OffersInitial extends OffersState {
   @override
@@ -13,7 +18,7 @@ class OffersLoading extends OffersState {
 }
 
 class OffersEmpty extends OffersState {
-  OffersEmpty();
+  const OffersEmpty();
 
   @override
   List<Object?> get props => [];
@@ -21,14 +26,15 @@ class OffersEmpty extends OffersState {
 
 class OffersLoadSuccess extends OffersState {
   final ListResponse<Offer> offer;
-  final User? user;
-  final City? city;
 
-  OffersLoadSuccess({
+  const OffersLoadSuccess({
     required this.offer,
-    this.user,
-    this.city,
-  });
+    User? user,
+    City? city,
+  }) : super(
+          user: user,
+          city: city,
+        );
 
   User? get selectedUser => user;
 
