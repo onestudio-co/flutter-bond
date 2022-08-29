@@ -87,6 +87,14 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    ServiceProviderCategoriesRoute.name: (routeData) {
+      return CustomPage<ServiceProviderCategory>(
+          routeData: routeData,
+          child: const ServiceProviderCategoriesPage(),
+          customRouteBuilder: RouterHelpers.modalSheetBuilder,
+          opaque: true,
+          barrierDismissible: false);
+    },
     FilterNewsRoute.name: (routeData) {
       final args = routeData.argsAs<FilterNewsRouteArgs>();
       return CustomPage<dynamic>(
@@ -166,6 +174,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SearchCityRoute.name, path: '/search-city-page'),
         RouteConfig(SearchSearviceProviderRoute.name,
             path: '/search-searvice-provider-page'),
+        RouteConfig(ServiceProviderCategoriesRoute.name,
+            path: '/service-provider-categories-page'),
         RouteConfig(FilterNewsRoute.name, path: '/filter-news-page'),
         RouteConfig(FilterOpportunityRoute.name,
             path: '/filter-opportunity-page')
@@ -366,6 +376,16 @@ class SearchSearviceProviderRoute extends PageRouteInfo<void> {
             path: '/search-searvice-provider-page');
 
   static const String name = 'SearchSearviceProviderRoute';
+}
+
+/// generated route for
+/// [ServiceProviderCategoriesPage]
+class ServiceProviderCategoriesRoute extends PageRouteInfo<void> {
+  const ServiceProviderCategoriesRoute()
+      : super(ServiceProviderCategoriesRoute.name,
+            path: '/service-provider-categories-page');
+
+  static const String name = 'ServiceProviderCategoriesRoute';
 }
 
 /// generated route for

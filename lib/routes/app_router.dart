@@ -25,6 +25,8 @@ import 'package:taleb/features/home/opportunities/presentations/all_opportunitie
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/filter_opportunity_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
+import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
+import 'package:taleb/features/service_provider_category/presentations/service_provider_categories_page.dart';
 import 'package:taleb/routes/router_helpers.dart';
 
 import '../features/app/launch_page.dart';
@@ -50,6 +52,10 @@ part 'app_router.gr.dart';
     ),
     CustomRoute<User>(
       page: SearchSearviceProviderPage,
+      customRouteBuilder: RouterHelpers.modalSheetBuilder,
+    ),
+    CustomRoute<ServiceProviderCategory>(
+      page: ServiceProviderCategoriesPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
     CustomRoute(

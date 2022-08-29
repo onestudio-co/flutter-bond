@@ -5,8 +5,8 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
+import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
 import 'package:taleb/routes/app_router.dart';
 
 import '../../../../widgets/row_selected_filter_widget.dart';
@@ -60,9 +60,10 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                   child: Column(
                     children: <Widget>[
                       RowSelectedFilterWidget(
-                        title: state.user?.name ??
+                        title: state.serviceProviderCategory?.name ??
                             TalebStrings.offerFilterServiceProviderType,
-                        onTap: () => updateServiceProvider(context),
+                        onTap: () =>
+                            updateServiceProvider(context, offersCubit),
                       ),
                       const TalebDivider(),
                       RowSelectedFilterWidget(
@@ -96,10 +97,11 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  void updateServiceProvider(BuildContext context) async {
-    User? serviceProvider =
-        await context.router.push<User>(const SearchSearviceProviderRoute());
+  void updateServiceProvider(
+      BuildContext context, OffersCubit offersCubit) async {
+    ServiceProviderCategory? serviceProviderCategory = await context.router
+        .push<ServiceProviderCategory>(const ServiceProviderCategoriesRoute());
 
-    context.read<OffersCubit>().selectUser(user: serviceProvider);
+    offersCubit.selectUser(serviceProviderCategory: serviceProviderCategory);
   }
 }

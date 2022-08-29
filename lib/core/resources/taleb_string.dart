@@ -31,4 +31,7 @@ class TalebStrings {
   static String offerFilterServiceProviderType = 'نوع مزود الخدمة';
   static String offerFilterCity = 'المدينة';
 
+  /// [SearchPartner Page]
+  static String searchServiceProviderCategoryTitle= 'اختيار نوع مزود الخدمة';
+  static String searchServiceProviderCategoryHintTextField= 'أكتب نوع مزود الخدمة';
 }

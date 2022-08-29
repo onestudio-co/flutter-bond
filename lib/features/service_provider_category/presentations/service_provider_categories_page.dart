@@ -6,35 +6,32 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
+import 'package:taleb/features/service_provider_category/imports.dart';
 
-import 'service_provider_cubit/service_provider_cubit.dart';
-
-class SearchSearviceProviderPage extends StatefulWidget
+class ServiceProviderCategoriesPage extends StatefulWidget
     implements AutoRouteWrapper {
-  const SearchSearviceProviderPage({Key? key}) : super(key: key);
+  const ServiceProviderCategoriesPage({Key? key}) : super(key: key);
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<ServiceProviderCubit>(
+    return BlocProvider<ServiceProviderCategoryCubit>(
       create: (BuildContext context) =>
-          sl<ServiceProviderCubit>()..getServiceProviders(),
+          sl<ServiceProviderCategoryCubit>()..getServiceProviderCategorys(),
       child: this,
     );
   }
 
   @override
-  State<SearchSearviceProviderPage> createState() =>
-      _SearchSearviceProviderPageState();
+  State<ServiceProviderCategoriesPage> createState() =>
+      _ServiceProviderCategoriesPageState();
 }
 
-class _SearchSearviceProviderPageState
-    extends State<SearchSearviceProviderPage> {
+class _ServiceProviderCategoriesPageState
+    extends State<ServiceProviderCategoriesPage> {
   int? selectedIndex;
-  User? serviceProvider;
+  ServiceProviderCategory? serviceProviderCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +44,7 @@ class _SearchSearviceProviderPageState
             children: [
               VerticalSpace(TalebSizes.h24),
               Text(
-                'اختيار الناشر',
+                TalebStrings.searchServiceProviderCategoryTitle,
                 style: Theme.of(context).textTheme.labelMedium?.elephant,
               ),
               VerticalSpace(TalebSizes.h24),
@@ -55,21 +52,24 @@ class _SearchSearviceProviderPageState
                 width: double.infinity,
                 height: TalebSizes.h53,
                 child: SearchWidget(
-                  hintText: 'أكتب اسم الناشر',
+                  hintText:
+                      TalebStrings.searchServiceProviderCategoryHintTextField,
                   onChanged: _onChangeSearch,
                 ),
               ),
               VerticalSpace(TalebSizes.h12),
               Expanded(
-                child: BlocBuilder<ServiceProviderCubit, ServiceProviderState>(
-                  builder: (BuildContext context, ServiceProviderState state) {
-                    if (state is ServiceProviderLoadedSuccessState) {
+                child: BlocBuilder<ServiceProviderCategoryCubit,
+                    ServiceProviderCategoryState>(
+                  builder: (BuildContext context,
+                      ServiceProviderCategoryState state) {
+                    if (state is ServiceProviderCategoryLoadedSuccessState) {
                       return Column(
                         children: [
                           SizedBox(
                             height: TalebSizes.h500,
                             child: ListView.separated(
-                              itemCount: state.serviceProviders.length,
+                              itemCount: state.serviceProviderCategories.length,
                               separatorBuilder:
                                   (BuildContext context, int index) {
                                 return const TalebDivider(
@@ -82,15 +82,15 @@ class _SearchSearviceProviderPageState
                                   onTap: () {
                                     setState(() {
                                       selectedIndex = index;
-                                      serviceProvider =
-                                          state.serviceProviders[index];
+                                      serviceProviderCategory = state
+                                          .serviceProviderCategories[index];
                                     });
                                   },
                                   child: ItemListViewWidget(
-                                    name: state.serviceProviders[index].name,
+                                    name: state
+                                        .serviceProviderCategories[index].name,
                                     selectedIndex: selectedIndex ?? -1,
                                     index: index,
-                                    logo: state.serviceProviders[index].image,
                                   ),
                                 );
                               },
@@ -99,13 +99,14 @@ class _SearchSearviceProviderPageState
                           const Spacer(),
                           TalebButtonWidget(
                             onPressed: () async => await context.router
-                                .pop<User?>(serviceProvider),
+                                .pop<ServiceProviderCategory>(
+                                    serviceProviderCategory),
                             title: 'حفظ',
                           ),
                           VerticalSpace(TalebSizes.h16),
                         ],
                       );
-                    } else if (state is ServiceProviderLoadingState) {
+                    } else if (state is ServiceProviderCategoryLoadingState) {
                       return const Center(
                           child: TalebCircularProgressIndicator());
                     } else {
@@ -122,6 +123,8 @@ class _SearchSearviceProviderPageState
   }
 
   void _onChangeSearch(String value) {
-    context.read<ServiceProviderCubit>().getServiceProviders(textSearch: value);
+    context
+        .read<ServiceProviderCategoryCubit>()
+        .getServiceProviderCategorys(textSearch: value);
   }
 }

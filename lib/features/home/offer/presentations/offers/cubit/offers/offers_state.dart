@@ -1,10 +1,10 @@
 part of 'offers_cubit.dart';
 
 abstract class OffersState extends Equatable {
-  final User? user;
+  final ServiceProviderCategory? serviceProviderCategory;
   final City? city;
 
-  const OffersState({this.user, this.city});
+  const OffersState({this.serviceProviderCategory, this.city});
 }
 
 class OffersInitial extends OffersState {
@@ -29,14 +29,15 @@ class OffersLoadSuccess extends OffersState {
 
   const OffersLoadSuccess({
     required this.offer,
-    User? user,
+    ServiceProviderCategory? serviceProviderCategory,
     City? city,
   }) : super(
-          user: user,
+          serviceProviderCategory: serviceProviderCategory,
           city: city,
         );
 
-  User? get selectedUser => user;
+  ServiceProviderCategory? get selectedServiceProviderCategory =>
+      serviceProviderCategory;
 
   bool get noMorePages => offer.links?.next == null;
 
@@ -45,19 +46,20 @@ class OffersLoadSuccess extends OffersState {
 
   OffersLoadSuccess copyWith({
     ListResponse<Offer>? offer,
-    User? user,
+    ServiceProviderCategory? serviceProviderCategory,
     City? city,
   }) {
     return OffersLoadSuccess(
       offer: offer ?? this.offer,
-      user: user ?? this.user,
+      serviceProviderCategory:
+          serviceProviderCategory ?? this.serviceProviderCategory,
       city: city ?? this.city,
     );
   }
 }
 
 class OffersLoadMoreState extends OffersLoadSuccess {
-  OffersLoadMoreState({
+  const OffersLoadMoreState({
     required ListResponse<Offer> offer,
   }) : super(offer: offer);
 
@@ -68,7 +70,7 @@ class OffersLoadMoreState extends OffersLoadSuccess {
 class OffersLoadFailed extends OffersState {
   final String error;
 
-  OffersLoadFailed({required this.error});
+  const OffersLoadFailed({required this.error});
 
   @override
   List<Object?> get props => [error];
