@@ -9,11 +9,11 @@ class OfferRemoteDataSource extends DataSource {
   OfferRemoteDataSource(this._client);
 
   Future<ListResponse<Offer>> allOffers(
-      {String? nextUrl, int? cityId, int? serviceProviderId}) async {
+      {String? nextUrl, int? cityId, int? serviceProviderCategoryId}) async {
     final Response<dynamic> response = await _client.get(
       nextUrl ?? OfferApis.offers,
       queryParameters: <String, dynamic>{
-        'user_id': serviceProviderId,
+        'service_provider_category_id': serviceProviderCategoryId,
         'city_id': cityId,
       },
       headers: Api.headers(),

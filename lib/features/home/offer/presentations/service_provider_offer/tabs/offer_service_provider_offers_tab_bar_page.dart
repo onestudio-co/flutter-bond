@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_avatar_image.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
@@ -30,7 +31,6 @@ class ServiceProviderOffersTabBarPage extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
-      homeIndex: 1,
       routes: [
         ServiceProviderOffersDetailsTabRoute(user: user),
         ServiceProviderOffersOffersTabRoute(user: user),
