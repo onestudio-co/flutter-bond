@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_avatar_image.dart';
-import 'package:taleb/core/widget/taleb_shimmer.dart';
+import 'package:taleb/features/home/main/partners/partners_shimmer.dart';
 import 'package:taleb/features/home/main/widgets/header_slider.dart';
 import 'package:taleb/features/service_provider/presentations/partner_cubit/partner_cubit.dart';
 
@@ -55,12 +55,16 @@ class PartnerSlider extends StatelessWidget {
             ],
           );
         } else if (state is PartnerLoading) {
-          return TalebShimmer(
-            child: Container(
-              color: Colors.amber,
-              height: 200,
-              width: 200,
-            ),
+          return Column(
+            children: [
+              HeaderSlider(
+                title: TalebStrings.homeSliderPartners,
+                onTapSeeMore: () {},
+                isShowMore: false,
+              ),
+              VerticalSpace(TalebSizes.h16),
+              const PartnersShimmer(),
+            ],
           );
         } else {
           return const SizedBox.shrink();
