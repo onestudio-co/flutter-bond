@@ -150,15 +150,12 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(LaunchRoute.name, path: '/'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
-        RouteConfig(HomeRoute.name, path: '/home-page', children: [
-          RouteConfig(MainRoute.name,
-              path: 'main-page', parent: HomeRoute.name),
-          RouteConfig(NewsRoute.name,
-              path: 'news-page', parent: HomeRoute.name),
-          RouteConfig(OffersRoute.name,
-              path: 'offers-page', parent: HomeRoute.name),
+        RouteConfig(HomeRoute.name, path: 'home', children: [
+          RouteConfig(MainRoute.name, path: 'main', parent: HomeRoute.name),
+          RouteConfig(NewsRoute.name, path: 'news', parent: HomeRoute.name),
+          RouteConfig(OffersRoute.name, path: 'offers', parent: HomeRoute.name),
           RouteConfig(OpportunitiesRoute.name,
-              path: 'opportunities-page', parent: HomeRoute.name)
+              path: 'opportunities', parent: HomeRoute.name)
         ]),
         RouteConfig(OfferDetailsRoute.name, path: '/offer-details-page'),
         RouteConfig(ServiceProviderOffersTabBarRoute.name,
@@ -208,7 +205,7 @@ class LoginRoute extends PageRouteInfo<void> {
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
-      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
+      : super(HomeRoute.name, path: 'home', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
@@ -446,7 +443,7 @@ class FilterOpportunityRouteArgs {
 /// generated route for
 /// [MainPage]
 class MainRoute extends PageRouteInfo<void> {
-  const MainRoute() : super(MainRoute.name, path: 'main-page');
+  const MainRoute() : super(MainRoute.name, path: 'main');
 
   static const String name = 'MainRoute';
 }
@@ -454,7 +451,7 @@ class MainRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [NewsPage]
 class NewsRoute extends PageRouteInfo<void> {
-  const NewsRoute() : super(NewsRoute.name, path: 'news-page');
+  const NewsRoute() : super(NewsRoute.name, path: 'news');
 
   static const String name = 'NewsRoute';
 }
@@ -462,7 +459,7 @@ class NewsRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [OffersPage]
 class OffersRoute extends PageRouteInfo<void> {
-  const OffersRoute() : super(OffersRoute.name, path: 'offers-page');
+  const OffersRoute() : super(OffersRoute.name, path: 'offers');
 
   static const String name = 'OffersRoute';
 }
@@ -471,7 +468,7 @@ class OffersRoute extends PageRouteInfo<void> {
 /// [OpportunitiesPage]
 class OpportunitiesRoute extends PageRouteInfo<void> {
   const OpportunitiesRoute()
-      : super(OpportunitiesRoute.name, path: 'opportunities-page');
+      : super(OpportunitiesRoute.name, path: 'opportunities');
 
   static const String name = 'OpportunitiesRoute';
 }

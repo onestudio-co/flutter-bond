@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_shimmer.dart';
 import 'package:taleb/features/home/main/last_opportunities/cubit/last_opportunities_cubit.dart';
@@ -18,7 +20,7 @@ class LastOpportunitiesSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastOpportunities,
-                onTapSeeMore: () {},
+                onTapSeeMore: () => _onTapSeeMore(context),
               ),
               VerticalSpace(TalebSizes.h12),
               SizedBox(
@@ -52,4 +54,9 @@ class LastOpportunitiesSlider extends StatelessWidget {
       },
     );
   }
+
+  void _onTapSeeMore(BuildContext context) =>
+      context.router.pushNamed('home/opportunities', onFailure: ((failure) {
+        logger.i(failure);
+      }));
 }

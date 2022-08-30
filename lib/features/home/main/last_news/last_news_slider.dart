@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_string.dart';
@@ -20,7 +22,7 @@ class LastNewsSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastNews,
-                onTapSeeMore: () {},
+                onTapSeeMore: () => _onTapSeeMore(context),
               ),
               VerticalSpace(TalebSizes.h12),
               SizedBox(
@@ -58,4 +60,9 @@ class LastNewsSlider extends StatelessWidget {
       },
     );
   }
+
+  void _onTapSeeMore(BuildContext context) =>
+      context.router.pushNamed('home/news', onFailure: ((failure) {
+        logger.i(failure);
+      }));
 }

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_string.dart';
 import 'package:taleb/core/widget/taleb_shimmer.dart';
@@ -22,7 +23,7 @@ class LastOfferSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastOffers,
-                onTapSeeMore: () {},
+                onTapSeeMore: () => _onTapSeeMore(context),
               ),
               SizedBox(
                 height: TalebSizes.h378,
@@ -65,4 +66,9 @@ class LastOfferSlider extends StatelessWidget {
 
   Future<Object?> _goToOfferDetailsPage(BuildContext context, Offer offer) =>
       context.router.push(OfferDetailsRoute(offer: offer));
+
+  void _onTapSeeMore(BuildContext context) =>
+      context.router.pushNamed('home/offers', onFailure: ((failure) {
+        logger.i(failure);
+      }));
 }
