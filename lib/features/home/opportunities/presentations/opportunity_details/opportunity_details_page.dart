@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
@@ -41,9 +39,7 @@ class OpportunityDetailsPage extends StatelessWidget
           child: Column(
             children: [
               TalebSliderImagesWidget(
-                index: opportunity.id,
-                images: opportunity.medias.map((e) => e.originalUrl).toList(),
-              ),
+                  index: opportunity.id, images: opportunity.mediaImages),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                 child: Column(

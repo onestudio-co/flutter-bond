@@ -18,9 +18,9 @@ Opportunity _$OpportunityFromJson(Map<String, dynamic> json) => Opportunity(
       opportunityCategotyId: json['opportunity_category_id'] as int,
       opportunityCategory: OpportunityCategory.fromJson(
           json['opportunity_category'] as Map<String, dynamic>),
-      medias: (json['media'] as List<dynamic>)
-          .map((e) => Media.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      medias: (json['media'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, Media.fromJson(e as Map<String, dynamic>)),
+      ),
       createdAt: json['created_at'] as String,
     );
 
@@ -36,6 +36,6 @@ Map<String, dynamic> _$OpportunityToJson(Opportunity instance) =>
       'title': instance.title,
       'content': instance.content,
       'image': instance.image,
-      'media': instance.medias.map((e) => e.toJson()).toList(),
+      'media': instance.medias.map((k, e) => MapEntry(k, e.toJson())),
       'created_at': instance.createdAt,
     };
