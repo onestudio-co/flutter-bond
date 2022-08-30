@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
@@ -18,7 +19,8 @@ class LastOpportunitiesSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastOpportunities,
-                onTapSeeMore: () {},
+                onTapSeeMore: () =>
+                    context.router.pushNamed('home/opportunities'),
               ),
               VerticalSpace(TalebSizes.h12),
               SizedBox(
