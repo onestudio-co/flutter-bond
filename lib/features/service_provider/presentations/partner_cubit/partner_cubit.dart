@@ -15,13 +15,13 @@ class PartnerCubit extends Cubit<PartnerState> {
   void getPartners({String? textSearch}) async {
     emit(PartnerLoading());
 
-    final Either<Failure, ListResponse<User>> response =
-        await _repository.getPartners(textSearch: textSearch);
-    response.fold(
-      (Failure failure) => emit(PartnerLoadFailure(failure.toMessage())),
-      (ListResponse<User> response) {
-        emit(PartnerLoadedSuccess(response.data));
-      },
-    );
+    // final Either<Failure, ListResponse<User>> response =
+    //     await _repository.getPartners(textSearch: textSearch);
+    // response.fold(
+    //   (Failure failure) => emit(PartnerLoadFailure(failure.toMessage())),
+    //   (ListResponse<User> response) {
+    //     emit(PartnerLoadedSuccess(response.data));
+    //   },
+    // );
   }
 }
