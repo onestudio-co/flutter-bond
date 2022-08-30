@@ -24,7 +24,7 @@ class ServiceProvidersSlider extends StatelessWidget {
             onTap: () => context.router.push(ServiceProviderOffersTabBarRoute(
                 user: User(id: 22, name: 'mohamed', image: url))),
             child: Container(
-              width: TalebSizes.w96,
+              width: TalebSizes.w100,
               margin: EdgeInsets.only(left: TalebPadding.p8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
