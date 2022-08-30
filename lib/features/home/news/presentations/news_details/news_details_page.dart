@@ -54,7 +54,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
               VerticalSpace(TalebSizes.h16),
               TalebSliderImagesWidget(
                 index: news.id,
-                image: news.image,
+                images: [news.image, news.image, news.image],
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
