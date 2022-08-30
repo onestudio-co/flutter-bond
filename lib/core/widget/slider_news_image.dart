@@ -5,15 +5,21 @@ import 'package:taleb/core/widget/taleb_image.dart';
 
 class TalebSliderImagesWidget extends StatelessWidget {
   const TalebSliderImagesWidget({
-    required this.image,
+    required this.images,
     required this.index,
+    this.height,
     this.padding,
     Key? key,
+    this.indicatorColor = TalebColors.blueRegular,
+    this.indicatorBackgroundColor = TalebColors.white,
   }) : super(key: key);
 
-  final String image;
+  final List<String> images;
   final int index;
   final EdgeInsets? padding;
+  final double? height;
+  final Color? indicatorColor;
+  final Color? indicatorBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,29 +28,18 @@ class TalebSliderImagesWidget extends StatelessWidget {
       child: Container(
         padding: padding,
         child: ImageSlideshow(
-          height: TalebSizes.h285,
+          height: height ?? TalebSizes.h285,
           initialPage: 0,
-          indicatorColor: Colors.transparent,
-          indicatorBackgroundColor: TalebColors.greyRegular,
-          // autoPlayInterval: 3000,
+          indicatorColor: indicatorColor,
+          indicatorBackgroundColor: indicatorBackgroundColor,
+          autoPlayInterval: 3000,
           isLoop: false,
-          children: [
-            TalebImageWidget(
+          children: images.map((image) {
+            return TalebImageWidget(
               image: image,
               margin: EdgeInsets.symmetric(horizontal: TalebSizes.w8),
-              height: TalebSizes.h290,
-            ),
-            TalebImageWidget(
-              image: image,
-              margin: EdgeInsets.symmetric(horizontal: TalebSizes.w8),
-              height: TalebSizes.h290,
-            ),
-            TalebImageWidget(
-              image: image,
-              margin: EdgeInsets.symmetric(horizontal: TalebSizes.w8),
-              height: TalebSizes.h290,
-            ),
-          ],
+            );
+          }).toList(),
         ),
       ),
     );

@@ -52,7 +52,11 @@ class OpportunityDetailsPage extends StatelessWidget
             children: [
               TalebSliderImagesWidget(
                 index: opportunity.id,
-                image: opportunity.image,
+                images: [
+                  opportunity.image,
+                  opportunity.image,
+                  opportunity.image
+                ],
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),

@@ -59,7 +59,8 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
             TalebSliderImagesWidget(
               padding: EdgeInsets.symmetric(horizontal: TalebPadding.p8),
               index: 1,
-              image: url,
+              images: [url, url, url],
+              height: TalebSizes.h257,
             ),
             VerticalSpace(TalebSizes.h44),
             const LastOfferSlider(),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
@@ -62,7 +61,7 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                         children: [
                           TalebSliderImagesWidget(
                             index: offer.id,
-                            image: offer.image,
+                            images: [offer.image, offer.image, offer.image],
                           ),
                           Align(
                             alignment: Alignment.bottomRight,
