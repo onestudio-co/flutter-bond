@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/taleb_size_box.dart';
@@ -20,7 +21,7 @@ class LastNewsSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastNews,
-                onTapSeeMore: () {},
+                onTapSeeMore: () => context.router.pushNamed('home/news'),
               ),
               VerticalSpace(TalebSizes.h12),
               SizedBox(
