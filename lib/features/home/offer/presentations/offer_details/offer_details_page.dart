@@ -61,7 +61,8 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                         children: [
                           TalebSliderImagesWidget(
                             index: offer.id,
-                            images: [offer.image, offer.image, offer.image],
+                            images:
+                                offer.medias.map((e) => e.originalUrl).toList(),
                           ),
                           Align(
                             alignment: Alignment.bottomRight,
