@@ -11,6 +11,7 @@ import 'package:taleb/features/home/news/presentations/news_details/widget/news_
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/cubit/similer_opportunity_cubit.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_opp.dart';
+import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 
 class OpportunityDetailsPage extends StatelessWidget
     implements AutoRouteWrapper {
@@ -33,18 +34,7 @@ class OpportunityDetailsPage extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.favorite),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.share),
-          ),
-        ],
-      ),
+      appBar: const TalebAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
@@ -52,11 +42,7 @@ class OpportunityDetailsPage extends StatelessWidget
             children: [
               TalebSliderImagesWidget(
                 index: opportunity.id,
-                images: [
-                  opportunity.image,
-                  opportunity.image,
-                  opportunity.image
-                ],
+                images: opportunity.medias.map((e) => e.originalUrl).toList(),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),

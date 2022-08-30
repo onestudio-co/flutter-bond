@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
+import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
 
 part 'opportunity.g.dart';
@@ -20,10 +21,9 @@ class Opportunity extends Model {
   final City city;
   final String title;
   final String content;
-  @JsonKey(
-      defaultValue:
-          'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
   final String image;
+  @JsonKey(name: 'media')
+  final List<Media> medias;
   @JsonKey(name: 'created_at')
   final String createdAt;
 
@@ -38,6 +38,7 @@ class Opportunity extends Model {
     required this.image,
     required this.opportunityCategotyId,
     required this.opportunityCategory,
+    required this.medias,
     required this.createdAt,
   }) : super(id: id);
 
