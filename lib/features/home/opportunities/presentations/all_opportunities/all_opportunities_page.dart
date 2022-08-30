@@ -4,7 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
@@ -79,6 +78,8 @@ class OpportunitiesPage extends StatelessWidget {
 
   void _onTapFilter(BuildContext context, OpportunityCubit cubit) async {
     final city = await context.router.push<City>(const SearchCityRoute());
-    cubit.loadOppertunitiesForSpecificCity(cityId: city?.id);
+    if (city != null) {
+      cubit.loadOppertunitiesForSpecificCity(cityId: city.id);
+    }
   }
 }

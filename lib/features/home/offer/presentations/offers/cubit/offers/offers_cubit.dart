@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';

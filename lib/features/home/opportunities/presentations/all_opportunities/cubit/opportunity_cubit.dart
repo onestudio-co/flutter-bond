@@ -31,7 +31,7 @@ class OpportunityCubit extends Cubit<OpportunityState> {
   }
 
   Future<void> loadOppertunitiesForSpecificCity(
-      {int? cityId = 1, bool emitLoading = false}) async {
+      {int cityId = 1, bool emitLoading = false}) async {
     // if (emitLoading) {
     emit(OpportunityLoading());
     // }
@@ -41,7 +41,7 @@ class OpportunityCubit extends Cubit<OpportunityState> {
         currentState: state as OpportunityLoadSuccess,
       );
     } else {
-      await _loadOppertunitiesForSpecificCity(cityId: cityId!);
+      await _loadOppertunitiesForSpecificCity(cityId: cityId);
     }
   }
 

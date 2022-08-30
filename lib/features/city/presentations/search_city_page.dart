@@ -92,6 +92,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
                           TalebButtonWidget(
                             onPressed: () => context.router.pop<City?>(city),
                             title: TalebStrings.saveButton,
+                            enable: selectedIndex != null,
                           ),
                           VerticalSpace(TalebSizes.h16),
                         ],
@@ -114,5 +115,8 @@ class _SearchCityPageState extends State<SearchCityPage> {
 
   void _onChangeSearch(String value) {
     context.read<CityCubit>().getCitys(textSearch: value);
+    setState(() {
+      selectedIndex = null;
+    });
   }
 }
