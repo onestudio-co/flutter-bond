@@ -41,7 +41,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
             children: [
               VerticalSpace(TalebSizes.h24),
               Text(
-                'اختيار المدينة',
+                TalebStrings.searchCitytitle,
                 style: Theme.of(context).textTheme.labelMedium?.elephant,
               ),
               VerticalSpace(TalebSizes.h24),
@@ -49,7 +49,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
                 width: double.infinity,
                 height: TalebSizes.h53,
                 child: SearchWidget(
-                  hintText: 'أكتب اسم المدينة',
+                  hintText: TalebStrings.searchCityTextFieldHint,
                   onChanged: _onChangeSearch,
                 ),
               ),
@@ -91,7 +91,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
                           const Spacer(),
                           TalebButtonWidget(
                             onPressed: () => context.router.pop<City?>(city),
-                            title: 'حفظ',
+                            title: TalebStrings.saveButton,
                           ),
                           VerticalSpace(TalebSizes.h16),
                         ],

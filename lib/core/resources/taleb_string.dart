@@ -53,4 +53,8 @@ class TalebStrings {
   static String homeSliderLastNews = 'آخر الأخبار';
   static String homeSliderLastOpportunities = 'آخر الفرص';
   static String homeSliderPartners = 'شركاؤنا';
+
+  ///[SearchCityPage]
+  static String searchCitytitle = 'اختيار المدينة';
+  static String searchCityTextFieldHint =  'أكتب اسم المدينة';
 }
