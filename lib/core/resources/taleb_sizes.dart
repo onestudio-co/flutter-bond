@@ -111,7 +111,7 @@ class TalebSizes {
   static double w80 = SizeUtil.setWidth(80.0);
   static double w86 = SizeUtil.setWidth(86.0);
   static double w90 = SizeUtil.setWidth(90.0);
-  static double w96 = SizeUtil.setWidth(100.0);
+  static double w100 = SizeUtil.setWidth(100.0);
   static double w120 = SizeUtil.setWidth(120.0);
   static double w133 = SizeUtil.setWidth(133.0);
   static double w145 = SizeUtil.setWidth(145.0);

@@ -31,7 +31,7 @@ class PartnerSlider extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final partnert = state.serviceProviders[index];
                     return SizedBox(
-                      width: TalebSizes.w96,
+                      width: TalebSizes.w100,
                       child: Column(
                         children: [
                           TalebAvatarImage(
