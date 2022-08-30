@@ -60,6 +60,7 @@ class _NewsPageState extends State<NewsPage> {
         return Scaffold(
           appBar: TalebAppBar(
             title: TalebStrings.newsHomeTitleAppbar,
+            showBack: false,
           ),
           body: GestureDetector(
             onTap: _scrollToTop,

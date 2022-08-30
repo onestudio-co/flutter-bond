@@ -6,6 +6,9 @@ class TalebStrings {
   static String saveButton = 'حفظ';
   static String clearButton = 'مسح';
   static String seeMore = 'شاهد المزيد';
+  static String notFoundDataTitle = 'لم يتم العثور على نتائج';
+  static String notFoundDataDescription =
+      'حاول البحث عن شيء أكثر عمومية ، أو تحقق من الأخطاء الإملائية';
 
   /// [News Page]
   static String newsHomeTitleAppbar = LocaleKeys.homeTitle.tr();
@@ -17,6 +20,10 @@ class TalebStrings {
       LocaleKeys.offer_offers_page_appbar_title.tr();
   static String offersPageHintSearchTextField =
       LocaleKeys.offer_offers_page_hint_search_text_field.tr();
+
+  /// [Opportunities Page]
+  static String opportunitiesPageAppbarTitle = 'الفرص';
+  static String opportunitiesPageHintTextField = 'ابحث في الفرص';
 
   /// [Home BottomNavBar]
   static String bottomNavBarHome = LocaleKeys.home_bottom_nav_bar_home.tr();

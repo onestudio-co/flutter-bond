@@ -38,8 +38,9 @@ class OpportunitiesPage extends StatelessWidget {
                 : null;
           },
           child: Scaffold(
-            appBar: const TalebAppBar(
-              title: 'الفرص',
+            appBar: TalebAppBar(
+              title: TalebStrings.opportunitiesPageAppbarTitle,
+              showBack: false,
             ),
             body: Column(
               children: <Widget>[
@@ -50,7 +51,7 @@ class OpportunitiesPage extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: SearchWidget(
-                          hintText: 'ابحث في الفرص',
+                          hintText:TalebStrings.opportunitiesPageHintTextField,
                           onChanged: context
                               .read<OpportunityCubit>()
                               .searchOpportnities,
