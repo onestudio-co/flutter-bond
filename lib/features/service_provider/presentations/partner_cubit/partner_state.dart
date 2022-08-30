@@ -4,20 +4,20 @@ abstract class PartnerState extends Equatable {
   const PartnerState();
 }
 
-class PartnerInitialState extends PartnerState {
+class PartnerInitial extends PartnerState {
   @override
   List<Object> get props => [];
 }
 
-class PartnerLoadingState extends PartnerState {
+class PartnerLoading extends PartnerState {
   @override
   List<Object> get props => [];
 }
 
-class PartnerLoadedSuccessState extends PartnerState {
+class PartnerLoadedSuccess extends PartnerState {
   final List<User> serviceProviders;
 
-  const PartnerLoadedSuccessState(this.serviceProviders);
+  const PartnerLoadedSuccess(this.serviceProviders);
   @override
   List<Object> get props => [serviceProviders];
 }
