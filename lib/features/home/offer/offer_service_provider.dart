@@ -3,6 +3,7 @@ import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
+import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/offer/data/models/currency.dart';
 import 'package:taleb/integrations/algolia.dart';
 import 'offer_imports.dart';
@@ -31,6 +32,8 @@ class OfferServiceProvider extends ServiceProvider {
         return User.fromJson(json) as T;
       case Currency:
         return Currency.fromJson(json) as T;
+      case Media:
+        return Media.fromJson(json) as T;
       default:
         return null;
     }

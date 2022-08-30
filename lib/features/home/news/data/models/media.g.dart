@@ -13,7 +13,7 @@ Media _$MediaFromJson(Map<String, dynamic> json) => Media(
       uuid: json['uuid'] as String?,
       previewUrl: json['preview_url'] as String?,
       order: json['order'] as int?,
-      customProperties: json['custom_properties'] as String?,
+      customProperties: json['custom_properties'] as List<dynamic>?,
       extension: json['extension'] as String?,
       size: json['size'] as int?,
     );

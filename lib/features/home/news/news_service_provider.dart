@@ -3,6 +3,7 @@ import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/main/last_news/cubit/last_news_cubit.dart';
+import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/news/data/services/algolia_news_service.dart';
 import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit.dart';
 import 'package:taleb/features/home/news/presentations/news_details/cubit/similer_cubit.dart';
@@ -35,6 +36,8 @@ class NewsServiceProvider extends ServiceProvider {
         return City.fromJson(json) as T;
       case User:
         return User.fromJson(json) as T;
+      case Media:
+        return Media.fromJson(json) as T;
       default:
         return null;
     }

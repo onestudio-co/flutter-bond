@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/main/last_opportunities/cubit/last_opportunities_cubit.dart';
+import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/opportunities/data/data_source/opportunity_remote_data_source.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
@@ -34,6 +35,8 @@ class OpportunityServiceProvider extends ServiceProvider {
         return City.fromJson(json) as T;
       case OpportunityCategory:
         return OpportunityCategory.fromJson(json) as T;
+      case Media:
+        return Media.fromJson(json) as T;
       default:
         return null;
     }

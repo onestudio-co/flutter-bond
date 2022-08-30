@@ -16,7 +16,7 @@ class Media extends Equatable with Jsonable {
   final String originalUrl;
   final int? order;
   @JsonKey(name: 'custom_properties')
-  final String? customProperties;
+  final List? customProperties;
   final String? extension;
   final int? size;
 

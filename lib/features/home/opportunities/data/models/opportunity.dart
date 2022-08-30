@@ -23,7 +23,7 @@ class Opportunity extends Model {
   final String content;
   final String image;
   @JsonKey(name: 'media')
-  final List<Media> medias;
+  final Map<String, Media> medias;
   @JsonKey(name: 'created_at')
   final String createdAt;
 
@@ -41,6 +41,9 @@ class Opportunity extends Model {
     required this.medias,
     required this.createdAt,
   }) : super(id: id);
+
+  List<String> get mediaImages =>
+      medias.values.map((e) => e.originalUrl).toList();
 
   factory Opportunity.fromJson(Map<String, dynamic> json) =>
       _$OpportunityFromJson(json);
