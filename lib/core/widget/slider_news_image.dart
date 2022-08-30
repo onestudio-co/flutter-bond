@@ -4,6 +4,13 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
 
 class TalebSliderImagesWidget extends StatelessWidget {
+  final List<String> images;
+  final int index;
+  final EdgeInsets? padding;
+  final double? height;
+  final Color? indicatorColor;
+  final Color? indicatorBackgroundColor;
+
   const TalebSliderImagesWidget({
     required this.images,
     required this.index,
@@ -13,13 +20,6 @@ class TalebSliderImagesWidget extends StatelessWidget {
     this.indicatorColor = TalebColors.blueRegular,
     this.indicatorBackgroundColor = TalebColors.white,
   }) : super(key: key);
-
-  final List<String> images;
-  final int index;
-  final EdgeInsets? padding;
-  final double? height;
-  final Color? indicatorColor;
-  final Color? indicatorBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class TalebSliderImagesWidget extends StatelessWidget {
           indicatorColor: indicatorColor,
           indicatorBackgroundColor: indicatorBackgroundColor,
           autoPlayInterval: 3000,
-          isLoop: false,
+          isLoop: true,
           children: images.map((image) {
             return TalebImageWidget(
               image: image,

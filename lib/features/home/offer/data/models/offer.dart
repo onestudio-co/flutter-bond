@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
+import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/offer/data/models/currency.dart';
 
 part 'offer.g.dart';
@@ -16,12 +17,13 @@ class Offer extends Model {
   final City city;
   final String title;
   final String content;
-  @JsonKey(
-      defaultValue:
-          'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
   final String image;
   final double price;
   final Currency currency;
+  @JsonKey(name: 'contact_number')
+  final String contactNumber;
+  @JsonKey(name: 'media')
+  final List<Media> medias;
   @JsonKey(name: 'created_at')
   final String? createdAt;
   @JsonKey(name: 'updated_at')
@@ -38,6 +40,8 @@ class Offer extends Model {
     required this.image,
     required this.price,
     required this.currency,
+    required this.contactNumber,
+    required this.medias,
     required this.createdAt,
     required this.updatedAt,
   }) : super(id: id);

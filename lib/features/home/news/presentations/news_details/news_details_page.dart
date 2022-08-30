@@ -8,6 +8,7 @@ import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/widgets/slide_similers/main_widget_news.dart';
+import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 
 import 'cubit/similer_cubit.dart';
 import 'widget/news_date_and_searvice_provider.dart';
@@ -32,18 +33,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.favorite),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(TalebIcons.share),
-          ),
-        ],
-      ),
+      appBar: const TalebAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: TalebSizes.h12),
@@ -54,7 +44,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
               VerticalSpace(TalebSizes.h16),
               TalebSliderImagesWidget(
                 index: news.id,
-                images: [news.image, news.image, news.image],
+                images: news.medias.map((e) => e.originalUrl).toList(),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),

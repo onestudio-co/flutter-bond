@@ -14,11 +14,13 @@ Opportunity _$OpportunityFromJson(Map<String, dynamic> json) => Opportunity(
       content: json['content'] as String,
       cityId: json['city_id'] as int,
       city: City.fromJson(json['city'] as Map<String, dynamic>),
-      image: json['image'] as String? ??
-          'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      image: json['image'] as String,
       opportunityCategotyId: json['opportunity_category_id'] as int,
       opportunityCategory: OpportunityCategory.fromJson(
           json['opportunity_category'] as Map<String, dynamic>),
+      medias: (json['media'] as List<dynamic>)
+          .map((e) => Media.fromJson(e as Map<String, dynamic>))
+          .toList(),
       createdAt: json['created_at'] as String,
     );
 
@@ -34,5 +36,6 @@ Map<String, dynamic> _$OpportunityToJson(Opportunity instance) =>
       'title': instance.title,
       'content': instance.content,
       'image': instance.image,
+      'media': instance.medias.map((e) => e.toJson()).toList(),
       'created_at': instance.createdAt,
     };
