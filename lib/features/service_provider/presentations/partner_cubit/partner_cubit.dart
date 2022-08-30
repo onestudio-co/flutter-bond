@@ -10,19 +10,17 @@ part 'partner_state.dart';
 class PartnerCubit extends Cubit<PartnerState> {
   final ServiceProviderRepository _repository;
 
-  PartnerCubit(this._repository)
-      : super(PartnerInitialState());
+  PartnerCubit(this._repository) : super(PartnerInitial());
 
   void getPartners({String? textSearch}) async {
-    emit(PartnerLoadingState());
+    emit(PartnerLoading());
 
     final Either<Failure, ListResponse<User>> response =
         await _repository.getPartners(textSearch: textSearch);
     response.fold(
-      (Failure failure) =>
-          emit(PartnerLoadFailure(failure.toMessage())),
+      (Failure failure) => emit(PartnerLoadFailure(failure.toMessage())),
       (ListResponse<User> response) {
-        emit(PartnerLoadedSuccessState(response.data));
+        emit(PartnerLoadedSuccess(response.data));
       },
     );
   }
