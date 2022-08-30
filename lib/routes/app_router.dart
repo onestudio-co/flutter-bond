@@ -24,7 +24,6 @@ import 'package:taleb/features/home/offer/routes.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/all_opportunities_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
-import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/filter_opportunity_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
@@ -62,10 +61,6 @@ part 'app_router.gr.dart';
     ),
     CustomRoute(
       page: FilterNewsPage,
-      customRouteBuilder: RouterHelpers.modalSheetBuilder,
-    ),
-    CustomRoute(
-      page: FilterOpportunityPage,
       customRouteBuilder: RouterHelpers.modalSheetBuilder,
     ),
   ],

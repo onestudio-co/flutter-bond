@@ -104,16 +104,6 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    FilterOpportunityRoute.name: (routeData) {
-      final args = routeData.argsAs<FilterOpportunityRouteArgs>();
-      return CustomPage<dynamic>(
-          routeData: routeData,
-          child: FilterOpportunityPage(
-              opportunityCubit: args.opportunityCubit, key: args.key),
-          customRouteBuilder: RouterHelpers.modalSheetBuilder,
-          opaque: true,
-          barrierDismissible: false);
-    },
     MainRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const MainPage());
@@ -179,9 +169,7 @@ class _$AppRouter extends RootStackRouter {
             path: '/search-searvice-provider-page'),
         RouteConfig(ServiceProviderCategoriesRoute.name,
             path: '/service-provider-categories-page'),
-        RouteConfig(FilterNewsRoute.name, path: '/filter-news-page'),
-        RouteConfig(FilterOpportunityRoute.name,
-            path: '/filter-opportunity-page')
+        RouteConfig(FilterNewsRoute.name, path: '/filter-news-page')
       ];
 }
 
@@ -412,31 +400,6 @@ class FilterNewsRouteArgs {
   @override
   String toString() {
     return 'FilterNewsRouteArgs{newsCubit: $newsCubit, key: $key}';
-  }
-}
-
-/// generated route for
-/// [FilterOpportunityPage]
-class FilterOpportunityRoute extends PageRouteInfo<FilterOpportunityRouteArgs> {
-  FilterOpportunityRoute({required OpportunityCubit opportunityCubit, Key? key})
-      : super(FilterOpportunityRoute.name,
-            path: '/filter-opportunity-page',
-            args: FilterOpportunityRouteArgs(
-                opportunityCubit: opportunityCubit, key: key));
-
-  static const String name = 'FilterOpportunityRoute';
-}
-
-class FilterOpportunityRouteArgs {
-  const FilterOpportunityRouteArgs({required this.opportunityCubit, this.key});
-
-  final OpportunityCubit opportunityCubit;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'FilterOpportunityRouteArgs{opportunityCubit: $opportunityCubit, key: $key}';
   }
 }
 

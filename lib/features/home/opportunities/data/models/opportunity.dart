@@ -4,6 +4,7 @@ import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
+import 'package:taleb/main.dart';
 
 part 'opportunity.g.dart';
 
@@ -22,10 +23,10 @@ class Opportunity extends Model {
   final String title;
   final String content;
   final String image;
-  @JsonKey(name: 'media')
-  final Map<String, Media> medias;
+  // @JsonKey(name: 'media')
+  // final Map<String, Media> medias;
   @JsonKey(name: 'created_at')
-  final String createdAt;
+  final String? createdAt;
 
   const Opportunity({
     required int id,
@@ -38,12 +39,12 @@ class Opportunity extends Model {
     required this.image,
     required this.opportunityCategotyId,
     required this.opportunityCategory,
-    required this.medias,
+    // required this.medias,
     required this.createdAt,
   }) : super(id: id);
 
-  List<String> get mediaImages =>
-      medias.values.map((e) => e.originalUrl).toList();
+  List<String> get mediaImages => [url,url,url,];
+  // medias.values.map((e) => e.originalUrl).toList();
 
   factory Opportunity.fromJson(Map<String, dynamic> json) =>
       _$OpportunityFromJson(json);
