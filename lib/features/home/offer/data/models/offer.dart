@@ -23,7 +23,7 @@ class Offer extends Model {
   @JsonKey(name: 'contact_number')
   final String contactNumber;
   @JsonKey(name: 'media')
-  final List<Media> medias;
+  final Map<String, Media> medias;
   @JsonKey(name: 'created_at')
   final String? createdAt;
   @JsonKey(name: 'updated_at')
@@ -45,6 +45,9 @@ class Offer extends Model {
     required this.createdAt,
     required this.updatedAt,
   }) : super(id: id);
+
+  List<String> get mediaImages =>
+      medias.values.map((e) => e.originalUrl).toList();
 
   factory Offer.fromJson(Map<String, dynamic> json) => _$OfferFromJson(json);
 
