@@ -10,10 +10,14 @@ import 'package:taleb/routes/app_router.dart';
 class OpportunityCard extends StatelessWidget {
   const OpportunityCard({
     required this.opportunity,
+    this.cardWidth,
+    this.imageHeight,
     Key? key,
   }) : super(key: key);
 
   final Opportunity opportunity;
+  final double? cardWidth;
+  final double? imageHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,7 @@ class OpportunityCard extends StatelessWidget {
         opportunity: opportunity,
       )),
       child: TalebContainer(
+        width: cardWidth,
         child: Column(
           children: [
             Padding(
@@ -34,7 +39,7 @@ class OpportunityCard extends StatelessWidget {
                     tag: opportunity.id,
                     child: TalebImageWidget(
                       image: opportunity.image,
-                      height: TalebSizes.h230,
+                      height: imageHeight ?? TalebSizes.h230,
                     ),
                   ),
                   VerticalSpace(TalebSizes.h8),

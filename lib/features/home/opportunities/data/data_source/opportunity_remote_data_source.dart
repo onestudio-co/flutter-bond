@@ -44,6 +44,14 @@ class OpportunityRemoteDataSource extends DataSource {
     return mapListResponse(response);
   }
 
+  Future<ListResponse<Opportunity>> lastOpportunities() async {
+    final Response<dynamic> response = await _client.get(
+      OpportunityApis.lastOpportunities,
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
+  }
+
   Future<ListResponse<Opportunity>> searchOpportnities(
       {required String text}) async {
     final Response<dynamic> response = await _client.get(
@@ -59,6 +67,8 @@ class OpportunityRemoteDataSource extends DataSource {
 
 extension OpportunityApis on Api {
   static String get opportunitiesCategory => 'opportunities-categories';
+
+  static String get lastOpportunities => 'limited-opportunities';
 
   static String opportunitySpecificCategory(int categoryId) {
     return 'opportunities/category/$categoryId';

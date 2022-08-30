@@ -61,6 +61,16 @@ class OpportunityRepository {
     }
   }
 
+  Future<Either<Failure, ListResponse<Opportunity>>> lastOpportunities() async {
+    try {
+      final ListResponse<Opportunity> response =
+          await _remoteDataSource.lastOpportunities();
+      return Right<Failure, ListResponse<Opportunity>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<Opportunity>>(e.toFailure());
+    }
+  }
+
   Future<Either<Failure, ListResponse<Opportunity>>> searchOpportnities(
       {required String text}) async {
     try {

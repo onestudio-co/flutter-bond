@@ -10,6 +10,8 @@ import 'package:taleb/features/home/main/last_news/cubit/last_news_cubit.dart';
 import 'package:taleb/features/home/main/last_news/last_news_slider.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
 import 'package:taleb/features/home/main/last_offers/last_offers_slider.dart';
+import 'package:taleb/features/home/main/last_opportunities/cubit/last_opportunities_cubit.dart';
+import 'package:taleb/features/home/main/last_opportunities/last_opportunities_slider.dart';
 import 'package:taleb/main.dart';
 
 class MainPage extends StatelessWidget implements AutoRouteWrapper {
@@ -24,6 +26,10 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
           ),
           BlocProvider<LastNewsCubit>(
             create: (BuildContext context) => sl<LastNewsCubit>()..lastNews(),
+          ),
+          BlocProvider<LastOpportunitiesCubit>(
+            create: (BuildContext context) =>
+                sl<LastOpportunitiesCubit>()..lastOpportunities(),
           ),
         ],
         child: this,
@@ -59,6 +65,7 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
             VerticalSpace(TalebSizes.h12),
             const TalebDivider2(),
             VerticalSpace(TalebSizes.h12),
+            const LastOpportunitiesSlider(),
             VerticalSpace(TalebSizes.h44),
             VerticalSpace(TalebSizes.h44),
           ],
