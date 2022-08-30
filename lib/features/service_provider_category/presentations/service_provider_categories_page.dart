@@ -101,7 +101,8 @@ class _ServiceProviderCategoriesPageState
                             onPressed: () async => await context.router
                                 .pop<ServiceProviderCategory>(
                                     serviceProviderCategory),
-                            title: 'حفظ',
+                            title: TalebStrings.saveButton,
+                            enable: selectedIndex != null,
                           ),
                           VerticalSpace(TalebSizes.h16),
                         ],
@@ -126,5 +127,9 @@ class _ServiceProviderCategoriesPageState
     context
         .read<ServiceProviderCategoryCubit>()
         .getServiceProviderCategorys(textSearch: value);
+
+    setState(() {
+      selectedIndex = null;
+    });
   }
 }

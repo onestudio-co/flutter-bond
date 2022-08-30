@@ -7,7 +7,6 @@ import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
-import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
 
@@ -47,7 +46,7 @@ class _SearchSearviceProviderPageState
             children: [
               VerticalSpace(TalebSizes.h24),
               Text(
-                'اختيار الناشر',
+                TalebStrings.searchServiceProviderTitle,
                 style: Theme.of(context).textTheme.labelMedium?.elephant,
               ),
               VerticalSpace(TalebSizes.h24),
@@ -55,7 +54,7 @@ class _SearchSearviceProviderPageState
                 width: double.infinity,
                 height: TalebSizes.h53,
                 child: SearchWidget(
-                  hintText: 'أكتب اسم الناشر',
+                  hintText: TalebStrings.searchServiceProviderTextFieldHint,
                   onChanged: _onChangeSearch,
                 ),
               ),
@@ -100,7 +99,8 @@ class _SearchSearviceProviderPageState
                           TalebButtonWidget(
                             onPressed: () async => await context.router
                                 .pop<User?>(serviceProvider),
-                            title: 'حفظ',
+                            title: TalebStrings.saveButton,
+                            enable: selectedIndex != null,
                           ),
                           VerticalSpace(TalebSizes.h16),
                         ],
@@ -123,5 +123,9 @@ class _SearchSearviceProviderPageState
 
   void _onChangeSearch(String value) {
     context.read<ServiceProviderCubit>().getServiceProviders(textSearch: value);
+
+    setState(() {
+      selectedIndex = null;
+    });
   }
 }

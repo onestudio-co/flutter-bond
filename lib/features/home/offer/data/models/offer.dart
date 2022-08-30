@@ -4,6 +4,7 @@ import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/offer/data/models/currency.dart';
+import 'package:taleb/main.dart';
 
 part 'offer.g.dart';
 
@@ -22,8 +23,8 @@ class Offer extends Model {
   final Currency currency;
   @JsonKey(name: 'contact_number')
   final String contactNumber;
-  @JsonKey(name: 'media')
-  final Map<String, Media> medias;
+  // @JsonKey(name: 'media')
+  // final Map<String, Media> medias;
   @JsonKey(name: 'created_at')
   final String? createdAt;
   @JsonKey(name: 'updated_at')
@@ -41,13 +42,13 @@ class Offer extends Model {
     required this.price,
     required this.currency,
     required this.contactNumber,
-    required this.medias,
+    // required this.medias,
     required this.createdAt,
     required this.updatedAt,
   }) : super(id: id);
 
-  List<String> get mediaImages =>
-      medias.values.map((e) => e.originalUrl).toList();
+  List<String> get mediaImages => [url, url, url];
+  // medias.values.map((e) => e.originalUrl).toList();
 
   factory Offer.fromJson(Map<String, dynamic> json) => _$OfferFromJson(json);
 
