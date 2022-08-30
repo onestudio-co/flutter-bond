@@ -10,6 +10,8 @@ import 'package:taleb/features/home/main/last_news/cubit/last_news_cubit.dart';
 import 'package:taleb/features/home/main/widgets/header_slider.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
 
+import 'last_news_shimmer.dart';
+
 class LastNewsSlider extends StatelessWidget {
   const LastNewsSlider({Key? key}) : super(key: key);
 
@@ -47,12 +49,15 @@ class LastNewsSlider extends StatelessWidget {
             ],
           );
         } else if (state is LastNewsLoading) {
-          return TalebShimmer(
-            child: Container(
-              color: Colors.amber,
-              height: 200,
-              width: 200,
-            ),
+          return Column(
+            children: [
+              HeaderSlider(
+                title: TalebStrings.homeSliderLastNews,
+                onTapSeeMore: () => _onTapSeeMore(context),
+              ),
+              VerticalSpace(TalebSizes.h12),
+              const LastNewsShimmer(),
+            ],
           );
         } else {
           return const SizedBox.shrink();
