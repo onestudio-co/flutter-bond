@@ -18,7 +18,7 @@ class News extends Model {
   final String content;
   final String image;
   @JsonKey(name: 'media')
-  final List<Media> medias;
+  final Map<String, Media> medias;
   @JsonKey(name: 'created_at')
   final String createdAt;
 
@@ -34,6 +34,9 @@ class News extends Model {
     required int id,
     required this.createdAt,
   }) : super(id: id);
+
+  List<String> get mediaImages =>
+      medias.values.map((e) => e.originalUrl).toList();
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 

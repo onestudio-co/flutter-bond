@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/resources/taleb_string.dart';
-import 'package:taleb/core/widget/taleb_shimmer.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
 import 'package:taleb/features/home/main/last_offers/last_offers_item_slider.dart';
 import 'package:taleb/features/home/main/widgets/header_slider.dart';
 import 'package:taleb/features/home/offer/data/models/offer.dart';
+import 'package:taleb/features/home/widgets/slide_similers/similer_shimmer.dart';
 import 'package:taleb/routes/app_router.dart';
 
 class LastOfferSlider extends StatelessWidget {
@@ -44,13 +44,7 @@ class LastOfferSlider extends StatelessWidget {
             ],
           );
         } else if (state is LastOffersLoading) {
-          return TalebShimmer(
-            child: Container(
-              color: Colors.amber,
-              height: 200,
-              width: 200,
-            ),
-          );
+          return const SimilerShimmer();
         } else {
           return const SizedBox.shrink();
         }

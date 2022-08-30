@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
@@ -44,7 +43,7 @@ class NewsDetailsPage extends StatelessWidget implements AutoRouteWrapper {
               VerticalSpace(TalebSizes.h16),
               TalebSliderImagesWidget(
                 index: news.id,
-                images: news.medias.map((e) => e.originalUrl).toList(),
+                images: news.mediaImages,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),

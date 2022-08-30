@@ -7,9 +7,9 @@ part of 'news.dart';
 // **************************************************************************
 
 News _$NewsFromJson(Map<String, dynamic> json) => News(
-      medias: (json['media'] as List<dynamic>)
-          .map((e) => Media.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      medias: (json['media'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, Media.fromJson(e as Map<String, dynamic>)),
+      ),
       userId: json['user_id'] as int,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       title: json['title'] as String,
@@ -30,6 +30,6 @@ Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
       'title': instance.title,
       'content': instance.content,
       'image': instance.image,
-      'media': instance.medias.map((e) => e.toJson()).toList(),
+      'media': instance.medias.map((k, e) => MapEntry(k, e.toJson())),
       'created_at': instance.createdAt,
     };
