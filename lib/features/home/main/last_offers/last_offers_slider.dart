@@ -22,7 +22,7 @@ class LastOfferSlider extends StatelessWidget {
             children: [
               HeaderSlider(
                 title: TalebStrings.homeSliderLastOffers,
-                onTapSeeMore: () {},
+                onTapSeeMore: () => context.router.pushNamed('home/offers'),
               ),
               SizedBox(
                 height: TalebSizes.h378,

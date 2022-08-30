@@ -7,12 +7,13 @@ import 'package:taleb/features/home/opportunities/presentations/all_opportunitie
 
 const List<AutoRoute> homeBottomNavBarRoutes = <AutoRoute>[
   AutoRoute(
+    path: 'home',
     page: HomePage,
     children: [
-      AutoRoute(page: MainPage),
-      AutoRoute(page: NewsPage),
-      AutoRoute(page: OffersPage),
-      AutoRoute(page: OpportunitiesPage),
+      AutoRoute(page: MainPage, path: 'main'),
+      AutoRoute(page: NewsPage, path: 'news'),
+      AutoRoute(page: OffersPage, path: 'offers'),
+      AutoRoute(page: OpportunitiesPage, path: 'opportunities'),
     ],
   ),
 ];
