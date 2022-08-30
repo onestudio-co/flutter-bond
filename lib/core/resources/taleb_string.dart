@@ -56,9 +56,15 @@ class TalebStrings {
 
   ///[SearchCityPage]
   static String searchCitytitle = 'اختيار المدينة';
-  static String searchCityTextFieldHint =  'أكتب اسم المدينة';
+  static String searchCityTextFieldHint = 'أكتب اسم المدينة';
 
   ///[SearchCityPage]
   static String searchServiceProviderTitle = 'اختيار الناشر';
-  static String searchServiceProviderTextFieldHint =  'أكتب اسم الناشر';
+  static String searchServiceProviderTextFieldHint = 'أكتب اسم الناشر';
+
+  ///[SearcNewsPage]
+  static String filterNewsTitle = 'تصفية النتائج';
+  static String filterNewsDescription = 'الرجاء أختيار معلومات التصفية';
+  static String filterNewsPublisher = 'الناشر';
+  static String filterNewsCity = 'المدينة';
 }

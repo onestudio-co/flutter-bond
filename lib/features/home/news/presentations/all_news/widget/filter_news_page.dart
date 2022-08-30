@@ -42,13 +42,13 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
             padding: EdgeInsets.all(TalebPadding.p16),
             child: Column(
               children: <Widget>[
-                Text('تصفية النتائج',
+                Text(TalebStrings.filterNewsTitle,
                     style:
                         Theme.of(context).textTheme.bodySmall?.darkJungleGreen),
                 VerticalSpace(TalebSizes.h20),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text('الرجاء أختيار معلومات التصفية',
+                  child: Text(TalebStrings.filterNewsDescription,
                       style: Theme.of(context)
                           .textTheme
                           .labelMedium
@@ -59,7 +59,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                   child: Column(
                     children: <Widget>[
                       RowSelectedFilterWidget(
-                        title: 'الناشر',
+                        title: TalebStrings.filterNewsPublisher,
                         onTap: () async {
                           userId = await context.router
                               .push<int>(const SearchSearviceProviderRoute());
@@ -67,7 +67,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                       const TalebDivider(),
                       RowSelectedFilterWidget(
-                          title: 'المدينة',
+                          title: TalebStrings.filterNewsCity,
                           onTap: () async {
                             cityId = await context.router
                                 .push<int>(const SearchCityRoute());
@@ -86,7 +86,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                     userId = null;
                     context.router.pop();
                   },
-                  title: 'حفظ',
+                  title: TalebStrings.saveButton,
                 ),
                 VerticalSpace(TalebSizes.h16),
               ],

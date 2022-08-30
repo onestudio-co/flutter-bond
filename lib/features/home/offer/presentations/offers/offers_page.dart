@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
-import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
