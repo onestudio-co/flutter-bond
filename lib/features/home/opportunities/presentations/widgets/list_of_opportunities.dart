@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/widgets/opportunity_card.dart';
+import 'package:taleb/features/home/opportunities/presentations/widgets/opportunities_listing_shimmer.dart';
 
 class ListOfOpportunities extends StatelessWidget {
   const ListOfOpportunities({
@@ -36,13 +37,11 @@ class ListOfOpportunities extends StatelessWidget {
             ],
           );
         } else if (state is OpportunityLoading) {
-          return const Center(child: TalebCircularProgressIndicator());
+          return const OpportunitiesListingShimmer();
         } else if (state is OpportunityEmpty) {
           return const EmptyDataWidget();
         } else {
-          return const Center(
-            child: Text('حدث خطأ ما يرجى المحاولة لاحقاً'),
-          );
+          return const TalebErrorWidget();
         }
       },
     );
