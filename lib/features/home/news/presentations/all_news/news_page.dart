@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
+import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
 import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
@@ -122,9 +123,9 @@ class _NewsPageState extends State<NewsPage> {
                             ),
                             if (state is NewsLoadMoreState)
                               Column(
-                                children: const [
-                                  SizedBox(height: 12),
-                                  TalebCircularProgressIndicator(),
+                                children: [
+                                  VerticalSpace(TalebSizes.h12),
+                                  const TalebCircularProgressIndicator(),
                                 ],
                               )
                           ],
@@ -133,7 +134,7 @@ class _NewsPageState extends State<NewsPage> {
                         return const NewsListingShimmer();
                       }
                       if (state is NewsEmpty) {
-                        return const Center(child: Text('لا يوجد بيانات ....'));
+                        return const EmptyDataWidget();
                       } else {
                         return const SizedBox.shrink();
                       }

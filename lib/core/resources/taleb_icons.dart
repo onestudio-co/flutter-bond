@@ -24,7 +24,7 @@ class TalebIcons {
   static const String facebook = 'assets/icons/facebook.svg';
   static const String instagram = 'assets/icons/instagram.svg';
 
-  static const String notFoundData = 'assets/icons/not_found_data.svg';
+  static const String emptySearchData = 'assets/icons/empty_search_data.svg';
 
 
 }

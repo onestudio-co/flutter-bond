@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../resources/import_resources.dart';
 
@@ -16,7 +15,7 @@ class EmptyDataWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           VerticalSpace(TalebSizes.h108),
-          SvgPicture.asset(TalebIcons.talebLogo),
+          Image.asset(TalebImages.emptySearchData),
           VerticalSpace(TalebSizes.h32),
           Text(
             TalebStrings.notFoundDataTitle,

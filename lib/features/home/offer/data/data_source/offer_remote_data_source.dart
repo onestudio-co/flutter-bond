@@ -42,7 +42,8 @@ class OfferRemoteDataSource extends DataSource {
     final Response<dynamic> response = await _client.get(
       OfferApis.searchOffer,
       queryParameters: <String, dynamic>{
-        'text': text,
+        'title': text,
+        'content': text,
       },
       headers: Api.headers(),
     );
@@ -71,7 +72,7 @@ extension OfferApis on Api {
 
   static String get premiumServiceProviders => 'premium-service-providers';
 
-  static String get searchOffer => 'search-offer';
+  static String get searchOffer => 'search-offers';
 
   static String serviceProviderOffer(int serviceProviderId) =>
       'offers/user/$serviceProviderId';
