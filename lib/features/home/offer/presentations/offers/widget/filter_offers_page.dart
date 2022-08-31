@@ -5,6 +5,7 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/core/widget/title_filter_and_clear_button.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
@@ -42,29 +43,9 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
               padding: EdgeInsets.all(TalebPadding.p16),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Spacer(flex: 3),
-                      Center(
-                        child: Text(TalebStrings.offerFilterTitle,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.darkJungleGreen),
-                      ),
-                      const Spacer(flex: 2),
-                      TextButton(
-                        onPressed: () =>
-                            _clearFilterResult(context, offersCubit),
-                        child: Text(
-                          TalebStrings.clearButton,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.elephant,
-                        ),
-                      ),
-                    ],
-                  ),
+                  TitleFilterAndClearButton(
+                      onPressClear: () =>
+                          _clearFilterResult(context, offersCubit)),
                   VerticalSpace(TalebSizes.h20),
                   Align(
                     alignment: Alignment.centerRight,
@@ -87,7 +68,8 @@ class FilterOfferPage extends StatelessWidget implements AutoRouteWrapper {
                         ),
                         const TalebDivider(),
                         RowSelectedFilterWidget(
-                            title: TalebStrings.offerFilterCity,
+                            title: state.city?.name ??
+                                TalebStrings.offerFilterCity,
                             isSlected: state.city != null,
                             onTap: () => _updateCity(context, offersCubit)),
                       ],
