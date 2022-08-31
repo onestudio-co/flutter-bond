@@ -1,6 +1,8 @@
 part of 'news_cubit.dart';
 
-abstract class NewsState extends Equatable {}
+abstract class NewsState extends Equatable {
+  const NewsState();
+}
 
 class NewsInitial extends NewsState {
   @override
@@ -13,7 +15,7 @@ class NewsLoading extends NewsState {
 }
 
 class NewsEmpty extends NewsState {
-  NewsEmpty();
+  const NewsEmpty();
 
   @override
   List<Object?> get props => [];
@@ -21,36 +23,63 @@ class NewsEmpty extends NewsState {
 
 class NewsLoadSuccess extends NewsState {
   final ListResponse<News> news;
+  final ServiceProvider? serviceProvider;
+  final City? city;
 
-  NewsLoadSuccess({required this.news});
+  const NewsLoadSuccess({
+    required this.news,
+    this.serviceProvider,
+    this.city,
+  });
 
   bool get noMorePages => news.links?.next == null;
 
-  @override
-  List<Object?> get props => [news];
+  ServiceProvider? get selectedServiceProvider => serviceProvider;
+
+  City? get selectedCity => city;
+
+  bool get isSlectedNotNull =>
+      selectedServiceProvider != null || selectedCity != null;
+
+  NewsLoadSuccess clearSelected() {
+    return NewsLoadSuccess(news: news, city: null, serviceProvider: null);
+  }
 
   NewsLoadSuccess copyWith({
     ListResponse<News>? news,
+    final ServiceProvider? serviceProvider,
+    final City? city,
   }) {
     return NewsLoadSuccess(
       news: news ?? this.news,
+      serviceProvider: serviceProvider ?? this.serviceProvider,
+      city: city ?? this.city,
     );
   }
+
+  @override
+  List<Object?> get props => [news, serviceProvider, city];
 }
 
 class NewsLoadMoreState extends NewsLoadSuccess {
-  NewsLoadMoreState({
+  const NewsLoadMoreState({
     required ListResponse<News> news,
-  }) : super(news: news);
+    final ServiceProvider? serviceProvider,
+    final City? city,
+  }) : super(
+          news: news,
+          serviceProvider: serviceProvider,
+          city: city,
+        );
 
   @override
-  List<Object> get props => [news];
+  List<Object?> get props => [news, serviceProvider, city];
 }
 
 class NewsLoadFailed extends NewsState {
   final String error;
 
-  NewsLoadFailed({required this.error});
+  const NewsLoadFailed({required this.error});
 
   @override
   List<Object?> get props => [error];
