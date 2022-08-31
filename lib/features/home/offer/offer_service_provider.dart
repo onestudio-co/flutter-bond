@@ -5,6 +5,7 @@ import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/main/last_offers/cubit/last_offers_cubit.dart';
 import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/offer/data/models/currency.dart';
+import 'package:taleb/features/home/offer/presentations/offers/cubit/premium_service_provider/premium_service_provider_cubit.dart';
 import 'package:taleb/integrations/algolia.dart';
 import 'offer_imports.dart';
 
@@ -19,6 +20,7 @@ class OfferServiceProvider extends ServiceProvider {
     it.registerFactory(() => ServiceProviderOfferCubit(it()));
     it.registerFactory(() => SimilarOffersCubit(it()));
     it.registerFactory(() => LastOffersCubit(it()));
+    it.registerFactory(() => PremiumServiceProviderCubit(it()));
   }
 
   @override

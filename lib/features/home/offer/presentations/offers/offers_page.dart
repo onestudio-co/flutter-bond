@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/features/home/offer/presentations/offers/cubit/premium_service_provider/premium_service_provider_cubit.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
@@ -19,8 +20,16 @@ class OffersPage extends StatefulWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<OffersCubit>(
-      create: (BuildContext context) => sl<OffersCubit>()..loadOffers(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<OffersCubit>(
+          create: (BuildContext context) => sl<OffersCubit>()..loadOffers(),
+        ),
+        BlocProvider<PremiumServiceProviderCubit>(
+          create: (context) =>
+              sl<PremiumServiceProviderCubit>()..getPremiumServiceProvider(),
+        ),
+      ],
       child: this,
     );
   }

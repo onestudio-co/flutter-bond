@@ -15,6 +15,7 @@ class PremiumServiceProviderCubit extends Cubit<PremiumServiceProviderState> {
 
   void getPremiumServiceProvider() async {
     emit(PremiumServiceProviderLoading());
+
     final Either<Failure, ListResponse<User>> response =
         await _offerRepository.getPremiumServiceProvider();
     response.fold(
