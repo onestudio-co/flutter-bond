@@ -12,7 +12,7 @@ part 'news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
   NewsCubit(this._repository, this.algoliaSubspecialtiesService)
-      : super(NewsInitial());
+      : super(const NewsInitial());
 
   final NewsRepository _repository;
   final AlgoliaNewsService algoliaSubspecialtiesService;
@@ -20,7 +20,7 @@ class NewsCubit extends Cubit<NewsState> {
   Future<void> loadNews(
       {int? cityId, int? searviceProviderId, bool emitLoading = false}) async {
     if (emitLoading) {
-      emit(NewsLoading());
+      emit(state.loading());
     }
 
     if (state is NewsLoadSuccess) {
@@ -33,15 +33,15 @@ class NewsCubit extends Cubit<NewsState> {
   }
 
   Future<void> _loadNews({int? cityId, int? searviceProviderId}) async {
-    emit(NewsLoading());
+    emit(state.loading());
     final Either<Failure, ListResponse<News>> response = await _repository
         .allNews(cityId: cityId, searviceProviderId: searviceProviderId);
     emit(
       response.fold(
-          (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
-          (ListResponse<News> news) => news.data.isEmpty
-              ? const NewsEmpty()
-              : NewsLoadSuccess(news: news)),
+        (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
+        (ListResponse<News> news) =>
+            news.data.isEmpty ? state.empty() : state.loadSuccess(news),
+      ),
     );
   }
 
@@ -55,15 +55,13 @@ class NewsCubit extends Cubit<NewsState> {
       return;
     }
 
-    emit(NewsLoadMoreState(
-      news: currentState.news,
-    ));
+    emit(state.loadSuccess(currentState.news));
 
     final Either<Failure, ListResponse<News>> response =
         await _repository.allNews(nextUrl: currentState.news.links?.next);
 
     response.fold(
-      (Failure failure) => emit(NewsLoadFailed(error: failure.toString())),
+      (Failure failure) => emit(state.faild(failure.toString())),
       (ListResponse<News> news) => <void>{
         emit(
           currentState.copyWith(
@@ -90,16 +88,14 @@ class NewsCubit extends Cubit<NewsState> {
   // }
 
   Future<void> searchNews(String text) async {
-    emit(NewsLoading());
+    emit(state.loading());
     final Either<Failure, ListResponse<News>> response =
         await _repository.searchNews(text: text);
-    emit(
-      response.fold(
-          (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
-          (ListResponse<News> news) => news.data.isEmpty
-              ? const NewsEmpty()
-              : NewsLoadSuccess(news: news)),
-    );
+    emit(response.fold(
+      (Failure failure) => state.faild(failure.toString()),
+      (ListResponse<News> news) =>
+          news.data.isEmpty ? state.empty() : state.loadSuccess(news),
+    ));
   }
 
   void selectServiceProviderAndCity({User? serviceProvider, City? city}) {

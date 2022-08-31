@@ -33,7 +33,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return BlocBuilder<NewsCubit, NewsState>(
       builder: (BuildContext context, NewsState state) {
-        if (state is NewsLoadSuccess) {
+        // if (state is NewsLoadSuccess) {
           return Container(
             height: TalebSizes.h375,
             width: double.infinity,
@@ -92,9 +92,9 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
               ),
             ),
           );
-        } else {
-          return const SizedBox.shrink();
-        }
+        // } else {
+        //   return const SizedBox.shrink();
+        // }
       },
     );
   }

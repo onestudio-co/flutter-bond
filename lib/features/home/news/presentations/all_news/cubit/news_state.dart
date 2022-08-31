@@ -1,38 +1,12 @@
 part of 'news_cubit.dart';
 
 abstract class NewsState extends Equatable {
-  const NewsState();
-}
-
-class NewsInitial extends NewsState {
-  @override
-  List<Object?> get props => [];
-}
-
-class NewsLoading extends NewsState {
-  @override
-  List<Object?> get props => [];
-}
-
-class NewsEmpty extends NewsState {
-  const NewsEmpty();
-
-  @override
-  List<Object?> get props => [];
-}
-
-class NewsLoadSuccess extends NewsState {
-  final ListResponse<News> news;
   final User? serviceProvider;
   final City? city;
-
-  const NewsLoadSuccess({
-    required this.news,
-    this.serviceProvider,
-    this.city,
+  const NewsState({
+    required this.serviceProvider,
+    required this.city,
   });
-
-  bool get noMorePages => news.links?.next == null;
 
   User? get selectedServiceProvider => serviceProvider;
 
@@ -41,14 +15,73 @@ class NewsLoadSuccess extends NewsState {
   bool get isSlectedNotNull =>
       selectedServiceProvider != null || selectedCity != null;
 
+  NewsLoading loading() {
+    return NewsLoading(serviceProvider: serviceProvider, city: city);
+  }
+
+  NewsLoadFailed faild(String error) {
+    return NewsLoadFailed(
+        error: error, city: city, serviceProvider: serviceProvider);
+  }
+
+  NewsEmpty empty() {
+    return NewsEmpty(city: city, serviceProvider: serviceProvider);
+  }
+
+  NewsLoadSuccess loadSuccess(ListResponse<News> news) {
+    return NewsLoadSuccess(
+        news: news, city: city, serviceProvider: serviceProvider);
+  }
+
+  NewsLoadMoreState loadMore(ListResponse<News> news) {
+    return NewsLoadMoreState(
+        news: news, city: city, serviceProvider: serviceProvider);
+  }
+}
+
+class NewsInitial extends NewsState {
+  const NewsInitial({User? serviceProvider, City? city})
+      : super(serviceProvider: serviceProvider, city: city);
+
+  @override
+  List<Object?> get props => [serviceProvider, city];
+}
+
+class NewsLoading extends NewsState {
+  const NewsLoading({User? serviceProvider, City? city})
+      : super(serviceProvider: serviceProvider, city: city);
+
+  @override
+  List<Object?> get props => [serviceProvider, city];
+}
+
+class NewsEmpty extends NewsState {
+  const NewsEmpty({User? serviceProvider, City? city})
+      : super(serviceProvider: serviceProvider, city: city);
+
+  @override
+  List<Object?> get props => [serviceProvider, city];
+}
+
+class NewsLoadSuccess extends NewsState {
+  final ListResponse<News> news;
+
+  const NewsLoadSuccess({
+    required this.news,
+    User? serviceProvider,
+    City? city,
+  }) : super(serviceProvider: serviceProvider, city: city);
+
+  bool get noMorePages => news.links?.next == null;
+
   NewsLoadSuccess clearSelected() {
     return NewsLoadSuccess(news: news, city: null, serviceProvider: null);
   }
 
   NewsLoadSuccess copyWith({
     ListResponse<News>? news,
-    final User? serviceProvider,
-    final City? city,
+    User? serviceProvider,
+    City? city,
   }) {
     return NewsLoadSuccess(
       news: news ?? this.news,
@@ -79,8 +112,15 @@ class NewsLoadMoreState extends NewsLoadSuccess {
 class NewsLoadFailed extends NewsState {
   final String error;
 
-  const NewsLoadFailed({required this.error});
+  const NewsLoadFailed({
+    required this.error,
+    final User? serviceProvider,
+    final City? city,
+  }) : super(
+          serviceProvider: serviceProvider,
+          city: city,
+        );
 
   @override
-  List<Object?> get props => [error];
+  List<Object?> get props => [error, serviceProvider, city];
 }
