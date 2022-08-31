@@ -1,13 +1,13 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
+import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
 import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/all_news/news_listing_shimmer.dart';
@@ -91,9 +91,8 @@ class _NewsPageState extends State<NewsPage> {
                 Expanded(
                   child: BlocConsumer<NewsCubit, NewsState>(
                     listener: (BuildContext context, NewsState state) {
-                      state is NewsLoadFailed
-                          ? log(state.error, name: 'news page')
-                          : null;
+                      logger.e(state.runtimeType);
+                      state is NewsLoadFailed ? logger.e(state.error) : null;
                     },
                     builder: (BuildContext context, NewsState state) {
                       sl<AdCubit>().getAds();
@@ -136,7 +135,7 @@ class _NewsPageState extends State<NewsPage> {
                       if (state is NewsEmpty) {
                         return const EmptyDataWidget();
                       } else {
-                        return const SizedBox.shrink();
+                        return const TalebErrorWidget();
                       }
                     },
                   ),
