@@ -20,7 +20,11 @@ class CityCubit extends Cubit<CityState> {
     response.fold(
       (Failure failure) => emit(CityLoadFailure(failure.toMessage())),
       (ListResponse<City> response) {
-        emit(CityLoadedSuccessState(response.data));
+        emit(
+          response.data.isEmpty
+              ? CityEmptyState()
+              : CityLoadedSuccessState(response.data),
+        );
       },
     );
   }
