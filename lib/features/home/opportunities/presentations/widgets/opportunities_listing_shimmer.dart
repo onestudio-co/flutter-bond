@@ -12,7 +12,6 @@ class OpportunitiesListingShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VerticalSpace(TalebSizes.h16),
         const TalebDivider2(),
         VerticalSpace(TalebSizes.h16),
         Expanded(
