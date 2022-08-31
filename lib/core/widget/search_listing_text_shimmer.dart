@@ -3,8 +3,8 @@ import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/shimmer_container.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 
-class SearchCityShimmer extends StatelessWidget {
-  const SearchCityShimmer({
+class SearchListingTextShimmer extends StatelessWidget {
+  const SearchListingTextShimmer({
     Key? key,
   }) : super(key: key);
 

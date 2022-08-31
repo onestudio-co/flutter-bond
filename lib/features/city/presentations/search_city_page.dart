@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
+import 'package:taleb/core/widget/search_listing_text_shimmer.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/city/presentations/cubit/city_cubit.dart';
-import 'package:taleb/features/city/presentations/search_city_shimmer.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
 
@@ -100,7 +100,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
                         ],
                       );
                     } else if (state is CityLoadingState) {
-                      return const SearchCityShimmer();
+                      return const SearchListingTextShimmer();
                     } else if (state is CityEmptyState) {
                       return const EmptyDataWidget();
                     } else {
