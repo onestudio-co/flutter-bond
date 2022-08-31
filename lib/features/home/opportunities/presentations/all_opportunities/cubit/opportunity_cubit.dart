@@ -17,6 +17,8 @@ class OpportunityCubit extends Cubit<OpportunityState> {
 
   Future<void> loadOppertunities(
       {int categoryId = 1, bool emitLoading = false}) async {
+    emit(OpportunityLoading());
+    await Future.delayed(Duration(minutes: 3));
     if (emitLoading) {
       emit(OpportunityLoading());
     }

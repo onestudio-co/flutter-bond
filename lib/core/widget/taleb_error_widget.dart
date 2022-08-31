@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../resources/import_resources.dart';
 
-class EmptyDataWidget extends StatelessWidget {
-  const EmptyDataWidget({
+class TalebErrorWidget extends StatelessWidget {
+  const TalebErrorWidget({
     Key? key,
   }) : super(key: key);
 
@@ -18,13 +18,13 @@ class EmptyDataWidget extends StatelessWidget {
           Image.asset(TalebImages.emptySearchData),
           VerticalSpace(TalebSizes.h32),
           Text(
-            TalebStrings.notFoundDataTitle,
+            TalebStrings.errorPageTitle,
             style: Theme.of(context).textTheme.headlineMedium?.elephant,
             textAlign: TextAlign.center,
           ),
           VerticalSpace(TalebSizes.h8),
           Text(
-            TalebStrings.notFoundDataDescription,
+            TalebStrings.errorPageDescription,
             style: Theme.of(context).textTheme.labelLarge?.elephant,
             textAlign: TextAlign.center,
           ),

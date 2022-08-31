@@ -9,6 +9,8 @@ class TalebStrings {
   static String notFoundDataTitle = 'لم يتم العثور على نتائج';
   static String notFoundDataDescription =
       'حاول البحث عن شيء أكثر عمومية ، أو تحقق من الأخطاء الإملائية';
+  static String errorPageTitle = 'حدث خطا ما';
+  static String errorPageDescription = 'يرجى المحاولة مرة ثانية';
 
   /// [News Page]
   static String newsHomeTitleAppbar = LocaleKeys.homeTitle.tr();
