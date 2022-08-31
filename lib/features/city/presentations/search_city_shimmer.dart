@@ -23,9 +23,12 @@ class SearchCityShimmer extends StatelessWidget {
         );
       },
       itemBuilder: (BuildContext context, int index) {
-        return ShimmerContainer(
-          height: TalebSizes.h20,
-          borderRadius: TalebBorderRadius.r16,
+        return Padding(
+          padding: EdgeInsetsDirectional.only(end: TalebSizes.h200),
+          child: ShimmerContainer(
+            height: TalebSizes.h30,
+            borderRadius: TalebBorderRadius.r16,
+          ),
         );
       },
     );

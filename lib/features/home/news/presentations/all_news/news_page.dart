@@ -75,7 +75,7 @@ class _NewsPageState extends State<NewsPage> {
                     children: <Widget>[
                       Expanded(
                         child: SearchWidget(
-                          hintText: 'ابحث في الأخبار',
+                          hintText: TalebStrings.newsHomeTextFieldHint,
                           onChanged: context.read<NewsCubit>().searchNews,
                         ),
                       ),

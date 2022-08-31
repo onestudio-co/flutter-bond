@@ -77,6 +77,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                   ),
                   const Spacer(),
                   TalebButtonWidget(
+                    title: TalebStrings.saveButton,
                     onPressed: () {
                       context.read<NewsCubit>().loadNews(
                           cityId: state.city?.id,
@@ -84,7 +85,7 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                           emitLoading: true);
                       context.router.pop();
                     },
-                    title: TalebStrings.saveButton,
+                    enable: state.isSlectedNotNull,
                   ),
                   VerticalSpace(TalebSizes.h16),
                 ],

@@ -14,8 +14,7 @@ class TalebStrings {
 
   /// [News Page]
   static String newsHomeTitleAppbar = LocaleKeys.homeTitle.tr();
-  static String skip = 'تخطي';
-  static String startNow = 'ابدأ الآن';
+  static String newsHomeTextFieldHint = 'ابحث في الأخبار';
 
   /// [Offers]
   static String offersPageAppbarTitle =
