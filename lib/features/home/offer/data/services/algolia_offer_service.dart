@@ -46,7 +46,7 @@ class AlgoliaOfferService {
           });
       return results!
           .where((dynamic element) => element != null)
-          // .whereType<Map<String, dynamic>>()
+          .whereType<Map<String, dynamic>>()
           .map((dynamic element) {
         return Offer.fromJson(element as Map<String, dynamic>);
       }).toList();
