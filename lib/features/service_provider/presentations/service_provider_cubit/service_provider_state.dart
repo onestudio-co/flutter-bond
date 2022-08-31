@@ -14,6 +14,11 @@ class ServiceProviderLoadingState extends ServiceProviderState {
   List<Object> get props => [];
 }
 
+class ServiceProviderEmptyDataState extends ServiceProviderState {
+  @override
+  List<Object> get props => [];
+}
+
 class ServiceProviderLoadedSuccessState extends ServiceProviderState {
   final List<User> serviceProviders;
 

@@ -10,8 +10,7 @@ part 'service_provider_state.dart';
 class ServiceProviderCubit extends Cubit<ServiceProviderState> {
   final ServiceProviderRepository _repository;
 
-  ServiceProviderCubit(this._repository)
-      : super(ServiceProviderInitialState());
+  ServiceProviderCubit(this._repository) : super(ServiceProviderInitialState());
 
   void getServiceProviders({String? textSearch}) async {
     emit(ServiceProviderLoadingState());
@@ -22,7 +21,11 @@ class ServiceProviderCubit extends Cubit<ServiceProviderState> {
       (Failure failure) =>
           emit(ServiceProviderLoadFailure(failure.toMessage())),
       (ListResponse<User> response) {
-        emit(ServiceProviderLoadedSuccessState(response.data));
+        emit(
+          response.data.isEmpty
+              ? ServiceProviderEmptyDataState()
+              : ServiceProviderLoadedSuccessState(response.data),
+        );
       },
     );
   }

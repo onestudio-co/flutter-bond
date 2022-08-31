@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
+import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
@@ -107,6 +108,8 @@ class _SearchSearviceProviderPageState
                       );
                     } else if (state is ServiceProviderLoadingState) {
                       return const SearchServiceProviderShimmer();
+                    } else if (state is ServiceProviderEmptyDataState) {
+                      return const EmptyDataWidget();
                     } else {
                       return const SizedBox.shrink();
                     }
