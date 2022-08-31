@@ -23,7 +23,7 @@ class NewsEmpty extends NewsState {
 
 class NewsLoadSuccess extends NewsState {
   final ListResponse<News> news;
-  final ServiceProvider? serviceProvider;
+  final User? serviceProvider;
   final City? city;
 
   const NewsLoadSuccess({
@@ -34,7 +34,7 @@ class NewsLoadSuccess extends NewsState {
 
   bool get noMorePages => news.links?.next == null;
 
-  ServiceProvider? get selectedServiceProvider => serviceProvider;
+  User? get selectedServiceProvider => serviceProvider;
 
   City? get selectedCity => city;
 
@@ -47,7 +47,7 @@ class NewsLoadSuccess extends NewsState {
 
   NewsLoadSuccess copyWith({
     ListResponse<News>? news,
-    final ServiceProvider? serviceProvider,
+    final User? serviceProvider,
     final City? city,
   }) {
     return NewsLoadSuccess(
@@ -64,7 +64,7 @@ class NewsLoadSuccess extends NewsState {
 class NewsLoadMoreState extends NewsLoadSuccess {
   const NewsLoadMoreState({
     required ListResponse<News> news,
-    final ServiceProvider? serviceProvider,
+    final User? serviceProvider,
     final City? city,
   }) : super(
           news: news,

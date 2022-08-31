@@ -1,8 +1,9 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/features/auth/data/models/user.dart';
+import 'package:taleb/features/city/data/models/city.dart';
 import 'package:taleb/features/home/news/data/models/news.dart';
 import 'package:taleb/features/home/news/data/repositories/news_repository.dart';
 import 'package:taleb/features/home/news/data/services/algolia_news_service.dart';
@@ -38,8 +39,9 @@ class NewsCubit extends Cubit<NewsState> {
     emit(
       response.fold(
           (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
-          (ListResponse<News> news) =>
-              news.data.isEmpty ? NewsEmpty() : NewsLoadSuccess(news: news)),
+          (ListResponse<News> news) => news.data.isEmpty
+              ? const NewsEmpty()
+              : NewsLoadSuccess(news: news)),
     );
   }
 
@@ -94,8 +96,23 @@ class NewsCubit extends Cubit<NewsState> {
     emit(
       response.fold(
           (Failure failure) => NewsLoadFailed(error: failure.toMessage()),
-          (ListResponse<News> news) =>
-              news.data.isEmpty ? NewsEmpty() : NewsLoadSuccess(news: news)),
+          (ListResponse<News> news) => news.data.isEmpty
+              ? const NewsEmpty()
+              : NewsLoadSuccess(news: news)),
     );
+  }
+
+  void selectServiceProviderAndCity({User? serviceProvider, City? city}) {
+    if (state is NewsLoadSuccess) {
+      final currentState = state as NewsLoadSuccess;
+      emit(currentState.copyWith(serviceProvider: serviceProvider, city: city));
+    }
+  }
+
+  void clearFilterResult() {
+    if (state is NewsLoadSuccess) {
+      final currentState = state as NewsLoadSuccess;
+      emit(currentState.clearSelected());
+    }
   }
 }
