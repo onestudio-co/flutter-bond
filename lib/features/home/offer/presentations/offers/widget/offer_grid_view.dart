@@ -19,7 +19,7 @@ class OffersGridView extends StatelessWidget {
     return Expanded(
       child: BlocConsumer<OffersCubit, OffersState>(
         listener: (BuildContext context, OffersState state) {
-          state is OffersLoadFailed
+          (state is OffersLoadFailed)
               ? log(state.error, name: 'offer page')
               : null;
         },

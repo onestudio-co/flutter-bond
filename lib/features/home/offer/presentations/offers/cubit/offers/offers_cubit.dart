@@ -9,11 +9,11 @@ import 'package:taleb/features/service_provider_category/data/models/service_pro
 part 'offers_state.dart';
 
 class OffersCubit extends Cubit<OffersState> {
-  OffersCubit(this._repository, this.algoliaOffersService)
+  OffersCubit(this._repository, this._algoliaOffersService)
       : super(OffersInitial());
 
   final OfferRepository _repository;
-  final AlgoliaOfferService algoliaOffersService;
+  final AlgoliaOfferService _algoliaOffersService;
 
   Future<void> loadOffers(
       {int? cityId,
@@ -80,30 +80,41 @@ class OffersCubit extends Cubit<OffersState> {
     );
   }
 
-  // Future<void> searchOffer(String text) async {
-  //   try {
-  //     emit(OfferLoading());
-  //     final List<Offer> response =
-  //         await algoliaSubspecialtiesService.searchOffer(text);
-  //     ListResponse<Offer> listResponse = ListResponse<Offer>(data: response);
-  //     emit(OfferLoadSuccess(offer: listResponse));
-  //   } catch (error) {
-  //     emit(OfferLoadFailed(error: error.toString()));
-  //   }
-  // }
-
-  Future<void> searchOffer(String text) async {
-    emit(OffersLoading());
-    final Either<Failure, ListResponse<Offer>> response =
-        await _repository.searchOffer(text: text);
-    emit(
-      response.fold(
-          (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
-          (ListResponse<Offer> offer) => offer.data.isEmpty
-              ? const OffersEmpty()
-              : OffersLoadSuccess(offers: offer)),
-    );
+  Future<void> searchOffer({
+    required String text,
+    int? cityId,
+    int? serviceProviderCategoryId,
+  }) async {
+    try {
+      emit(OffersLoading());
+      final List<Offer> response = await _algoliaOffersService.searchOffer(
+        text: text,
+        cityId: cityId,
+        serviceProviderCategoryId: serviceProviderCategoryId,
+      );
+      ListResponse<Offer> listResponse = ListResponse<Offer>(data: response);
+      emit(OffersLoadSuccess(offers: listResponse));
+    } catch (error) {
+      emit(OffersLoadFailed(error: error.toString()));
+    }
   }
+
+  // Future<void> searchOffer({
+  //   required String text,
+  //   int? cityId,
+  //   int? serviceProviderCategoryId,
+  // }) async {
+  //   emit(OffersLoading());
+  //   final Either<Failure, ListResponse<Offer>> response =
+  //       await _repository.searchOffer(text: text);
+  //   emit(
+  //     response.fold(
+  //         (Failure failure) => OffersLoadFailed(error: failure.toMessage()),
+  //         (ListResponse<Offer> offer) => offer.data.isEmpty
+  //             ? const OffersEmpty()
+  //             : OffersLoadSuccess(offers: offer)),
+  //   );
+  // }
 
   void selectCategoryAndCity(
       {ServiceProviderCategory? serviceProviderCategory, City? city}) {

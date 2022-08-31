@@ -1,7 +1,7 @@
-import 'dart:developer';
 
 import 'package:algolia/algolia.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/features/home/offer/data/models/offer.dart';
 import 'package:taleb/integrations/algolia.dart';
 
@@ -26,18 +26,27 @@ class AlgoliaOfferService {
   //   }
   // }
 
-  Future<List<Offer>> searchOffer(String text) async {
+  Future<List<Offer>> searchOffer({
+    required String text,
+    int? cityId,
+    int? serviceProviderCategoryId,
+  }) async {
     final AlgoliaIndexReference index =
         algoliaService!.instance.index('offer_index');
     List<dynamic>? results;
     try {
-      await index.query(text).getObjects().then((AlgoliaQuerySnapshot value) {
-        log(value.toMap().toString(), name: 'algolia offer searvice');
-        results = value.toMap()['hits'];
-      });
+      await index
+          .query(text)
+          // .facetFilter(
+          //     ['city.id:$cityId'])
+          .getObjects()
+          .then((AlgoliaQuerySnapshot value) {
+            logger.w(value.toMap().toString());
+            results = value.toMap()['hits'];
+          });
       return results!
           .where((dynamic element) => element != null)
-          .whereType<Map<String, dynamic>>()
+          // .whereType<Map<String, dynamic>>()
           .map((dynamic element) {
         return Offer.fromJson(element as Map<String, dynamic>);
       }).toList();

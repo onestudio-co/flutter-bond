@@ -58,22 +58,54 @@ class _OffersPageState extends State<OffersPage> {
         child: Column(
           children: [
             VerticalSpace(TalebSizes.h16),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: SearchWidget(
-                      hintText: TalebStrings.newsHomeTitleAppbar,
-                      onChanged: context.read<OffersCubit>().searchOffer,
+            BlocBuilder<OffersCubit, OffersState>(
+              builder: (context, state) {
+                if (state is OffersLoadSuccess) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SearchWidget(
+                            hintText: TalebStrings.newsHomeTitleAppbar,
+                            onChanged: (text) =>
+                                context.read<OffersCubit>().searchOffer(
+                                      text: text,
+                                      cityId: state.selectedCity?.id,
+                                      serviceProviderCategoryId: state
+                                          .selectedServiceProviderCategory?.id,
+                                    ),
+                          ),
+                        ),
+                        HorizontalSpace(TalebSizes.w8),
+                        FilterWidget(
+                          onTap: () => _goToFilterOffer(context),
+                        ),
+                      ],
                     ),
-                  ),
-                  HorizontalSpace(TalebSizes.w8),
-                  FilterWidget(
-                    onTap: () => _goToFilterOffer(context),
-                  ),
-                ],
-              ),
+                  );
+                } else {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SearchWidget(
+                            hintText: TalebStrings.newsHomeTitleAppbar,
+                            onChanged: (text) => context
+                                .read<OffersCubit>()
+                                .searchOffer(text: text),
+                          ),
+                        ),
+                        HorizontalSpace(TalebSizes.w8),
+                        FilterWidget(
+                          onTap: () => _goToFilterOffer(context),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
             ),
             VerticalSpace(TalebSizes.h16),
             const TalebDivider2(),

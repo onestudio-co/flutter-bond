@@ -91,7 +91,6 @@ class _NewsPageState extends State<NewsPage> {
                 Expanded(
                   child: BlocConsumer<NewsCubit, NewsState>(
                     listener: (BuildContext context, NewsState state) {
-                      logger.e(state.runtimeType);
                       state is NewsLoadFailed ? logger.e(state.error) : null;
                     },
                     builder: (BuildContext context, NewsState state) {
