@@ -62,14 +62,14 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
                           title: state.serviceProvider?.name ??
                               TalebStrings.filterNewsPublisher,
                           onTap: () =>
-                              _updateServiceProvider(context, newsCubit),
+                              _selectServiceProvider(context, newsCubit),
                           isSlected: state.serviceProvider != null,
                         ),
                         const TalebDivider(),
                         RowSelectedFilterWidget(
                           title:
                               state.city?.name ?? TalebStrings.filterNewsCity,
-                          onTap: () => _updateCity(context, newsCubit),
+                          onTap: () => _selectCity(context, newsCubit),
                           isSlected: state.city != null,
                         ),
                       ],
@@ -99,14 +99,14 @@ class FilterNewsPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  void _updateServiceProvider(BuildContext context, NewsCubit newsCubit) async {
+  void _selectServiceProvider(BuildContext context, NewsCubit newsCubit) async {
     final serviceProvider =
         await context.router.push<User>(const SearchSearviceProviderRoute());
 
     newsCubit.selectServiceProviderAndCity(serviceProvider: serviceProvider);
   }
 
-  void _updateCity(BuildContext context, NewsCubit newsCubit) async {
+  void _selectCity(BuildContext context, NewsCubit newsCubit) async {
     final city = await context.router.push<City>(const SearchCityRoute());
 
     newsCubit.selectServiceProviderAndCity(city: city);

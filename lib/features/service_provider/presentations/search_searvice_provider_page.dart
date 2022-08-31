@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_button.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/selected_item_listview.dart';
+import 'package:taleb/features/service_provider/presentations/search_service_provider_shimmer.dart';
 
 import 'service_provider_cubit/service_provider_cubit.dart';
 
@@ -106,8 +106,7 @@ class _SearchSearviceProviderPageState
                         ],
                       );
                     } else if (state is ServiceProviderLoadingState) {
-                      return const Center(
-                          child: TalebCircularProgressIndicator());
+                      return const SearchServiceProviderShimmer();
                     } else {
                       return const SizedBox.shrink();
                     }
