@@ -68,6 +68,7 @@ class TalebSizes {
   static double h120 = SizeUtil.setHeight(120.0);
   static double h130 = SizeUtil.setHeight(130.0);
   static double h140 = SizeUtil.setHeight(140.0);
+  static double h150 = SizeUtil.setHeight(150.0);
   static double h170 = SizeUtil.setHeight(170.0);
   static double h192 = SizeUtil.setHeight(192.0);
   static double h198 = SizeUtil.setHeight(198.0);

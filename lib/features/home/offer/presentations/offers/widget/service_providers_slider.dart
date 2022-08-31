@@ -16,7 +16,7 @@ class ServiceProvidersSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: TalebSizes.h140,
+      height: TalebSizes.h150,
       padding: EdgeInsets.all(TalebPadding.p16),
       child:
           BlocBuilder<PremiumServiceProviderCubit, PremiumServiceProviderState>(
