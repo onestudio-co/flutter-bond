@@ -22,7 +22,11 @@ class ServiceProviderCategoryCubit extends Cubit<ServiceProviderCategoryState> {
       (Failure failure) =>
           emit(ServiceProviderCategoryLoadFailure(failure.toMessage())),
       (ListResponse<ServiceProviderCategory> response) {
-        emit(ServiceProviderCategoryLoadedSuccessState(response.data));
+        emit(
+          response.data.isEmpty
+              ? ServiceProviderCategoryEmptyData()
+              : ServiceProviderCategoryLoadedSuccessState(response.data),
+        );
       },
     );
   }

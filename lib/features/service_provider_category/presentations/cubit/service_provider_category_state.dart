@@ -13,6 +13,10 @@ class ServiceProviderCategoryLoadingState extends ServiceProviderCategoryState {
   @override
   List<Object> get props => [];
 }
+class ServiceProviderCategoryEmptyData extends ServiceProviderCategoryState {
+  @override
+  List<Object> get props => [];
+}
 
 class ServiceProviderCategoryLoadedSuccessState
     extends ServiceProviderCategoryState {
