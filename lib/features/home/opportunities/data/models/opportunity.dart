@@ -2,7 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/city/data/models/city.dart';
-import 'package:taleb/features/home/news/data/models/media.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity_category.dart';
 import 'package:taleb/main.dart';
 
@@ -43,7 +42,11 @@ class Opportunity extends Model {
     required this.createdAt,
   }) : super(id: id);
 
-  List<String> get mediaImages => [url,url,url,];
+  List<String> get mediaImages => [
+        url,
+        url,
+        url,
+      ];
   // medias.values.map((e) => e.originalUrl).toList();
 
   factory Opportunity.fromJson(Map<String, dynamic> json) =>

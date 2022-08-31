@@ -23,7 +23,6 @@ import 'package:taleb/features/home/offer/presentations/service_provider_offer/t
 import 'package:taleb/features/home/offer/routes.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/all_opportunities_page.dart';
-import 'package:taleb/features/home/opportunities/presentations/all_opportunities/cubit/opportunity_cubit.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_error_widget.dart';
