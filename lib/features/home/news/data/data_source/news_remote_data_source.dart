@@ -46,11 +46,17 @@ class NewsRemoteDataSource extends DataSource {
     return mapListResponse(response);
   }
 
-  Future<ListResponse<News>> searchNews({required String text}) async {
+  Future<ListResponse<News>> searchNews({
+    required String text,
+    int? userId,
+    int? cityId,
+  }) async {
     final Response<dynamic> response = await _client.get(
       NewsApis.searchNews,
       queryParameters: <String, dynamic>{
         'text': text,
+        'user_id': userId,
+        'city_id': cityId,
       },
       headers: Api.headers(),
     );

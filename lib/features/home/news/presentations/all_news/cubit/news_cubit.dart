@@ -87,10 +87,18 @@ class NewsCubit extends Cubit<NewsState> {
   //   }
   // }
 
-  Future<void> searchNews(String text) async {
+  Future<void> searchNews({
+    required String text,
+    int? userId,
+    int? cityId,
+  }) async {
     emit(state.loading());
     final Either<Failure, ListResponse<News>> response =
-        await _repository.searchNews(text: text);
+        await _repository.searchNews(
+      text: text,
+      userId: userId,
+      cityId: cityId,
+    );
     emit(response.fold(
       (Failure failure) => state.faild(failure.toString()),
       (ListResponse<News> news) =>

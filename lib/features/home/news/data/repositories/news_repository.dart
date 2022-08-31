@@ -53,11 +53,17 @@ class NewsRepository {
     }
   }
 
-  Future<Either<Failure, ListResponse<News>>> searchNews(
-      {required String text}) async {
+  Future<Either<Failure, ListResponse<News>>> searchNews({
+    required String text,
+    int? userId,
+    int? cityId,
+  }) async {
     try {
-      final ListResponse<News> response =
-          await _remoteDataSource.searchNews(text: text);
+      final ListResponse<News> response = await _remoteDataSource.searchNews(
+        text: text,
+        userId: userId,
+        cityId: cityId,
+      );
       return Right<Failure, ListResponse<News>>(response);
     } on ServerException catch (e) {
       return Left<Failure, ListResponse<News>>(e.toFailure());
