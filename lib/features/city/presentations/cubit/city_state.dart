@@ -14,6 +14,11 @@ class CityLoadingState extends CityState {
   List<Object> get props => [];
 }
 
+class CityEmptyState extends CityState {
+  @override
+  List<Object> get props => [];
+}
+
 class CityLoadedSuccessState extends CityState {
   final List<City> cities;
 
