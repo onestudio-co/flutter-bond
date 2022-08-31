@@ -9,6 +9,7 @@ import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
 import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
+import 'package:taleb/features/home/news/presentations/all_news/news_listing_shimmer.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
@@ -95,9 +96,7 @@ class _NewsPageState extends State<NewsPage> {
                     },
                     builder: (BuildContext context, NewsState state) {
                       sl<AdCubit>().getAds();
-                      if (state is NewsEmpty) {
-                        return const Center(child: Text('لا يوجد بيانات ....'));
-                      } else if (state is NewsLoadSuccess) {
+                      if (state is NewsLoadSuccess) {
                         final List news = state.news.data;
                         return Column(
                           children: <Widget>[
@@ -131,8 +130,10 @@ class _NewsPageState extends State<NewsPage> {
                           ],
                         );
                       } else if (state is NewsLoading) {
-                        return const Center(
-                            child: TalebCircularProgressIndicator());
+                        return const NewsListingShimmer();
+                      }
+                      if (state is NewsEmpty) {
+                        return const Center(child: Text('لا يوجد بيانات ....'));
                       } else {
                         return const SizedBox.shrink();
                       }
