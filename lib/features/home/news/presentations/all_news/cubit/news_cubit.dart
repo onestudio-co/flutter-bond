@@ -114,9 +114,19 @@ class NewsCubit extends Cubit<NewsState> {
   }
 
   void clearFilterResult() {
-    if (state is NewsLoadSuccess) {
-      final currentState = state as NewsLoadSuccess;
-      emit(currentState.clearSelected());
-    }
+    final currentState = state as NewsLoadSuccess;
+    emit(currentState.clearSelected());
+  }
+
+  void clearFilterServiceProvider() {
+    final currentState = state as NewsLoadSuccess;
+    emit(currentState.clearFilterServiceProvider());
+    loadNews(cityId: state.city?.id, emitLoading: true);
+  }
+
+  void clearFilterCity() {
+    final currentState = state as NewsLoadSuccess;
+    emit(currentState.clearFilterCity());
+    loadNews(cityId: state.serviceProvider?.id, emitLoading: true);
   }
 }

@@ -2,6 +2,7 @@ import 'package:one_studio_core/core.dart';
 
 class TalebBorderRadius {
   static double r0 = SizeUtil.setRadius(0.0);
+  static double r4 = SizeUtil.setRadius(4.0);
   static double r8 = SizeUtil.setRadius(8.0);
   static double r12 = SizeUtil.setRadius(12.0);
   static double r16 = SizeUtil.setRadius(16.0);

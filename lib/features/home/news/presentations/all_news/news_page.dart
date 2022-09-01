@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
+import 'package:taleb/core/widget/label_selected_filter_in_search.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
@@ -19,6 +21,7 @@ import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 import 'package:taleb/routes/app_router.dart';
 
 import 'cubit/news_cubit.dart';
+import 'widget/search_news.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key? key}) : super(key: key);
@@ -72,13 +75,9 @@ class _NewsPageState extends State<NewsPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Expanded(
-                        child: SearchWidget(
-                          hintText: TalebStrings.newsHomeTextFieldHint,
-                          onChanged: context.read<NewsCubit>().searchNews,
-                        ),
-                      ),
+                      SearchNews(),
                       HorizontalSpace(TalebSizes.w8),
                       FilterWidget(
                         onTap: () async => context.router.push(

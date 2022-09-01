@@ -78,6 +78,15 @@ class NewsLoadSuccess extends NewsState {
     return NewsLoadSuccess(news: news, city: null, serviceProvider: null);
   }
 
+  NewsLoadSuccess clearFilterServiceProvider() {
+    return NewsLoadSuccess(news: news, city: city, serviceProvider: null);
+  }
+
+  NewsLoadSuccess clearFilterCity() {
+    return NewsLoadSuccess(
+        news: news, city: null, serviceProvider: serviceProvider);
+  }
+
   NewsLoadSuccess copyWith({
     ListResponse<News>? news,
     User? serviceProvider,
