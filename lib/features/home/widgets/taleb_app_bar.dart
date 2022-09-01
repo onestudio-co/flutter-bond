@@ -22,6 +22,7 @@ class TalebAppBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leadingWidth: 80,
       title: title != null ? Text(title!) : null,
       leading: Visibility(
         visible: showBack,

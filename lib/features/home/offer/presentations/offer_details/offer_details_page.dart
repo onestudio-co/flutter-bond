@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/core/helpers/url_launcher.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
@@ -37,7 +38,8 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
       appBar: TalebAppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            padding: EdgeInsetsDirectional.only(end: TalebSizes.w12),
+            onPressed: () => UrlLauncher.phoneCall(offer.contactNumber),
             icon: SvgPicture.asset(TalebIcons.call),
           ),
         ],
@@ -50,22 +52,25 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
             children: [
               const TalebDivider2(thickness: 2),
               VerticalSpace(TalebSizes.h16),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: TalebPadding.p8),
+                    child: SizedBox(
                       height: TalebSizes.h300,
                       child: Stack(
                         children: [
                           TalebSliderImagesWidget(
-                              index: offer.id, images: offer.mediaImages),
+                            index: offer.id,
+                            images: offer.mediaImages,
+                          ),
                           Align(
                             alignment: Alignment.bottomRight,
                             child: Container(
                               margin: EdgeInsets.symmetric(
-                                  horizontal: TalebPadding.defaultPadding),
+                                horizontal: TalebPadding.defaultPadding,
+                              ),
                               padding: EdgeInsets.symmetric(
                                 horizontal: TalebPadding.p16,
                               ),
@@ -100,32 +105,44 @@ class OfferDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                         ],
                       ),
                     ),
-                    VerticalSpace(TalebSizes.h16),
-                    DateAndServiceProviderWidget(
-                      name: offer.user.name,
-                      image: offer.user.image,
-                      onPress: () => context.router.push(
-                          ServiceProviderOffersTabBarRoute(user: offer.user)),
+                  ),
+                  VerticalSpace(TalebSizes.h16),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: TalebPadding.p16),
+                    child: Column(
+                      children: [
+                        DateAndServiceProviderWidget(
+                          name: offer.user.name,
+                          image: offer.user.image,
+                          onPress: () => context.router.push(
+                              ServiceProviderOffersTabBarRoute(
+                                  user: offer.user)),
+                        ),
+                        VerticalSpace(TalebSizes.h12),
+                        Text(
+                          offer.title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium!
+                              .elephant,
+                        ),
+                        VerticalSpace(TalebSizes.h12),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: TalebPadding.p32),
+                          child: Text(
+                            offer.content,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayLarge!
+                                .elephant,
+                          ),
+                        ),
+                        const TalebDivider2(),
+                        const SimilarMainOffersWidget(),
+                      ],
                     ),
-                    VerticalSpace(TalebSizes.h12),
-                    Text(
-                      offer.title,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium!.elephant,
-                    ),
-                    VerticalSpace(TalebSizes.h12),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: TalebPadding.p32),
-                      child: Text(
-                        offer.content,
-                        style:
-                            Theme.of(context).textTheme.displayLarge!.elephant,
-                      ),
-                    ),
-                    const TalebDivider2(),
-                    const SimilarMainOffersWidget(),
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),
