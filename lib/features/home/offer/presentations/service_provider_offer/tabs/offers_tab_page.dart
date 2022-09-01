@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
+import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/features/auth/data/models/user.dart';
 import 'package:taleb/features/home/offer/offer_imports.dart';
 import 'package:taleb/features/home/offer/presentations/offers/widget/offer_list_card_item.dart';
@@ -54,8 +55,8 @@ class ServiceProviderOffersOffersTabPage extends StatelessWidget {
               },
             );
           }
-          if (state is ServiceProviderOfferLoadFailed) {
-            logger.e(state.error);
+          if (state is ServiceProviderOfferEmpty) {
+            return const EmptyDataWidget();
           }
           return const OffersListItemShimmer();
         },
