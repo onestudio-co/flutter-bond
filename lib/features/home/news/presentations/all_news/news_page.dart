@@ -77,7 +77,7 @@ class _NewsPageState extends State<NewsPage> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SearchNews(),
+                      const SearchNews(),
                       HorizontalSpace(TalebSizes.w8),
                       FilterWidget(
                         onTap: () async => context.router.push(
@@ -94,6 +94,9 @@ class _NewsPageState extends State<NewsPage> {
                     },
                     builder: (BuildContext context, NewsState state) {
                       sl<AdCubit>().getAds();
+                      if (state is NewsEmpty) {
+                        return const EmptyDataWidget();
+                      }
                       if (state is NewsLoadSuccess) {
                         final List news = state.news.data;
                         return Column(
@@ -129,9 +132,6 @@ class _NewsPageState extends State<NewsPage> {
                         );
                       } else if (state is NewsLoading) {
                         return const NewsListingShimmer();
-                      }
-                      if (state is NewsEmpty) {
-                        return const EmptyDataWidget();
                       } else {
                         return const TalebErrorWidget();
                       }

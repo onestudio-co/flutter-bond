@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/label_selected_filter_in_search.dart';
 import 'package:taleb/features/home/news/presentations/all_news/cubit/news_cubit.dart';
@@ -51,11 +50,9 @@ class SearchNews extends StatelessWidget {
 
   void _onServiceProviderCancel(NewsCubit cubit) {
     cubit.clearFilterServiceProvider();
-    logger.d('message');
   }
 
   void _onCityCancel(NewsCubit cubit) {
     cubit.clearFilterCity();
-    logger.d('message');
   }
 }
