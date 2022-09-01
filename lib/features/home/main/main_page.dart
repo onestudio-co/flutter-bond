@@ -60,9 +60,9 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
             VerticalSpace(TalebSizes.h8),
             const TalebDivider2(),
             VerticalSpace(TalebSizes.h8),
-            IconButton(
-                onPressed: () => context.router.push(const SearchTabBarRoute()),
-                icon: const Icon(Icons.ac_unit)),
+            // IconButton(
+            //     onPressed: () => context.router.push(const SearchTabBarRoute()),
+            //     icon: const Icon(Icons.ac_unit)),
             const PaidAdsSlider(),
             VerticalSpace(TalebSizes.h44),
             const LastOfferSlider(),
