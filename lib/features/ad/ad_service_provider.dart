@@ -4,7 +4,7 @@ import 'package:one_studio_core/core.dart';
 import 'data/data_source/ad_remote_data_source.dart';
 import 'data/models/ad.dart';
 import 'data/repositories/ad_repository.dart';
-import 'presentations/un_paid_ads_cubit/ad_cubit.dart';
+import 'presentations/un_paid_ad_cubit/ad_cubit.dart';
 
 class AdServiceProvider extends ServiceProvider {
   @override

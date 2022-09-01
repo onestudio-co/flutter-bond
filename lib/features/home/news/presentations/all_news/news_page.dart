@@ -9,7 +9,7 @@ import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
-import 'package:taleb/features/ad/presentations/un_paid_ads_cubit/ad_cubit.dart';
+import 'package:taleb/features/ad/presentations/un_paid_ad_cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/all_news/news_listing_shimmer.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
