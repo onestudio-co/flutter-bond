@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
+import 'package:taleb/features/ad/presentations/paid_ad_cubit/paid_ad_cubit.dart';
 
 import 'data/data_source/ad_remote_data_source.dart';
 import 'data/models/ad.dart';
@@ -12,6 +13,7 @@ class AdServiceProvider extends ServiceProvider {
     it.registerFactory(() => AdRemoteDataSource(it()));
     it.registerFactory(() => AdRepository(it()));
     it.registerLazySingleton(() => AdCubit(it()));
+    it.registerFactory(() => PaidAdCubit(it()));
   }
 
   @override
