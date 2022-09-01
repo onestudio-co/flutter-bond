@@ -56,5 +56,10 @@
 	<string>Taleb need to Access your Location to know if your location is supported to use our services</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Taleb need to Access your Location to know if your location is supported to use our services</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sms</string>
+		<string>tel</string>
+	</array>
 </dict>
 </plist>
