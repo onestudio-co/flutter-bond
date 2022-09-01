@@ -1,22 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
-import 'package:taleb/core/widget/label_selected_filter_in_search.dart';
 import 'package:taleb/core/widget/taleb_divider.dart';
 import 'package:taleb/core/widget/taleb_error_widget.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
-import 'package:taleb/features/ad/presentations/cubit/ad_cubit.dart';
+import 'package:taleb/features/ad/presentations/un_paid_ads_cubit/ad_cubit.dart';
 import 'package:taleb/features/home/news/presentations/all_news/news_listing_shimmer.dart';
 import 'package:taleb/features/home/news/presentations/widgets/ads_widget.dart';
 import 'package:taleb/features/home/news/presentations/widgets/news_card.dart';
 import 'package:taleb/features/home/widgets/filter_widget.dart';
-import 'package:taleb/features/home/widgets/search_widget.dart';
 import 'package:taleb/features/home/widgets/taleb_app_bar.dart';
 import 'package:taleb/routes/app_router.dart';
 
