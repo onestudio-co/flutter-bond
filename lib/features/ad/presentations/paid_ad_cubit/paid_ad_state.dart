@@ -4,20 +4,20 @@ abstract class PaidAdState extends Equatable {
   const PaidAdState();
 }
 
-class PaidAdInitialState extends PaidAdState {
+class PaidAdInitial extends PaidAdState {
   @override
   List<Object> get props => [];
 }
 
-class PaidAdLoadingState extends PaidAdState {
+class PaidAdLoading extends PaidAdState {
   @override
   List<Object> get props => [];
 }
 
-class PaidAdLoadedSuccessState extends PaidAdState {
+class PaidAdLoadedSuccess extends PaidAdState {
   final List<Ad> ads;
 
-  const PaidAdLoadedSuccessState(this.ads);
+  const PaidAdLoadedSuccess(this.ads);
   @override
   List<Object> get props => [ads];
 }

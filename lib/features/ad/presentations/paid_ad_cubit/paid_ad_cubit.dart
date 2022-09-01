@@ -10,17 +10,17 @@ part 'paid_ad_state.dart';
 class PaidAdCubit extends Cubit<PaidAdState> {
   final AdRepository _addRepository;
 
-  PaidAdCubit(this._addRepository) : super(PaidAdInitialState());
+  PaidAdCubit(this._addRepository) : super(PaidAdInitial());
 
   void getPaidAds() async {
-    emit(PaidAdLoadingState());
+    emit(PaidAdLoading());
 
     final Either<Failure, ListResponse<Ad>> response =
         await _addRepository.getPaidAds();
     response.fold(
       (Failure failure) => emit(PaidAdLoadFailure(failure.toMessage())),
       (ListResponse<Ad> response) {
-        emit(PaidAdLoadedSuccessState(response.data));
+        emit(PaidAdLoadedSuccess(response.data));
       },
     );
   }
