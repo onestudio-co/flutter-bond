@@ -24,6 +24,11 @@ import 'package:taleb/features/home/offer/routes.dart';
 import 'package:taleb/features/home/opportunities/data/models/opportunity.dart';
 import 'package:taleb/features/home/opportunities/presentations/all_opportunities/all_opportunities_page.dart';
 import 'package:taleb/features/home/opportunities/presentations/opportunity_details/opportunity_details_page.dart';
+import 'package:taleb/features/home/search/news_tab_page.dart';
+import 'package:taleb/features/home/search/search_tab_bar_page.dart';
+import 'package:taleb/features/home/search/offers_tab_page.dart';
+import 'package:taleb/features/home/search/opportunities_tab_page.dart';
+import 'package:taleb/features/home/search/routes.dart';
 import 'package:taleb/features/service_provider/presentations/search_searvice_provider_page.dart';
 import 'package:taleb/features/service_provider_category/data/models/service_provider_category.dart';
 import 'package:taleb/features/service_provider_category/presentations/service_provider_categories_page.dart';
@@ -43,6 +48,7 @@ part 'app_router.gr.dart';
     ...authRoutes,
     ...homeBottomNavBarRoutes,
     ...offerRoutes,
+    ...homeSearchRoutes,
     AutoRoute(page: SearviceProviderNewsPage),
     AutoRoute(page: NewsDetailsPage),
     AutoRoute(page: OpportunityDetailsPage),

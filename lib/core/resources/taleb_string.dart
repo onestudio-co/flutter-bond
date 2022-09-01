@@ -68,4 +68,9 @@ class TalebStrings {
   static String filterNewsDescription = 'الرجاء أختيار معلومات التصفية';
   static String filterNewsPublisher = 'الناشر';
   static String filterNewsCity = 'المدينة';
+
+  ///[HomeSearch]
+  static String homeSearchOffers = 'العروض';
+  static String homeSearchOpportunities = 'الفرص';
+  static String homeSearchNews = 'الأخبار';
 }

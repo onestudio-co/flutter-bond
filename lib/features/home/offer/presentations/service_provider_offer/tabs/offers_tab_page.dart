@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/taleb_sizes.dart';
 import 'package:taleb/core/widget/empty_data_widget.dart';
 import 'package:taleb/features/auth/data/models/user.dart';

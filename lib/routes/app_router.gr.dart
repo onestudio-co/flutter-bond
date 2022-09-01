@@ -51,6 +51,10 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    SearchTabBarRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SearchTabBarPage());
+    },
     SearviceProviderNewsRoute.name: (routeData) {
       final args = routeData.argsAs<SearviceProviderNewsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -133,6 +137,18 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData,
           child: ServiceProviderOffersOffersTabPage(
               user: args.user, key: args.key));
+    },
+    SearchOpportunitiesRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SearchOpportunitiesPage());
+    },
+    SearchOffersRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SearchOffersPage());
+    },
+    SearchNewsRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SearchNewsPage());
     }
   };
 
@@ -159,6 +175,17 @@ class _$AppRouter extends RootStackRouter {
                   parent: ServiceProviderOffersTabBarRoute.name)
             ]),
         RouteConfig(FilterOfferRoute.name, path: '/filter-offer-page'),
+        RouteConfig(SearchTabBarRoute.name,
+            path: '/search-tab-bar-page',
+            children: [
+              RouteConfig(SearchOpportunitiesRoute.name,
+                  path: 'home-search/opportunities',
+                  parent: SearchTabBarRoute.name),
+              RouteConfig(SearchOffersRoute.name,
+                  path: 'home-search/offers', parent: SearchTabBarRoute.name),
+              RouteConfig(SearchNewsRoute.name,
+                  path: 'home-search/news', parent: SearchTabBarRoute.name)
+            ]),
         RouteConfig(SearviceProviderNewsRoute.name,
             path: '/searvice-provider-news-page'),
         RouteConfig(NewsDetailsRoute.name, path: '/news-details-page'),
@@ -271,6 +298,16 @@ class FilterOfferRouteArgs {
   String toString() {
     return 'FilterOfferRouteArgs{offersCubit: $offersCubit, key: $key}';
   }
+}
+
+/// generated route for
+/// [SearchTabBarPage]
+class SearchTabBarRoute extends PageRouteInfo<void> {
+  const SearchTabBarRoute({List<PageRouteInfo>? children})
+      : super(SearchTabBarRoute.name,
+            path: '/search-tab-bar-page', initialChildren: children);
+
+  static const String name = 'SearchTabBarRoute';
 }
 
 /// generated route for
@@ -487,4 +524,31 @@ class ServiceProviderOffersOffersTabRouteArgs {
   String toString() {
     return 'ServiceProviderOffersOffersTabRouteArgs{user: $user, key: $key}';
   }
+}
+
+/// generated route for
+/// [SearchOpportunitiesPage]
+class SearchOpportunitiesRoute extends PageRouteInfo<void> {
+  const SearchOpportunitiesRoute()
+      : super(SearchOpportunitiesRoute.name, path: 'home-search/opportunities');
+
+  static const String name = 'SearchOpportunitiesRoute';
+}
+
+/// generated route for
+/// [SearchOffersPage]
+class SearchOffersRoute extends PageRouteInfo<void> {
+  const SearchOffersRoute()
+      : super(SearchOffersRoute.name, path: 'home-search/offers');
+
+  static const String name = 'SearchOffersRoute';
+}
+
+/// generated route for
+/// [SearchNewsPage]
+class SearchNewsRoute extends PageRouteInfo<void> {
+  const SearchNewsRoute()
+      : super(SearchNewsRoute.name, path: 'home-search/news');
+
+  static const String name = 'SearchNewsRoute';
 }

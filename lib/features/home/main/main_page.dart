@@ -15,6 +15,7 @@ import 'package:taleb/features/home/main/last_opportunities/last_opportunities_s
 import 'package:taleb/features/home/main/paid_ad/paid_ads_slider.dart';
 import 'package:taleb/features/home/main/partners/partners_slider.dart';
 import 'package:taleb/features/service_provider/presentations/partner_cubit/partner_cubit.dart';
+import 'package:taleb/routes/app_router.dart';
 
 class MainPage extends StatelessWidget implements AutoRouteWrapper {
   const MainPage({Key? key}) : super(key: key);
@@ -59,6 +60,9 @@ class MainPage extends StatelessWidget implements AutoRouteWrapper {
             VerticalSpace(TalebSizes.h8),
             const TalebDivider2(),
             VerticalSpace(TalebSizes.h8),
+            IconButton(
+                onPressed: () => context.router.push(const SearchTabBarRoute()),
+                icon: const Icon(Icons.ac_unit)),
             const PaidAdsSlider(),
             VerticalSpace(TalebSizes.h44),
             const LastOfferSlider(),
