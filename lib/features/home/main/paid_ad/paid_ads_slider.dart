@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taleb/core/resources/import_resources.dart';
-import 'package:taleb/core/widget/circular_progress_indecator.dart';
 import 'package:taleb/core/widget/slider_news_image.dart';
 import 'package:taleb/features/ad/presentations/paid_ad_cubit/paid_ad_cubit.dart';
+
+import 'paid_ads_shimmer.dart';
 
 class PaidAdsSlider extends StatelessWidget {
   const PaidAdsSlider({
@@ -22,12 +23,9 @@ class PaidAdsSlider extends StatelessWidget {
             onTap: () {},
           );
         } else if (state is PaidAdLoading) {
-          return const TalebCircularProgressIndicator();
+          return const PaidAdsShimmer();
         } else {
-          return SizedBox(
-            height: 200,
-            width: MediaQuery.of(context).size.width,
-          );
+          return const PaidAdsShimmer();
         }
       },
     );

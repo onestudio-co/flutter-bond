@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:taleb/core/helpers/logger.dart';
 import 'package:taleb/core/resources/import_resources.dart';
 import 'package:taleb/core/widget/taleb_image.dart';
 
