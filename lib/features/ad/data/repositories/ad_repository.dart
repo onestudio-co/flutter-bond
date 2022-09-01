@@ -17,4 +17,13 @@ class AdRepository {
       return Left<Failure, ListResponse<Ad>>(e.toFailure());
     }
   }
+
+  Future<Either<Failure, ListResponse<Ad>>> getPaidAds() async {
+    try {
+      final ListResponse<Ad> response = await _remoteDataSource.getPaidAds();
+      return Right<Failure, ListResponse<Ad>>(response);
+    } on ServerException catch (e) {
+      return Left<Failure, ListResponse<Ad>>(e.toFailure());
+    }
+  }
 }

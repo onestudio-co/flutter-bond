@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:taleb/features/ad/data/models/ad.dart';
@@ -11,22 +9,22 @@ class AdRemoteDataSource extends DataSource {
 
   Future<ListResponse<Ad>> getAds() async {
     final Response<dynamic> response = await _client.get(
-      AdsApis.ads(),
+      AdsApis.ads,
       headers: Api.headers(),
     );
-    if ((response.statusCode ?? 0) <= 204) {
-      return ListResponse<Ad>.fromJson(response.data);
-    } else {
-      throw ServerException.fromResponse(
-        json.encode(response.data),
-        response.statusCode,
-      );
-    }
+    return mapListResponse(response);
+  }
+
+  Future<ListResponse<Ad>> getPaidAds() async {
+    final Response<dynamic> response = await _client.get(
+      AdsApis.padidAds,
+      headers: Api.headers(),
+    );
+    return mapListResponse(response);
   }
 }
 
 extension AdsApis on Api {
-  static String ads() {
-    return 'adds';
-  }
+  static String get ads => 'adds';
+  static String get padidAds => 'paid-adds';
 }
