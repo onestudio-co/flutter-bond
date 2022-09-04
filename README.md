@@ -23,7 +23,7 @@ samples, guidance on mobile development, and a full API reference.
 
      to upgrade to the latest version of dart if avaliable.
 
-- Update to the latest stable [flutter version 2.10.2](https://docs.flutter.dev/get-started/install/macos)
+- Update to the latest stable [flutter version 3.0.4](https://docs.flutter.dev/get-started/install/macos)
 
      on termainl run:  
 
