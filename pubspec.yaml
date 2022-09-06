@@ -20,6 +20,9 @@ dependencies:
   flutter_svg: ^1.0.3
   intl: ^0.17.0
 
+  # utils
+  flutter_native_splash: ^2.2.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
