@@ -49,7 +49,6 @@
       "size" : "57x57"
     },
     {
-      "filename" : "AppIcon-staging-57x57@3x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "57x57"
@@ -147,18 +146,6 @@
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
-    },
-    {
-      "filename" : "AppIcon-staging-50x50@1x.png",
-      "idiom" : "iphone",
-      "scale" : "1x",
-      "size" : "50x50"
-    },
-    {
-      "filename" : "AppIcon-staging-50x50@2x.png",
-      "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "50x50"
     }
   ],
   "info" : {
