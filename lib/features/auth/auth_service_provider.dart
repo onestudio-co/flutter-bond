@@ -5,8 +5,6 @@ import 'data/datasources/auth_local_data_source.dart';
 import 'data/datasources/auth_remote_data_source.dart';
 import 'data/models/user.dart';
 import 'data/repositories/auth_repository.dart';
-import 'data/services/apple_id_login_service.dart';
-import 'data/services/google_account_login_service.dart';
 
 class AuthServiceProvider extends ServiceProvider {
   @override
@@ -15,9 +13,6 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerLazySingleton<AuthStore>(() => AuthLocalDataSource(it()));
 
     it.registerLazySingleton(() => AuthRepository(it(), it()));
-
-    it.registerFactory(() => GoogleAccountLoginService());
-    it.registerFactory(() => AppleIdLoginService());
   }
 
   @override

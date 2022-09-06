@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:bond/core/theme/bond_light_theme_data.dart';
 import 'package:bond/routes/app_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:one_studio_core/core.dart';
-import 'package:one_studio_core/external_packages.dart';
 
 import 'injection_container.dart';
 

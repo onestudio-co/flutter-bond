@@ -1,6 +1,6 @@
 name: bond
 description: Bond project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -9,19 +9,16 @@ dependencies:
   flutter:
     sdk: flutter
   one_studio_core:
-    path: packages/core
-  sign_in_with_apple: ^3.3.0
-  google_sign_in: ^5.2.3
+    git:
+      url: https://github.com/onestudio-co/one-studio-core.git
+      ref: main
+  easy_localization: ^3.0.1
   dartz: ^0.10.1
   bloc: ^8.0.2
   flutter_bloc: ^8.0.1
-  sms_autofill: ^2.2.0
   auto_route: ^4.2.1
   flutter_svg: ^1.0.3
   intl: ^0.17.0
-  flutter_config: ^2.0.0
-  cupertino_icons: ^1.0.2
-  bloc_test: ^9.0.2
 
 dev_dependencies:
   flutter_test:
@@ -34,25 +31,13 @@ dev_dependencies:
       ref: main
   build_runner: ^2.1.7
   json_serializable: ^6.1.4
+  bloc_test: ^9.0.2
+  flutter_launcher_icons: ^0.10.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
-    - assets/fonts/
     - assets/icons/
     - assets/images/
     - assets/langs/
-
-# If you want to use any fonts, added it to assets/fonts folder
-# Or use Google Fonts Package
-  # fonts:
-    # - family: Montserrat
-    #   fonts:
-    #     - asset: assets/fonts/Montserrat-Arabic-Bold.ttf
-    #       weight: 700
-    #     - asset: assets/fonts/Montserrat-Arabic-Medium.ttf
-    #       weight: 500
-    #     - asset: assets/fonts/Montserrat-Arabic-Regular .ttf
-    #       weight: 400
