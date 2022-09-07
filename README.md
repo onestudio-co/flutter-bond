@@ -38,22 +38,22 @@ samples, guidance on mobile development, and a full API reference.
  
 There are to file to manage launcher icon proprties:
 
- 1 - ``` flutter_launcher_icons.yaml ```  for production flavor icon.
+ 1- ``` flutter_launcher_icons.yaml ```  for production flavor icon.
  
- 2 - ``` flutter_native_splash-staging.yaml ``` for staging flavor icons.
+ 2- ``` flutter_native_splash-staging.yaml ``` for staging flavor icons.
  
  ## update app icons
-   1 - first replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
+   1- first replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
 
-   2 - run this command to generate production flavor icons
+   2- run this command to generate production flavor icons
    
       flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
 
-   3 - run this command to generate production flavor icons
+   3- run this command to generate production flavor icons
    
       flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
       
-   4 - run the app to make sure the launcher icon are updated correctly (*uninstall the app first). 
+   4- run the app to make sure the launcher icon are updated correctly (*uninstall the app first). 
 
    5- commit changes.
    
@@ -63,22 +63,22 @@ There are to file to manage launcher icon proprties:
  
 There are to file to manage native splash screen proprties:
 
- 1 - ``` flutter_native_splash-production.yaml ``` for production flavor splash splash screen proprteis.
+ 1- ``` flutter_native_splash-production.yaml ``` for production flavor splash splash screen proprteis.
  
- 2 - ``` flutter_native_splash-staging.yaml ``` for staging flavor splash screen proprteis.
+ 2- ``` flutter_native_splash-staging.yaml ``` for staging flavor splash screen proprteis.
  
  ## update native splash screen
-   1 - first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page proprties for both flavors.
+   1- first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page proprties for both flavors.
 
-   2 - run this command to generate production flavor native splash screen proprties
+   2- run this command to generate production flavor native splash screen proprties
    
       flutter pub run flutter_native_splash:create --flavor production
 
-   3 - run this command to generate staging flavor native splash screen proprties
+   3- run this command to generate staging flavor native splash screen proprties
    
       flutter pub run flutter_native_splash:create --flavor staging
       
-   4 - run the app to make sure the native splash screen are updated correctly (*uninstall the app first). 
+   4- run the app to make sure the native splash screen are updated correctly (*uninstall the app first). 
 
    5- commit changes.
       
@@ -99,13 +99,13 @@ There are to file to manage native splash screen proprties:
   
   ## install and activate firebase cli (if not installed):
   
-   1 - for mac or linux you can simply run this command from terminal 
+   1- for mac or linux you can simply run this command from terminal 
     
       curl -sL https://firebase.tools | bash
        
-   2 - for windows check [firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
+   2- for windows check [firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
     
-   3 - login to your firebase account using this commnd 
+   3- login to your firebase account using this commnd 
     
       firebase login
         
@@ -115,19 +115,19 @@ There are to file to manage native splash screen proprties:
   
    because our app support multiple flavor (production & staging) we will use [forked version from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors) 
       
-   1 - clone this [fork from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors).
+   1- clone this [fork from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors).
       
-   2 - run plugin from app path using this command from terminal (replace {path} with path to flutterfire cli directory)
+   2- run plugin from app path using this command from terminal (replace {path} with path to flutterfire cli directory)
    
       dart run {path}/flutterfire_cli/packages/flutterfire_cli/bin/flutterfire.dart configure
          
-   3 - when this message appear in you terminal
+   3- when this message appear in you terminal
       
       ? Do you want  to create a firebase project for each flavor? (y/n) › no       
           
    select ```y``` 
           
-   5 - flutterfire_cli will genrate two files on flutter project ```firebase_options_production.dart``` and ```firebase_options_staging.dart```
+   5- flutterfire_cli will genrate two files on flutter project ```firebase_options_production.dart``` and ```firebase_options_staging.dart```
           
    on ```main_production.dart``` file intizalize firebase app 
             
@@ -141,16 +141,16 @@ There are to file to manage native splash screen proprties:
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       
       
-   6 - add [firebase_core](https://pub.dev/packages/firebase_core) plugin to the project 
+   6- add [firebase_core](https://pub.dev/packages/firebase_core) plugin to the project 
    
       flutter pub add firebase_core
       
             
    and make sure you import ```firebase_options_staging.dart``` file
     
-   7 - run project and make sure every thing work prefectly.
+   7- run project and make sure every thing work prefectly.
       
-   8 - commits changes.
+   8- commits changes.
 
 
 # Futures samples:
