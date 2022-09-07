@@ -68,7 +68,7 @@ There are to file to manage native splash screen proprties:
  2 - ``` flutter_native_splash-staging.yaml ``` for staging flavor splash screen proprteis.
  
  ## update native splash screen
-   1 - first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page for both flavors.
+   1 - first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page proprties for both flavors.
 
    2 - run this command to generate production flavor native splash screen proprties
    
@@ -111,7 +111,7 @@ There are to file to manage native splash screen proprties:
         
    (This command connects your local machine to Firebase and grants you access to your Firebase projects.)
         
-  ## install and activate flutterfire cli (if not installed):
+  ## Flutterfire configure:
   
    because our app support multiple flavor (production & staging) we will use [forked version from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors) 
       
