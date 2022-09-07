@@ -121,11 +121,12 @@ There are to file to manage native splash screen proprties:
    
       dart run {path}/flutterfire_cli/packages/flutterfire_cli/bin/flutterfire.dart configure
          
-   3 - when this message appear in you tirmnal
+   3 - when this message appear in you terminal
       
       ? Do you want  to create a firebase project for each flavor? (y/n) › no       
           
-   select ```y``` integrate firebase project for each flavor.
+   select ```y``` 
+      ? Select a Firebase project to configure your Flutter application with, for production ›                              
           
    5 - flutterfire_cli will genrate two files on flutter project ```firebase_options_production.dart``` and ```firebase_options_staging.dart```
           
@@ -141,7 +142,7 @@ There are to file to manage native splash screen proprties:
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       
       
-   6 - add (firebase_core)[https://pub.dev/packages/firebase_core] plugin to the project 
+   6 - add [firebase_core](https://pub.dev/packages/firebase_core) plugin to the project 
    
       flutter pub add firebase_core
       
