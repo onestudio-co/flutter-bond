@@ -90,6 +90,62 @@ There are to file to manage native splash screen proprties:
 
 # Firebase Integration
 
+  We use [flutterfire](https://github.com/firebase/flutterfire) plugin to integrate app with firebase services,
+  a long with [flutterfire cli](https://github.com/invertase/flutterfire_cli) to generate all firbase 
+  files and configurations for both platform android and ios.
+  
+  [flutterfire cli](https://github.com/invertase/flutterfire_cli) depends on [firebase cli](https://firebase.google.com/docs/cli) tool
+  so we need to install flutter cli first.
+  
+  ## install and activate firebase cli (if not installed):
+  
+   1 - for mac or linux you can simply run this command from terminal 
+    
+      curl -sL https://firebase.tools | bash
+       
+   2 - for windows check [https://firebase.google.com/docs/cli#windows-npm](firebase cli docs) 🌚
+    
+   3 - login to your firebase account using this commnd 
+    
+      firebase login
+        
+   (This command connects your local machine to Firebase and grants you access to your Firebase projects.)
+        
+  ## install and activate flutterfire cli (if not installed):
+  
+   because our app support multiple flavor (production & staging) we will use[forked from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors) 
+      
+   1 - clone this [fork from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors).
+      
+   2 - run plugin from app path using this command from terminal (replace {path} with path to flutterfire cli directory)
+   
+      dart run {path}/flutterfire_cli/packages/flutterfire_cli/bin/flutterfire.dart configure
+         
+   3 - when this message appear in you tirmnal
+      
+      ? Do you want  to create a firebase project for each flavor? (y/n) › no       
+          
+   select ```y``` and select firebase project for each flavor.
+          
+   5 - flutterfire_cli will genrate two files on flutter project ```firebase_options_production.dart``` and ```firebase_options_staging.dart```
+          
+   on ```main_production.dart``` file intizalize firebase app 
+            
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+            
+   and make sure you import ```firebase_options_production.dart``` file
+    
+       
+   on ```main_staging.dart``` file intizalize firebase app
+            
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+            
+   and make sure you import ```firebase_options_staging.dart``` file
+    
+   6 - run project make sure every thing work prefectly.
+      
+   7 - commits changes.
+
 
 # Futures samples:
   ## Auth Featuer
