@@ -103,7 +103,7 @@ There are to file to manage native splash screen proprties:
     
       curl -sL https://firebase.tools | bash
        
-   2 - for windows check [firebase cli docs](firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
+   2 - for windows check [firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
     
    3 - login to your firebase account using this commnd 
     
