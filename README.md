@@ -12,27 +12,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# auth
 
-# Mac Run Instructions:
-- Update to latest stable version of [dart 2.15.1](https://dart.dev/get-dart)
-
-     on termainl run: 
-     
-     ``` brew upgrade dart ``` 
-
-     to upgrade to the latest version of dart if avaliable.
-
-- Update to the latest stable [flutter version 3.0.4](https://docs.flutter.dev/get-started/install/macos)
-
-     on termainl run:  
-
-     ``` flutter upgrade ``` 
-
-     to upgrade to the latest version of flutter if avaliable.
-
-
-- Downlaod the latest stable release of [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAmeKQBhDvARIsAHJ7mF6FB51G8U6ROni9N3gGiGzhuzBgKVPYjhDcBskVv115ppis9LxYSvAaAjTIEALw_wcB&gclsrc=aw.ds) 
+# Flavors
+  This template support two flavors (production & staging)
 
 - you can run the app directly from terminal using this command line:
 
@@ -41,13 +23,74 @@ samples, guidance on mobile development, and a full API reference.
   or for staging
 
   ``` flutter run --flavor staging ```
-  
-- or you need to add new flutter configration for each flavor (staging and production)
+
+     
+  - or you need to add new flutter configration for each flavor (staging and production)
 
 <img width="867" alt="Screen Shot 2022-02-25 at 9 50 20 PM" src="https://user-images.githubusercontent.com/17902030/155785582-02200405-4f6e-4052-b334-22dc1eb557f7.png">
 <img width="862" alt="Screen Shot 2022-02-25 at 9 52 29 PM" src="https://user-images.githubusercontent.com/17902030/155785851-31f0fdef-b71b-48e9-84c4-a8414317739d.png">
 
 <img width="853" alt="Screen Shot 2022-02-25 at 9 52 46 PM" src="https://user-images.githubusercontent.com/17902030/155785867-58115332-8eda-4c24-99a9-f7ac8c0d0c9c.png">
 
+# App Launcher Icon
 
-<img width="2360" alt="Screen Shot 2022-02-25 at 9 54 00 PM" src="https://user-images.githubusercontent.com/17902030/155786012-10bb75e4-dc40-41ab-b423-2572693adbfb.png">
+ We use [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package to generate app icons for both platforms android and ios.
+ 
+There are to file to manage launcher icon proprties:
+
+ 1 - ``` flutter_launcher_icons.yaml ```  for production flavor icon.
+ 
+ 2 - ``` flutter_native_splash-staging.yaml ``` for staging flavor icons.
+ 
+ ## update app icons
+   1 - first replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
+
+   2 - run this command to generate production flavor icons
+   
+      flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
+
+   3 - run this command to generate production flavor icons
+   
+      flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
+      
+   4 - run the app to make sure the launcher icon are updated correctly (*uninstall the app first). 
+
+   5- commit changes.
+   
+   # App Splash Screen
+
+ We use [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) package to generate native splash screen images and files configrations for both platforms android and ios.
+ 
+There are to file to manage native splash screen proprties:
+
+ 1 - ``` flutter_native_splash-production.yaml ``` for production flavor splash splash screen proprteis.
+ 
+ 2 - ``` flutter_native_splash-staging.yaml ``` for staging flavor splash screen proprteis.
+ 
+ ## update native splash screen
+   1 - first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page for both flavors.
+
+   2 - run this command to generate production flavor native splash screen proprties
+   
+      flutter pub run flutter_native_splash:create --flavor production
+
+   3 - run this command to generate staging flavor native splash screen proprties
+   
+      flutter pub run flutter_native_splash:create --flavor staging
+      
+   4 - run the app to make sure the native splash screen are updated correctly (*uninstall the app first). 
+
+   5- commit changes.
+      
+# Enviroment Properties
+
+# Localization
+
+# Themes
+
+# Firebase Integration
+
+
+# Futures samples:
+  ## Auth Featuer
+
