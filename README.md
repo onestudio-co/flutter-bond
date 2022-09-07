@@ -126,7 +126,6 @@ There are to file to manage native splash screen proprties:
       ? Do you want  to create a firebase project for each flavor? (y/n) › no       
           
    select ```y``` 
-      ? Select a Firebase project to configure your Flutter application with, for production ›                              
           
    5 - flutterfire_cli will genrate two files on flutter project ```firebase_options_production.dart``` and ```firebase_options_staging.dart```
           
