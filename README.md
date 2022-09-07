@@ -103,7 +103,7 @@ There are to file to manage native splash screen proprties:
     
       curl -sL https://firebase.tools | bash
        
-   2 - for windows check [https://firebase.google.com/docs/cli#windows-npm](firebase cli docs) 🌚
+   2 - for windows check [firebase cli docs](firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
     
    3 - login to your firebase account using this commnd 
     
@@ -113,7 +113,7 @@ There are to file to manage native splash screen proprties:
         
   ## install and activate flutterfire cli (if not installed):
   
-   because our app support multiple flavor (production & staging) we will use[forked from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors) 
+   because our app support multiple flavor (production & staging) we will use [forked version from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors) 
       
    1 - clone this [fork from flutterfire cli](https://github.com/salahamassi/flutterfire_cli/tree/support-flavors).
       
@@ -139,12 +139,18 @@ There are to file to manage native splash screen proprties:
    on ```main_staging.dart``` file intizalize firebase app
             
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+      
+      
+   6 - add (firebase_core)[https://pub.dev/packages/firebase_core] plugin to the project 
+   
+      flutter pub add firebase_core
+      
             
    and make sure you import ```firebase_options_staging.dart``` file
     
-   6 - run project make sure every thing work prefectly.
+   7 - run project and make sure every thing work prefectly.
       
-   7 - commits changes.
+   8 - commits changes.
 
 
 # Futures samples:
