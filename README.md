@@ -26,60 +26,55 @@ samples, guidance on mobile development, and a full API reference.
   ``` flutter run --flavor staging ```
 
      
-  - or you need to add new flutter configration for each flavor (staging and production)
+ - or you need to add new flutter configration for each flavor  (staging and production)
+  
+**Production**
 
-<img width="867" alt="Screen Shot 2022-02-25 at 9 50 20 PM" src="https://user-images.githubusercontent.com/17902030/155785582-02200405-4f6e-4052-b334-22dc1eb557f7.png">
-<img width="862" alt="Screen Shot 2022-02-25 at 9 52 29 PM" src="https://user-images.githubusercontent.com/17902030/155785851-31f0fdef-b71b-48e9-84c4-a8414317739d.png">
+<img width="722" alt="image" src="https://user-images.githubusercontent.com/17902030/189459865-61fa7694-c412-4a76-bdce-2024ecce07c8.png">
 
-<img width="853" alt="Screen Shot 2022-02-25 at 9 52 46 PM" src="https://user-images.githubusercontent.com/17902030/155785867-58115332-8eda-4c24-99a9-f7ac8c0d0c9c.png">
+**Staging**
+
+<img width="717" alt="image" src="https://user-images.githubusercontent.com/17902030/189459844-94a9bcfe-61dd-4df7-81b2-8915ee09c72f.png">
 
 # App Launcher Icon
 
- We use [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package to generate app icons for both platforms android and ios.
- 
-There are to file to manage launcher icon proprties:
-
- 1- ``` flutter_launcher_icons.yaml ```  for production flavor icon.
- 
- 2- ``` flutter_native_splash-staging.yaml ``` for staging flavor icons.
- 
- ## update app icons
-   1- first replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
+  We use [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package to generate app icons for both   platforms android and ios.
+  
+ ### Update app icons
+   1-  replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
 
    2- run this command to generate production flavor icons
    
-      flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
+     flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
 
    3- run this command to generate production flavor icons
    
-      flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
+     flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
       
-   4- run the app to make sure the launcher icon are updated correctly (*uninstall the app first). 
+   4- run the app to make sure the launcher icon are updated correctly 
+	   (**you need to stop it first hot restart not enough**). 
 
    5- commit changes.
    
    # App Splash Screen
 
  We use [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) package to generate native splash screen images and files configrations for both platforms android and ios.
- 
-There are to file to manage native splash screen proprties:
-
- 1- ``` flutter_native_splash-production.yaml ``` for production flavor splash splash screen proprteis.
- 
- 2- ``` flutter_native_splash-staging.yaml ``` for staging flavor splash screen proprteis.
- 
- ## update native splash screen
-   1- first update ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` with the new app native splash page proprties for both flavors.
+  
+ ### Update native splash screen
+   1-  replace ```assets/images/splash-logo.png``` and ```assets/icons/splash-logo-staging.png``` with the new app logo for both flavors.
+   
+   2-  update color proprety on  ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` files with the new app splash background color for both flavors.
 
    2- run this command to generate production flavor native splash screen proprties
    
-      flutter pub run flutter_native_splash:create --flavor production
+     flutter pub run flutter_native_splash:create --flavor production
 
    3- run this command to generate staging flavor native splash screen proprties
    
-      flutter pub run flutter_native_splash:create --flavor staging
+     flutter pub run flutter_native_splash:create --flavor staging
       
-   4- run the app to make sure the native splash screen are updated correctly (*uninstall the app first). 
+   4- run the app to make sure the native splash screen are updated correctly 
+	   (**you need to stop it first hot restart will not enough**).
 
    5- commit changes.
       
@@ -115,7 +110,7 @@ There are to file to manage native splash screen proprties:
 
      dart pub global activate flutterfire_flavor_cli
 		        
-   2- run flutterfire configure command and follow up the commnd options.
+   2- run flutterfire configure command from you project path and follow up the commnd options.
       
      flutterfire configure
                    
