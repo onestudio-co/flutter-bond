@@ -1,4 +1,5 @@
 
+
 # Bond
 
 ## Getting Started
@@ -45,11 +46,11 @@ samples, guidance on mobile development, and a full API reference.
 
    2- run this command to generate production flavor icons
    
-     flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
+    flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
 
    3- run this command to generate production flavor icons
    
-     flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
+    flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
       
    4- run the app to make sure the launcher icon are updated correctly 
 	   (**you need to stop it first hot restart not enough**). 
@@ -67,11 +68,11 @@ samples, guidance on mobile development, and a full API reference.
 
    2- run this command to generate production flavor native splash screen proprties
    
-     flutter pub run flutter_native_splash:create --flavor production
+    flutter pub run flutter_native_splash:create --flavor production
 
    3- run this command to generate staging flavor native splash screen proprties
    
-     flutter pub run flutter_native_splash:create --flavor staging
+    flutter pub run flutter_native_splash:create --flavor staging
       
    4- run the app to make sure the native splash screen are updated correctly 
 	   (**you need to stop it first hot restart will not enough**).
@@ -94,13 +95,13 @@ samples, guidance on mobile development, and a full API reference.
   
    1- for mac or linux you can simply run this command from terminal 
     
-     curl -sL https://firebase.tools | bash
+    curl -sL https://firebase.tools | bash
        
    2- for windows check [firebase cli docs](https://firebase.google.com/docs/cli#windows-npm) 🌚
     
    3- login to your firebase account using this commnd 
     
-     firebase login
+    firebase login
         
    (This command connects your local machine to Firebase and grants you access to your Firebase projects.)
         
@@ -108,25 +109,25 @@ samples, guidance on mobile development, and a full API reference.
         
    1-  install flutterfire cli.
 
-     dart pub global activate flutterfire_flavor_cli
+    dart pub global activate flutterfire_flavor_cli
 		        
    2- run flutterfire configure command from you project path and follow up the commnd options.
       
-     flutterfire configure
+    flutterfire configure
                    
    3- add [firebase_core](https://pub.dev/packages/firebase_core) plugin to the project .
    
-      flutter pub add firebase_core
+    flutter pub add firebase_core
             
    4- on ```main_production.dart``` file intizalize firebase app.
            
-     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
             
   and make sure you import ```firebase_options_production.dart``` file.
           
   5- on ```main_staging.dart``` file intizalize firebase app
             
-     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       
    and make sure you import ```firebase_options_staging.dart``` file.
     
