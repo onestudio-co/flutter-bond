@@ -608,8 +608,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: app_analytics
-      resolved-ref: d4684c6cd1d5aaa3d281e9d6c78f4b2bbcd61b45
+      ref: main
+      resolved-ref: d19f786f7e9e005c42dc0ca3dfca7d30bc2a94b4
       url: "https://github.com/onestudio-co/one-studio-core.git"
     source: git
     version: "0.0.0"
