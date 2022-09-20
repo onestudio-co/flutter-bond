@@ -20,9 +20,8 @@ dependencies:
   flutter_svg: ^1.0.3
   intl: ^0.17.0
 
-  # Firebase
-  firebase_analytics: ^9.1.11
-
+  # utils
+  flutter_native_splash: ^2.2.8
 
 dev_dependencies:
   flutter_test:
@@ -43,4 +42,5 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/images/
     - assets/langs/

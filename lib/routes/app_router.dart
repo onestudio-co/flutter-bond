@@ -4,7 +4,6 @@ import 'package:bond/features/home/home_page.dart';
 import 'package:bond/routes/guards/auth_guard.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../features/app/launch_page.dart';
 import '../features/auth/routes.dart';
 
 part 'app_router.gr.dart';
@@ -12,8 +11,7 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: LaunchPage, initial: true),
-    AutoRoute(page: HomePage, guards: [AuthGuard]),
+    AutoRoute(page: HomePage, guards: [AuthGuard], initial: true),
     ...authRoutes,
   ],
 )
