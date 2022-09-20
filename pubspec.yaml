@@ -11,7 +11,7 @@ dependencies:
   one_studio_core:
     git:
       url: https://github.com/onestudio-co/one-studio-core.git
-      ref: main
+      ref: app_analytics
   easy_localization: ^3.0.1
   dartz: ^0.10.1
   bloc: ^8.0.2
@@ -19,6 +19,10 @@ dependencies:
   auto_route: ^4.2.1
   flutter_svg: ^1.0.3
   intl: ^0.17.0
+
+  # Firebase
+  firebase_analytics: ^9.1.11
+
 
 dev_dependencies:
   flutter_test:

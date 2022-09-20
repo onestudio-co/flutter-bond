@@ -7,13 +7,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthLocalDataSource extends AuthStore<User> {
   final SharedPreferences sharedPreferences;
 
-  static var cachedToken = 'TOKEN';
+  static const cachedToken = 'TOKEN';
   static const cachedUser = 'USER';
+  static const verificationTime = 'VERIFICATION_AT';
+  static const userVerified = 'USER_VERIFIED';
 
   AuthLocalDataSource(this.sharedPreferences);
-
-  @override
-  bool get hasToken => token != null;
 
   @override
   set token(String? token) {
@@ -43,8 +42,15 @@ class AuthLocalDataSource extends AuthStore<User> {
   }
 
   @override
-  Future<void> clearAppData() async {
-    await sharedPreferences.clear();
-    await sharedPreferences.reload();
+  Future<void> clearAppData(List<String>? expect) async {
+    if (expect != null) {
+      final keys =
+          sharedPreferences.getKeys().where((key) => !expect.contains(key));
+      for (final key in keys) {
+        await sharedPreferences.remove(key);
+      }
+    } else {
+      await sharedPreferences.clear();
+    }
   }
 }

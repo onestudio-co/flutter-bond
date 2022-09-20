@@ -23,4 +23,7 @@ class User extends Model implements Authenticable {
 
   @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  @override
+  DateTime? get verificationAt => null;
 }
