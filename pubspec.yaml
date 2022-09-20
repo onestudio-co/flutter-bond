@@ -23,6 +23,9 @@ dependencies:
   # utils
   flutter_native_splash: ^2.2.8
 
+  # Firebase
+  firebase_analytics: ^9.1.11
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
