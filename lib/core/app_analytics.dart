@@ -1,7 +1,11 @@
+library app_analytics;
+
 import 'dart:developer';
 
 import 'package:bond/config/app.dart';
 import 'package:one_studio_core/core.dart';
+
+export 'app_analytics_providers/firebase_analytics_provider.dart';
 
 class AppAnalytics {
   static void fire(AnalyticsEvent event) {
