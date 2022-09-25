@@ -623,7 +623,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "3d781142e67888a376cbb527d8567a9e3ccf3030"
+      resolved-ref: "495a108d5af68fe22744792c4a1405bafa826936"
       url: "https://github.com/onestudio-co/one-studio-core.git"
     source: git
     version: "0.0.0"
