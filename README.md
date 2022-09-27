@@ -90,7 +90,9 @@ samples, guidance on mobile development, and a full API reference.
 For example, if we want to use **Tajawal** font on our app, we have to follow these steps
 
 1- download font family from [google fonts](https://fonts.google.com/specimen/Tajawal) 
+
 2- copy  font family files to `assets/font` directory
+
 3- in `pubspec.yaml` file declare new font family below `font` key
 ```yaml
     fonts:  
@@ -109,6 +111,7 @@ you can detect the correct name of font `family` in mac os from font information
 
 <img width="314" alt="full name font" src="https://user-images.githubusercontent.com/17902030/192465328-533eb775-ea8d-4e6b-9108-f464a3f61595.png">
 
+
 4- create `TajawalFontsFamily` class to declare the font family in dart
 ``` dart
 class TajawalFontsFamily {  
@@ -119,6 +122,7 @@ class TajawalFontsFamily {
   static const String regular = 'Tajawal';  
 }
 ```
+
 
 ## Text Theme:
 
@@ -196,10 +200,10 @@ class RaselTextTheme extends TextTheme {
 }
 ```
 just replace the content of `core/resources/bond_text_theme.dart` file with the code above
-and it's recommended to rename the file to rasel_text_theme.dart or wherever your app name is.
+and it's recommended to rename the file to `rasel_text_theme.dart` or wherever your app name is.
 
 
-## Usage:
+### Usage:
 
 without a text theme, we need to declare your text style in a boring way like this
 
@@ -218,7 +222,7 @@ without a text theme, we need to declare your text style in a boring way like th
 ```
 this code is hard to write, read, or to refactoring
 
-With text theme:
+With text theme ✌️:
 
 ``` dart
 Text(
@@ -229,9 +233,9 @@ Text(
       style: context.textTheme.headlineLarge,
     );
 ```
-✌️
 
-## Text Style Color & Other properties
+
+### Text Style Color & Other properties
 
 We still missing the text color and other text style properties 👎
 
