@@ -42,7 +42,7 @@ class AuthLocalDataSource extends AuthStore<User> {
   }
 
   @override
-  Future<void> clearAppData(List<String>? expect) async {
+  Future<void> clearAppData([List<String>? expect]) async {
     if (expect != null) {
       final keys =
           sharedPreferences.getKeys().where((key) => !expect.contains(key));

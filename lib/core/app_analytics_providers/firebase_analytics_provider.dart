@@ -10,11 +10,13 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
 
   @override
   void logEvent(AnalyticsEvent event) {
-    final String eventKey = event.key.toLowerCase().replaceAll(' ', '_');
-    _firebaseAnalytics.logEvent(
-      name: eventKey,
-      parameters: event.params,
-    );
+    if (event.key != null) {
+      final String eventKey = event.key!.toLowerCase().replaceAll(' ', '_');
+      _firebaseAnalytics.logEvent(
+        name: eventKey,
+        parameters: event.params,
+      );
+    }
   }
 
   @override
@@ -28,7 +30,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   }
 
   @override
-  void logSignedIn(UserLoggedIn event) {
+  void logSignedIn(UserSignedIn event) {
     _firebaseAnalytics.setUserId(id: event.id.toString());
     _firebaseAnalytics.logLogin(loginMethod: event.loginMethod);
   }
@@ -54,18 +56,70 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   }
 
   @override
-  void logViewItemList() {
-    _firebaseAnalytics.logViewItemList();
+  void logViewItemList(UserViewedItemList event) {
+    _firebaseAnalytics.logViewItemList(
+      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+      itemListId: event.itemListId,
+      itemListName: event.itemListName,
+    );
+  }
+
+  @override
+  void logViewItem(UserViewItem event) {
+    _firebaseAnalytics.logViewItem(
+      currency: event.currency,
+      value: event.value,
+      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+    );
+  }
+
+  @override
+  void logSelectItem(UserSelectItem event) {
+    _firebaseAnalytics.logSelectItem(
+      itemListId: event.itemListId,
+      itemListName: event.itemListName,
+      items: event.items.map((item) => item.analyticsEventItem).toList(),
+    );
+  }
+
+  @override
+  void logViewPromotion(UserViewPromotion event) {
+    _firebaseAnalytics.logViewPromotion(
+      promotionId: event.promotionId,
+      promotionName: event.promotionName,
+      creativeName: event.creativeName,
+      creativeSlot: event.creativeSlot,
+      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+    );
+  }
+
+  @override
+  void logSelectPromotion(UserSelectPromotion event) {
+    _firebaseAnalytics.logSelectPromotion(
+      promotionId: event.promotionId,
+      promotionName: event.promotionName,
+      creativeName: event.creativeName,
+      creativeSlot: event.creativeSlot,
+      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+    );
   }
 
   @override
   void logAddToCart(UserAddedToCart event) {
     _firebaseAnalytics.logAddToCart(
-        items: event.items
-            .map((CartItem item) => item.analyticsEventItem)
-            .toList(),
-        value: event.value,
-        currency: event.currency);
+      items: event.items.map((item) => item.analyticsEventItem).toList(),
+      value: event.value,
+      currency: event.currency,
+    );
+  }
+
+  @override
+  void logRemoveFromCart(UserRemovedFromCart event) {
+    _firebaseAnalytics.logRemoveFromCart(
+      items: event.items.map((item) => item.analyticsEventItem).toList(),
+      value: event.value,
+      currency: event.currency,
+    );
   }
 
   @override
@@ -73,8 +127,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
     _firebaseAnalytics.logBeginCheckout(
       value: event.value,
       currency: event.currency,
-      items:
-          event.items.map((CartItem item) => item.analyticsEventItem).toList(),
+      items: event.items.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
@@ -87,7 +140,20 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
       currency: event.currency,
       coupon: event.coupon,
       items:
-          event.items.map((CartItem item) => item.analyticsEventItem).toList(),
+      event.items.map((EventItem item) => item.analyticsEventItem).toList(),
+    );
+  }
+
+  @override
+  void logRefundOrder(UserRefundOrder event) {
+    _firebaseAnalytics.logRefund(
+      transactionId: event.transactionId,
+      value: event.value,
+      tax: event.tax,
+      currency: event.currency,
+      coupon: event.coupon,
+      items:
+      event.items.map((EventItem item) => item.analyticsEventItem).toList(),
     );
   }
 
@@ -98,7 +164,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
         'value: $value and value type: ${value.runtimeType}');
     if (value is DateTime) {
       final DateFormat formatter =
-          DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+      DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
       _firebaseAnalytics.setUserProperty(
           name: userPropertyKey, value: formatter.format(value));
     } else {
@@ -108,12 +174,30 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   }
 }
 
-extension FirebaseCartItem on CartItem {
+extension FirebaseCartItem on EventItem {
   AnalyticsEventItem get analyticsEventItem => AnalyticsEventItem(
-      itemId: id,
-      itemName: name,
-      itemCategory: category,
-      price: price,
-      quantity: quantity,
-      currency: currency);
+    affiliation: affiliation,
+    currency: currency,
+    coupon: coupon,
+    creativeName: creativeName,
+    creativeSlot: creativeSlot,
+    discount: discount,
+    index: index,
+    itemBrand: itemBrand,
+    itemCategory: itemCategory,
+    itemCategory2: itemCategory2,
+    itemCategory3: itemCategory3,
+    itemCategory4: itemCategory4,
+    itemCategory5: itemCategory5,
+    itemId: itemId,
+    itemListId: itemListId,
+    itemListName: itemListName,
+    itemName: itemName,
+    itemVariant: itemVariant,
+    locationId: locationId,
+    price: price,
+    promotionId: promotionId,
+    promotionName: promotionName,
+    quantity: quantity,
+  );
 }
