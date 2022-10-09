@@ -26,3 +26,4 @@ samples, guidance on mobile development, and a full API reference.
 * [Analytics](https://github.com/onestudio-co/flutter-bond/blob/main/docs/analytics.md)
 * Localization
 * Futures samples
+* [Change App Package Name](https://github.com/onestudio-co/flutter-bond/blob/main/docs/change_app_name.md)
