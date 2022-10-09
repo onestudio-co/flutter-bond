@@ -3,11 +3,11 @@
 
 - you can run the app directly from terminal using this command line:
 
-  ``` flutter run --flavor production ```
+  ```  flutter run --flavor production -t lib/main_production.dart ```
   
   or for staging
 
-  ``` flutter run --flavor staging ```
+  ```  flutter run --flavor staging -t lib/main_staging.dart ```
 
      
  - or you need to add new flutter configration for each flavor  (staging and production)
