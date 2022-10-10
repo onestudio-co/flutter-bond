@@ -31,6 +31,7 @@ samples, guidance on mobile development, and a full API reference.
 # To be documented:
 
 * IoC & Service Provider
+* Config
 * Routing
   * Guards
 * Rest API
