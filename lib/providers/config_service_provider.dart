@@ -1,9 +1,11 @@
 import 'dart:core';
 
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:one_studio_core/core.dart';
 
 import '../config/cache.dart';
+import '../core/network/network_info.dart';
 
 class ConfigServiceProvider extends ServiceProvider {
   @override
@@ -24,5 +26,9 @@ class ConfigServiceProvider extends ServiceProvider {
         }
       }
     });
+
+    it.registerLazySingleton<NetworkInfo>(
+            () => NetworkInfoImpl(connectionChecker: it()));
+    it.registerLazySingleton(() => InternetConnectionChecker());
   }
 }
