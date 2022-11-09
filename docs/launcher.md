@@ -23,7 +23,7 @@
  We use [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) package to generate native splash screen images and files configrations for both platforms android and ios.
   
  ### Update native splash screen
-   1-  replace ```assets/images/splash-logo.png``` and ```assets/icons/splash-logo-staging.png``` with the new app logo for both flavors.
+   1-  replace ```assets/images/splash-logo.png``` and ```assets/images/splash-logo-staging.png``` with the new app logo for both flavors.
    
    2-  update color proprety on  ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` files with the new app splash background color for both flavors.
 
