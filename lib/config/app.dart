@@ -1,4 +1,5 @@
 import 'package:bond/core/app_analytics.dart';
+import 'package:bond/providers/notifications_service_provider.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -12,6 +13,7 @@ final List<ServiceProvider> providers = [
   // Framework Service Providers
   ConfigServiceProvider(),
   ApiServiceProvider(),
+  NotificationsServiceProvider(),
 
   // Modules Service Providers
   AppServiceProvider(),

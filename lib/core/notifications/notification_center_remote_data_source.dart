@@ -6,6 +6,7 @@ class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
 
   NotificationCenterRemoteDataSource(this._client);
 
+  @override
   Future<ListResponse<ServerNotificationModel>> loadNotifications(
       {String? nextUrl}) async {
     final Response<dynamic> response = await _client.get(
@@ -15,6 +16,7 @@ class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
     return mapListResponse(response);
   }
 
+  @override
   Future<void> read(String uuid) async {
     await _client.post(
       NotificationsApis.read(uuid),
@@ -22,6 +24,7 @@ class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
     );
   }
 
+  @override
   Future<void> readAll() async {
     await _client.post(
       NotificationsApis.readAll,

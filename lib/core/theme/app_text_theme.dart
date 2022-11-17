@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 // This code is copied from https://m2.material.io/design/typography/the-type-system.html#type-scale
 
-final bondTextTheme = TextTheme(
+final appTextTheme = TextTheme(
   headline1: GoogleFonts.montserrat(
     fontSize: 97,
     fontWeight: FontWeight.w300,

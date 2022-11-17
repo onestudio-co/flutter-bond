@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BondColors {
+class AppColors {
   static const Color white = Colors.white;
   static const Color persianGreen = Color(0xFF02B39B);
   static const Color green = Color(0xFF0FB7A0);
