@@ -12,7 +12,6 @@ dependencies:
     git:
       url: https://github.com/onestudio-co/one-studio-core.git
       ref: main
-  easy_localization: ^3.0.1
   dartz: ^0.10.1
   bloc: ^8.0.2
   flutter_bloc: ^8.0.1
