@@ -15,9 +15,7 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		BBBB9ED28E90C531787C104A /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0013333FD23DBE2F77D2DC3B /* GoogleService-Info.plist */; };
 		D17FA6519203C8DE4EB0486B /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039C918882F433ED4D9EF0C2 /* Pods_Runner.framework */; };
-		EC0FC54EFF08A7EA17534775 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 804BF7A29B219C74C6822B05 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -285,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
 		};
 		B2E1DEFB356F429718EFBCD5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -353,8 +351,6 @@
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
-				BBBB9ED28E90C531787C104A /* GoogleService-Info.plist in Sources */,
-				EC0FC54EFF08A7EA17534775 /* GoogleService-Info.plist in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +451,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Profile Production";
+				FLAVOR = production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -534,7 +530,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Debug Staging";
+				FLAVOR = staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,7 +607,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Release Staging";
+				FLAVOR = staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,7 +681,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Profile Staging";
+				FLAVOR = staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -817,7 +813,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Debug Production";
+				FLAVOR = production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -842,7 +838,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = A7D2WL8769;
 				ENABLE_BITCODE = NO;
-				FLAVOR = "Release Production";
+				FLAVOR = production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
