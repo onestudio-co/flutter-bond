@@ -9,6 +9,11 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   final FirebaseAnalytics _firebaseAnalytics;
 
   @override
+  void setUserId(int userId) {
+    _firebaseAnalytics.setUserId(id: userId.toString());
+  }
+
+  @override
   void logEvent(AnalyticsEvent event) {
     if (event.key != null) {
       final String eventKey = event.key!.toLowerCase().replaceAll(' ', '_');
@@ -140,7 +145,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
       currency: event.currency,
       coupon: event.coupon,
       items:
-      event.items.map((EventItem item) => item.analyticsEventItem).toList(),
+          event.items.map((EventItem item) => item.analyticsEventItem).toList(),
     );
   }
 
@@ -153,7 +158,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
       currency: event.currency,
       coupon: event.coupon,
       items:
-      event.items.map((EventItem item) => item.analyticsEventItem).toList(),
+          event.items.map((EventItem item) => item.analyticsEventItem).toList(),
     );
   }
 
@@ -164,7 +169,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
         'value: $value and value type: ${value.runtimeType}');
     if (value is DateTime) {
       final DateFormat formatter =
-      DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+          DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
       _firebaseAnalytics.setUserProperty(
           name: userPropertyKey, value: formatter.format(value));
     } else {
@@ -176,28 +181,28 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
 
 extension FirebaseCartItem on EventItem {
   AnalyticsEventItem get analyticsEventItem => AnalyticsEventItem(
-    affiliation: affiliation,
-    currency: currency,
-    coupon: coupon,
-    creativeName: creativeName,
-    creativeSlot: creativeSlot,
-    discount: discount,
-    index: index,
-    itemBrand: itemBrand,
-    itemCategory: itemCategory,
-    itemCategory2: itemCategory2,
-    itemCategory3: itemCategory3,
-    itemCategory4: itemCategory4,
-    itemCategory5: itemCategory5,
-    itemId: itemId,
-    itemListId: itemListId,
-    itemListName: itemListName,
-    itemName: itemName,
-    itemVariant: itemVariant,
-    locationId: locationId,
-    price: price,
-    promotionId: promotionId,
-    promotionName: promotionName,
-    quantity: quantity,
-  );
+        affiliation: affiliation,
+        currency: currency,
+        coupon: coupon,
+        creativeName: creativeName,
+        creativeSlot: creativeSlot,
+        discount: discount,
+        index: index,
+        itemBrand: itemBrand,
+        itemCategory: itemCategory,
+        itemCategory2: itemCategory2,
+        itemCategory3: itemCategory3,
+        itemCategory4: itemCategory4,
+        itemCategory5: itemCategory5,
+        itemId: itemId,
+        itemListId: itemListId,
+        itemListName: itemListName,
+        itemName: itemName,
+        itemVariant: itemVariant,
+        locationId: locationId,
+        price: price,
+        promotionId: promotionId,
+        promotionName: promotionName,
+        quantity: quantity,
+      );
 }
