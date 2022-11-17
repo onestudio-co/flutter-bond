@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/theme/bond_dark_theme_data.dart';
 import 'core/theme/bond_light_theme_data.dart';
 import 'routes/app_router.dart';
 
@@ -18,7 +19,9 @@ class BondApp extends StatelessWidget {
         navigatorObservers: navigatorObservers,
       ),
       routeInformationParser: appRouter.defaultRouteParser(),
-      theme: bondLightThemeData(),
+      theme: bondLightThemeData(context),
+      darkTheme: bondDarkThemeData(context),
+      themeMode: ThemeMode.system,
     );
   }
 }

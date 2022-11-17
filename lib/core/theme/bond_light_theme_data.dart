@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:one_studio_core/core.dart';
 
 import '../resources/bond_colors.dart';
-import '../resources/bond_fonts.dart';
-import '../resources/bond_styles.dart';
-import '../resources/bond_text_theme.dart';
+import 'bond_text_theme.dart';
 
-ThemeData bondLightThemeData() {
+ThemeData bondLightThemeData(BuildContext context) {
   return ThemeData(
     /// main color of the app
     primaryColor: BondColors.green,
     primaryColorLight: BondColors.cetaceanBlue,
     primaryColorDark: BondColors.greyDark,
-    disabledColor: BondColors.persianGreen, // this for disabled button color
+    disabledColor: BondColors.persianGreen,
+    // this for disabled button color
     splashColor: BondColors.greyLight,
     backgroundColor: BondColors.background,
     scaffoldBackgroundColor: BondColors.background,
@@ -21,8 +21,7 @@ ThemeData bondLightThemeData() {
       centerTitle: true,
       color: BondColors.greyLight,
       elevation: 0,
-      titleTextStyle:
-          getBoldStyle(color: BondColors.green, fontSize: BondFontSize.s14),
+      titleTextStyle: context.textTheme.headlineSmall,
     ),
 
     /// Button theme
@@ -33,6 +32,6 @@ ThemeData bondLightThemeData() {
     ),
 
     /// Text Theme
-    textTheme: BondTextTheme(),
+    textTheme: bondTextTheme,
   );
 }
