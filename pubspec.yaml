@@ -8,6 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   one_studio_core:
     git:
       url: https://github.com/onestudio-co/one-studio-core.git

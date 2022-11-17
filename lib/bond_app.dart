@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'core/theme/bond_light_theme_data.dart';
@@ -11,22 +10,15 @@ class BondApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ar'),
-      ],
-      fallbackLocale: const Locale('en'),
-      path: 'assets/langs',
-      child: MaterialApp.router(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        debugShowCheckedModeBanner: false,
-        routerDelegate: appRouter.delegate(),
-        routeInformationParser: appRouter.defaultRouteParser(),
-        theme: bondLightThemeData(),
+    return MaterialApp.router(
+      locale: const Locale('ar'),
+      supportedLocales: const [Locale('ar'), Locale('en')],
+      debugShowCheckedModeBanner: true,
+      routerDelegate: appRouter.delegate(
+        navigatorObservers: navigatorObservers,
       ),
+      routeInformationParser: appRouter.defaultRouteParser(),
+      theme: bondLightThemeData(),
     );
   }
 }

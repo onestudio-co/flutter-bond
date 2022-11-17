@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bond/routes/app_router.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,6 @@ Future<void> main() async {
       FlutterError.onError =
           FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-      await EasyLocalization.ensureInitialized();
       await init();
       FlutterNativeSplash.remove();
       runApp(BondApp(appRouter: sl<AppRouter>()));
