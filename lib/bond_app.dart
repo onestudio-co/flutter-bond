@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/theme/bond_dark_theme_data.dart';
-import 'core/theme/bond_light_theme_data.dart';
+import 'core/app_theme.dart';
 import 'routes/app_router.dart';
 
 class BondApp extends StatelessWidget {
