@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060161913171",
+    "project_id": "flutter-bond-staging",
+    "storage_bucket": "flutter-bond-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060161913171:android:31bdf7b15271e7be55a1a6",
+        "android_client_info": {
+          "package_name": "sa.example.bond.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060161913171-div6fmuh41opo5r2bh6h1ib5o1sbs1p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSzUXbQV5Z2-psxdjITf1XNtCyFjnWm34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060161913171-div6fmuh41opo5r2bh6h1ib5o1sbs1p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

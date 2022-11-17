@@ -24,7 +24,10 @@ dependencies:
   flutter_native_splash: ^2.2.8
 
   # Firebase
-  firebase_analytics: ^9.1.11
+  firebase_analytics: ^10.0.6
+  firebase_core: ^2.3.0
+  firebase_messaging: ^14.1.1
+  firebase_crashlytics: ^3.0.6
 
 dev_dependencies:
   flutter_test:

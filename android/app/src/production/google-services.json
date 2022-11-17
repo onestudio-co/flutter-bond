@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "766000556009",
+    "project_id": "flutter-bond-87485",
+    "storage_bucket": "flutter-bond-87485.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766000556009:android:99573bfe24c57357d0cd78",
+        "android_client_info": {
+          "package_name": "sa.example.bond"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766000556009-bus1p8rgt7mmd8ij9g0nu8vbcioub8b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfL8g3p3PmS3kUNPDxn5_RaKKDmFcZKKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766000556009-bus1p8rgt7mmd8ij9g0nu8vbcioub8b8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
