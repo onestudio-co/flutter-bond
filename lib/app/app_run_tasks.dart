@@ -11,7 +11,7 @@ import 'injection_container.dart';
 
 class RunAppTasks extends RunTasks {
   @override
-  void beforeRun(WidgetsBinding widgetsBinding) async {
+  Future<void> beforeRun(WidgetsBinding widgetsBinding) async {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     final firebaseOptions = await DefaultFirebaseOptions.currentPlatform;
     await Firebase.initializeApp(options: firebaseOptions);
@@ -21,7 +21,7 @@ class RunAppTasks extends RunTasks {
   }
 
   @override
-  void afterRun() async {
+  Future<void> afterRun() async {
     if (UniversalPlatform.isAndroid) {
       const AndroidNotificationChannel channel = AndroidNotificationChannel(
         'high_importance_channel', // id
