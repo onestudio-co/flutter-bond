@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
 
 import '../resources/app_colors.dart';
 import 'app_text_theme.dart';
 
-ThemeData appDarkThemeData(BuildContext context) {
+ThemeData appDarkThemeData() {
   return ThemeData(
     /// main color of the app
     primaryColor: AppColors.green,
@@ -19,9 +18,9 @@ ThemeData appDarkThemeData(BuildContext context) {
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: AppColors.greyLight,
+      color: AppColors.green,
       elevation: 0,
-      titleTextStyle: context.textTheme.headlineSmall,
+      titleTextStyle: appTextTheme.titleLarge,
     ),
 
     /// Button theme

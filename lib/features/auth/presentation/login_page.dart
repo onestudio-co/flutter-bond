@@ -1,4 +1,6 @@
+import 'package:bond/core/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:one_studio_core/core.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,8 +14,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LoginPage'),
+        title: Text(
+          context.localizations.login_page_title,
+        ),
       ),
+      body: Container(),
     );
   }
 }

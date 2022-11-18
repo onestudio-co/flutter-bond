@@ -1,10 +1,9 @@
 import 'package:bond/core/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
 
 import '../resources/app_colors.dart';
 
-ThemeData appLightThemeData(BuildContext context) {
+ThemeData appLightThemeData() {
   return ThemeData(
     /// main color of the app
     primaryColor: AppColors.green,
@@ -19,9 +18,9 @@ ThemeData appLightThemeData(BuildContext context) {
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: AppColors.greyLight,
+      color: AppColors.green,
       elevation: 0,
-      titleTextStyle: context.textTheme.headlineSmall,
+      titleTextStyle: appTextTheme.titleLarge,
     ),
 
     /// Button theme
@@ -30,8 +29,7 @@ ThemeData appLightThemeData(BuildContext context) {
       disabledColor: AppColors.greyLight,
       buttonColor: AppColors.greenLight,
     ),
-
-    /// Text Theme
     textTheme: appTextTheme,
+    /// Text Theme
   );
 }

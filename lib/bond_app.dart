@@ -26,8 +26,8 @@ class BondApp extends StatelessWidget {
         navigatorObservers: navigatorObservers,
       ),
       routeInformationParser: appRouter.defaultRouteParser(),
-      theme: appLightThemeData(context),
-      darkTheme: appDarkThemeData(context),
+      theme: appLightThemeData(),
+      darkTheme: appDarkThemeData(),
       themeMode: ThemeMode.system,
     );
   }
