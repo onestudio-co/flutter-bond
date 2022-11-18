@@ -11,6 +11,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   google_fonts: ^3.0.1
+  flutter_local_notifications: ^9.3.3
   one_studio_core:
     git:
       url: https://github.com/onestudio-co/one-studio-core.git
@@ -24,6 +25,7 @@ dependencies:
 
   # utils
   flutter_native_splash: ^2.2.8
+  universal_platform: ^1.0.0+1
 
   # Firebase
   firebase_analytics: ^10.0.6
