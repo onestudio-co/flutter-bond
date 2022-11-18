@@ -1,6 +1,5 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
