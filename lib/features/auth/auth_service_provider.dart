@@ -3,6 +3,9 @@ import 'package:one_studio_core/core.dart';
 
 import 'data/datasources/auth_local_data_source.dart';
 import 'data/datasources/auth_remote_data_source.dart';
+import 'data/events/sign_in_event.dart';
+import 'data/events/sign_out_event.dart';
+import 'data/events/sign_up_event.dart';
 import 'data/models/user.dart';
 import 'data/repositories/auth_repository.dart';
 
@@ -24,4 +27,23 @@ class AuthServiceProvider extends ServiceProvider {
         return null;
     }
   }
+
+  ApiDrivenEvents get apiDrivenEvents => {
+        'api/login': {
+          200: (json) => SignInEvent(userId: json['id'], channel: ''),
+          'insufficient_amount': (json) => SignInEvent(userId: 0, channel: ''),
+        },
+        'api/signup': {
+          200: (json) => SignUpEvent(userId: json['id'], channel: ''),
+        },
+        'api/logout': {
+          200: (json) => SignOutEvent(),
+        },
+      };
 }
+
+typedef ApiDrivenEvents = Map<String,
+    Map<dynamic, AnalyticsEvent Function(Map<String, dynamic> json)>>;
+
+typedef NavigationDrivenEvents = Map<String,
+    Map<dynamic, AnalyticsEvent Function(Map<String, dynamic> json)>>;
