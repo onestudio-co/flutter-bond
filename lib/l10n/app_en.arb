@@ -1,3 +1,7 @@
 {
-"login_page_title": "Login"
+"login_page_title": "Login",
+"field_validator_required": "Field is required",
+"field_validator_email": "Invalid email address",
+"field_validator_password": "Password must be at least 6 characters long",
+"field_validator_confirm_password": "Passwords do not match"
 }

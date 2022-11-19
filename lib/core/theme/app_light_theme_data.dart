@@ -30,6 +30,7 @@ ThemeData appLightThemeData() {
       buttonColor: AppColors.greenLight,
     ),
     textTheme: appTextTheme,
+
     /// Text Theme
   );
 }

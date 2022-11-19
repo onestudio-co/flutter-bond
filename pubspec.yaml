@@ -17,11 +17,16 @@ dependencies:
       url: https://github.com/onestudio-co/one-studio-core.git
       ref: main
   dartz: ^0.10.1
-  bloc: ^8.0.2
-  flutter_bloc: ^8.0.1
-  auto_route: ^4.2.1
   flutter_svg: ^1.0.3
   intl: ^0.17.0
+
+  # bloc
+  bloc: ^8.0.2
+  flutter_bloc: ^8.0.1
+  flutter_form_bloc: ^0.30.1
+
+  # navigation
+  auto_route: ^4.2.1
 
   # utils
   flutter_native_splash: ^2.2.8

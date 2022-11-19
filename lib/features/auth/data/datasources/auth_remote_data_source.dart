@@ -8,13 +8,27 @@ class AuthRemoteDataSource extends DataSource {
 
   AuthRemoteDataSource(this._client);
 
-  Future<SingleMResponse<User, UserMeta>> login(UserDto user) async {
-    return mapSingleMResponse<User, UserMeta>(
-      await _client.post(
-        'users/login',
-        body: user.body,
-        headers: Api.headers(),
-      ),
-    );
+  Future<SingleMResponse<User, UserMeta>> register(UserDto user) async {
+    Map<String, dynamic> body = await user.body;
+    return mapSingleMResponse<User, UserMeta>(await _client.post(
+      AuthApis.register(),
+      body: body,
+      headers: Api.headers(),
+    ));
   }
+
+  Future<SingleMResponse<User, UserMeta>> login(UserDto user) async {
+    Map<String, dynamic> body = await user.body;
+    return mapSingleMResponse<User, UserMeta>(await _client.post(
+      AuthApis.login(),
+      body: body,
+      headers: Api.headers(),
+    ));
+  }
+}
+
+extension AuthApis on Api {
+  static String register() => 'auth/signup';
+
+  static String login() => 'auth/login';
 }

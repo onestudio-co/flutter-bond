@@ -1,3 +1,7 @@
 {
-"login_page_title": "تسجيل الدخول"
+"login_page_title": "تسجيل الدخول",
+"field_validator_required": "الحقل مطلوب",
+"field_validator_email": "البريد الإلكتروني غير صحيح",
+"field_validator_password": "كلمة المرور يجب أن تكون أكثر من 6 أحرف",
+"field_validator_confirm_password": "كلمة المرور غير متطابقة"
 }
