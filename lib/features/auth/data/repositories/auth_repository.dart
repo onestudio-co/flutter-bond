@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bond/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:bond/features/auth/data/dto/user_dto.dart';
 import 'package:bond/features/auth/data/models/user.dart';
@@ -22,6 +24,7 @@ class AuthRepository {
     } on ServerException catch (e) {
       return Left(e.toFailure());
     } catch (e) {
+      log('SingleMResponse<User, UserMeta>>> register $e');
       return Left(ConnectionFailure());
     }
   }

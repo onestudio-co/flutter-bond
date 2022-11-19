@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/widgets/app_button.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -106,6 +107,6 @@ class RegisterPage extends StatelessWidget with AutoRouteWrapper {
   }
 
   void _onSuccess(BuildContext context, FormBlocSuccess<String, String> state) {
-    context.router.pop(true);
+    context.router.replaceAll([const HomeRoute()]);
   }
 }

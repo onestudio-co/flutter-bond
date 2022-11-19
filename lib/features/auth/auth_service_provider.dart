@@ -8,6 +8,7 @@ import 'data/events/sign_in_event.dart';
 import 'data/events/sign_out_event.dart';
 import 'data/events/sign_up_event.dart';
 import 'data/models/user.dart';
+import 'data/models/user_meta.dart';
 import 'data/repositories/auth_repository.dart';
 import 'presentation/register/register_bloc.dart';
 
@@ -29,6 +30,8 @@ class AuthServiceProvider extends ServiceProvider {
     switch (T) {
       case User:
         return User.fromJson(json) as T;
+      case UserMeta:
+        return UserMeta.fromJson(json) as T;
       default:
         return null;
     }
