@@ -1,3 +1,4 @@
+import 'package:bond/features/auth/presentation/login_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -10,9 +11,11 @@ class AuthServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
     it.registerFactory(() => AuthRemoteDataSource(it()));
-    it.registerLazySingleton<AuthStore>(() => AuthLocalDataSource(it()));
 
+    it.registerLazySingleton<AuthStore>(() => AuthLocalDataSource(it()));
     it.registerLazySingleton(() => AuthRepository(it(), it()));
+
+    it.registerFactory(() => LoginBloc(it()));
   }
 
   @override

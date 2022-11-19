@@ -11,8 +11,7 @@ class AuthGuard extends AutoRouteGuard {
     if (Auth.check()) {
       resolver.next(true);
     } else {
-      // TODO: Push to LoginPage if user not Authorized.
-      router.replace(const LoginRoute());
+      router.push(const LoginRoute());
     }
   }
 }

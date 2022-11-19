@@ -1,30 +1,33 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:one_studio_core/core.dart';
 
 import 'login_bloc.dart';
+import 'new_account_view.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget with AutoRouteWrapper {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  Widget wrappedRoute(BuildContext context) => BlocProvider<LoginBloc>(
+        create: (BuildContext context) => sl<LoginBloc>(),
+        child: this,
+      );
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final loginBloc = context.read<LoginBloc>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          context.localizations.login_page_title,
-        ),
+        title: Text(context.localizations.login_page_title),
       ),
       body: FormBlocListener<LoginBloc, String, String>(
-        onSuccess: (context, state) => _onSuccess(context),
-        onFailure: (context, state) => _onFailure(context, state),
+        onSuccess: _onSuccess,
+        onFailure: _onFailure,
         child: SingleChildScrollView(
           child: AutofillGroup(
             child: Center(
@@ -34,95 +37,40 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 64,
-                    ),
+                    const SizedBox(height: 64),
                     SvgPicture.asset(
                       AppImagesAssets.logo,
                       width: 95,
                       height: 120,
                     ),
-                    const SizedBox(
-                      height: 48,
-                    ),
+                    const SizedBox(height: 48),
                     TextFieldBlocBuilder(
-                      textFieldBloc: _loginFormBloc.phoneTextField,
-                      labelText: LocaleKeys.registerPhoneLabel.tr(),
+                      textFieldBloc: loginBloc.emailTextField,
                       keyboardType: TextInputType.phone,
-                      suffixIcon: const QuotemMobileNumberWidget(),
-                      onChanged: (_) => _refreshEnabledButton(_loginFormBloc),
+                      decoration: InputDecoration(
+                        labelText: context.localizations.filed_email_label,
+                        prefixIcon: const Icon(Icons.email),
+                      ),
                     ),
-                    const SizedBox(
-                      height: 12,
-                    ),
+                    const SizedBox(height: 12),
                     TextFieldBlocBuilder(
-                      textFieldBloc: _loginFormBloc.passwordTextField,
-                      labelText: LocaleKeys.registerPasswordLabel.tr(),
+                      textFieldBloc: loginBloc.passwordTextField,
                       keyboardType: TextInputType.name,
                       suffixButton: SuffixButton.obscureText,
-                      onChanged: (_) => _refreshEnabledButton(_loginFormBloc),
-                    ),
-                    const SizedBox(height: 10),
-                    Container(
-                      alignment: AlignmentDirectional.centerStart,
-                      height: 56,
-                      child: RichText(
-                        strutStyle: StrutStyle.fromTextStyle(
-                            Theme.of(context).textTheme.labelLarge!),
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: LocaleKeys.forgetPassword.tr(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(color: QuotemColors.cetaceanBlue),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () => context.router
-                                    .popAndPush(const ForgetPasswordRoute()),
-                            ),
-                          ],
-                        ),
+                      decoration: InputDecoration(
+                        labelText: context.localizations.filed_password_label,
+                        prefixIcon: const Icon(Icons.lock),
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    QuotemButtonWidget(
-                        onPressed: _loginFormBloc.submit,
-                        titleColor: QuotemColors.white,
-                        loading: !_loginFormBloc.state.canSubmit,
-                        enable: enableButton,
-                        title: LocaleKeys.login.tr()),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 56,
-                      child: RichText(
-                        strutStyle: StrutStyle.fromTextStyle(
-                            Theme.of(context).textTheme.labelLarge!),
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: LocaleKeys.loginHaveAccount.tr(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(color: QuotemColors.cetaceanBlue),
-                            ),
-                            TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap =
-                                    () => context.router.push(RegisterRoute()),
-                              text: LocaleKeys.createAccount.tr(),
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                          ],
-                        ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: loginBloc.submit,
+                      child: Text(
+                        context.localizations.login_page_login_button,
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    const NewAccountView(),
                   ],
                 ),
               ),
@@ -133,13 +81,11 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _onFailure(BuildContext context, FormBlocFailure<String, String> state) {
-    setState(() {
-      enableButton = false;
-    });
-  }
-
-  void _onSuccess(BuildContext context) {}
+  void _onFailure(
+      BuildContext context, FormBlocFailure<String, String> state) {}
 
   void _refreshEnabledButton(LoginBloc _loginBloc) {}
+
+  void _onSuccess(
+      BuildContext context, FormBlocSuccess<String, String> state) {}
 }

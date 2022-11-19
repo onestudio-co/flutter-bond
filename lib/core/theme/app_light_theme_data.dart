@@ -29,8 +29,41 @@ ThemeData appLightThemeData() {
       disabledColor: AppColors.greyLight,
       buttonColor: AppColors.greenLight,
     ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        fixedSize: const Size(double.maxFinite, 48),
+        primary: AppColors.green,
+        onPrimary: AppColors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        elevation: 0,
+      ),
+    ),
+
+    /// Text theme
     textTheme: appTextTheme,
 
-    /// Text Theme
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: appTextTheme.labelLarge?.copyWith(
+        color: AppColors.green,
+      ),
+      isDense: true,
+      iconColor: AppColors.persianGreen,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(
+          color: AppColors.green,
+          width: 2,
+        ),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(
+          color: AppColors.green,
+        ),
+      ),
+    ),
   );
 }
