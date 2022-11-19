@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:one_studio_core/core.dart';
+
+class HeaderTitleImage extends StatelessWidget {
+  const HeaderTitleImage({
+    required this.senderName,
+    required this.senderImage,
+    Key? key,
+  }) : super(key: key);
+
+  final String senderName;
+  final String senderImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            senderName,
+            style: context.textTheme.titleMedium,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  }
+}

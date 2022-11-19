@@ -30,8 +30,16 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const LoginPage());
     },
     RegisterRoute.name: (routeData) {
-      return MaterialPageX<bool>(
+      return MaterialPageX<dynamic>(
           routeData: routeData, child: const RegisterPage());
+    },
+    NotificationsRoute.name: (routeData) {
+      final args = routeData.argsAs<NotificationsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: NotificationsPage(
+              notificationCenterProvider: args.notificationCenterProvider,
+              key: args.key));
     }
   };
 
@@ -39,7 +47,8 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(HomeRoute.name, path: '/', guards: [authGuard]),
         RouteConfig(LoginRoute.name, path: '/login-page'),
-        RouteConfig(RegisterRoute.name, path: '/register-page')
+        RouteConfig(RegisterRoute.name, path: '/register-page'),
+        RouteConfig(NotificationsRoute.name, path: '/notifications-page')
       ];
 }
 
@@ -65,4 +74,33 @@ class RegisterRoute extends PageRouteInfo<void> {
   const RegisterRoute() : super(RegisterRoute.name, path: '/register-page');
 
   static const String name = 'RegisterRoute';
+}
+
+/// generated route for
+/// [NotificationsPage]
+class NotificationsRoute extends PageRouteInfo<NotificationsRouteArgs> {
+  NotificationsRoute(
+      {required NotificationCenterProvider notificationCenterProvider,
+      Key? key})
+      : super(NotificationsRoute.name,
+            path: '/notifications-page',
+            args: NotificationsRouteArgs(
+                notificationCenterProvider: notificationCenterProvider,
+                key: key));
+
+  static const String name = 'NotificationsRoute';
+}
+
+class NotificationsRouteArgs {
+  const NotificationsRouteArgs(
+      {required this.notificationCenterProvider, this.key});
+
+  final NotificationCenterProvider notificationCenterProvider;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'NotificationsRouteArgs{notificationCenterProvider: $notificationCenterProvider, key: $key}';
+  }
 }

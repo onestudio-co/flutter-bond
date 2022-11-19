@@ -31,6 +31,7 @@ dependencies:
   # utils
   flutter_native_splash: ^2.2.8
   universal_platform: ^1.0.0+1
+  timeago: ^3.3.0
 
   # Firebase
   firebase_analytics: ^10.0.6

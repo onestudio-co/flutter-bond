@@ -12,5 +12,7 @@
   "login_page_not_have_account": "Don't have an account?",
   "login_page_new_account_button": " Create an account ",
   "register_page_title": "New Account",
-  "login_page_register_button": "Register"
+  "login_page_register_button": "Register",
+  "home_page_title": "Home",
+  "notification_page_title": "Notifications Center"
 }
