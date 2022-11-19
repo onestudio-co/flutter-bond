@@ -40,21 +40,4 @@ class FieldBlocValidator {
         ?.localizations
         .field_validator_password;
   }
-
-  static String? Function(String? confirmPassword) confirmPassword(
-    String? password,
-  ) {
-    return (String? confirmPassword) {
-      if (confirmPassword == null ||
-          confirmPassword.isEmpty ||
-          confirmPassword == password) {
-        return null;
-      }
-      return sl<AppRouter>()
-          .navigatorKey
-          .currentContext
-          ?.localizations
-          .field_validator_confirm_password;
-    };
-  }
 }
