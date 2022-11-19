@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bond/features/app/data/auth_local_data_source.dart';
 import 'package:bond/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:bond/features/auth/data/dto/user_dto.dart';
 import 'package:bond/features/auth/data/models/user.dart';
@@ -9,7 +10,7 @@ import 'package:one_studio_core/core.dart';
 
 class AuthRepository {
   final AuthRemoteDataSource _remoteDataSource;
-  final AuthStore _localDataSource;
+  final AuthLocalDataSource _localDataSource;
 
   AuthRepository(this._remoteDataSource, this._localDataSource);
 

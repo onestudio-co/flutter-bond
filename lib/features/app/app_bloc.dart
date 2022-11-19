@@ -11,18 +11,32 @@ part 'app_event.dart';
 part 'app_state.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc({
-    required AuthLocalDataSource authLocalDataSource,
-    required AppLocalDataSource appLocalDataSource,
-  }) : super(
+  AppBloc(
+    this._authLocalDataSource,
+    this._appLocalDataSource,
+  ) : super(
           AppState.initial(
-            user: authLocalDataSource.user,
-            currentLocale: appLocalDataSource.currentLocale,
-            currentThemeMode: appLocalDataSource.currentThemeMode,
+            user: _authLocalDataSource.user,
+            currentLocale: _appLocalDataSource.currentLocale,
+            currentThemeMode: _appLocalDataSource.currentThemeMode,
           ),
         ) {
-    on<AppEvent>(_onEvent);
+    on<ChangeThemeEvent>(_onChangeThemeEvent);
+    on<ChangeLocaleEvent>(_onChangeLocaleEvent);
   }
 
-  FutureOr<void> _onEvent(AppEvent event, Emitter<AppState> emit) {}
+  final AuthLocalDataSource _authLocalDataSource;
+  final AppLocalDataSource _appLocalDataSource;
+
+  FutureOr<void> _onChangeThemeEvent(
+      ChangeThemeEvent event, Emitter<AppState> emit) {
+    _appLocalDataSource.currentThemeMode = event.themeMode;
+    emit(state.copyWith(currentThemeMode: event.themeMode));
+  }
+
+  FutureOr<void> _onChangeLocaleEvent(
+      ChangeLocaleEvent event, Emitter<AppState> emit) {
+    _appLocalDataSource.currentLocale = event.locale;
+    emit(state.copyWith(currentLocale: event.locale));
+  }
 }

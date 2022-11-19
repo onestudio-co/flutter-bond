@@ -19,16 +19,14 @@ class AppServiceProvider extends ServiceProvider {
 
     it.registerLazySingleton(() => AppRouter(AuthGuard()));
 
-    it.registerLazySingleton<AuthStore>(() => AuthLocalDataSource(it()));
+    it.registerLazySingleton<AuthLocalDataSource>(
+      () => AuthLocalDataSource(it()),
+    );
 
     it.registerLazySingleton(
-        () => AppLocalDataSource(sharedPreferences: sharedPreferences));
-
-    it.registerFactory(
-      () => AppBloc(
-        authLocalDataSource: it(),
-        appLocalDataSource: it(),
-      ),
+      () => AppLocalDataSource(sharedPreferences: sharedPreferences),
     );
+
+    it.registerFactory(() => AppBloc(it(), it()));
   }
 }

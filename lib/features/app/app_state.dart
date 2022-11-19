@@ -31,12 +31,12 @@ class AppState extends Equatable {
 
   AppState copyWith({
     User? user,
-    Locale? currentLocal,
+    Locale? currentLocale,
     ThemeMode? currentThemeMode,
   }) {
     return AppState(
       user: user ?? this.user,
-      currentLocale: currentLocal ?? this.currentLocale,
+      currentLocale: currentLocale ?? this.currentLocale,
       currentThemeMode: currentThemeMode ?? this.currentThemeMode,
     );
   }
