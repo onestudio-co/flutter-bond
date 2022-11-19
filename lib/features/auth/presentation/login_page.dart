@@ -1,23 +1,91 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/resources/app_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:one_studio_core/core.dart';
 
-class LoginPage extends StatefulWidget {
+import 'login_bloc.dart';
+import 'new_account_view.dart';
+
+class LoginPage extends StatelessWidget with AutoRouteWrapper {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  Widget wrappedRoute(BuildContext context) => BlocProvider<LoginBloc>(
+        create: (BuildContext context) => sl<LoginBloc>(),
+        child: this,
+      );
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final loginBloc = context.read<LoginBloc>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          context.localizations.login_page_title,
+        title: Text(context.localizations.login_page_title),
+      ),
+      body: FormBlocListener<LoginBloc, String, String>(
+        onSuccess: _onSuccess,
+        onFailure: _onFailure,
+        child: SingleChildScrollView(
+          child: AutofillGroup(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 64),
+                    SvgPicture.asset(
+                      AppImagesAssets.logo,
+                      width: 95,
+                      height: 120,
+                    ),
+                    const SizedBox(height: 48),
+                    TextFieldBlocBuilder(
+                      textFieldBloc: loginBloc.emailTextField,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: context.localizations.filed_email_label,
+                        prefixIcon: const Icon(Icons.email),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextFieldBlocBuilder(
+                      textFieldBloc: loginBloc.passwordTextField,
+                      keyboardType: TextInputType.name,
+                      suffixButton: SuffixButton.obscureText,
+                      decoration: InputDecoration(
+                        labelText: context.localizations.filed_password_label,
+                        prefixIcon: const Icon(Icons.lock),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: loginBloc.submit,
+                      child: Text(
+                        context.localizations.login_page_login_button,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    const NewAccountView(),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
       ),
-      body: Container(),
     );
   }
+
+  void _onFailure(
+      BuildContext context, FormBlocFailure<String, String> state) {}
+
+  void _refreshEnabledButton(LoginBloc _loginBloc) {}
+
+  void _onSuccess(
+      BuildContext context, FormBlocSuccess<String, String> state) {}
 }
