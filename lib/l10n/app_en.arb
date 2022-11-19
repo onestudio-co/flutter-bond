@@ -14,5 +14,9 @@
   "register_page_title": "New Account",
   "login_page_register_button": "Register",
   "home_page_title": "Home",
-  "notification_page_title": "Notifications Center"
+  "notification_page_title": "Notifications Center",
+  "popup_menu_language_title": "Change Language",
+  "popup_menu_theme": "Change Theme",
+  "popup_menu_logout": "Logout",
+  "popup_menu_notification_center": "Notifications Center"
 }

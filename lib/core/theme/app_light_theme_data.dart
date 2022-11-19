@@ -16,7 +16,7 @@ ThemeData appLightThemeData() {
     scaffoldBackgroundColor: AppColors.background,
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: Colors.white,
+      color: Colors.white,
     ),
 
     /// AppBar theme
@@ -43,6 +43,15 @@ ThemeData appLightThemeData() {
           borderRadius: BorderRadius.circular(8),
         ),
         elevation: 0,
+      ),
+    ),
+
+    popupMenuTheme: PopupMenuThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      textStyle: appTextTheme.subtitle2?.copyWith(
+        color: Colors.black,
       ),
     ),
 

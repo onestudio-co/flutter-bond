@@ -14,5 +14,9 @@
   "register_page_title": "حساب جديد",
   "login_page_register_button": "تسجيل",
   "home_page_title": "الرئيسية",
-  "notification_page_title": "مركز التنبيهات"
+  "notification_page_title": "مركز التنبيهات",
+  "popup_menu_language_title": "تغيير اللغة",
+  "popup_menu_theme": "تغيير المظهر",
+  "popup_menu_logout": "تسجيل الخروج",
+  "popup_menu_notification_center": "مركز التنبيهات"
 }
