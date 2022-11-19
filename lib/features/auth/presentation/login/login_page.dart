@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
+import 'package:bond/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +21,7 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    final loginBloc = context.read<LoginBloc>();
+    final loginBloc = context.watch<LoginBloc>();
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localizations.login_page_title),
@@ -63,11 +64,10 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    ElevatedButton(
+                    AppButton(
+                      loading: loginBloc.loading,
                       onPressed: loginBloc.submit,
-                      child: Text(
-                        context.localizations.login_page_login_button,
-                      ),
+                      title: context.localizations.login_page_login_button,
                     ),
                     const SizedBox(height: 16),
                     const NewAccountView(),
@@ -81,11 +81,15 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
     );
   }
 
-  void _onFailure(
-      BuildContext context, FormBlocFailure<String, String> state) {}
+  void _onFailure(BuildContext context, FormBlocFailure<String, String> state) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(state.failureResponse ?? ''),
+      ),
+    );
+  }
 
-  void _refreshEnabledButton(LoginBloc _loginBloc) {}
-
-  void _onSuccess(
-      BuildContext context, FormBlocSuccess<String, String> state) {}
+  void _onSuccess(BuildContext context, FormBlocSuccess<String, String> state) {
+    context.router.pop(true);
+  }
 }

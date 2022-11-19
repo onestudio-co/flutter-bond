@@ -42,4 +42,6 @@ class LoginBloc extends FormBloc<String, String> {
       (response) => {emitLoaded(), emitSuccess(), emitSubmissionCancelled()},
     );
   }
+
+  bool get loading => state is FormBlocLoading;
 }

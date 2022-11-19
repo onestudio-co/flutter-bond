@@ -11,7 +11,7 @@ class UserDto {
     this.passwordConfirmation,
   });
 
-  Future<Map<String, dynamic>> get body async => {
+  Map<String, dynamic> get body => {
         if (name != null) 'name': name,
         'email': email,
         'password': password,

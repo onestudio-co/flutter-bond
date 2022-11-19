@@ -26,7 +26,7 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const HomePage());
     },
     LoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return MaterialPageX<bool>(
           routeData: routeData, child: const LoginPage());
     }
   };

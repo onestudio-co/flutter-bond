@@ -1,4 +1,4 @@
-import 'package:bond/features/auth/presentation/login_bloc.dart';
+import 'package:bond/features/auth/presentation/login/login_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 

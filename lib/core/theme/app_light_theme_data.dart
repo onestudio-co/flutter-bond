@@ -15,6 +15,10 @@ ThemeData appLightThemeData() {
     backgroundColor: AppColors.background,
     scaffoldBackgroundColor: AppColors.background,
 
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: Colors.white,
+    ),
+
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
