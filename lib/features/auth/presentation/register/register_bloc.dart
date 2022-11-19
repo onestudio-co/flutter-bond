@@ -3,17 +3,25 @@ import 'package:bond/features/auth/data/repositories/auth_repository.dart';
 import 'package:bond/features/auth/data/validators/field_validators.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-class LoginBloc extends FormBloc<String, String> {
+class RegisterBloc extends FormBloc<String, String> {
   final AuthRepository _authRepository;
 
-  LoginBloc(this._authRepository) {
+  RegisterBloc(this._authRepository) {
     addFieldBlocs(
       fieldBlocs: [
+        nameTextField,
         emailTextField,
         passwordTextField,
+        confirmPassword,
       ],
     );
   }
+
+  final nameTextField = TextFieldBloc(
+    validators: [
+      FieldBlocValidator.required,
+    ],
+  );
 
   final emailTextField = TextFieldBloc(
     validators: [
@@ -29,13 +37,22 @@ class LoginBloc extends FormBloc<String, String> {
     ],
   );
 
+  final confirmPassword = TextFieldBloc(
+    validators: [
+      FieldBlocValidator.required,
+      FieldBlocValidator.passwordMin6Chars,
+    ],
+  );
+
   @override
   void onSubmitting() async {
     emitLoading();
-    final response = await _authRepository.login(
+    final response = await _authRepository.register(
       UserDto(
+        name: nameTextField.value,
         email: emailTextField.value,
         password: passwordTextField.value,
+        passwordConfirmation: confirmPassword.value,
       ),
     );
     response.fold(

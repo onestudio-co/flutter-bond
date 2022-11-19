@@ -9,6 +9,7 @@ import 'data/events/sign_out_event.dart';
 import 'data/events/sign_up_event.dart';
 import 'data/models/user.dart';
 import 'data/repositories/auth_repository.dart';
+import 'presentation/register/register_bloc.dart';
 
 class AuthServiceProvider extends ServiceProvider {
   @override
@@ -19,6 +20,8 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerLazySingleton(() => AuthRepository(it(), it()));
 
     it.registerFactory(() => LoginBloc(it()));
+
+    it.registerFactory(() => RegisterBloc(it()));
   }
 
   @override

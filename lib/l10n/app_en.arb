@@ -1,12 +1,16 @@
 {
-"login_page_title": "Login",
-"filed_email_label": "Email",
-"filed_password_label": "Password",
-"field_validator_required": "Field is required",
-"field_validator_email": "Invalid email address",
-"field_validator_password": "Password must be at least 6 characters long",
-"field_validator_confirm_password": "Passwords do not match",
-"login_page_login_button": "Login",
-"login_page_not_have_account": "Don't have an account?",
-"login_page_new_account_button": " Create an account "
+  "login_page_title": "Login",
+  "filed_name_label": "Name",
+  "filed_email_label": "Email",
+  "filed_password_label": "Password",
+  "filed_confirm_password_label": "Confirm Password",
+  "field_validator_required": "Field is required",
+  "field_validator_email": "Invalid email address",
+  "field_validator_password": "Password must be at least 6 characters long",
+  "field_validator_confirm_password": "Passwords do not match",
+  "login_page_login_button": "Login",
+  "login_page_not_have_account": "Don't have an account?",
+  "login_page_new_account_button": " Create an account ",
+  "register_page_title": "New Account",
+  "login_page_register_button": "Register"
 }

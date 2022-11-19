@@ -7,26 +7,25 @@ import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one_studio_core/core.dart';
 
-import 'login_bloc.dart';
-import 'new_account_view.dart';
+import 'register_bloc.dart';
 
-class LoginPage extends StatelessWidget with AutoRouteWrapper {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget with AutoRouteWrapper {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  Widget wrappedRoute(BuildContext context) => BlocProvider<LoginBloc>(
-        create: (BuildContext context) => sl<LoginBloc>(),
+  Widget wrappedRoute(BuildContext context) => BlocProvider<RegisterBloc>(
+        create: (BuildContext context) => sl<RegisterBloc>(),
         child: this,
       );
 
   @override
   Widget build(BuildContext context) {
-    final loginBloc = context.watch<LoginBloc>();
+    final loginBloc = context.watch<RegisterBloc>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.localizations.login_page_title),
+        title: Text(context.localizations.register_page_title),
       ),
-      body: FormBlocListener<LoginBloc, String, String>(
+      body: FormBlocListener<RegisterBloc, String, String>(
         onSuccess: _onSuccess,
         onFailure: _onFailure,
         child: SingleChildScrollView(
@@ -46,6 +45,15 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
                     ),
                     const SizedBox(height: 48),
                     TextFieldBlocBuilder(
+                      textFieldBloc: loginBloc.nameTextField,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: context.localizations.filed_name_label,
+                        prefixIcon: const Icon(Icons.person),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextFieldBlocBuilder(
                       textFieldBloc: loginBloc.emailTextField,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -62,14 +70,23 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
                         prefixIcon: const Icon(Icons.lock),
                       ),
                     ),
+                    const SizedBox(height: 12),
+                    TextFieldBlocBuilder(
+                      textFieldBloc: loginBloc.confirmPassword,
+                      suffixButton: SuffixButton.obscureText,
+                      decoration: InputDecoration(
+                        labelText:
+                            context.localizations.filed_confirm_password_label,
+                        prefixIcon: const Icon(Icons.lock),
+                      ),
+                    ),
                     const SizedBox(height: 16),
                     AppButton(
                       loading: loginBloc.loading,
                       onPressed: loginBloc.submit,
-                      title: context.localizations.login_page_login_button,
+                      title: context.localizations.login_page_register_button,
                     ),
                     const SizedBox(height: 16),
-                    const NewAccountView(),
                   ],
                 ),
               ),

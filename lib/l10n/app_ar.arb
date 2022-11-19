@@ -1,12 +1,16 @@
 {
-"login_page_title": "تسجيل الدخول",
-"filed_email_label": "البريد الإلكتروني",
-"filed_password_label": "كلمة المرور",
-"field_validator_required": "الحقل مطلوب",
-"field_validator_email": "البريد الإلكتروني غير صحيح",
-"field_validator_password": "كلمة المرور يجب أن تكون أكثر من 6 أحرف",
-"field_validator_confirm_password": "كلمة المرور غير متطابقة",
-"login_page_login_button": "تسجيل الدخول",
-"login_page_not_have_account": "ليس لديك حساب؟",
-"login_page_new_account_button": " حساب جديد "
+  "login_page_title": "تسجيل الدخول",
+  "filed_name_label": "الاسم",
+  "filed_email_label": "البريد الإلكتروني",
+  "filed_password_label": "كلمة المرور",
+  "filed_confirm_password_label": "تأكيد كلمة المرور",
+  "field_validator_required": "الحقل مطلوب",
+  "field_validator_email": "البريد الإلكتروني غير صحيح",
+  "field_validator_password": "كلمة المرور يجب أن تكون أكثر من 6 أحرف",
+  "field_validator_confirm_password": "كلمة المرور غير متطابقة",
+  "login_page_login_button": "تسجيل الدخول",
+  "login_page_not_have_account": "ليس لديك حساب؟",
+  "login_page_new_account_button": " حساب جديد ",
+  "register_page_title": "حساب جديد",
+  "login_page_register_button": "تسجيل"
 }

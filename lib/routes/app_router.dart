@@ -6,6 +6,7 @@ import 'package:bond/features/home/home_page.dart';
 import 'package:bond/routes/guards/auth_guard.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../features/auth/presentation/register/register_page.dart';
 import '../features/auth/routes.dart';
 
 export 'guards/auth_guard.dart';
