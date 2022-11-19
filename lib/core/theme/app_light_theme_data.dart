@@ -37,8 +37,8 @@ ThemeData appLightThemeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(double.maxFinite, 48),
-        primary: AppColors.green,
-        onPrimary: AppColors.white,
+        foregroundColor: AppColors.white,
+        backgroundColor: AppColors.green,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),

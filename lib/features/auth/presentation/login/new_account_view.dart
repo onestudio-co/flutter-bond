@@ -25,7 +25,7 @@ class NewAccountView extends StatelessWidget {
             ),
             TextSpan(
               recognizer: TapGestureRecognizer()
-                ..onTap = () => context.router.push(LoginRoute()),
+                ..onTap = () => context.router.push(const LoginRoute()),
               text: context.localizations.login_page_new_account_button,
               style: context.textTheme.overline,
             ),
