@@ -42,6 +42,10 @@ class RunAppTasks extends RunTasks {
           ?.createNotificationChannel(channel);
     }
     sl<PushNotificationsProviders>().listen();
+    if (Auth.check()) {
+      sl<NotificationCenterProvider>().load();
+      sl<NotificationCenterProvider>().listen();
+    }
   }
 
   @override

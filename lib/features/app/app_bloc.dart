@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:bond/features/app/data/app_local_data_source.dart';
-import 'package:bond/features/app/data/auth_local_data_source.dart';
 import 'package:bond/features/auth/data/models/user.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +11,9 @@ part 'app_state.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc(
-    this._authLocalDataSource,
     this._appLocalDataSource,
   ) : super(
           AppState.initial(
-            user: _authLocalDataSource.user,
             currentLocale: _appLocalDataSource.currentLocale,
             currentThemeMode: _appLocalDataSource.currentThemeMode,
           ),
@@ -25,7 +22,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<ChangeLocaleEvent>(_onChangeLocaleEvent);
   }
 
-  final AuthLocalDataSource _authLocalDataSource;
   final AppLocalDataSource _appLocalDataSource;
 
   FutureOr<void> _onChangeThemeEvent(

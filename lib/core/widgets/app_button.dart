@@ -16,7 +16,12 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: loading ? const CircularProgressIndicator(strokeWidth: 2) : Text(title),
+      child: loading
+          ? const CircularProgressIndicator(
+              strokeWidth: 2,
+              color: Colors.white,
+            )
+          : Text(title),
     );
   }
 }

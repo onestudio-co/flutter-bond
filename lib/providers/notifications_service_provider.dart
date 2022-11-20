@@ -16,7 +16,7 @@ class NotificationsServiceProvider extends ServiceProvider {
         case 'push_notification':
           _registerPushNotification(provider, it);
           break;
-        case 'server_notification':
+        case 'notification_center':
           _registerServerNotification(provider, it);
       }
     }

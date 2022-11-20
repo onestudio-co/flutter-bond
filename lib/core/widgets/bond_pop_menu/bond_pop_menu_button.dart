@@ -16,7 +16,10 @@ class BondPopMenuButton extends StatelessWidget {
     final appBloc = context.watch<AppBloc>();
     return PopupMenuButton<Menu>(
       onSelected: (Menu item) => _onSelected(context, item),
-      icon: const Icon(Icons.more_vert_rounded),
+      icon: const Icon(
+        Icons.more_vert_rounded,
+        color: Colors.white,
+      ),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
         BondPopupBondMenuItem(
           value: Menu.theme,
@@ -34,7 +37,7 @@ class BondPopMenuButton extends StatelessWidget {
           ),
           title: context.localizations.popup_menu_language_title,
         ),
-        if (appBloc.state.user != null)
+        if (Auth.check())
           BondPopupBondMenuItem(
             value: Menu.notifications,
             icon: Icon(
@@ -43,7 +46,7 @@ class BondPopMenuButton extends StatelessWidget {
             ),
             title: context.localizations.popup_menu_notification_center,
           ),
-        if (appBloc.state.user != null)
+        if (Auth.check())
           BondPopupBondMenuItem(
             value: Menu.logout,
             icon: Icon(

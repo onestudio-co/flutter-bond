@@ -5,7 +5,6 @@ import 'package:one_studio_core/core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../features/app/data/auth_local_data_source.dart';
 import '../routes/app_router.dart';
 
 class AppServiceProvider extends ServiceProvider {
@@ -19,14 +18,10 @@ class AppServiceProvider extends ServiceProvider {
 
     it.registerLazySingleton(() => AppRouter(AuthGuard()));
 
-    it.registerLazySingleton<AuthLocalDataSource>(
-      () => AuthLocalDataSource(it()),
-    );
-
     it.registerLazySingleton(
       () => AppLocalDataSource(sharedPreferences: sharedPreferences),
     );
 
-    it.registerFactory(() => AppBloc(it(), it()));
+    it.registerFactory(() => AppBloc(it()));
   }
 }

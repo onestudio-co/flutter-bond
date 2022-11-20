@@ -30,6 +30,12 @@ ThemeData appLightThemeData() {
       color: const Color.fromRGBO(50, 45, 120, 1),
       elevation: 0,
       titleTextStyle: appTextTheme.titleLarge,
+      actionsIconTheme: const IconThemeData(
+        color: Colors.white,
+      ),
+      iconTheme: const IconThemeData(
+        color: Colors.white,
+      ),
     ),
 
     /// Button theme

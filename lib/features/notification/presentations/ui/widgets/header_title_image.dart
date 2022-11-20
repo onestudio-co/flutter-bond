@@ -18,7 +18,7 @@ class HeaderTitleImage extends StatelessWidget {
         Expanded(
           child: Text(
             senderName,
-            style: context.textTheme.titleMedium,
+            style: context.textTheme.subtitle2,
             overflow: TextOverflow.ellipsis,
           ),
         ),
