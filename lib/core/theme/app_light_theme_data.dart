@@ -1,28 +1,33 @@
 import 'package:bond/core/app_theme.dart';
 import 'package:flutter/material.dart';
 
-import '../resources/app_colors.dart';
-
 ThemeData appLightThemeData() {
   return ThemeData(
-    /// main color of the app
-    primaryColor: AppColors.green,
-    primaryColorLight: AppColors.cetaceanBlue,
-    primaryColorDark: AppColors.greyDark,
-    disabledColor: AppColors.persianGreen,
-    // this for disabled button color
-    splashColor: AppColors.greyLight,
-    backgroundColor: AppColors.background,
-    scaffoldBackgroundColor: AppColors.background,
+    colorScheme: const ColorScheme(
+      primary: Color.fromRGBO(50, 45, 120, 1),
+      secondary: Color.fromRGBO(34, 193, 224, 1),
+      surface: Colors.black,
+      background: Colors.black,
+      error: Color.fromRGBO(241, 95, 109, 1),
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
+      onSurface: Colors.black,
+      onBackground: Colors.black,
+      onError: Colors.black,
+      brightness: Brightness.light,
+    ),
+    brightness: Brightness.light,
+
+    scaffoldBackgroundColor: Colors.white,
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: Colors.white,
+      color: Colors.black,
     ),
 
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: AppColors.green,
+      color: const Color.fromRGBO(50, 45, 120, 1),
       elevation: 0,
       titleTextStyle: appTextTheme.titleLarge,
     ),
@@ -30,15 +35,15 @@ ThemeData appLightThemeData() {
     /// Button theme
     buttonTheme: const ButtonThemeData(
       shape: RoundedRectangleBorder(),
-      disabledColor: AppColors.greyLight,
-      buttonColor: AppColors.greenLight,
+      disabledColor: Color.fromRGBO(34, 193, 224, 0.1),
+      buttonColor: Color.fromRGBO(34, 193, 224, 1),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(double.maxFinite, 48),
-        foregroundColor: AppColors.white,
-        backgroundColor: AppColors.green,
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromRGBO(50, 45, 120, 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -60,21 +65,21 @@ ThemeData appLightThemeData() {
 
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelStyle: appTextTheme.labelLarge?.copyWith(
-        color: AppColors.green,
+        color: const Color.fromRGBO(50, 45, 120, 1),
       ),
       isDense: true,
-      iconColor: AppColors.persianGreen,
+      iconColor: const Color.fromRGBO(34, 193, 224, 1),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(
-          color: AppColors.green,
+          color: Color.fromRGBO(50, 45, 120, 1),
           width: 2,
         ),
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(
-          color: AppColors.green,
+          color: Color.fromRGBO(50, 45, 120, 1),
         ),
       ),
     ),

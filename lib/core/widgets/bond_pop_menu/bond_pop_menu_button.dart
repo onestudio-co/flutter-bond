@@ -10,30 +10,45 @@ class BondPopMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appBloc = context.watch<AppBloc>();
     return PopupMenuButton<Menu>(
       onSelected: (Menu item) => _onSelected(context, item),
       icon: const Icon(Icons.more_vert_rounded),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
         BondPopupBondMenuItem(
           value: Menu.theme,
-          icon: const Icon(Icons.color_lens_rounded, color: Colors.black),
+          icon: Icon(
+            Icons.color_lens_rounded,
+            color: Theme.of(context).colorScheme.onBackground,
+          ),
           title: context.localizations.popup_menu_theme,
         ),
         BondPopupBondMenuItem(
           value: Menu.language,
-          icon: const Icon(Icons.language, color: Colors.black),
+          icon: Icon(
+            Icons.language,
+            color: Theme.of(context).colorScheme.onBackground,
+          ),
           title: context.localizations.popup_menu_language_title,
         ),
-        BondPopupBondMenuItem(
-          value: Menu.notifications,
-          icon: const Icon(Icons.notifications_rounded, color: Colors.black),
-          title: context.localizations.popup_menu_notification_center,
-        ),
-        BondPopupBondMenuItem(
-          value: Menu.logout,
-          icon: const Icon(Icons.logout, color: Colors.black),
-          title: context.localizations.popup_menu_logout,
-        ),
+        if (appBloc.state.user != null)
+          BondPopupBondMenuItem(
+            value: Menu.notifications,
+            icon: Icon(
+              Icons.notifications_rounded,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            title: context.localizations.popup_menu_notification_center,
+          ),
+        if (appBloc.state.user != null)
+          BondPopupBondMenuItem(
+            value: Menu.logout,
+            icon: Icon(
+              Icons.logout,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+            title: context.localizations.popup_menu_logout,
+          ),
       ],
     );
   }
