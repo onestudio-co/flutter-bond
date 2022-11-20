@@ -13,7 +13,6 @@ class BondPopMenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appBloc = context.watch<AppBloc>();
     return PopupMenuButton<Menu>(
       onSelected: (Menu item) => _onSelected(context, item),
       icon: const Icon(
