@@ -10,7 +10,7 @@ class AuthRemoteDataSource extends DataSource {
 
   Future<SingleMResponse<User, UserMeta>> register(UserDto user) async {
     return mapSingleMResponse<User, UserMeta>(await _client.post(
-      AuthApis.register(),
+      AuthApis.register,
       body: user.body,
       headers: Api.headers(),
     ));
@@ -18,15 +18,26 @@ class AuthRemoteDataSource extends DataSource {
 
   Future<SingleMResponse<User, UserMeta>> login(UserDto user) async {
     return mapSingleMResponse<User, UserMeta>(await _client.post(
-      AuthApis.login(),
+      AuthApis.login,
       body: user.body,
       headers: Api.headers(),
     ));
   }
+
+  Future<SuccessResponse> logout() async {
+    return mapSuccessResponse(
+      await _client.post(
+        AuthApis.logout,
+        headers: Api.headers(),
+      ),
+    );
+  }
 }
 
 extension AuthApis on Api {
-  static String register() => 'register';
+  static String get register => 'register';
 
-  static String login() => 'login';
+  static String get login => 'login';
+
+  static String get logout => 'logout';
 }

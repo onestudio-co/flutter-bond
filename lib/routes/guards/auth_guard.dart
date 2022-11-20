@@ -11,9 +11,8 @@ class AuthGuard extends AutoRouteGuard {
     if (Auth.check()) {
       resolver.next(true);
     } else {
-      final result = await router.push(const LoginRoute()) as bool;
-
-      resolver.next(result);
+      final result = await router.push<bool>(const LoginRoute());
+      resolver.next(result ?? false);
     }
   }
 }

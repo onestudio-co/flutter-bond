@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
@@ -93,7 +91,6 @@ class LoginPage extends StatelessWidget with AutoRouteWrapper {
   }
 
   void _onSuccess(BuildContext context, FormBlocSuccess<String, String> state) {
-    log('_onSuccess');
     context.router.pop(true);
   }
 }

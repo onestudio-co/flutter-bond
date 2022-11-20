@@ -39,4 +39,17 @@ class AuthRepository {
       return Left(ConnectionFailure());
     }
   }
+
+  Future<Either<Failure, SuccessResponse>> logout() async {
+    try {
+      final response = await _remoteDataSource.logout();
+      _localDataSource.user = null;
+      _localDataSource.token = null;
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.toFailure());
+    } catch (e) {
+      return Left(ConnectionFailure());
+    }
+  }
 }

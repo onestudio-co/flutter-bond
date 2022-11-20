@@ -10,6 +10,7 @@ import 'data/models/user.dart';
 import 'data/models/user_meta.dart';
 import 'data/repositories/auth_repository.dart';
 import 'presentation/login/login_bloc.dart';
+import 'presentation/logout/logout_cubit.dart';
 import 'presentation/register/register_bloc.dart';
 
 class AuthServiceProvider extends ServiceProvider {
@@ -23,6 +24,8 @@ class AuthServiceProvider extends ServiceProvider {
     it.registerFactory(() => LoginBloc(it()));
 
     it.registerFactory(() => RegisterBloc(it()));
+
+    it.registerFactory(() => LogoutCubit(it()));
   }
 
   @override

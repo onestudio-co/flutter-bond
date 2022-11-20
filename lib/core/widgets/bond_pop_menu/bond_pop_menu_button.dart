@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
+import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,6 +61,7 @@ class BondPopMenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, Menu item) {
     final appBloc = context.read<AppBloc>();
+    final logoutCubit = context.read<LogoutCubit?>();
     switch (item) {
       case Menu.theme:
         final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light
@@ -74,12 +76,14 @@ class BondPopMenuButton extends StatelessWidget {
         appBloc.add(ChangeLocaleEvent(newLocale));
         break;
       case Menu.logout:
-        // TODO: Handle this case.
+        logoutCubit?.logout();
         break;
       case Menu.notifications:
-        context.router.push(NotificationsRoute(
-          notificationCenterProvider: sl<NotificationCenterProvider>(),
-        ));
+        context.router.push(
+          NotificationsRoute(
+            notificationCenterProvider: sl<NotificationCenterProvider>(),
+          ),
+        );
         break;
     }
   }
