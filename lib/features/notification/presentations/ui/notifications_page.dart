@@ -1,5 +1,4 @@
 import 'package:bond/core/app_localizations.dart';
-import 'package:bond/core/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -95,8 +94,8 @@ class _NotificationsPageState extends State<NotificationsPage> {
               );
             }
           } else {
-            return const CircularProgressIndicator(
-              color: AppColors.green,
+            return CircularProgressIndicator(
+              color: context.colorScheme.primary,
             );
           }
         },

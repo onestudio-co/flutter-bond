@@ -25,7 +25,6 @@ class AuthRepository {
     } on ServerException catch (e) {
       return Left(e.toFailure());
     } catch (e) {
-      log('SingleMResponse<User, UserMeta>>> register $e');
       return Left(ConnectionFailure());
     }
   }
@@ -40,6 +39,7 @@ class AuthRepository {
     } on ServerException catch (e) {
       return Left(e.toFailure());
     } catch (e) {
+      log(e.toString());
       return Left(ConnectionFailure());
     }
   }

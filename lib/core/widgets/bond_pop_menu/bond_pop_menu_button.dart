@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:one_studio_core/core.dart';
 
 import 'bond_popup_menu_item.dart';
 
@@ -19,7 +22,7 @@ class BondPopMenuButton extends StatelessWidget {
           value: Menu.theme,
           icon: Icon(
             Icons.color_lens_rounded,
-            color: Theme.of(context).colorScheme.onBackground,
+            color: context.colorScheme.onBackground,
           ),
           title: context.localizations.popup_menu_theme,
         ),
@@ -27,7 +30,7 @@ class BondPopMenuButton extends StatelessWidget {
           value: Menu.language,
           icon: Icon(
             Icons.language,
-            color: Theme.of(context).colorScheme.onBackground,
+            color: context.colorScheme.onBackground,
           ),
           title: context.localizations.popup_menu_language_title,
         ),
@@ -36,7 +39,7 @@ class BondPopMenuButton extends StatelessWidget {
             value: Menu.notifications,
             icon: Icon(
               Icons.notifications_rounded,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: context.colorScheme.onBackground,
             ),
             title: context.localizations.popup_menu_notification_center,
           ),
@@ -45,7 +48,7 @@ class BondPopMenuButton extends StatelessWidget {
             value: Menu.logout,
             icon: Icon(
               Icons.logout,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: context.colorScheme.onBackground,
             ),
             title: context.localizations.popup_menu_logout,
           ),
@@ -72,7 +75,9 @@ class BondPopMenuButton extends StatelessWidget {
         // TODO: Handle this case.
         break;
       case Menu.notifications:
-        // TODO: Handle this case.
+        context.router.push(NotificationsRoute(
+          notificationCenterProvider: sl<NotificationCenterProvider>(),
+        ));
         break;
     }
   }

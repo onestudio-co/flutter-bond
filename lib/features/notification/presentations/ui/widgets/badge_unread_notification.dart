@@ -1,5 +1,5 @@
-import 'package:bond/core/resources/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:one_studio_core/core.dart';
 
 class BadgeUnreadNotification extends StatelessWidget {
   const BadgeUnreadNotification({
@@ -15,8 +15,8 @@ class BadgeUnreadNotification extends StatelessWidget {
         ? Container(
             width: 10,
             height: 10,
-            decoration: const BoxDecoration(
-              color: AppColors.green,
+            decoration: BoxDecoration(
+              color: context.colorScheme.primary,
               shape: BoxShape.circle,
             ),
           )
