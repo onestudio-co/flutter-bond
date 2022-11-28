@@ -26,14 +26,16 @@
    1-  replace ```assets/images/splash-logo.png``` and ```assets/images/splash-logo-staging.png``` with the new app logo for both flavors.
    
    2-  update color proprety on  ```flutter_native_splash-production.yaml``` and ```flutter_native_splash-staging.yaml``` files with the new app splash background color for both flavors.
-
-   2- run this command to generate production flavor native splash screen proprties
+   
+   3- For android 12 you have to use `image` for logo and make sure logo size 288 * 288 and logo inside it with size 192 * 192
+   
+   4- run this command to generate production flavor native splash screen proprties
    
     flutter pub run flutter_native_splash:create --flavor production
 
-   3- run this command to generate staging flavor native splash screen proprties
+   5- run this command to generate staging flavor native splash screen proprties
    
     flutter pub run flutter_native_splash:create --flavor staging
       
-   4- run the app to make sure the native splash screen are updated correctly 
+   6- run the app to make sure the native splash screen are updated correctly 
 	   (**you need to stop it first hot restart will not enough**).
