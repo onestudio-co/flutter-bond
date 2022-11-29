@@ -35,9 +35,9 @@ class AuthRemoteDataSource extends DataSource {
 }
 
 extension AuthApis on Api {
-  static String get register => 'register';
+  static String get register => 'users/register';
 
-  static String get login => 'login';
+  static String get login => 'users/login';
 
-  static String get logout => 'logout';
+  static String get logout => 'users/logout';
 }

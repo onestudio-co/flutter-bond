@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bond/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:bond/features/auth/data/dto/user_dto.dart';
 import 'package:bond/features/auth/data/models/user.dart';
@@ -34,6 +36,7 @@ class AuthRepository {
       _localDataSource.token = response.meta.token;
       return Right(response);
     } on ServerException catch (e) {
+      log('server exception: ${e.toFailure().toMessage()}');
       return Left(e.toFailure());
     } catch (e) {
       return Left(ConnectionFailure());

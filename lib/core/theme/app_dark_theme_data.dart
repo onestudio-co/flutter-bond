@@ -65,6 +65,13 @@ ThemeData appDarkThemeData() {
     textTheme: appTextTheme,
 
     inputDecorationTheme: InputDecorationTheme(
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(
+          color: Color.fromRGBO(241, 95, 109, 1),
+          width: 1,
+        ),
+      ),
       floatingLabelStyle: appTextTheme.labelLarge?.copyWith(
         color: Colors.white,
       ),
