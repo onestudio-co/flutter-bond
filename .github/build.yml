@@ -1,0 +1,44 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    defaults:
+      run:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "12.x"
+          cache: 'gradle' // 1
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true // 2
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Format
+        run: flutter format .
+
+      - name: Analyze
+        run: flutter analyze lib
+
+      - name: Build & Test
+        env:
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          CONNECT_TIMEOUT: 100000
+          SEND_TIMEOUT: 1000000
+          RECEIVE_TIMEOUT: 1000000
+          RECEIVE_DATA_WHEN_STATUS_ERROR: true
+        run: flutter build appbundle -t lib/main_staging.dart --flavor production

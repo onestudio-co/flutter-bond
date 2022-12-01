@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:bond/generator/strings.dart';
-import 'package:collection/collection.dart';
 
 import 'console.dart';
 import 'menu.dart';
@@ -47,13 +46,8 @@ Future<void> commands(List<String> arguments) async {
   String type = argumentSplit[0];
   String action = argumentSplit[1];
 
-  NyCommand? nyCommand = _allCommands.firstWhereOrNull(
+  NyCommand? nyCommand = _allCommands.firstWhere(
       (command) => type == command.category && command.name == action);
-
-  if (nyCommand == null) {
-    MetroConsole.writeInBlack('Invalid arguments $arguments');
-    exit(1);
-  }
 
   arguments.removeAt(0);
   await nyCommand.action!(arguments);
@@ -72,14 +66,12 @@ _feature(List<String> arguments) async {
 
   final ArgResults argResults = parser.parse(arguments);
 
-  String? featureName = argResults.arguments.firstOrNull;
-  if (featureName == null) {
-    MetroConsole.writeInGreen('you should pass the feature name 😒');
-  }
+  String? featureName = argResults.arguments.first;
+  MetroConsole.writeInGreen('you should pass the feature name 😒');
 
   String? customModel = argResults[customModelNameOption];
 
-  await makeFeature(featureName: featureName!, customModel: customModel);
+  await makeFeature(featureName: featureName, customModel: customModel);
 
   MetroConsole.writeInGreen('$featureName feature created 🎉');
 }
@@ -164,6 +156,7 @@ _makeDirectory(String path) async {
 extension StringCasingExtension on String {
   String toCapitalized() =>
       length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+
   String toTitleCase() => replaceAll(RegExp(' +'), ' ')
       .split(' ')
       .map((str) => str.toCapitalized())
