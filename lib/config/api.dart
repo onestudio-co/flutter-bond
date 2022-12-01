@@ -1,4 +1,10 @@
+import 'package:bond/config/environments.dart';
+
 class ApiConfig {
-  static var baseUrl =
-      'https://omn55vf7dfz3e5g4o7pg6p6te40rfbat.lambda-url.us-east-1.on.aws/api/';
+  static String baseUrl = const String.fromEnvironment('API_BASE_URL');
+  static int connectTimeout = env('CONNECT_TIMEOUT');
+  static int sendTimeout = env('SEND_TIMEOUT');
+  static int receiveTimeout = env('RECEIVE_TIMEOUT');
+  static bool receiveDataWhenStatusError =
+      env('RECEIVE_DATA_WHEN_STATUS_ERROR');
 }
