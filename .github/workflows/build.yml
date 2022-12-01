@@ -22,13 +22,21 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Install Dependencies
+      - name: Create env file
         env:
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           CONNECT_TIMEOUT: 100000
           SEND_TIMEOUT: 1000000
           RECEIVE_TIMEOUT: 1000000
           RECEIVE_DATA_WHEN_STATUS_ERROR: true
+        run: |
+          echo "API_BASE_URL=$API_BASE_URL" >> .env
+          echo "CONNECT_TIMEOUT=$CONNECT_TIMEOUT" >> .env
+          echo "SEND_TIMEOUT=$SEND_TIMEOUT" >> .env
+          echo "RECEIVE_TIMEOUT=$RECEIVE_TIMEOUT" >> .env
+          echo "RECEIVE_DATA_WHEN_STATUS_ERROR=$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env
+
+      - name: Install Dependencies
         run: flutter pub get
 
       - name: Build Runner
