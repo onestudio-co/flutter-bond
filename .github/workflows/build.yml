@@ -41,4 +41,4 @@ jobs:
           SEND_TIMEOUT: 1000000
           RECEIVE_TIMEOUT: 1000000
           RECEIVE_DATA_WHEN_STATUS_ERROR: true
-        run: flutter build appbundle -t lib/main_staging.dart --flavor production
+        run: flutter build appbundle -t lib/main_production.dart --flavor production
