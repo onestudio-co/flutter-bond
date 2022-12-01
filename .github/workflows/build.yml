@@ -25,14 +25,14 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
+      - name: Build Runner
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
       - name: Format
         run: flutter format .
 
       - name: Analyze
         run: flutter analyze lib
-
-      - name: Build Runner
-        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build & Test
         env:
