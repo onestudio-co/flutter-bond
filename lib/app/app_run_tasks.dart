@@ -44,7 +44,7 @@ class RunAppTasks extends RunTasks {
     }
   }
 
-  @override
+  @override 
   void onError(Object error, StackTrace stack) {
     log(stack.toString());
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
