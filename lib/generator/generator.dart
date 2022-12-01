@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:bond/generator/strings.dart';
+import 'package:collection/collection.dart';
 
 import 'console.dart';
 import 'menu.dart';
@@ -40,7 +40,7 @@ Future<void> commands(List<String> arguments) async {
   List<String> argumentSplit = arguments[0].split(":");
 
   if (argumentSplit.isEmpty || argumentSplit.length <= 1) {
-    MetroConsole.writeInBlack('Invalid arguments ' + arguments.toString());
+    MetroConsole.writeInBlack('Invalid arguments $arguments');
     exit(2);
   }
 
@@ -51,7 +51,7 @@ Future<void> commands(List<String> arguments) async {
       (command) => type == command.category && command.name == action);
 
   if (nyCommand == null) {
-    MetroConsole.writeInBlack('Invalid arguments ' + arguments.toString());
+    MetroConsole.writeInBlack('Invalid arguments $arguments');
     exit(1);
   }
 

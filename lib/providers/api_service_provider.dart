@@ -7,11 +7,11 @@ import '../config/api.dart';
 class ApiServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
-    var baseOptions = BaseOptions(
-      connectTimeout: 100 * 1000,
-      sendTimeout: 1000 * 1000,
-      receiveTimeout: 1000 * 1000,
-      receiveDataWhenStatusError: true,
+    final baseOptions = BaseOptions(
+      connectTimeout: ApiConfig.connectTimeout,
+      sendTimeout: ApiConfig.sendTimeout,
+      receiveTimeout: ApiConfig.receiveTimeout,
+      receiveDataWhenStatusError: ApiConfig.receiveDataWhenStatusError,
       baseUrl: ApiConfig.baseUrl,
     );
 

@@ -11,27 +11,42 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   google_fonts: ^3.0.1
-  flutter_local_notifications: ^9.3.3
   one_studio_core:
     git:
       url: https://github.com/onestudio-co/one-studio-core.git
       ref: main
-  dartz: ^0.10.1
   flutter_svg: ^1.0.3
   intl: ^0.17.0
+  get_it: ^7.2.0
+  dio: ^4.0.6
 
-  # bloc
+  # serialization
+  json_serializable: ^6.5.4
+  json_annotation: ^4.7.0
+
+  # state management
   bloc: ^8.0.2
   flutter_bloc: ^8.0.1
   flutter_form_bloc: ^0.30.1
+  equatable: ^2.0.5
+  dartz: ^0.10.1
 
   # navigation
-  auto_route: ^4.2.1
+  auto_route: ^5.0.4
 
   # utils
   flutter_native_splash: ^2.2.8
-  universal_platform: ^1.0.0+1
   timeago: ^3.3.0
+  envied: ^0.3.0
+  args: ^2.3.1
+
+
+  # platforms packages
+  universal_platform: ^1.0.0+1
+  shared_preferences: ^2.0.15
+  package_info_plus: ^3.0.2
+  flutter_local_notifications: ^9.3.3
+
 
   # Firebase
   firebase_analytics: ^10.0.6
@@ -42,17 +57,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^4.2.1
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
+  build_runner: ^2.3.2
+  auto_route_generator: ^5.0.3
   http_mock_adapter:
     git:
       url: https://github.com/lomsa-dev/http-mock-adapter.git
       ref: main
-  build_runner: ^2.1.7
-  json_serializable: ^6.1.4
-  bloc_test: ^9.0.2
   flutter_launcher_icons: ^0.10.0
   change_app_package_name: ^1.1.0
+  envied_generator: ^0.3.0
 
 flutter:
   uses-material-design: true

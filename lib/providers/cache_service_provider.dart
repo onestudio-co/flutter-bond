@@ -5,7 +5,7 @@ import 'package:one_studio_core/core.dart';
 
 import '../config/cache.dart';
 
-class ConfigServiceProvider extends ServiceProvider {
+class CacheServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
     var store = CacheConfig.defaultStore;
