@@ -23,6 +23,12 @@ jobs:
           cache: true
 
       - name: Install Dependencies
+        env:
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          CONNECT_TIMEOUT: 100000
+          SEND_TIMEOUT: 1000000
+          RECEIVE_TIMEOUT: 1000000
+          RECEIVE_DATA_WHEN_STATUS_ERROR: true
         run: flutter pub get
 
       - name: Build Runner
@@ -35,10 +41,4 @@ jobs:
         run: flutter analyze lib
 
       - name: Build & Test
-        env:
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          CONNECT_TIMEOUT: 100000
-          SEND_TIMEOUT: 1000000
-          RECEIVE_TIMEOUT: 1000000
-          RECEIVE_DATA_WHEN_STATUS_ERROR: true
         run: flutter build appbundle -t lib/main_production.dart --flavor production
