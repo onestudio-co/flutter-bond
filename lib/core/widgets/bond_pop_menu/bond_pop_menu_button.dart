@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
+import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
