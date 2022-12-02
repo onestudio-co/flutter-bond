@@ -57,7 +57,6 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           HomeRoute.name,
           path: '/',
-          guards: [authGuard],
         ),
         RouteConfig(
           LoginRoute.name,
@@ -70,6 +69,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           NotificationsRoute.name,
           path: '/notifications-page',
+          guards: [authGuard],
         ),
       ];
 }

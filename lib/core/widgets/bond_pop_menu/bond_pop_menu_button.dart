@@ -37,15 +37,14 @@ class BondPopMenuButton extends StatelessWidget {
           ),
           title: context.localizations.popup_menu_language_title,
         ),
-        if (Auth.check())
-          BondPopupBondMenuItem(
-            value: Menu.notifications,
-            icon: Icon(
-              Icons.notifications_rounded,
-              color: context.colorScheme.onBackground,
-            ),
-            title: context.localizations.popup_menu_notification_center,
+        BondPopupBondMenuItem(
+          value: Menu.notifications,
+          icon: Icon(
+            Icons.notifications_rounded,
+            color: context.colorScheme.onBackground,
           ),
+          title: context.localizations.popup_menu_notification_center,
+        ),
         if (Auth.check())
           BondPopupBondMenuItem(
             value: Menu.logout,

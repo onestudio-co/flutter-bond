@@ -19,9 +19,9 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: HomePage, guards: [AuthGuard], initial: true),
+    AutoRoute(page: HomePage, initial: true),
     ...authRoutes,
-    AutoRoute(page: NotificationsPage),
+    AutoRoute(page: NotificationsPage, guards: [AuthGuard]),
   ],
 )
 class AppRouter extends _$AppRouter {
