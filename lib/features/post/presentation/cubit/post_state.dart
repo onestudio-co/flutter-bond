@@ -40,17 +40,16 @@ class PostState extends Equatable {
 
   Widget when({
     required Widget Function() initial,
-    required Widget Function() loading,
-    required Widget Function(List<Post>) success,
+    required Widget Function(List<Post>, bool loading) success,
     required Widget Function(String) failed,
   }) {
     switch (status) {
       case PostStatus.initial:
         return initial();
       case PostStatus.loading:
-        return loading();
+        return success(posts, true);
       case PostStatus.success:
-        return success(posts);
+        return success(posts, false);
       case PostStatus.failed:
         return failed(error!);
     }
