@@ -15,6 +15,9 @@ class RunAppTasks extends RunTasks {
   Future<void> beforeRun(WidgetsBinding widgetsBinding) async {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     await init();
+    if (!Auth.check()) {
+      await Auth.loginAnonymous();
+    }
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     FlutterNativeSplash.remove();
   }

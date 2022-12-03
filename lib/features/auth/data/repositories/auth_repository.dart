@@ -13,6 +13,19 @@ class AuthRepository {
 
   AuthRepository(this._remoteDataSource, this._localDataSource);
 
+  Future<Either<Failure, SingleMResponse<User, UserMeta>>> anonymous() async {
+    try {
+      final response = await _remoteDataSource.anonymous();
+      _localDataSource.user = response.data;
+      _localDataSource.token = response.meta.token;
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.toFailure());
+    } catch (e) {
+      return Left(ConnectionFailure());
+    }
+  }
+
   Future<Either<Failure, SingleMResponse<User, UserMeta>>> register(
     UserDto user,
   ) async {
