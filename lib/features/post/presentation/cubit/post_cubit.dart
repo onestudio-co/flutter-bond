@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../data/models/post.dart';
-import '../data/repositories/post_repository.dart';
+import '../../data/models/post.dart';
+import '../../data/repositories/post_repository.dart';
 
 part 'post_state.dart';
 

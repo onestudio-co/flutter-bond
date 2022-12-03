@@ -2,11 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
-import 'package:bond/features/post/presentation/post_cubit.dart';
+import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
+
+import 'post_item.dart';
 
 class HomePage extends StatelessWidget with AutoRouteWrapper {
   const HomePage({Key? key}) : super(key: key);
@@ -37,13 +39,17 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
           body: postCubit.state.when(
             initial: () => const Center(child: CircularProgressIndicator()),
             loading: () => const Center(child: CircularProgressIndicator()),
-            success: (posts) => ListView.builder(
-              itemCount: posts.length,
-              itemBuilder: (context, index) => ListTile(
-                title: Text(posts[index].author.name),
-                subtitle: Text(posts[index].description ?? ''),
-                leading: Image.network(posts[index].urls.thumb),
-              ),
+            success: (posts) => GridView.count(
+              shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              physics: const ClampingScrollPhysics(),
+              crossAxisCount: 2,
+              childAspectRatio: 0.6,
+              mainAxisSpacing: 6.0,
+              crossAxisSpacing: 6.0,
+              children: posts.map((post) {
+                return PostItem(post: post);
+              }).toList(),
             ),
             failed: (error) => Center(
               child: Text(error),
