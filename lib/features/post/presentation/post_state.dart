@@ -1,10 +1,67 @@
 part of 'post_cubit.dart';
 
-abstract class PostState extends Equatable {
-  const PostState();
-}
+enum PostStatus { initial, loading, success, failed }
 
-class PostInitial extends PostState {
+class PostState extends Equatable {
+  const PostState(this.posts, this.status, this.error);
+
+  final List<Post> posts;
+
+  final PostStatus status;
+  final String? error;
+
+  factory PostState.initial() => const PostState([], PostStatus.initial, null);
+
+  PostState loading() => copyWith(status: PostStatus.loading);
+
+  PostState success(List<Post> data) => copyWith(
+        status: PostStatus.success,
+        posts: List.of(
+          posts.followedBy(data),
+        ),
+      );
+
+  PostState failed(String error) => copyWith(
+        status: PostStatus.failed,
+        error: error,
+      );
+
+  PostState copyWith({
+    List<Post>? posts,
+    PostStatus? status,
+    String? error,
+  }) {
+    return PostState(
+      posts ?? this.posts,
+      status ?? this.status,
+      error ?? this.error,
+    );
+  }
+
+  Widget when({
+    required Widget Function() initial,
+    required Widget Function() loading,
+    required Widget Function(List<Post>) success,
+    required Widget Function(String) failed,
+  }) {
+    switch (status) {
+      case PostStatus.initial:
+        return initial();
+      case PostStatus.loading:
+        return loading();
+      case PostStatus.success:
+        return success(posts);
+      case PostStatus.failed:
+        return failed(error!);
+    }
+  }
+
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [
+        posts,
+        posts.hashCode,
+        posts.length,
+        status,
+        error,
+      ];
 }
