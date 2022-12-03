@@ -8,6 +8,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:one_studio_core/core.dart';
 import 'package:universal_platform/universal_platform.dart';
 
+import '../features/auth/data/datasource/auth_remote_data_source.dart';
 import 'injection_container.dart';
 
 class RunAppTasks extends RunTasks {
@@ -45,6 +46,13 @@ class RunAppTasks extends RunTasks {
     if (Auth.check()) {
       sl<NotificationCenterProvider>().load();
       sl<NotificationCenterProvider>().listen();
+
+      final firebaseMessaging =
+          sl<PushNotificationProvider>(instanceName: 'firebase_messaging');
+      final fcmToken = await firebaseMessaging.token;
+      if (fcmToken != null) {
+        await sl<AuthRemoteDataSource>().updateToken(fcmToken);
+      }
     }
   }
 

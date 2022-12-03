@@ -28,6 +28,20 @@ class AuthRemoteDataSource extends DataSource {
         headers: Api.headers(),
       ));
 
+  Future<SuccessResponse?> updateToken(String fcmToken) async {
+    Map<String, String?> body = {
+      'device_id': await deviceIdInfo(),
+      'device_type': getDeviceType(),
+      'token': fcmToken,
+    }..removeWhere((key, value) => value == null);
+
+    return mapSuccessResponse(await _client.post(
+      AuthApis.updateToken,
+      headers: Api.headers(extra: body.cast()),
+      body: body,
+    ));
+  }
+
   Future<SuccessResponse> logout() async => mapSuccessResponse(
         await _client.post(
           AuthApis.logout,
@@ -44,4 +58,6 @@ extension AuthApis on Api {
   static String get login => 'users/login';
 
   static String get logout => 'users/logout';
+
+  static String get updateToken => 'notifications/update-token';
 }
