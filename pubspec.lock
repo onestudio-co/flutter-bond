@@ -707,7 +707,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: f1fc6a277ae4ebc31f1a57f52006ed3e673521ce
+      resolved-ref: "85cc1ceb9eeda572757b9387afbb223697ad5606"
       url: "https://github.com/onestudio-co/one-studio-core.git"
     source: git
     version: "0.0.0"

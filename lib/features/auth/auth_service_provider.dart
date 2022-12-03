@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 
-import 'data/datasources/auth_remote_data_source.dart';
+import 'data/datasource/auth_remote_data_source.dart';
 import 'data/models/user.dart';
 import 'data/models/user_meta.dart';
 import 'data/repositories/auth_repository.dart';
