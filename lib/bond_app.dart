@@ -26,8 +26,8 @@ class BondApp extends StatelessWidget {
       supportedLocales: const [Locale('ar'), Locale('en')],
       debugShowCheckedModeBanner: true,
       routerDelegate: appRouter.delegate(
-        navigatorObservers: navigatorObservers,
-      ),
+          // navigatorObservers: navigatorObservers,
+          ),
       routeInformationParser: appRouter.defaultRouteParser(),
       theme: appLightThemeData(),
       darkTheme: appDarkThemeData(),

@@ -18,5 +18,8 @@
   "popup_menu_language_title": "Change Language",
   "popup_menu_theme": "Change Theme",
   "popup_menu_logout": "Logout",
-  "popup_menu_notification_center": "Notifications Center"
+  "popup_menu_notification_center": "Notifications Center",
+  "navigation_bar_home": "Home",
+  "navigation_bar_collections": "Collections",
+  "navigation_bar_more": "More"
 }

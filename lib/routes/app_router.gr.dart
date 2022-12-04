@@ -22,10 +22,10 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    MainRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: WrappedRoute(child: const HomePage()),
+        child: const MainPage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -50,13 +50,48 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    HomeRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(child: const HomePage()),
+      );
+    },
+    CollectionsRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const CollectionsPage(),
+      );
+    },
+    MoreRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const MorePage(),
+      );
+    },
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          HomeRoute.name,
+          MainRoute.name,
           path: '/',
+          children: [
+            RouteConfig(
+              HomeRoute.name,
+              path: 'home-page',
+              parent: MainRoute.name,
+            ),
+            RouteConfig(
+              CollectionsRoute.name,
+              path: 'collections-page',
+              parent: MainRoute.name,
+            ),
+            RouteConfig(
+              MoreRoute.name,
+              path: 'more-page',
+              parent: MainRoute.name,
+            ),
+          ],
         ),
         RouteConfig(
           LoginRoute.name,
@@ -75,15 +110,16 @@ class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [MainPage]
+class MainRoute extends PageRouteInfo<void> {
+  const MainRoute({List<PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
+          MainRoute.name,
           path: '/',
+          initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'MainRoute';
 }
 
 /// generated route for
@@ -142,4 +178,40 @@ class NotificationsRouteArgs {
   String toString() {
     return 'NotificationsRouteArgs{notificationCenterProvider: $notificationCenterProvider, key: $key}';
   }
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute()
+      : super(
+          HomeRoute.name,
+          path: 'home-page',
+        );
+
+  static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [CollectionsPage]
+class CollectionsRoute extends PageRouteInfo<void> {
+  const CollectionsRoute()
+      : super(
+          CollectionsRoute.name,
+          path: 'collections-page',
+        );
+
+  static const String name = 'CollectionsRoute';
+}
+
+/// generated route for
+/// [MorePage]
+class MoreRoute extends PageRouteInfo<void> {
+  const MoreRoute()
+      : super(
+          MoreRoute.name,
+          path: 'more-page',
+        );
+
+  static const String name = 'MoreRoute';
 }
