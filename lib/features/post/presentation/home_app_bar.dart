@@ -10,8 +10,11 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       centerTitle: false,
       title: Image.asset(
-        AppImagesAssets.homeBond(Theme.of(context).brightness),
-        width: 120,
+        AppImagesAssets.homeBond(
+          Theme.of(context).brightness,
+          Localizations.localeOf(context).languageCode,
+        ),
+        width: 90,
       ),
       actions: const [
         BondPopMenuButton(),

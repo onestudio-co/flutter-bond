@@ -15,23 +15,33 @@ class MainPage extends StatelessWidget {
         MoreRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
-              label: context.localizations.navigation_bar_home,
+        return Container(
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Colors.grey,
+                width: 0.5,
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.collections),
-              label: context.localizations.navigation_bar_collections,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.more_horiz),
-              label: context.localizations.navigation_bar_more,
-            ),
-          ],
+          ),
+          child: BottomNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
+            items: [
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.home),
+                label: context.localizations.navigation_bar_home,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.collections),
+                label: context.localizations.navigation_bar_collections,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.more_horiz),
+                label: context.localizations.navigation_bar_more,
+              ),
+            ],
+          ),
         );
       },
     );

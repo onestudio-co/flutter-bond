@@ -32,14 +32,14 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
           appBar: const HomeAppBar(),
           body: postCubit.state.when(
             initial: () => const Center(child: CircularProgressIndicator()),
-            success: (posts, loading) => Column(
-              children: [
-                Expanded(
-                  child: GridView.count(
-                    controller: postCubit.scrollController,
+            success: (posts, loading) => SingleChildScrollView(
+              controller: postCubit.scrollController,
+              child: Column(
+                children: [
+                  GridView.count(
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(16),
-                    physics: const ClampingScrollPhysics(),
                     crossAxisCount: 2,
                     childAspectRatio: 0.6,
                     mainAxisSpacing: 6.0,
@@ -48,9 +48,9 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                       return PostItem(post: post);
                     }).toList(),
                   ),
-                ),
-                if (loading) const CircularProgressIndicator(),
-              ],
+                  if (loading) const CircularProgressIndicator.adaptive(),
+                ],
+              ),
             ),
             failed: (error) => Center(
               child: Text(error),
