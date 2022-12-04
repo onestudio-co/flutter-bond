@@ -30,6 +30,7 @@ class PostCubit extends Cubit<PostState> {
   @override
   Future<void> close() async {
     scrollController.dispose();
+    scrollController.removeListener(_scrollControllerListener);
     super.close();
   }
 
