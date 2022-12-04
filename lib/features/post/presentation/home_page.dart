@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
@@ -31,10 +31,21 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(context.localizations.home_page_title),
+            centerTitle: false,
+            title: Image.asset(
+              AppImagesAssets.homeBond(Theme.of(context).brightness),
+              width: 120,
+            ),
             actions: const [
               BondPopMenuButton(),
             ],
+            bottom: const PreferredSize(
+              preferredSize: Size.fromHeight(4),
+              child: Divider(
+                height: 0.5,
+                color: Colors.grey,
+              ),
+            ),
           ),
           body: postCubit.state.when(
             initial: () => const Center(child: CircularProgressIndicator()),
@@ -44,7 +55,7 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                   child: GridView.count(
                     controller: postCubit.scrollController,
                     shrinkWrap: true,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.all(16),
                     physics: const ClampingScrollPhysics(),
                     crossAxisCount: 2,
                     childAspectRatio: 0.6,

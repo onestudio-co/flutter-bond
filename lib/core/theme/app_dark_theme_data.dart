@@ -19,7 +19,7 @@ ThemeData appDarkThemeData() {
     ),
     brightness: Brightness.dark,
 
-    scaffoldBackgroundColor: const Color.fromRGBO(50, 45, 120, 0.4),
+    scaffoldBackgroundColor: Color.fromRGBO(9, 35, 55, 1),
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: Colors.white,
@@ -28,9 +28,25 @@ ThemeData appDarkThemeData() {
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: const Color.fromRGBO(50, 45, 120, 1),
+      color: const Color.fromRGBO(9, 35, 55, 1),
       elevation: 0,
-      titleTextStyle: appTextTheme.titleLarge,
+      titleTextStyle: appTextTheme.headline5?.copyWith(
+        color: Color.fromRGBO(34, 193, 224, 1),
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+
+    tabBarTheme: const TabBarTheme(
+      labelColor: Color.fromRGBO(34, 193, 224, 1),
+      unselectedLabelColor: Colors.white,
+    ),
+
+    bottomAppBarColor: const Color.fromRGBO(9, 35, 55, 1),
+
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Color.fromRGBO(9, 35, 55, 1),
+      selectedItemColor: Color.fromRGBO(34, 193, 224, 1),
+      unselectedItemColor: Colors.white,
     ),
 
     /// Button theme

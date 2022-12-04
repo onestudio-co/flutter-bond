@@ -27,14 +27,17 @@ ThemeData appLightThemeData() {
     /// AppBar theme
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: const Color.fromRGBO(50, 45, 120, 1),
+      color: Colors.white,
       elevation: 0,
-      titleTextStyle: appTextTheme.titleLarge,
+      titleTextStyle: appTextTheme.headline5?.copyWith(
+        color: const Color.fromRGBO(50, 45, 120, 1),
+        fontWeight: FontWeight.w700,
+      ),
       actionsIconTheme: const IconThemeData(
-        color: Colors.white,
+        color: Color.fromRGBO(50, 45, 120, 1),
       ),
       iconTheme: const IconThemeData(
-        color: Colors.white,
+        color: Color.fromRGBO(50, 45, 120, 1),
       ),
     ),
 

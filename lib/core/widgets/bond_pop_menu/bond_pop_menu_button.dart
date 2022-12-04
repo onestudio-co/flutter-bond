@@ -18,7 +18,6 @@ class BondPopMenuButton extends StatelessWidget {
       onSelected: (Menu item) => _onSelected(context, item),
       icon: const Icon(
         Icons.more_vert_rounded,
-        color: Colors.white,
       ),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
         BondPopupBondMenuItem(
