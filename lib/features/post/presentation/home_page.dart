@@ -1,6 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/core/resources/app_assets.dart';
-import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:bond/routes/app_router.dart';
@@ -8,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 
+import 'home_app_bar.dart';
 import 'post_item.dart';
 
 class HomePage extends StatelessWidget with AutoRouteWrapper {
@@ -30,23 +29,7 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
       listener: _logoutCubitListener,
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            centerTitle: false,
-            title: Image.asset(
-              AppImagesAssets.homeBond(Theme.of(context).brightness),
-              width: 120,
-            ),
-            actions: const [
-              BondPopMenuButton(),
-            ],
-            bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(4),
-              child: Divider(
-                height: 0.5,
-                color: Colors.grey,
-              ),
-            ),
-          ),
+          appBar: const HomeAppBar(),
           body: postCubit.state.when(
             initial: () => const Center(child: CircularProgressIndicator()),
             success: (posts, loading) => Column(
