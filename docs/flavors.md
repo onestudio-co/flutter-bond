@@ -22,6 +22,7 @@ To rename this app from flutter bond to `Jalsa` app for example
     `yaml 
     name: jalsa  
     description: Jalsa Based Project.`
+6. find and replace all `package:bond` to `package:jalsa`
 
   
  
