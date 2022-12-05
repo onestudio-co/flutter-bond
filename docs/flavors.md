@@ -2,6 +2,7 @@
 
 
 
+
 # Rename app
 
 To rename this app from flutter bond to `Jalsa` app for example
@@ -19,12 +20,9 @@ To rename this app from flutter bond to `Jalsa` app for example
 	   4. search for `PRODUCT_BUNDLE_IDENTIFIER` and update it for each build configuration.
 5. open `android/app/src/main/AndroidManifest.xml` and update package element
 6. open `pubspec.yaml`  update name & description
-    `yaml 
-    name: jalsa  
-    description: Jalsa Based Project.`
+    ```name: jalsa ``` 
+     ```description: Jalsa Based Project.```
 6. find and replace all `package:bond` to `package:jalsa`
-
-  
  
 
  **Final result for product bundle identifier**
