@@ -9,7 +9,7 @@ To rename this app from flutter bond to `Jalsa` app for example
 2. run this command to update `packageId` for  Android and `bundleId` for iOS
    `rename --bundleId sa.app.jalsa`
 3. run this command to update app name for android app
-   `rename --appName "Jalsa"`
+   `rename --appname "Jalsa"`
 4.  we need manually to update `bundleId` and `app name` for ios only, in xcode for each build configuration
    1. `open ios/Runner.xcworkspace`
    2. select Runner target
