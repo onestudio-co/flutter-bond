@@ -1,23 +1,31 @@
-# Change App Package Name
-Change App Package Name with single command For Android
+# Rename app 
 
-What It does?
+To rename this app from flutter bond to `Jalsa` app for example
 
-- Update AndroidManifest.xml files for release, debug & profile.
-- Update build.gradle file.
-- Update MainActivity file. Both java & kotlin supported.
-- Move MainActivity file to new package directory structure.
-- Delete old package name directory structure.
+ 1. install this package  [Rename](https://pub.dev/packages/rename)
+   `flutter pub global activate rename`
+ 2. run this command to update `packageId` for  Android and `bundleId` for iOS
+   `rename --bundleId sa.app.jalsa`
+ 3. run this command to update app name for android app
+   `rename --appname "Jalsa"`
+ 4.  we need manually to update `bundleId` and `app name` for ios only, in xcode for each build configuration.
+	   1. `open ios/Runner.xcworkspace`
+	   2. select Runner target
+	   3. select build settings tab
+	   4. search for `PRODUCT_BUNDLE_IDENTIFIER` and update it for each build configuration.
+5. open `android/app/src/main/AndroidManifest.xml` and update package element
+6. open `pubspec.yaml`  update name & description
+    ```name: jalsa ``` 
+     ```description: Jalsa Based Project.```
+6. find and replace all `package:bond` to `package:jalsa`
+ 
 
-How to Use?
-- Run this command to change the package name .
+ **Final result for product bundle identifier**
 
-  **Production**
+|Configuration | PRODUCT_BUNDLE_IDENTIFIER |
+|--|--|
+| Debug-production | sa.app.jalsa |
+| Debug-staging | sa.app.jalsa.staging |
+|  Release-production | sa.app.jalsa |
+|  Release-staging | sa.app.jalsa.staging |
 
-  ``` flutter pub run change_app_package_name:main_production com.new.package.name ```
-
-  **Staging**
-
-  ``` flutter pub run change_app_package_name:main_staging com.new.package.name ```
-
-Where com.new.package.name is the new package name that you want for your app. replace it with any name you want.
