@@ -14,8 +14,7 @@ To rename this app from flutter bond to `Jalsa` app for example
    1. `open ios/Runner.xcworkspace`
    2. select Runner target
    3. select build settings tab
-   4. search for `PRODUCT_NAME` and update it for each build configuration
-   5. search for `PRODUCT_BUNDLE_IDENTIFIER` and update it for each build configuration.
+   4. search for `PRODUCT_BUNDLE_IDENTIFIER` and update it for each build configuration.
 
  **Final result for product bundle identifier**
 
