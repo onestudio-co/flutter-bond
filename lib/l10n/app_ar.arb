@@ -13,10 +13,13 @@
   "login_page_new_account_button": " حساب جديد ",
   "register_page_title": "حساب جديد",
   "login_page_register_button": "تسجيل",
-  "home_page_title": "الرئيسية",
+  "home_page_title": "BOND",
   "notification_page_title": "مركز التنبيهات",
   "popup_menu_language_title": "تغيير اللغة",
   "popup_menu_theme": "تغيير المظهر",
   "popup_menu_logout": "تسجيل الخروج",
-  "popup_menu_notification_center": "مركز التنبيهات"
+  "popup_menu_notification_center": "مركز التنبيهات",
+  "navigation_bar_home": "الرئيسية",
+  "navigation_bar_collections": "المجموعات",
+  "navigation_bar_more": "المزيد"
 }

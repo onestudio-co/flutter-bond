@@ -1,6 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/core/app_localizations.dart';
-import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/logout/logout_cubit.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:bond/routes/app_router.dart';
@@ -8,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:one_studio_core/core.dart';
 
+import 'home_app_bar.dart';
 import 'post_item.dart';
 
 class HomePage extends StatelessWidget with AutoRouteWrapper {
@@ -30,22 +29,17 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
       listener: _logoutCubitListener,
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text(context.localizations.home_page_title),
-            actions: const [
-              BondPopMenuButton(),
-            ],
-          ),
+          appBar: const HomeAppBar(),
           body: postCubit.state.when(
             initial: () => const Center(child: CircularProgressIndicator()),
-            success: (posts, loading) => Column(
-              children: [
-                Expanded(
-                  child: GridView.count(
-                    controller: postCubit.scrollController,
+            success: (posts, loading) => SingleChildScrollView(
+              controller: postCubit.scrollController,
+              child: Column(
+                children: [
+                  GridView.count(
                     shrinkWrap: true,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    physics: const ClampingScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(16),
                     crossAxisCount: 2,
                     childAspectRatio: 0.6,
                     mainAxisSpacing: 6.0,
@@ -54,9 +48,9 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                       return PostItem(post: post);
                     }).toList(),
                   ),
-                ),
-                if (loading) const CircularProgressIndicator(),
-              ],
+                  if (loading) const CircularProgressIndicator.adaptive(),
+                ],
+              ),
             ),
             failed: (error) => Center(
               child: Text(error),

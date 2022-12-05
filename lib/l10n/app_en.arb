@@ -13,10 +13,13 @@
   "login_page_new_account_button": " Create an account ",
   "register_page_title": "New Account",
   "login_page_register_button": "Register",
-  "home_page_title": "Home",
+  "home_page_title": "BOND",
   "notification_page_title": "Notifications Center",
   "popup_menu_language_title": "Change Language",
   "popup_menu_theme": "Change Theme",
   "popup_menu_logout": "Logout",
-  "popup_menu_notification_center": "Notifications Center"
+  "popup_menu_notification_center": "Notifications Center",
+  "navigation_bar_home": "Home",
+  "navigation_bar_collections": "Collections",
+  "navigation_bar_more": "More"
 }

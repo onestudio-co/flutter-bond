@@ -8,6 +8,11 @@ import 'package:bond/routes/guards/auth_guard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:one_studio_core/core.dart';
 
+import '../features/collections/presentation/collections_page.dart';
+import '../features/main/presentation/main_page.dart';
+import '../features/main/routes.dart';
+import '../features/more/presentation/more_page.dart';
+
 export 'guards/auth_guard.dart';
 export 'observers/navigator_observers.dart';
 
@@ -16,7 +21,7 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: HomePage, initial: true),
+    ...mainRoutes,
     ...authRoutes,
     AutoRoute(page: NotificationsPage, guards: [AuthGuard]),
   ],
