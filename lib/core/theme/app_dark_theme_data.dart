@@ -19,7 +19,7 @@ ThemeData appDarkThemeData() {
     ),
     brightness: Brightness.dark,
 
-    scaffoldBackgroundColor: Color.fromRGBO(9, 35, 55, 1),
+    scaffoldBackgroundColor: const Color.fromRGBO(9, 35, 55, 1),
 
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: Colors.white,
@@ -31,7 +31,7 @@ ThemeData appDarkThemeData() {
       color: const Color.fromRGBO(9, 35, 55, 1),
       elevation: 0,
       titleTextStyle: appTextTheme.headline5?.copyWith(
-        color: Color.fromRGBO(34, 193, 224, 1),
+        color: const Color.fromRGBO(34, 193, 224, 1),
         fontWeight: FontWeight.w700,
       ),
     ),
