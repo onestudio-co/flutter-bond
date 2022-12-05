@@ -9,7 +9,6 @@ import '../providers/app_service_provider.dart';
 import '../providers/cache_service_provider.dart';
 import '../providers/firebase_service_provider.dart';
 
-/// The list of app_analytics_providers that will be used by the app.
 final List<ServiceProvider> providers = [
   // Framework Service Providers
   FirebaseServiceProvider(),
