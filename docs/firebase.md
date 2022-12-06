@@ -43,6 +43,8 @@
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       
    and make sure you import ```firebase_options_staging.dart``` file.
+   
+   7- run ```flutter clean``` and ```flutter pub get``` commands. 
     
    6- run project and make sure every thing work prefectly.
       
