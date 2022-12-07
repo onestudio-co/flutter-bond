@@ -1,14 +1,16 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
+import 'package:bond/features/post/data/models/post.dart';
+import 'package:bond/features/post/data/repositories/post_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../data/models/post.dart';
-import '../../data/repositories/post_repository.dart';
+import 'package:one_studio_core/core.dart';
 
 part 'post_state.dart';
 
-class PostCubit extends Cubit<PostState> {
-  PostCubit(this._postRepository) : super(PostState.initial()) {
+class PostCubit extends Cubit<ListState<Post>> {
+  PostCubit(this._postRepository) : super(ListState.initial()) {
     scrollController.addListener(_scrollControllerListener);
   }
 
@@ -22,7 +24,10 @@ class PostCubit extends Cubit<PostState> {
     emit(
       response.fold(
         (failure) => state.failed(failure.toMessage()),
-        (data) => state.success(data.data),
+        (data) {
+          log('data ${data.runtimeType}');
+          return state.success(data);
+        },
       ),
     );
   }
@@ -39,7 +44,7 @@ class PostCubit extends Cubit<PostState> {
     double currentScroll = scrollController.position.pixels;
     double delta = 200.0;
     if (maxScroll - currentScroll <= delta &&
-        state.status != PostStatus.loading) {
+        state.status != ListStatus.loading) {
       loadPosts();
     }
   }
