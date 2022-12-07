@@ -42,9 +42,3 @@ class AuthServiceProvider extends ServiceProvider {
     }
   }
 }
-
-typedef ApiDrivenEvents = Map<String,
-    Map<dynamic, AnalyticsEvent Function(Map<String, dynamic> json)>>;
-
-typedef NavigationDrivenEvents = Map<String,
-    Map<dynamic, AnalyticsEvent Function(Map<String, dynamic> json)>>;
