@@ -1,3 +1,4 @@
+
 # App Analytics:
 
 ### Create Event:
@@ -70,6 +71,17 @@ void log(AnalyticsEvent event) {
 }
 ```
 
+### Set User ID:
+```dart
+AppAnalytics.setUserId(user.age);
+  ```
+  
+### Set User Attributes:
+```dart
+AppAnalytics.setUserAttributes({'age': user.age});
+  ```
+  
+    
 ### Fire Event:
 ```dart
 AppAnalytics.fire(LoginEvent(userId: user.id, channel: 'apple'));
@@ -117,3 +129,41 @@ final List<AnalyticsProvider> analyticsProviders = [
   AppsflyerAnalyticsProvider(appsflyerSdk)  
 ];
 ```
+
+### Debug your Events:
+
+#### Firebase Analytics
+ 1. Enable firebase debug mode For iOS add ```-FIRDebugEnabled``` as a command line argument in Xcode
+	 - select your schema then `edit schema`
+
+		<img width="847" alt="Screen Shot 2022-12-08 at 1 27 02 PM" src="https://user-images.githubusercontent.com/17902030/206435478-c99de7ec-b248-4e81-91d9-ba362c913151.png">
+
+	- Select `Run` tab from left side pange then select the second tap `Arguments` and add the `-FIRDebugEnabled` under the `Argument Passed On Launch` section
+
+		<img width="966" alt="Screen Shot 2022-12-08 at 1 34 53 PM" src="https://user-images.githubusercontent.com/17902030/206437723-6c314a52-cd84-47f4-be6d-5cd0da19b22c.png">
+      
+ 2. Enable firebase debug mode for Android by run this command
+ 
+    `adb shell setprop debug.firebase.analytics.app PACKAGE_NAME`
+    
+ 3. Open firebase console and go to Analytics -> Debug
+ 4. Select you device.
+
+**Firebase Analytics Debug View**
+
+  <img width="1592" alt="Screen Shot 2022-12-08 at 1 52 46 PM" src="https://user-images.githubusercontent.com/17902030/206441015-e9043168-3760-4efe-89ad-e656713cbf94.png">
+
+** **Notes** 
+
+ - On windows if adb command not worked you need to locate the adb location and run the command from adb location for example
+	 - `C:\Users\hp\AppData\Local\Android\Sdk\platform-tools\adb.exe shell setprop debug.firebase.analytics.app PACKAGE_NAME`
+ - You have to stop debug for Android and iOS device after finish your work
+	 - for iOS remove `FIRDebugEnabled`  from your schema Argument.
+	 - for Android use this command `adb shell setprop debug.firebase.analytics.app .none.`
+
+
+	
+
+
+
+
