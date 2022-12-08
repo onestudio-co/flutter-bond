@@ -87,7 +87,7 @@ AppAnalytics.setUserAttributes({'age': user.age});
 AppAnalytics.fire(LoginEvent(userId: user.id, channel: 'apple'));
   ```
   
-### Custom App Analytics Provider:
+### Custom App Analytics Provider: (Depreacted)
 Define youer customer by create new class extending `AnalyticsProvider` simple example:
 
 ```dart
@@ -122,7 +122,7 @@ class AppsflyerAnalyticsProvider implements AnalyticsProvider {
   }  
 }
 ```
-   and you need to add this custom provider to `analyticsProviders`  on `app.dart` file
+   and you need to add this custom provider to `analyticsProviders`  on `app.dart` file (Depreacted)
 ```dart
 final List<AnalyticsProvider> analyticsProviders = [  
   FirebaseAnalyticsProvider(FirebaseAnalytics.instance),  
