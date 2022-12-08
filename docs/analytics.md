@@ -73,7 +73,7 @@ void log(AnalyticsEvent event) {
 
 ### Set User ID:
 ```dart
-AppAnalytics.setUserId(user.age);
+AppAnalytics.setUserId(user.id);
   ```
   
 ### Set User Attributes:
