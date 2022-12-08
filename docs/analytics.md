@@ -2,7 +2,7 @@
 # App Analytics:
 
 ### Create Event:
-   Define youer event by create new class extending `AnalyticsEvent`, provide a `key` and a `params` of the event
+   Define your event by create new class extending `AnalyticsEvent`, provide a `key` and a `params` of the event
 ```dart
 class LoginEvent extends AnalyticsEvent {  
   final int userId;  
