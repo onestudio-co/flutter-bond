@@ -1,3 +1,4 @@
+import 'package:bond/providers/feature_flag_service_provider.dart';
 import 'package:bond/providers/notifications_service_provider.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -12,6 +13,7 @@ import '../providers/firebase_service_provider.dart';
 final List<ServiceProvider> providers = [
   // Framework Service Providers
   FirebaseServiceProvider(),
+  FeatureFlagServiceProvider(),
   ApiServiceProvider(),
   CacheServiceProvider(),
   AnalyticsServiceProvider(),
