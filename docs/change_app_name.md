@@ -29,7 +29,7 @@ To rename this app from flutter bond to `Jalsa` app for example
 5. open `android/app/src/debug/AndroidManifest.xml` and update package element
 6. open `android/app/src/main/AndroidManifest.xml` and update package element
 7. open `android/app/src/profile/AndroidManifest.xml` and update package element
-
+8. rename `android/main/kotlin/com/example/bond` directory  to `android/main/kotlin/sa/app/jalsa`
 8. open `pubspec.yaml`  update name & description
 
 	```yaml
