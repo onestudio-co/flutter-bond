@@ -67,6 +67,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.10.0
   change_app_package_name: ^1.1.0
   envied_generator: ^0.3.0
+  splitio: ^0.1.2+1
 
 flutter:
   uses-material-design: true

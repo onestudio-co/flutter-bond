@@ -961,6 +961,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.0"
+  splitio:
+    dependency: "direct dev"
+    description:
+      name: splitio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2+2"
+  splitio_android:
+    dependency: transitive
+    description:
+      name: splitio_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2+1"
+  splitio_ios:
+    dependency: transitive
+    description:
+      name: splitio_ios
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
+  splitio_platform_interface:
+    dependency: transitive
+    description:
+      name: splitio_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   stack_trace:
     dependency: transitive
     description:

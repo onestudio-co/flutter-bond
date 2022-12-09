@@ -16,6 +16,11 @@ abstract class EnvStaging {
   static const bool receiveDateWhenStatusError =
       _EnvStaging.receiveDateWhenStatusError;
 
+  @EnviedField(varName: 'FEATURE_FLAG_SERVICE')
+  static const String featureFlagService = _EnvStaging.featureFlagService;
+  @EnviedField(varName: 'SPLITIO_MOBILE_KEY')
+  static const String splitioMobileKey = _EnvStaging.splitioMobileKey;
+
   static dynamic get(String key) {
     switch (key) {
       case 'API_BASE_URL':
@@ -28,6 +33,10 @@ abstract class EnvStaging {
         return receiveTimeOut;
       case 'RECEIVE_DATA_WHEN_STATUS_ERROR':
         return receiveDateWhenStatusError;
+      case 'FEATURE_FLAG_SERVICE':
+        return featureFlagService;
+      case 'SPLITIO_MOBILE_KEY':
+        return splitioMobileKey;
       default:
         return null;
     }
