@@ -13,13 +13,16 @@ class Environments {
           : EnvironmentType.production;
 }
 
-dynamic env(String key) {
+dynamic env(
+  String key, {
+  dynamic defaultValue,
+}) {
   switch (Environments.current) {
     case EnvironmentType.staging:
       return EnvStaging.get(key);
     case EnvironmentType.production:
       return Env.get(key);
     default:
-      return Env.get(key);
+      return defaultValue ?? Env.get(key);
   }
 }
