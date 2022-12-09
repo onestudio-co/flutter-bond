@@ -11,7 +11,7 @@ To rename this app from flutter bond to `Jalsa` app for example
  2. run this command to update `packageId` for  Android and `bundleId` for iOS
 
 	```
-	rename --bundleId sa.app.jalsa`
+	rename --bundleId sa.app.jalsa
 	```
 
  3. run this command to update app name for android app
