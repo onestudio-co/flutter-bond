@@ -1,3 +1,4 @@
+
 # App Launcher Icon
 
   We use [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package to generate app icons for both   platforms android and ios.
@@ -5,18 +6,27 @@
  ### Update app icons
    1-  replace ```assets/icons/app-icon.png``` and ```assets/icons/app-icon-staging.png``` with the new app icons for both flavors.
 
-   2- run this command to generate production flavor icons
+   2- run this command to generate production & staging flavor icons
    
     flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
+    
+   3- for android only 
+- open `android/app/src/production/res/mipmap-anydpi-v26` and `android/app/src/staging/res/mipmap-anydpi-v26`
+- add inset with 24% to foreground element for both files
 
-   3- run this command to generate production flavor icons
-   
-    flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons-staging.yaml
-      
+```diff   xml
+-   <foreground android:drawable="@drawable/ic_launcher_foreground" />  
++   <foreground>  
++   	<inset  
++       	android:drawable="@drawable/ic_launcher_foreground"  
++       	android:inset="24%" />  
++   </foreground>
+``` 
+
    4- run the app to make sure the launcher icon are updated correctly 
 	   (**you need to stop it first hot restart not enough**). 
-
-   5- commit changes.
+	   
+  5- commit changes.
    
    # App Splash Screen
 
