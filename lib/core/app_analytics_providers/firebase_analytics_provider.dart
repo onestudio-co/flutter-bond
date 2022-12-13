@@ -162,6 +162,29 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
     );
   }
 
+  @override
+  void logSearch(UserSearch event) {
+    _firebaseAnalytics.logSearch(
+      searchTerm: event.searchTerm,
+    );
+  }
+
+  @override
+  void logShareContent(UserShareContent event) {
+    _firebaseAnalytics.logShare(
+      contentType: event.contentType,
+      itemId: event.itemId,
+      method: event.method ?? 'unknown',
+    );
+  }
+
+  @override
+  void logViewSearchResults(UserViewSearchResult event) {
+    _firebaseAnalytics.logViewSearchResults(
+      searchTerm: event.searchTerm,
+    );
+  }
+
   void _sendCustomAttributes(String key, dynamic value) {
     var userPropertyKey = key.toLowerCase().replaceAll(' ', '_');
     debugPrint('FirebaseAnalytics send custom user attribute with key: '
