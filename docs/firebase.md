@@ -27,22 +27,20 @@
    2- run flutterfire configure command from you project path and follow up the commnd options.
       
     flutterfire configure
-                   
-   3- add [firebase_core](https://pub.dev/packages/firebase_core) plugin to the project .
-   
-    flutter pub add firebase_core
             
-   4- on ```main_production.dart``` file intizalize firebase app.
+   3- on ```main_production.dart``` file intizalize firebase app.
            
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
             
   and make sure you import ```firebase_options_production.dart``` file.
           
-  5- on ```main_staging.dart``` file intizalize firebase app
+   4- on ```main_staging.dart``` file intizalize firebase app
             
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
       
    and make sure you import ```firebase_options_staging.dart``` file.
+   
+   5- run ```flutter clean``` and ```flutter pub get``` commands. 
     
    6- run project and make sure every thing work prefectly.
       

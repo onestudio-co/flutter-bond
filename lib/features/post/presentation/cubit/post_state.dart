@@ -1,65 +1,72 @@
 part of 'post_cubit.dart';
 
-enum PostStatus { initial, loading, success, failed }
+enum ListStatus { initial, loading, success, failed }
 
-class PostState extends Equatable {
-  const PostState(this.posts, this.status, this.error);
+class ListState<T extends Model> extends Equatable {
+  const ListState(this.data, this.status, this.error);
 
-  final List<Post> posts;
+  final ListResponse<T> data;
 
-  final PostStatus status;
+  final ListStatus status;
+
   final String? error;
 
-  factory PostState.initial() => const PostState([], PostStatus.initial, null);
+  factory ListState.initial() => ListState<T>(
+        ListResponse<T>(data: List<T>.empty(growable: true)),
+        ListStatus.initial,
+        null,
+      );
 
-  PostState loading() => copyWith(status: PostStatus.loading);
+  ListState<T> loading() => copyWith(status: ListStatus.loading);
 
-  PostState success(List<Post> data) => copyWith(
-        status: PostStatus.success,
-        posts: List.of(
-          posts.followedBy(data),
+  ListState<T> success(ListResponse<T> newData) => copyWith(
+        status: ListStatus.success,
+        data: data.copyWith(
+          data: List.of(data.data.followedBy(newData.data)),
+          meta: newData.meta,
+          links: newData.links,
         ),
       );
 
-  PostState failed(String error) => copyWith(
-        status: PostStatus.failed,
+  ListState<T> failed(String error) => copyWith(
+        status: ListStatus.failed,
         error: error,
       );
 
-  PostState copyWith({
-    List<Post>? posts,
-    PostStatus? status,
+  Widget when({
+    required Widget Function() initial,
+    required Widget Function(List<T>, bool loading) success,
+    required Widget Function(String) failed,
+  }) {
+    switch (status) {
+      case ListStatus.initial:
+        return initial();
+      case ListStatus.loading:
+        return success(data.data, true);
+      case ListStatus.success:
+        return success(data.data, false);
+      case ListStatus.failed:
+        return failed(error!);
+    }
+  }
+
+  ListState<T> copyWith({
+    ListResponse<T>? data,
+    ListStatus? status,
     String? error,
   }) {
-    return PostState(
-      posts ?? this.posts,
+    return ListState<T>(
+      data ?? this.data,
       status ?? this.status,
       error ?? this.error,
     );
   }
 
-  Widget when({
-    required Widget Function() initial,
-    required Widget Function(List<Post>, bool loading) success,
-    required Widget Function(String) failed,
-  }) {
-    switch (status) {
-      case PostStatus.initial:
-        return initial();
-      case PostStatus.loading:
-        return success(posts, true);
-      case PostStatus.success:
-        return success(posts, false);
-      case PostStatus.failed:
-        return failed(error!);
-    }
-  }
-
   @override
   List<Object?> get props => [
-        posts,
-        posts.hashCode,
-        posts.length,
+        data,
+        data.hashCode,
+        data.data.length,
         status,
         error,
       ];
