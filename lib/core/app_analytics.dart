@@ -19,4 +19,26 @@ class AppAnalytics {
       },
     );
   }
+
+  static void setUserId(int userId) {
+    AnalyticsConfig.providers.forEach(
+          (key, value) {
+        final driver = value['driver'] as String;
+        log('AppAnalytics provider $driver'
+            ' set user userId $userId');
+        sl<AnalyticsProvider>(instanceName: driver).setUserId(userId);
+      },
+    );
+  }
+
+  static void setUserAttributes(Map<String, dynamic> attributes) {
+    AnalyticsConfig.providers.forEach(
+          (key, value) {
+        final driver = value['driver'] as String;
+        log('AppAnalytics provider $driver'
+            ' set user attributes $attributes');
+        sl<AnalyticsProvider>(instanceName: driver).setUserAttributes(attributes);
+      },
+    );
+  }
 }

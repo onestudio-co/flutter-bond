@@ -25,6 +25,11 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   }
 
   @override
+  void setUserAttributes(Map<String, dynamic> attributes) {
+    attributes.forEach(_sendCustomAttributes);
+  }
+
+  @override
   void logBeginTutorial() {
     _firebaseAnalytics.logTutorialBegin();
   }
