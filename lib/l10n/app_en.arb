@@ -21,5 +21,8 @@
   "popup_menu_notification_center": "Notifications Center",
   "navigation_bar_home": "Home",
   "navigation_bar_collections": "Collections",
-  "navigation_bar_more": "More"
+  "navigation_bar_more": "More",
+  "update_app" : "It's time to update",
+  "update_app_text" : "To receive all new updates, update the Bond app",
+  "update_app_now" : "Update now"
 }

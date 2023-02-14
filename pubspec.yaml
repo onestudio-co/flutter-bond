@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.17.0
   get_it: ^7.2.0
   dio: ^4.0.6
+  open_store: ^0.5.0
 
   # serialization
   json_serializable: ^6.5.4
