@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppImagesAssets {
   static const String logo = 'assets/images/app_logo.svg';
+  static const String forceUpdate = 'assets/images/force_update.png';
   static const String _homeBondLight = 'assets/images/home_bond.png';
   static const String _homeBondDark = 'assets/images/home_bond_dark.png';
 

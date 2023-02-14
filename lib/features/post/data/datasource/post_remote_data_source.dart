@@ -29,7 +29,7 @@ class PostRemoteDataSource extends DataSource {
 }
 
 extension PostsApi on Api {
-  static String get posts => 'posts?term=man';
+  static String get posts => 'posts?term=sky';
 
   static String post(String id) => 'posts/$id';
 

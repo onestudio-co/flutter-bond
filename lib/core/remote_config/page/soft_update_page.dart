@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:bond/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +37,8 @@ class _SoftUpdatePageState extends State<SoftUpdatePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                AppIcons.forceUpdate,
+              Image.asset(
+                AppImagesAssets.forceUpdate,
                 width: 104,
                 height: 104,
               ),

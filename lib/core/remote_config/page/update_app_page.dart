@@ -1,5 +1,6 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_widgets.dart';
+import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,8 +23,8 @@ class UpdateAppPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SvgPicture.asset(
-                AppIcons.forceUpdate,
+              Image.asset(
+                AppImagesAssets.forceUpdate,
               ),
               const SizedBox(
                 height: 16,
