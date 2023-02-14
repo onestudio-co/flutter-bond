@@ -3,31 +3,12 @@ import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:open_store/open_store.dart';
 
+class UpdateAppPage extends StatelessWidget {
+  final String message;
 
-
-class UpdateAppPage extends StatefulWidget {
-  final String? message;
-  static var shown = false;
-
-  const UpdateAppPage({Key? key, this.message}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _UpdateAppPageState();
-}
-
-class _UpdateAppPageState extends State<UpdateAppPage> {
-  @override
-  void initState() {
-    UpdateAppPage.shown = true;
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    UpdateAppPage.shown = false;
-    super.dispose();
-  }
+  const UpdateAppPage({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +26,13 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
                 AppIcons.forceUpdate,
               ),
               const SizedBox(
-                height:16,
+                height: 16,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    // context.localizations.update_app??'',
-                    'حان وقت التحديث',
+                  Text(
+                    context.localizations.update_app,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -61,7 +41,7 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
-                      widget.message.toString(),
+                      message.toString(),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -71,8 +51,7 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: AppButton(
-                      // title: context.localizations.update_app_now??'',
-                      title: 'تحديث الآن',
+                      title: context.localizations.update_app_now,
                       onPressed: _onUpdate,
                     ),
                   )
@@ -87,9 +66,9 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
 
   void _onUpdate() {
     //TODO::CHANGE appStoreId
-    // OpenStore.instance.open(
-    //   appStoreId: '',
-    //   androidAppBundleId: 'ps.app.rasel',
-    // );
+    OpenStore.instance.open(
+      appStoreId: '6444267986',
+      androidAppBundleId: 'sa.example.bond',
+    );
   }
 }
