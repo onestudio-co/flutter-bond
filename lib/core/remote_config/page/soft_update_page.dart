@@ -7,18 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_store/open_store.dart';
 
-class SoftUpdatePage extends StatefulWidget {
-  const SoftUpdatePage({Key? key, required this.message}) : super(key: key);
+class SoftUpdatePage extends StatelessWidget {
+  SoftUpdatePage({Key? key, required this.message}) : super(key: key);
 
-  final String message;
+  String message;
 
-  @override
-  State<SoftUpdatePage> createState() => _SoftUpdatePageState();
-}
-
-class _SoftUpdatePageState extends State<SoftUpdatePage> {
   @override
   Widget build(BuildContext context) {
+    message = context.localizations.update_app_text;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -50,7 +46,7 @@ class _SoftUpdatePageState extends State<SoftUpdatePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 87.0),
                 child: Text(
-                  widget.message,
+                  message,
                   textAlign: TextAlign.center,
                 ),
               ),

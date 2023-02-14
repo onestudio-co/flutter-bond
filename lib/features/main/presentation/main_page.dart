@@ -1,13 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/remote_config/remote_config_service.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:one_studio_core/core.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      sl<RemoteConfigService>().checkAndShowSoftUpdate(context);
+    });
     return AutoTabsScaffold(
       routes: const [
         HomeRoute(),
