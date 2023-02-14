@@ -21,5 +21,8 @@
   "popup_menu_notification_center": "مركز التنبيهات",
   "navigation_bar_home": "الرئيسية",
   "navigation_bar_collections": "المجموعات",
-  "navigation_bar_more": "المزيد"
+  "navigation_bar_more": "المزيد",
+  "update_app" : "حان وقت التحديث",
+  "update_app_text" : "ليصلك كل جديد يتم إضافته، قم بتحديث تطبيق راسل",
+  "update_app_now" : "تحديث الآن"
 }
