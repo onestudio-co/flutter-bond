@@ -8,13 +8,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_store/open_store.dart';
 
 class SoftUpdatePage extends StatelessWidget {
-  SoftUpdatePage({Key? key, required this.message}) : super(key: key);
+  const SoftUpdatePage({Key? key, this.message}) : super(key: key);
 
-  String message;
+  final String? message;
 
   @override
   Widget build(BuildContext context) {
-    message = context.localizations.update_app_text;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -27,11 +26,17 @@ class SoftUpdatePage extends StatelessWidget {
             right: 0,
             child: IconButton(
               onPressed: () => context.router.pop(),
-              icon: SvgPicture.asset(AppIcons.close, color: Colors.grey),
+              icon: SvgPicture.asset(
+                AppIcons.close,
+                color: Colors.grey,
+                width: 14,
+                height: 14,
+              ),
             ),
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
                 AppImagesAssets.forceUpdate,
@@ -46,11 +51,11 @@ class SoftUpdatePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 87.0),
                 child: Text(
-                  message,
+                  message ?? context.localizations.update_app_text,
                   textAlign: TextAlign.center,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 32),
               AppButton(
                 title: context.localizations.update_app_now,
                 onPressed: onUpdate,

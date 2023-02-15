@@ -1,15 +1,13 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_assets.dart';
-import 'package:bond/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:open_store/open_store.dart';
 
 class UpdateAppPage extends StatelessWidget {
-  final String message;
+  final String? message;
 
-  const UpdateAppPage({Key? key, required this.message}) : super(key: key);
+  const UpdateAppPage({Key? key, this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class UpdateAppPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
-                      message.toString(),
+                      message ?? context.localizations.update_app_text,
                       textAlign: TextAlign.center,
                     ),
                   ),
