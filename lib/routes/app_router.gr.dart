@@ -41,7 +41,8 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     UpdateAppRoute.name: (routeData) {
-      final args = routeData.argsAs<UpdateAppRouteArgs>();
+      final args = routeData.argsAs<UpdateAppRouteArgs>(
+          orElse: () => const UpdateAppRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: UpdateAppPage(
@@ -51,7 +52,8 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     SoftUpdateRoute.name: (routeData) {
-      final args = routeData.argsAs<SoftUpdateRouteArgs>();
+      final args = routeData.argsAs<SoftUpdateRouteArgs>(
+          orElse: () => const SoftUpdateRouteArgs());
       return CustomPage<dynamic>(
         routeData: routeData,
         child: SoftUpdatePage(
@@ -182,7 +184,7 @@ class RegisterRoute extends PageRouteInfo<void> {
 class UpdateAppRoute extends PageRouteInfo<UpdateAppRouteArgs> {
   UpdateAppRoute({
     Key? key,
-    required String message,
+    String? message,
   }) : super(
           UpdateAppRoute.name,
           path: 'update_app',
@@ -198,12 +200,12 @@ class UpdateAppRoute extends PageRouteInfo<UpdateAppRouteArgs> {
 class UpdateAppRouteArgs {
   const UpdateAppRouteArgs({
     this.key,
-    required this.message,
+    this.message,
   });
 
   final Key? key;
 
-  final String message;
+  final String? message;
 
   @override
   String toString() {
@@ -216,7 +218,7 @@ class UpdateAppRouteArgs {
 class SoftUpdateRoute extends PageRouteInfo<SoftUpdateRouteArgs> {
   SoftUpdateRoute({
     Key? key,
-    required String message,
+    String? message,
   }) : super(
           SoftUpdateRoute.name,
           path: '/soft-update-page',
@@ -232,12 +234,12 @@ class SoftUpdateRoute extends PageRouteInfo<SoftUpdateRouteArgs> {
 class SoftUpdateRouteArgs {
   const SoftUpdateRouteArgs({
     this.key,
-    required this.message,
+    this.message,
   });
 
   final Key? key;
 
-  final String message;
+  final String? message;
 
   @override
   String toString() {
