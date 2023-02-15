@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:bond/features/post/data/datasource/re_post_data_source.dart';
 import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond/features/post/data/repositories/post_repository.dart';
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:one_studio_core/core.dart';
@@ -15,6 +17,7 @@ class PostCubit extends Cubit<ListState<Post>> {
   }
 
   final PostRepository _postRepository;
+  final PostClient? postClient = PostClient(sl<ApiClient>().client);
 
   final ScrollController scrollController = ScrollController();
 
@@ -32,6 +35,12 @@ class PostCubit extends Cubit<ListState<Post>> {
     );
   }
 
+  Future<void> loadAllPosts() async {
+    emit(state.loading());
+    final response = await postClient?.getPosts();
+    emit(state.success(ListResponse(data: response ?? [])));
+  }
+
   @override
   Future<void> close() async {
     scrollController.dispose();
@@ -45,7 +54,8 @@ class PostCubit extends Cubit<ListState<Post>> {
     double delta = 200.0;
     if (maxScroll - currentScroll <= delta &&
         state.status != ListStatus.loading) {
-      loadPosts();
+      // loadPosts();
+      loadAllPosts();
     }
   }
 }
