@@ -7,9 +7,9 @@ class PlatformVersion {
 
   factory PlatformVersion.fromJson(Map<String, dynamic> json) =>
       PlatformVersion(
-        minVersion: json['min_version'] as int? ?? 81,
-        maxVersion: json['max_version'] as int? ?? 81,
-        message: json['message'] as String? ?? '',
+        minVersion: json['min_version'] as int?,
+        maxVersion: json['max_version'] as int?,
+        message: json['message'] as String?,
       );
 
   Map<String, dynamic> toJson() => {

@@ -9,6 +9,7 @@ class CurrentVersion {
     this.ios,
     this.android,
   });
+
   final PlatformVersion? ios;
 
   final PlatformVersion? android;
@@ -27,17 +28,17 @@ class CurrentVersion {
         'android': android?.toJson(),
       };
 
-  bool isSoftUpdate() {
-    var currentV = int.tryParse(sl<PackageInfo>().buildNumber);
+  bool get isSoftUpdate {
+    final int? currentVersion = int.tryParse(sl<PackageInfo>().buildNumber);
     {
       if (Platform.isAndroid) {
-        if (currentV! < android!.maxVersion!) {
+        if (currentVersion! < android!.maxVersion!) {
           return true;
         } else {
           return false;
         }
       } else {
-        if (currentV! < ios!.maxVersion!) {
+        if (currentVersion! < ios!.maxVersion!) {
           return true;
         } else {
           return false;
@@ -46,17 +47,17 @@ class CurrentVersion {
     }
   }
 
-  bool isForceUpdate() {
-    var currentV = int.tryParse(sl<PackageInfo>().buildNumber);
+  bool get isForceUpdate {
+    final int? currentVersion = int.tryParse(sl<PackageInfo>().buildNumber);
 
     if (Platform.isAndroid) {
-      if (currentV! < android!.minVersion!) {
+      if (currentVersion! < android!.minVersion!) {
         return true;
       } else {
         return false;
       }
     } else {
-      if (currentV! < ios!.minVersion!) {
+      if (currentVersion! < ios!.minVersion!) {
         return true;
       } else {
         return false;
@@ -64,7 +65,7 @@ class CurrentVersion {
     }
   }
 
-  String? getMessage() {
+  String? get message {
     if (Platform.isAndroid) {
       return android!.message;
     } else {
