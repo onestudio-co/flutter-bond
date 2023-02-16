@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:open_store/open_store.dart';
 
 class UpdateAppPage extends StatelessWidget {
-  final String? message;
+  final String message;
 
-  const UpdateAppPage({Key? key, this.message}) : super(key: key);
+  const UpdateAppPage({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class UpdateAppPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
-                      message ?? context.localizations.update_app_text,
+                      message,
                       textAlign: TextAlign.center,
                     ),
                   ),

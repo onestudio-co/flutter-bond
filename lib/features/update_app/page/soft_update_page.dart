@@ -8,9 +8,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:open_store/open_store.dart';
 
 class SoftUpdatePage extends StatelessWidget {
-  const SoftUpdatePage({Key? key, this.message}) : super(key: key);
+  const SoftUpdatePage({Key? key, required this.message}) : super(key: key);
 
-  final String? message;
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class SoftUpdatePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 87.0),
                 child: Text(
-                  message ?? context.localizations.update_app_text,
+                  message,
                   textAlign: TextAlign.center,
                 ),
               ),

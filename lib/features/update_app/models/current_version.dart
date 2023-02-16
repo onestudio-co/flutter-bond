@@ -31,7 +31,7 @@ class CurrentVersion {
     }
   }
 
-  String? get message {
+  String get message {
     if (Platform.isAndroid) {
       return android.message;
     } else {
