@@ -22,6 +22,10 @@ dependencies:
   open_store: ^0.5.0
   retrofit: '>=3.0.0 <4.0.0'
   pretty_dio_logger: ^1.1.1
+  modal_bottom_sheet:
+    git:
+      url: https://github.com/danReynolds/modal_bottom_sheet.git
+      path: modal_bottom_sheet
   # serialization
   json_serializable: ^6.5.4
   json_annotation: ^4.7.0
@@ -55,6 +59,7 @@ dependencies:
   firebase_core: ^2.3.0
   firebase_messaging: ^14.1.1
   firebase_crashlytics: ^3.0.6
+  firebase_remote_config: ^3.0.10
 
 dev_dependencies:
   flutter_test:

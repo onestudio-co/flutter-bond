@@ -45,14 +45,14 @@ class NotificationItem extends StatelessWidget {
                   /// Title
                   Text(
                     notificationTitle,
-                    style: context.textTheme.subtitle2,
+                    style: context.textTheme.titleSmall,
                     softWrap: true,
                   ),
 
                   /// Time Ago
                   Text(
                     time_ago.format(createAt, locale: 'ar'),
-                    style: context.textTheme.caption,
+                    style: context.textTheme.bodySmall,
                   )
                 ],
               ),

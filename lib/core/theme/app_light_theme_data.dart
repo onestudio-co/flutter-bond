@@ -29,7 +29,7 @@ ThemeData appLightThemeData() {
       centerTitle: true,
       color: Colors.white,
       elevation: 0,
-      titleTextStyle: appTextTheme.headline5?.copyWith(
+      titleTextStyle: appTextTheme.headlineSmall?.copyWith(
         color: const Color.fromRGBO(50, 45, 120, 1),
         fontWeight: FontWeight.w700,
       ),
@@ -64,7 +64,7 @@ ThemeData appLightThemeData() {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
-      textStyle: appTextTheme.subtitle2?.copyWith(
+      textStyle: appTextTheme.titleSmall?.copyWith(
         color: Colors.black,
       ),
     ),
