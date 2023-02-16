@@ -40,7 +40,7 @@ class UpdateAppPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
-                      message.toString(),
+                      message,
                       textAlign: TextAlign.center,
                     ),
                   ),
