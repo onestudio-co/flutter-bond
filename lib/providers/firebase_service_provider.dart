@@ -1,4 +1,5 @@
 import 'package:bond/app/default_firebase_options.dart';
+import 'package:bond/features/update_app_config/models/update_app_default_value.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:get_it/get_it.dart';
@@ -16,21 +17,15 @@ class FirebaseServiceProvider extends ServiceProvider {
     );
     it.registerSingleton(firebaseApp);
 
-    // TODO: extract this to new file
-    final defaultParameters = <String, dynamic>{
-      'appCurrentVersion':
-          '{"ios":{"min_version":0,"max_version":0,"message":"حماية خصوصيتك تهمنا وأن تحصل على أفضل تجربة استخدام من أولوياتنا، يرجى تحديث نسختك الحالية"},"android":{"min_version":0,"max_version":0,"message":"حماية خصوصيتك تهمنا وأن تحصل على أفضل تجربة استخدام من أولوياتنا، يرجى تحديث نسختك الحالية"}}'
-    };
-
     it.registerLazySingleton(
       () => FirebaseRemoteConfig.instance
         ..setConfigSettings(
           RemoteConfigSettings(
-            fetchTimeout: const Duration(minutes: 1),
-            minimumFetchInterval: const Duration(minutes: 5),
+            fetchTimeout: UpdateAppDefaultValue.fetchTimeout,
+            minimumFetchInterval: UpdateAppDefaultValue.minimumFetchInterval,
           ),
         )
-        ..setDefaults(defaultParameters),
+        ..setDefaults(UpdateAppDefaultValue.defaultParameters),
     );
   }
 }

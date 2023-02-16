@@ -1,4 +1,4 @@
-import 'package:bond/core/remote_config/remote_config_service.dart';
+import 'package:bond/features/update_app_config/update_app_service.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/app/data/app_local_data_source.dart';
 import 'package:get_it/get_it.dart';
@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider {
     it.registerFactory(() => AppBloc(it()));
 
     it.registerSingleton(
-      RemoteConfigService(remoteConfig: it(), packageInfo: it()),
+      UpdateAppService(remoteConfig: it(), packageInfo: it())..call(),
     );
   }
 }
