@@ -20,6 +20,8 @@ dependencies:
   get_it: ^7.2.0
   dio: ^4.0.6
   open_store: ^0.5.0
+  retrofit: '>=3.0.0 <4.0.0'
+  pretty_dio_logger: ^1.1.1
   modal_bottom_sheet:
     git:
       url: https://github.com/danReynolds/modal_bottom_sheet.git
@@ -72,7 +74,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.10.0
   change_app_package_name: ^1.1.0
   envied_generator: ^0.3.0
-
+  retrofit_generator: '>=4.0.0 <5.0.0'
 flutter:
   uses-material-design: true
   generate: true

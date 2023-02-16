@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
           create: (context) => sl<LogoutCubit>(),
         ),
         BlocProvider<PostCubit>(
-          create: (context) => sl<PostCubit>()..loadPosts(),
+          create: (context) => sl<PostCubit>()..loadAllPosts(),
         ),
       ], child: this);
 

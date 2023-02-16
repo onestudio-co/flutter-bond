@@ -952,6 +952,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
+  pretty_dio_logger:
+    dependency: "direct main"
+    description:
+      name: pretty_dio_logger
+      sha256: "948f7eeb36e7aa0760b51c1a8e3331d4b21e36fabd39efca81f585ed93893544"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0-beta-1"
   process:
     dependency: transitive
     description:
@@ -984,6 +992,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  retrofit:
+    dependency: "direct main"
+    description:
+      name: retrofit
+      sha256: "9254ec985d5e26a839a9070ae25b98f0781c9c420e4241c5fb8b8965aa1fc7f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.1"
+  retrofit_generator:
+    dependency: "direct dev"
+    description:
+      name: retrofit_generator
+      sha256: f5107e842e77ce71c63b995331b43d4597f71df9031389dd93a1197a00118d83
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.0"
   rxdart:
     dependency: transitive
     description:
@@ -1165,6 +1189,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      sha256: "0ea99cd2f9352b2586583ab2ce6489d1f95a5f6de6fb9492faaf97ae2060f0aa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   typed_data:
     dependency: transitive
     description:

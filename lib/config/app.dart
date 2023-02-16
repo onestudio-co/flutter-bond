@@ -12,13 +12,13 @@ import '../providers/firebase_service_provider.dart';
 final List<ServiceProvider> providers = [
   // Framework Service Providers
   FirebaseServiceProvider(),
+  AppServiceProvider(),
+  AuthServiceProvider(),
   ApiServiceProvider(),
   CacheServiceProvider(),
   AnalyticsServiceProvider(),
   NotificationsServiceProvider(),
 
   // Modules Service Providers
-  AppServiceProvider(),
-  AuthServiceProvider(),
   PostServiceProvider(),
 ];
