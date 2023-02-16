@@ -27,7 +27,7 @@ class NewAccountView extends StatelessWidget {
               recognizer: TapGestureRecognizer()
                 ..onTap = () => context.router.push(const RegisterRoute()),
               text: context.localizations.login_page_new_account_button,
-              style: context.textTheme.overline,
+              style: context.textTheme.labelSmall,
             ),
           ],
         ),

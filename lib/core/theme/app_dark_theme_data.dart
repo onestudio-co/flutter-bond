@@ -30,7 +30,7 @@ ThemeData appDarkThemeData() {
       centerTitle: true,
       color: const Color.fromRGBO(9, 35, 55, 1),
       elevation: 0,
-      titleTextStyle: appTextTheme.headline5?.copyWith(
+      titleTextStyle: appTextTheme.headlineSmall?.copyWith(
         color: const Color.fromRGBO(34, 193, 224, 1),
         fontWeight: FontWeight.w700,
       ),
@@ -40,8 +40,6 @@ ThemeData appDarkThemeData() {
       labelColor: Color.fromRGBO(34, 193, 224, 1),
       unselectedLabelColor: Colors.white,
     ),
-
-    bottomAppBarColor: const Color.fromRGBO(9, 35, 55, 1),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color.fromRGBO(9, 35, 55, 1),
@@ -72,7 +70,7 @@ ThemeData appDarkThemeData() {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
-      textStyle: appTextTheme.subtitle2?.copyWith(
+      textStyle: appTextTheme.titleSmall?.copyWith(
         color: Colors.white,
       ),
     ),
@@ -109,6 +107,6 @@ ThemeData appDarkThemeData() {
           color: Color.fromRGBO(50, 45, 120, 1),
         ),
       ),
-    ),
+    ), bottomAppBarTheme: const BottomAppBarTheme(color: Color.fromRGBO(9, 35, 55, 1)),
   );
 }
