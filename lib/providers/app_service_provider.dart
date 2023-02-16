@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider {
     );
 
     it.registerFactory(() => AppBloc(it()));
-    it.registerLazySingleton(() => RemoteConfigService());
+
+    it.registerSingleton(
+      RemoteConfigService(remoteConfig: it(), packageInfo: it()),
+    );
   }
 }

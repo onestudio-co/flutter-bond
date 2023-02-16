@@ -6,70 +6,57 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 class CurrentVersion {
   const CurrentVersion({
-    this.ios,
-    this.android,
+    required this.ios,
+    required this.android,
   });
 
-  final PlatformVersion? ios;
+  final PlatformVersion ios;
 
-  final PlatformVersion? android;
+  final PlatformVersion android;
 
   factory CurrentVersion.fromJson(Map<String, dynamic> json) => CurrentVersion(
-        ios: json['ios'] == null
-            ? null
-            : PlatformVersion.fromJson(json['ios'] as Map<String, dynamic>),
-        android: json['android'] == null
-            ? null
-            : PlatformVersion.fromJson(json['android'] as Map<String, dynamic>),
+        ios: PlatformVersion.fromJson(json['ios'] as Map<String, dynamic>),
+        android:
+            PlatformVersion.fromJson(json['android'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'ios': ios?.toJson(),
-        'android': android?.toJson(),
+        'ios': ios.toJson(),
+        'android': android.toJson(),
       };
+
+  PlatformVersion get platformVersion {
+    if (Platform.isAndroid) {
+      return android;
+    } else {
+      return ios;
+    }
+  }
 
   bool get isSoftUpdate {
     final int? currentVersion = int.tryParse(sl<PackageInfo>().buildNumber);
     {
       if (Platform.isAndroid) {
-        if (currentVersion! < android!.maxVersion!) {
+        if (currentVersion! < android.maxVersion) {
           return true;
         } else {
           return false;
         }
       } else {
-        if (currentVersion! < ios!.maxVersion!) {
+        if (currentVersion! < ios.maxVersion) {
           return true;
         } else {
           return false;
         }
-      }
-    }
-  }
-
-  bool get isForceUpdate {
-    final int? currentVersion = int.tryParse(sl<PackageInfo>().buildNumber);
-
-    if (Platform.isAndroid) {
-      if (currentVersion! < android!.minVersion!) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      if (currentVersion! < ios!.minVersion!) {
-        return true;
-      } else {
-        return false;
       }
     }
   }
 
   String? get message {
     if (Platform.isAndroid) {
-      return android!.message;
+      return android.message;
     } else {
-      return ios!.message;
+      return ios.message;
     }
   }
 }

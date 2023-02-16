@@ -1,15 +1,19 @@
 class PlatformVersion {
-  const PlatformVersion({this.minVersion, this.maxVersion, this.message});
+  const PlatformVersion({
+    required this.minVersion,
+    required this.maxVersion,
+    required this.message,
+  });
 
-  final int? minVersion;
-  final int? maxVersion;
-  final String? message;
+  final int minVersion;
+  final int maxVersion;
+  final String message;
 
   factory PlatformVersion.fromJson(Map<String, dynamic> json) =>
       PlatformVersion(
-        minVersion: json['min_version'] as int?,
-        maxVersion: json['max_version'] as int?,
-        message: json['message'] as String?,
+        minVersion: json['min_version'],
+        maxVersion: json['max_version'],
+        message: json['message'],
       );
 
   Map<String, dynamic> toJson() => {
