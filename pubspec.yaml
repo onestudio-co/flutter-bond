@@ -21,6 +21,7 @@ dependencies:
   dio: ^4.0.6
   open_store: ^0.5.0
   retrofit: '>=3.0.0 <4.0.0'
+  pretty_dio_logger: ^1.1.1
   # serialization
   json_serializable: ^6.5.4
   json_annotation: ^4.7.0
@@ -69,7 +70,6 @@ dev_dependencies:
   change_app_package_name: ^1.1.0
   envied_generator: ^0.3.0
   retrofit_generator: '>=4.0.0 <5.0.0'
-  pretty_dio_logger: ^1.1.1
 flutter:
   uses-material-design: true
   generate: true
