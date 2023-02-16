@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:bond/features/post/data/datasource/re_post_data_source.dart';
+import 'package:bond/features/post/data/datasource/post_client.dart';
 import 'package:bond/features/post/data/models/post.dart';
-import 'package:bond/features/post/data/repositories/post_repository.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:one_studio_core/core.dart';
@@ -12,33 +8,18 @@ import 'package:one_studio_core/core.dart';
 part 'post_state.dart';
 
 class PostCubit extends Cubit<ListState<Post>> {
-  PostCubit(this._postRepository) : super(ListState.initial()) {
+  PostCubit() : super(ListState.initial()) {
     scrollController.addListener(_scrollControllerListener);
   }
 
-  final PostRepository _postRepository;
   final PostClient? postClient = PostClient(sl<ApiClient>().client);
 
   final ScrollController scrollController = ScrollController();
 
-  Future<void> loadPosts() async {
-    emit(state.loading());
-    final response = await _postRepository.posts();
-    emit(
-      response.fold(
-        (failure) => state.failed(failure.toMessage()),
-        (data) {
-          log('data ${data.runtimeType}');
-          return state.success(data);
-        },
-      ),
-    );
-  }
-
   Future<void> loadAllPosts() async {
     emit(state.loading());
     final response = await postClient?.getPosts();
-    emit(state.success(ListResponse(data: response ?? [])));
+    emit(state.success(response ?? const ListResponse(data: [])));
   }
 
   @override
