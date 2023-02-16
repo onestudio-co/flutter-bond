@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/core/helepers/extensions/auto_route_extensions.dart';
+import 'package:bond/core/app_extensions.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'models/current_version.dart';
 
 class RemoteConfigService {
-
   FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
 
   String get buildNumber => sl<PackageInfo>().buildNumber;
@@ -77,7 +76,7 @@ class RemoteConfigService {
     }
   }
 
-  RemoteConfigService(){
+  RemoteConfigService() {
     initRemoteConfig();
   }
 }
