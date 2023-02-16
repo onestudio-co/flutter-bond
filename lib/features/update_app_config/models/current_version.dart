@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'package:bond/core/remote_config/models/platform_version.dart';
-import 'package:one_studio_core/core.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:bond/features/update_app_config/models/platform_version.dart';
 
 class CurrentVersion {
   const CurrentVersion({
@@ -30,25 +28,6 @@ class CurrentVersion {
       return android;
     } else {
       return ios;
-    }
-  }
-
-  bool get isSoftUpdate {
-    final int? currentVersion = int.tryParse(sl<PackageInfo>().buildNumber);
-    {
-      if (Platform.isAndroid) {
-        if (currentVersion! < android.maxVersion) {
-          return true;
-        } else {
-          return false;
-        }
-      } else {
-        if (currentVersion! < ios.maxVersion) {
-          return true;
-        } else {
-          return false;
-        }
-      }
     }
   }
 
