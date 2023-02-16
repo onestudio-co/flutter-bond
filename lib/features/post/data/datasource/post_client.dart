@@ -1,8 +1,10 @@
+import 'package:auto_route/annotations.dart';
 import 'package:bond/features/post/data/models/post.dart';
+import 'package:one_studio_core/core.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
-part 're_post_data_source.g.dart';
+part 'post_client.g.dart';
 
 @RestApi(
     baseUrl:
@@ -10,6 +12,13 @@ part 're_post_data_source.g.dart';
 abstract class PostClient {
   factory PostClient(Dio dio, {String? baseUrl}) = _PostClient;
 
-  @GET("/posts")
-  Future<List<Post>> getPosts();
+  @GET("/posts?term=sky")
+  Future<ListResponse<Post>> getPosts();
+
+
+  @GET("/posts/random")
+  Future<SingleResponse<Post>> random();
+
+  @GET("posts")
+  Future<SingleResponse<Post>> post(@QueryParam("id") String id);
 }
