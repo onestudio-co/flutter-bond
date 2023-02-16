@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'platform_version.g.dart';
+
+@JsonSerializable()
 class PlatformVersion {
   const PlatformVersion({
     required this.minVersion,
@@ -10,15 +15,7 @@ class PlatformVersion {
   final String message;
 
   factory PlatformVersion.fromJson(Map<String, dynamic> json) =>
-      PlatformVersion(
-        minVersion: json['min_version'],
-        maxVersion: json['max_version'],
-        message: json['message'],
-      );
+      _$PlatformVersionFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'min_version': minVersion,
-        'max_version': maxVersion,
-        'message': message,
-      };
+  Map<String, dynamic> toJson() => _$PlatformVersionToJson(this);
 }
