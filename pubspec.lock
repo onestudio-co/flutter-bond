@@ -417,6 +417,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.12"
+  firebase_remote_config:
+    dependency: "direct main"
+    description:
+      name: firebase_remote_config
+      sha256: "3ff69d22847e36a47b890804c248605decd1cd8ed3e1e78a1df197d0c591eada"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.10"
+  firebase_remote_config_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_remote_config_platform_interface
+      sha256: "852280ea16c0f0827ad06787856890f50e6aab460f1d01afa8527661d2760746"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.30"
+  firebase_remote_config_web:
+    dependency: transitive
+    description:
+      name: firebase_remote_config_web
+      sha256: "69607613a08e2908acf140b8fa4793055c7016315000213ea6290fec35289044"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.19"
   fixnum:
     dependency: transitive
     description:
@@ -758,6 +782,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  modal_bottom_sheet:
+    dependency: "direct main"
+    description:
+      path: modal_bottom_sheet
+      ref: HEAD
+      resolved-ref: d79185a564c6d1b1535568ea7dfef060e20a049d
+      url: "https://github.com/danReynolds/modal_bottom_sheet.git"
+    source: git
+    version: "2.1.2"
   nested:
     dependency: transitive
     description:
@@ -1317,5 +1350,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0 <3.0.0"
+  dart: ">=2.19.0 <4.0.0"
   flutter: ">=3.3.0"

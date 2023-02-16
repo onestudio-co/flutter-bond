@@ -1,3 +1,4 @@
+import 'package:bond/features/update_app/update_app_service.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/app/data/app_local_data_source.dart';
 import 'package:get_it/get_it.dart';
@@ -19,5 +20,9 @@ class AppServiceProvider extends ServiceProvider {
     );
 
     it.registerFactory(() => AppBloc(it()));
+
+    it.registerSingleton(
+      UpdateAppService(remoteConfig: it(), packageInfo: it())..call(),
+    );
   }
 }

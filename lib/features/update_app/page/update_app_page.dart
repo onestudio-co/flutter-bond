@@ -1,9 +1,7 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_assets.dart';
-import 'package:bond/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:open_store/open_store.dart';
 
 class UpdateAppPage extends StatelessWidget {
@@ -42,7 +40,7 @@ class UpdateAppPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 87.0),
                     child: Text(
-                      message.toString(),
+                      message,
                       textAlign: TextAlign.center,
                     ),
                   ),
