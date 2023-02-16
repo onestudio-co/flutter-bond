@@ -1,5 +1,5 @@
 import 'package:bond/app/default_firebase_options.dart';
-import 'package:bond/features/update_app_config/models/update_app_default_value.dart';
+import 'package:bond/features/update_app/models/update_app_default_value.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:get_it/get_it.dart';

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bond/features/update_app_config/models/platform_version.dart';
+import 'package:bond/features/update_app/models/platform_version.dart';
 
 class CurrentVersion {
   const CurrentVersion({

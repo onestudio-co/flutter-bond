@@ -1,7 +1,9 @@
 library app_router;
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/features/update_app_config/routes.dart';
+import 'package:bond/features/update_app/page/soft_update_page.dart';
+import 'package:bond/features/update_app/page/update_app_page.dart';
+import 'package:bond/features/update_app/routes.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/notification/presentations/ui/notifications_page.dart';
 import 'package:bond/features/post/presentation/home_page.dart';
