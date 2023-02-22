@@ -1,28 +1,54 @@
-import 'package:bond/features/collections/presentation/collections_state.dart';
+import 'dart:developer';
+
+import 'package:bond/core/request_provider/request_state.dart';
+import 'package:bond/features/collections/presentation/scroll_provider.dart';
 import 'package:bond/features/post/data/datasource/post_client.dart';
-import 'package:get_it/get_it.dart';
+import 'package:bond/features/post/data/models/post.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:one_studio_core/core.dart';
 
-final itemListNotifierProvider =
-    StateNotifierProvider<ItemListNotifier, CollectionsState>(
-        (ref) => ItemListNotifier(GetIt.I.get()));
+typedef PostRequestState = RequestState<ListResponse<Post>, ServerException>;
 
-class ItemListNotifier extends StateNotifier<CollectionsState> {
-  ItemListNotifier(this.postClient) : super(const CollectionsState()) {
-    fetchNextPage();
+final itemListNotifierProvider = StateNotifierProvider.family<ItemListNotifier,
+    PostRequestState, ScrollController>(
+  (ref, scrollController) {
+    final provider = ItemListNotifier(sl());
+    final isReachBottom = ref.watch(scrollProvider(scrollController));
+    log('isReachBottom$isReachBottom');
+    if (isReachBottom) {
+      provider.loadPosts();
+    }
+    return provider;
+  },
+);
+
+
+class ItemListNotifier extends StateNotifier<PostRequestState> {
+  ItemListNotifier(this.postClient) : super(const RequestStateInitial()) {
+    loadPosts();
   }
 
   final PostClient postClient;
 
-  Future<void> fetchNextPage() async {
-    final pageNumber = state.currentPage + 1;
-    final response = await postClient.getPosts();
+  Future<void> loadPosts() async {
+    state = RequestState.loading(resultMaybe: state.value);
+    try {
+      final response = await postClient.getPosts();
 
-    state = state.copyWith(
-      posts: ListResponse(data: [...state.posts.data, ...response.data]),
-      currentPage: pageNumber,
-      hasMoreItems: true,
-    );
+      state = RequestState.success(
+        state.value == null
+            ? response
+            : state.value!.copyWith(
+                data: state.value!.data.followedBy(response.data).toList(),
+                meta: response.meta,
+                links: response.links,
+              ),
+      );
+    } on ServerException catch (error) {
+      state = RequestState.failure(error);
+    } catch (error) {
+      log('error on load posts $error');
+    }
   }
 }
