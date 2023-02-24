@@ -1,3 +1,4 @@
+import 'package:bond/features/auth/data/datasource/auth_http_client.dart';
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -20,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider {
         (User user) => user.toJson(),
       ),
     );
+    it.registerLazySingleton(() => AuthHttpClient(it()));
 
     it.registerLazySingleton(() => AuthRepository(it(), it()));
 
