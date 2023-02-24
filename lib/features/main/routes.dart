@@ -7,7 +7,7 @@ import 'package:bond/features/post/presentation/home_page.dart';
 const mainRoutes = <AutoRoute>[
   AutoRoute(
     page: MainPage,
-    initial: true,
+    initial: false,
     children: [
       AutoRoute(page: HomePage),
       AutoRoute(page: CollectionsPage),

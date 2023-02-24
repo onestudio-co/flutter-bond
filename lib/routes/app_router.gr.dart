@@ -31,7 +31,7 @@ class _$AppRouter extends RootStackRouter {
     LoginRoute.name: (routeData) {
       return MaterialPageX<bool>(
         routeData: routeData,
-        child: WrappedRoute(child: const LoginPage()),
+        child: const LoginPage(),
       );
     },
     RegisterRoute.name: (routeData) {
@@ -97,7 +97,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           MainRoute.name,
-          path: '/',
+          path: '/main-page',
           children: [
             RouteConfig(
               HomeRoute.name,
@@ -118,7 +118,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           LoginRoute.name,
-          path: '/login-page',
+          path: '/',
         ),
         RouteConfig(
           RegisterRoute.name,
@@ -146,7 +146,7 @@ class MainRoute extends PageRouteInfo<void> {
   const MainRoute({List<PageRouteInfo>? children})
       : super(
           MainRoute.name,
-          path: '/',
+          path: '/main-page',
           initialChildren: children,
         );
 
@@ -159,7 +159,7 @@ class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
-          path: '/login-page',
+          path: '/',
         );
 
   static const String name = 'LoginRoute';
