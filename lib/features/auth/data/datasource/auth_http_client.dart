@@ -13,8 +13,19 @@ abstract class AuthHttpClient {
   factory AuthHttpClient(Dio dio, {String? baseUrl}) = _AuthHttpClient;
 
   @POST('/users/login')
-  Future<SingleMResponse<User, UserMeta>> login(@Body() Map<String, dynamic> body);
+  Future<SingleMResponse<User, UserMeta>> login(
+      @Body() Map<String, dynamic> body);
 
   @POST('/users/register')
-  Future<SingleMResponse<User, UserMeta>> register(@Body() Map<String, dynamic> body);
+  Future<SingleMResponse<User, UserMeta>> register(
+      @Body() Map<String, dynamic> body);
+
+  @POST('users/logout')
+  Future<SuccessResponse> logout();
+
+  @POST('notifications/update-token')
+  Future<SuccessResponse?> updateToken(@Body() Map<String, dynamic> body);
+
+  @POST('users/anonymous-login')
+  Future<SingleMResponse<User, UserMeta>> anonymous();
 }
