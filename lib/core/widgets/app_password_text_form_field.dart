@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class BondPasswordTextFormField extends HookWidget {
-  const BondPasswordTextFormField({
+class AppPasswordTextFormField extends HookWidget {
+  const AppPasswordTextFormField({
     Key? key,
     required this.hintText,
     this.controller,
