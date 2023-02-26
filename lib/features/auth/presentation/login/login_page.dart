@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/resources/app_assets.dart';
 import 'package:bond/core/widgets/app_button.dart';
-import 'package:bond/core/widgets/bond_password_text_form_field.dart';
+import 'package:bond/core/widgets/app_password_text_form_field.dart';
 import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/data/models/user.dart';
 import 'package:bond/features/auth/data/models/user_meta.dart';
@@ -21,10 +21,10 @@ class LoginPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final loginScreenPresenter = ref.watch(loginScreenProvider);
+    final loginPresenter = ref.watch(loginScreenPresenter);
+    final loginRequest = ref.watch(loginRequestProvider);
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
-    final isLoading = useState(false);
     _listenerOnLogin(context, ref);
 
     return Scaffold(
@@ -54,31 +54,27 @@ class LoginPage extends HookConsumerWidget {
                     decoration: InputDecoration(
                       labelText: context.localizations.filed_email_label,
                       prefixIcon: const Icon(Icons.email),
-                      errorText: loginScreenPresenter.isEmailValid ?? true
-                          ? null
-                          : context.localizations.field_validator_email,
+                      errorText: loginPresenter.getEmailErrorText(
+                          context.localizations.field_validator_email),
                     ),
                   ),
                   const SizedBox(height: 12),
-                  BondPasswordTextFormField(
+                  AppPasswordTextFormField(
                     controller: passwordController,
                     hintText: context.localizations.filed_password_label,
-                    errorText: loginScreenPresenter.isPasswordValid ?? true
-                        ? null
-                        : context.localizations.field_validator_password,
+                    errorText: loginPresenter.getPasswordErrorText(
+                        context.localizations.field_validator_password),
                   ),
                   const SizedBox(height: 16),
                   AppButton(
-                    loading: isLoading.value,
-                    onPressed: () async{
-                      loginScreenPresenter.onSignInPressed(
+                    loading: loginRequest.isLoading,
+                    onPressed: () {
+                      bool validation = loginPresenter.checkEmailAndPassword(
                         emailController.text.trim(),
                         passwordController.text.trim(),
                       );
-                      if ((loginScreenPresenter.isEmailValid ?? false) &&
-                          (loginScreenPresenter.isPasswordValid ?? false)) {
-                        isLoading.value = true;
-                        isLoading.value = await ref.read(loginRequestProvider.notifier).login(
+                      if (validation) {
+                        ref.read(loginRequestProvider.notifier).login(
                               emailController.text.trim(),
                               passwordController.text.trim(),
                             );
@@ -98,15 +94,14 @@ class LoginPage extends HookConsumerWidget {
   }
 
   void _listenerOnLogin(BuildContext context, WidgetRef ref) {
-    ref.listen<SingleMResponse<User, UserMeta>?>(loginRequestProvider,
-        (previous, next) {
-
-      if (next?.data != null) {
+    ref.listen<AsyncValue<SingleMResponse<User, UserMeta>?>>(
+        loginRequestProvider, (previous, next) {
+      if (next.value?.meta.token != null) {
         context.router.replaceAll([const MainRoute()]);
-      } else {
+      } else if (next.hasError) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('login failed'),
+          SnackBar(
+            content: Text(context.localizations.field_login),
           ),
         );
       }

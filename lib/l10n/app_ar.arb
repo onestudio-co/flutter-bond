@@ -8,6 +8,7 @@
   "field_validator_email": "البريد الإلكتروني غير صحيح",
   "field_validator_password": "كلمة المرور يجب أن تكون أكثر من 6 أحرف",
   "field_validator_confirm_password": "كلمة المرور غير متطابقة",
+  "field_login": "هناك خطأ في تسجيل الدخول يرجى المحاولة لاحقا",
   "login_page_login_button": "تسجيل الدخول",
   "login_page_not_have_account": "ليس لديك حساب؟",
   "login_page_new_account_button": " حساب جديد ",
