@@ -1,23 +1,27 @@
-import 'package:bond/utils/validator.dart';
+import 'package:bond/core/utils/validator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final loginScreenProvider = ChangeNotifierProvider.autoDispose<LoginScreenPresenter>(
+final loginScreenPresenter =
+    ChangeNotifierProvider.autoDispose<LoginScreenPresenter>(
   (ref) => LoginScreenPresenter(),
 );
 
 class LoginScreenPresenter extends ChangeNotifier {
-  bool? _isEmailValid;
+  bool _isEmailValid = true;
 
-  bool? get isEmailValid => _isEmailValid;
+  bool _isPasswordValid = true;
 
-  bool? _isPasswordValid;
+  String? getEmailErrorText(String errorMessage) =>
+      _isEmailValid ? null : errorMessage;
 
-  bool? get isPasswordValid => _isPasswordValid;
+  String? getPasswordErrorText(String errorMessage) =>
+      _isPasswordValid ? null : errorMessage;
 
-  void onSignInPressed(String email, String password) {
+  bool checkEmailAndPassword(String email, String password) {
     _isEmailValid = Validator.isEmailValid(email);
     _isPasswordValid = Validator.isPasswordValid(password);
     notifyListeners();
+    return _isEmailValid && _isPasswordValid;
   }
 }
