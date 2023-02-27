@@ -9,7 +9,6 @@ export 'data/models/user.dart';
 export 'data/models/user_meta.dart';
 export 'presentation/login/login_page.dart';
 export 'presentation/logout/logout_cubit.dart';
-export 'presentation/register/register_bloc.dart';
 export 'presentation/register/register_page.dart';
 export 'routes.dart';
 
