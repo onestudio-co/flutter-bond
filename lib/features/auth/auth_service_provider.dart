@@ -5,7 +5,6 @@ import 'package:one_studio_core/core.dart';
 import 'data/models/user.dart';
 import 'data/models/user_meta.dart';
 import 'presentation/logout/logout_cubit.dart';
-import 'presentation/register/register_bloc.dart';
 
 class AuthServiceProvider extends ServiceProvider {
   @override
@@ -18,8 +17,6 @@ class AuthServiceProvider extends ServiceProvider {
       ),
     );
     it.registerLazySingleton(() => AuthHttpClient(it()));
-
-    it.registerFactory(() => RegisterBloc(it()));
 
     it.registerFactory(() => LogoutCubit(it()));
   }
