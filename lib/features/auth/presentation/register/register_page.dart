@@ -135,24 +135,24 @@ class RegisterPage extends HookConsumerWidget {
       );
     }
     log('test state is : ${next.state.name}');
-    // switch (next.state) {
-    //   case RegisterScreenPresenterState.initial:
-    //     break;
-    //   case RegisterScreenPresenterState.loading:
-    //     break;
-    //   case RegisterScreenPresenterState.success:
-    //     final user = next.registerResult.value; // 1- TODO: get success data
-    //     appRouter.replaceAll([const MainRoute()]);
-    //     break;
-    //   case RegisterScreenPresenterState.error:
-    //     final error = next.registerResult
-    //         .error; // 1- TODO: best way to get error text from presenter
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //         content: Text(error.toString()),
-    //       ),
-    //     );
-    //     break;
-    // }
+    switch (next.state) {
+      case RegisterScreenPresenterState.initial:
+        break;
+      case RegisterScreenPresenterState.loading:
+        break;
+      case RegisterScreenPresenterState.success:
+        final user = next.registerResult.value; // 1- TODO: get success data
+        appRouter.replaceAll([const MainRoute()]);
+        break;
+      case RegisterScreenPresenterState.error:
+        final error = next.registerResult
+            .error; // 1- TODO: best way to get error text from presenter
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error.toString()),
+          ),
+        );
+        break;
+    }
   }
 }
