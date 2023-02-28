@@ -1,10 +1,10 @@
 library app_router;
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bond/features/update_app/routes.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/notification/presentations/ui/notifications_page.dart';
 import 'package:bond/features/post/presentation/home_page.dart';
+import 'package:bond/features/update_app/routes.dart';
 import 'package:bond/routes/guards/auth_guard.dart';
 import 'package:bond/routes/router_helpers.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,3 +32,5 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   AppRouter(AuthGuard authGuard) : super(authGuard: authGuard);
 }
+
+AppRouter get appRouter => sl<AppRouter>();
