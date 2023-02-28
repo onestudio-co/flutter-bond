@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/datasource/auth_http_client.dart';
 import 'package:bond/features/auth/data/dto/user_dto.dart';
@@ -20,6 +22,7 @@ final registerRequestProvider = FutureProvider.autoDispose
     asyncValue = AsyncData(response);
     localDataSource.user = response.data;
     localDataSource.token = response.meta.token;
+    log('User registered${localDataSource.user.toString()}');
   } on ServerException catch (error, stackTrace) {
     asyncValue = AsyncValue.error(error, stackTrace);
   } catch (error, stackTrace) {
