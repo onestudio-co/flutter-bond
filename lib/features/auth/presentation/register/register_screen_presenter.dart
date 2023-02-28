@@ -29,8 +29,9 @@ class RegisterScreenPresenter extends ChangeNotifier {
   bool _isEmailValid = true;
   bool _isPasswordValid = true;
   bool _isPasswordConfirmationValid = true;
-  AsyncValue<SingleMResponse<User, UserMeta>?> registerResult =
-      const AsyncValue.data(null);
+  SingleMResponse<User, UserMeta>? registerResult;
+
+  Failure? error;
 
   // 2- TODO: read errors message directly from app localizations
   String? getNameErrorText(String errorMessage) =>
@@ -62,6 +63,7 @@ class RegisterScreenPresenter extends ChangeNotifier {
         _isPasswordConfirmationValid;
 
     if (isValid) {
+      _registerState = RegisterScreenPresenterState.loading;
       final userDto = UserDto(
         email: email,
         password: password,
@@ -72,9 +74,11 @@ class RegisterScreenPresenter extends ChangeNotifier {
       response.fold((left) {
         log(' RegisterScreenPresenterState.success');
         _registerState = RegisterScreenPresenterState.success;
+        registerResult = left;
       }, (right) {
         log(' RegisterScreenPresenterState.error');
         _registerState = RegisterScreenPresenterState.error;
+        error = right;
       });
     }
     notifyListeners();

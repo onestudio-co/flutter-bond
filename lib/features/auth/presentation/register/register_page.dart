@@ -94,7 +94,7 @@ class RegisterPage extends HookConsumerWidget {
                   ),
                   const SizedBox(height: 16),
                   AppButton(
-                    loading: registerPresenter.registerResult.isLoading,
+                    loading: registerPresenter.loading,
                     onPressed: () => registerPresenter.register(
                       ref,
                       email: emailController.text.trim(),
@@ -120,33 +120,20 @@ class RegisterPage extends HookConsumerWidget {
     RegisterScreenPresenter? previous,
     RegisterScreenPresenter next,
   ) {
-    if (next.registerResult.hasValue) {
-      final data = next.registerResult.value;
-      log('user register data ${data.toString()}');
-      if (data != null) {
-        appRouter.replaceAll([const MainRoute()]);
-      }
-    } else if (next.registerResult.hasError) {
-      final error = next.registerResult.error;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(error.toString()),
-        ),
-      );
-    }
+    log('test previous state is : ${previous?.state.name}');
     log('test state is : ${next.state.name}');
     switch (next.state) {
       case RegisterScreenPresenterState.initial:
         break;
       case RegisterScreenPresenterState.loading:
+        log('RegisterScreenPresenterState.loading');
         break;
       case RegisterScreenPresenterState.success:
-        final user = next.registerResult.value; // 1- TODO: get success data
+        next.registerResult; // 1- TODO: get success data
         appRouter.replaceAll([const MainRoute()]);
         break;
       case RegisterScreenPresenterState.error:
-        final error = next.registerResult
-            .error; // 1- TODO: best way to get error text from presenter
+        final error = next.error;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(error.toString()),
