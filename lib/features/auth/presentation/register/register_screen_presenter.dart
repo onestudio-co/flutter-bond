@@ -12,7 +12,7 @@ import 'register_request_provider.dart';
 // 3- TODO: how to test this logic
 final registerScreenPresenter =
     ChangeNotifierProvider.autoDispose<RegisterScreenPresenter>(
-  (ref) => RegisterScreenPresenter(rif),
+  (ref) => RegisterScreenPresenter(),
 );
 
 enum RegisterScreenPresenterState { initial, loading, success, error }
@@ -51,7 +51,7 @@ class RegisterScreenPresenter extends ChangeNotifier {
     required String name,
     required String password,
     required String passwordConfirmation,
-  }) {
+  }) async {
     _isNameValid = Validator.isFullNameValid(name);
     _isEmailValid = Validator.isEmailValid(email);
     _isPasswordValid = Validator.isPasswordValid(password);
@@ -68,25 +68,14 @@ class RegisterScreenPresenter extends ChangeNotifier {
         name: name,
         passwordConfirmation: passwordConfirmation,
       );
-      final requestProvider = ref.watch(registerRequestProvider(userDto));
-
-      requestProvider.when(
-        data: (data) {
-          log(' RegisterScreenPresenterState.success');
-          _registerState = RegisterScreenPresenterState.success;
-          registerResult = data;
-        },
-        error: (error, stackTrace) {
-          log(' RegisterScreenPresenterState.error');
-          _registerState = RegisterScreenPresenterState.error;
-          registerResult = AsyncValue.error(error, stackTrace);
-        },
-        loading: () {
-          log(' RegisterScreenPresenterState.loading');
-          _registerState = RegisterScreenPresenterState.loading;
-          registerResult = const AsyncValue.loading();
-        },
-      );
+      final response = await ref.watch(registerRequestProvider(userDto).future);
+      response.fold((left) {
+        log(' RegisterScreenPresenterState.success');
+        _registerState = RegisterScreenPresenterState.success;
+      }, (right) {
+        log(' RegisterScreenPresenterState.error');
+        _registerState = RegisterScreenPresenterState.error;
+      });
     }
     notifyListeners();
   }
