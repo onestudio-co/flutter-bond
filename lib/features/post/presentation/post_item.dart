@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../data/models/post.dart';
@@ -11,7 +13,7 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => context.pushRoute(PostDetailsRoute(post: post)),
         child: Hero(
           tag: post.urls.regular,
           child: ClipRRect(
