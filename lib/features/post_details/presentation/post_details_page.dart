@@ -1,4 +1,5 @@
 import 'package:bond/features/post/data/models/post.dart';
+import 'package:bond/features/post_details/presentation/widgets/share_button.dart';
 import 'package:flutter/material.dart';
 
 class PostDetailsPage extends StatelessWidget {
@@ -10,6 +11,11 @@ class PostDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(post.author.name),
+        actions: [
+          ShareButton(
+            onShare: () {},
+          )
+        ],
       ),
       body: SizedBox(
         height: double.maxFinite,
