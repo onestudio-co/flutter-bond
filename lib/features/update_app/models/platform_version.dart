@@ -9,8 +9,9 @@ class PlatformVersion {
     required this.maxVersion,
     required this.message,
   });
-
+  @JsonKey(name: 'min_version')
   final int minVersion;
+  @JsonKey(name: 'max_version')
   final int maxVersion;
   final String message;
 

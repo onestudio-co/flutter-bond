@@ -40,17 +40,18 @@ class UpdateAppService {
   }
 
   void showSoftUpdate() {
-    final String jsonString =
-    FirebaseRemoteConfig.instance.getString('appCurrentVersion');
-    CurrentVersion? remoteConfigVersion =
-    CurrentVersion.fromJson(json.decode(jsonString));
+    final jsonString =
+        remoteConfig.getString('appCurrentVersion');
+    final remoteConfigVersion =
+        CurrentVersion.fromJson(json.decode(jsonString));
     final currentVersion = int.tryParse(packageInfo.buildNumber) ?? 0;
     final isSoftUpdateApp = checkSoftUpdate(
       currentVersion,
       remoteConfigVersion.platformVersion,
     );
-    if(isSoftUpdateApp) {
-      sl<AppRouter>().push(SoftUpdateRoute(message: remoteConfigVersion.message));
+    if (isSoftUpdateApp) {
+      sl<AppRouter>()
+          .push(SoftUpdateRoute(message: remoteConfigVersion.message));
     }
   }
 

@@ -8,14 +8,14 @@ part of 'platform_version.dart';
 
 PlatformVersion _$PlatformVersionFromJson(Map<String, dynamic> json) =>
     PlatformVersion(
-      minVersion: json['minVersion'] as int,
-      maxVersion: json['maxVersion'] as int,
+      minVersion: json['min_version'] as int,
+      maxVersion: json['max_version'] as int,
       message: json['message'] as String,
     );
 
 Map<String, dynamic> _$PlatformVersionToJson(PlatformVersion instance) =>
     <String, dynamic>{
-      'minVersion': instance.minVersion,
-      'maxVersion': instance.maxVersion,
+      'min_version': instance.minVersion,
+      'max_version': instance.maxVersion,
       'message': instance.message,
     };
