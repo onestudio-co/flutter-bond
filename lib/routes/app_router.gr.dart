@@ -63,6 +63,16 @@ class _$AppRouter extends RootStackRouter {
         barrierDismissible: false,
       );
     },
+    PostDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<PostDetailsRouteArgs>();
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: PostDetailsPage(
+          post: args.post,
+          key: args.key,
+        ),
+      );
+    },
     NotificationsRoute.name: (routeData) {
       final args = routeData.argsAs<NotificationsRouteArgs>();
       return MaterialPageX<dynamic>(
@@ -131,6 +141,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           SoftUpdateRoute.name,
           path: '/soft-update-page',
+        ),
+        RouteConfig(
+          PostDetailsRoute.name,
+          path: '/post-details-page',
         ),
         RouteConfig(
           NotificationsRoute.name,
@@ -242,6 +256,40 @@ class SoftUpdateRouteArgs {
   @override
   String toString() {
     return 'SoftUpdateRouteArgs{key: $key, message: $message}';
+  }
+}
+
+/// generated route for
+/// [PostDetailsPage]
+class PostDetailsRoute extends PageRouteInfo<PostDetailsRouteArgs> {
+  PostDetailsRoute({
+    required Post post,
+    Key? key,
+  }) : super(
+          PostDetailsRoute.name,
+          path: '/post-details-page',
+          args: PostDetailsRouteArgs(
+            post: post,
+            key: key,
+          ),
+        );
+
+  static const String name = 'PostDetailsRoute';
+}
+
+class PostDetailsRouteArgs {
+  const PostDetailsRouteArgs({
+    required this.post,
+    this.key,
+  });
+
+  final Post post;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'PostDetailsRouteArgs{post: $post, key: $key}';
   }
 }
 
