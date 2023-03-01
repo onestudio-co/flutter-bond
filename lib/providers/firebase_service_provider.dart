@@ -1,6 +1,8 @@
 import 'package:bond/app/default_firebase_options.dart';
+import 'package:bond/core/integration/dynamic_links_service.dart';
 import 'package:bond/features/update_app/models/update_app_default_value.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
@@ -27,5 +29,7 @@ class FirebaseServiceProvider extends ServiceProvider {
         )
         ..setDefaults(UpdateAppDefaultValue.defaultParameters),
     );
+    it.registerFactory(() => FirebaseDynamicLinks.instance);
+    it.registerFactory(() => DynamicLinksService(firebaseDynamicLinks: it()));
   }
 }

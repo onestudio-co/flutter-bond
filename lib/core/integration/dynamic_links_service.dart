@@ -6,7 +6,11 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:one_studio_core/core.dart';
 
 class DynamicLinksService {
-  static Future<String> createDynamicLink(String type, String parameter) async {
+  DynamicLinksService({required this.firebaseDynamicLinks});
+
+  FirebaseDynamicLinks firebaseDynamicLinks;
+
+  Future<String> createDynamicLink(String type, String parameter) async {
     String uriPrefix = 'https://onestudiobond.page.link';
 
     final DynamicLinkParameters parameters = DynamicLinkParameters(
@@ -21,7 +25,7 @@ class DynamicLinksService {
     );
 
     final ShortDynamicLink shortDynamicLink =
-        await FirebaseDynamicLinks.instance.buildShortLink(
+        await firebaseDynamicLinks.buildShortLink(
       parameters,
     );
     final Uri shortUrl = shortDynamicLink.shortUrl;
@@ -29,15 +33,15 @@ class DynamicLinksService {
     return shortUrl.toString();
   }
 
-  static void initDynamicLinks() async {
-    await Future.delayed(const Duration(seconds: 2));
-    final PendingDynamicLinkData? data =
-        await FirebaseDynamicLinks.instance.getInitialLink();
-    if (appRouter.stack.isEmpty) {
-      _handleDynamicLink(data);
-    }
+  void getDynamicLinks() async {
+    final data = await firebaseDynamicLinks.getInitialLink();
+    _handleDynamicLink(data);
 
-    FirebaseDynamicLinks.instance.onLink.listen((PendingDynamicLinkData? data) {
+    listenOnFirebaseDynamicLink();
+  }
+
+  void listenOnFirebaseDynamicLink() {
+    firebaseDynamicLinks.onLink.listen((PendingDynamicLinkData? data) {
       _handleDynamicLink(data);
       return;
     }).onError((error) {});
