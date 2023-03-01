@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bond/core/utils/validator.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/dto/user_dto.dart';
@@ -63,20 +61,19 @@ class RegisterScreenPresenter extends ChangeNotifier {
         _isPasswordConfirmationValid;
 
     if (isValid) {
-      _registerState = RegisterScreenPresenterState.loading;
       final userDto = UserDto(
         email: email,
         password: password,
         name: name,
         passwordConfirmation: passwordConfirmation,
       );
+      _registerState = RegisterScreenPresenterState.loading;
+      notifyListeners();
       final response = await ref.watch(registerRequestProvider(userDto).future);
       response.fold((left) {
-        log(' RegisterScreenPresenterState.success');
         _registerState = RegisterScreenPresenterState.success;
         registerResult = left;
       }, (right) {
-        log(' RegisterScreenPresenterState.error');
         _registerState = RegisterScreenPresenterState.error;
         error = right;
       });

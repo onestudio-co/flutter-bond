@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_widgets.dart';
 import 'package:bond/core/resources/app_assets.dart';
@@ -120,16 +118,13 @@ class RegisterPage extends HookConsumerWidget {
     RegisterScreenPresenter? previous,
     RegisterScreenPresenter next,
   ) {
-    log('test previous state is : ${previous?.state.name}');
-    log('test state is : ${next.state.name}');
     switch (next.state) {
       case RegisterScreenPresenterState.initial:
         break;
       case RegisterScreenPresenterState.loading:
-        log('RegisterScreenPresenterState.loading');
         break;
       case RegisterScreenPresenterState.success:
-        next.registerResult; // 1- TODO: get success data
+        next.registerResult;
         appRouter.replaceAll([const MainRoute()]);
         break;
       case RegisterScreenPresenterState.error:
