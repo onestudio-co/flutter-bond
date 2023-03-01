@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bond/dynamic_links_service.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/datasource/auth_http_client.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -59,6 +60,7 @@ class RunAppTasks extends RunTasks {
         await sl<AuthHttpClient>().updateToken(body);
       }
     }
+    DynamicLinksService.initDynamicLinks();
   }
 
   @override
