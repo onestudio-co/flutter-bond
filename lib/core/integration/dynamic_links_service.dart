@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:bond/core/integration/dynamic_link_handler.dart';
 import 'package:bond/features/post/data/models/post.dart';
+import 'package:bond/features/post_details/presentation/dynamic_link_handler/post_link_handler.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:one_studio_core/core.dart';
@@ -47,20 +49,18 @@ class DynamicLinksService {
     }).onError((error) {});
   }
 
-  static Future<void> _handleDynamicLink(PendingDynamicLinkData? data) async {
+  final List<DynamicLinkHandler> handlers = [PostDynamicLinkHandler()];
+
+  Future<void> _handleDynamicLink(PendingDynamicLinkData? data) async {
     if (data == null) {
       return;
     }
     final Uri deepLink = data.link;
-    if (deepLink.queryParameters['type'] == 'post') {
-      String credentials = deepLink.queryParameters['data'] ?? '';
-      Codec<String, String> stringToBase64 = utf8.fuse(base64);
-      String decoded = stringToBase64.decode(credentials);
-      Post post = Post.fromJson(jsonDecode(decoded));
-      if (sl<AppRouter>().currentPath == '/post-details-page') {
+    for (final handler in handlers) {
+      if (handler.canHandle(deepLink)) {
+        await handler.handle(deepLink);
         return;
       }
-      appRouter.push(PostDetailsRoute(post: post));
     }
   }
 }
