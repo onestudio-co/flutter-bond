@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:bond/core/integration/dynamic_link_handler.dart';
-import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond/features/post_details/presentation/dynamic_link_handler/post_link_handler.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:one_studio_core/core.dart';
 
 class DynamicLinksService {
   DynamicLinksService({required this.firebaseDynamicLinks});
@@ -49,6 +44,7 @@ class DynamicLinksService {
     }).onError((error) {});
   }
 
+  ///TODO refactor it
   final List<DynamicLinkHandler> handlers = [PostDynamicLinkHandler()];
 
   Future<void> _handleDynamicLink(PendingDynamicLinkData? data) async {
