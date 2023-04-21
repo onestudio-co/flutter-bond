@@ -19,8 +19,6 @@ First, configure your API service provider and `Dio` instance. This example uses
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-final sl = GetIt.instance;
-
 class ApiServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
@@ -130,13 +128,10 @@ class Metadata {
   Map<String, dynamic> toJson() => _$MetadataToJson(this);
 }
 
-final userFactory = (json) => User.fromJson(json);
-final errorFactory = (json) => MyApiError.fromJson(json);
-
 final userListMResponse = await bondFire.get<ListMResponse<User, Metadata>>('/users')
   .cache(duration: Duration(minutes: 10), cacheKey: 'user_list')
   .factory(ListMResponse<User, Metadata>.fromJson)
-  .errorFactory(errorFactory)
+  .errorFactory(MyApiError.fromJson)
   .execute();
 
 print("User list: ${userListMResponse.data}");
@@ -169,7 +164,7 @@ try {
   final userListMResponse = await bondFire.get<ListMResponse<User, Metadata>>('/users')
     .cache(duration: Duration(minutes: 10), cacheKey: 'user_list')
     .factory(ListMResponse<User, Metadata>.fromJson)
-    .errorFactory(errorFactory)
+    .errorFactory(ServerError.fromJson)
     .execute();
 } on MyApiError catch (error) {
   print('Custom API Error: ${error.message}');
