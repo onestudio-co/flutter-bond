@@ -37,6 +37,6 @@ class ApiServiceProvider extends ServiceProvider {
       );
     }
     it.registerLazySingleton(() => dio);
-    it.registerLazySingleton(() => ApiClient(it()));
+    it.registerLazySingleton(() => BondFire());
   }
 }

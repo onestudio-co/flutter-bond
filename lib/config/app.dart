@@ -22,3 +22,8 @@ final List<ServiceProvider> providers = [
   // Modules Service Providers
   PostServiceProvider(),
 ];
+
+// why we new a flutter bond framework
+// flutter bond solutions
+// bond components and packages
+// whats next

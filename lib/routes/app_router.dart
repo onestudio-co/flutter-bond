@@ -13,7 +13,6 @@ import 'package:bond/routes/router_helpers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:one_studio_core/core.dart';
 
-import '../features/collections/presentation/collections_page.dart';
 import '../features/main/presentation/main_page.dart';
 import '../features/main/routes.dart';
 import '../features/more/presentation/more_page.dart';

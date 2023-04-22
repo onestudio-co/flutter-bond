@@ -25,7 +25,6 @@ class _MainPageState extends State<MainPage> {
     return AutoTabsScaffold(
       routes: const [
         HomeRoute(),
-        CollectionsRoute(),
         MoreRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {

@@ -89,12 +89,6 @@ class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const HomePage()),
       );
     },
-    CollectionsRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const CollectionsPage(),
-      );
-    },
     MoreRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -112,11 +106,6 @@ class _$AppRouter extends RootStackRouter {
             RouteConfig(
               HomeRoute.name,
               path: 'home-page',
-              parent: MainRoute.name,
-            ),
-            RouteConfig(
-              CollectionsRoute.name,
-              path: 'collections-page',
               parent: MainRoute.name,
             ),
             RouteConfig(
@@ -337,18 +326,6 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
-}
-
-/// generated route for
-/// [CollectionsPage]
-class CollectionsRoute extends PageRouteInfo<void> {
-  const CollectionsRoute()
-      : super(
-          CollectionsRoute.name,
-          path: 'collections-page',
-        );
-
-  static const String name = 'CollectionsRoute';
 }
 
 /// generated route for

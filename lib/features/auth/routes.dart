@@ -1,9 +1,14 @@
+library auth_routes;
+
 import 'package:auto_route/annotations.dart';
 
-import 'presentation/login/login_page.dart';
-import 'presentation/register/register_page.dart';
+import 'presentation/login_page.dart';
+import 'presentation/register_page.dart';
+
+export 'presentation/login_page.dart';
+export 'presentation/register_page.dart';
 
 const authRoutes = <AutoRoute>[
-  AutoRoute<bool>(page: LoginPage ,initial: true),
+  AutoRoute<bool>(page: LoginPage, initial: true),
   AutoRoute(page: RegisterPage),
 ];

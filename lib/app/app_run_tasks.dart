@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond/features/auth/data/datasource/auth_http_client.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -34,8 +33,7 @@ class RunAppTasks extends RunTasks {
         importance: Importance.max,
       );
 
-      final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-          FlutterLocalNotificationsPlugin();
+      final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
       await flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
@@ -56,7 +54,7 @@ class RunAppTasks extends RunTasks {
           'device_type': getDeviceType(),
           'token': fcmToken,
         }..removeWhere((key, value) => value == null);
-        await sl<AuthHttpClient>().updateToken(body);
+        // await sl<AuthHttpClient>().updateToken(body);
       }
     }
   }

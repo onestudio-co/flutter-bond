@@ -591,10 +591,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_screenutil
-      sha256: "8e049ecdc1a62c90e6bf0e9c8398ace8dde81b92889c70cfe06281d79d59113a"
+      sha256: "0a122936b450324cbdfd51be0819cc6fcebb093eb65585e9cd92263f7a1a8a39"
       url: "https://pub.dev"
     source: hosted
-    version: "5.6.1"
+    version: "5.7.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -844,7 +844,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: bf9a2efad08035d30efebb97d7d2d81a4821aef2
+      resolved-ref: "4959f6ee99419cc5467dcafb9035e158b9bfc874"
       url: "https://github.com/onestudio-co/one-studio-core.git"
     source: git
     version: "0.0.0"

@@ -59,7 +59,7 @@ class BondPopMenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, Menu item) {
     final appBloc = context.read<AppBloc>();
-    final logoutCubit = context.read<LogoutCubit?>();
+    // final logoutCubit = context.read<LogoutCubit?>();
     switch (item) {
       case Menu.theme:
         final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light
@@ -74,7 +74,7 @@ class BondPopMenuButton extends StatelessWidget {
         appBloc.add(ChangeLocaleEvent(newLocale));
         break;
       case Menu.logout:
-        logoutCubit?.logout();
+        // logoutCubit?.logout();
         break;
       case Menu.notifications:
         context.router.push(
