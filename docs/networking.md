@@ -212,6 +212,18 @@ userListStream.listen((userListResponse) {
 });
 ```
 
+### Cache custom keys
+FireBond allows you to cache custom keys from the API response. To cache custom keys, pass a map of custom keys to the cacheCustomKeys method:
+
+```dart
+  Future<UserApiResult> anonymousLogin() => _bondFire
+      .post<UserApiResult>('users/anonymous-login')
+      .factory(UserApiResult.fromJson)
+      .errorFactory(ServerError.fromJson)
+      .cacheCustomKey('token', path: 'meta.token')
+      .cacheCustomKey('user', path: 'data')
+      .execute();
+```
 ## Conclusion
 
 BondFire makes it easy to manage API requests in your Flutter application with a straightforward and flexible interface. With built-in support for caching, error handling, and serialization, BondFire provides a powerful and convenient way to interact with your RESTful APIs. Implementing BondFire in your project can help streamline your API interactions and improve overall code quality.
