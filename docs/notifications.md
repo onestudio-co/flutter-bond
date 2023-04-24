@@ -2,13 +2,6 @@
 
 Beacon is a versatile and efficient notification handling system for both remote and local notifications in your application. It streamlines the process of managing notifications by providing a clear structure and customizable implementation. In this README, you will learn how to use Beacon in your project.
 
-## Table of Contents
-
- -   Configuration
- -   Creating Notification Providers
- -   Registering Notification Providers
- -   Handling Notifications
- -   Example Implementation
  
 ## Configuration
 
