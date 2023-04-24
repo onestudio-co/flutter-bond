@@ -67,7 +67,7 @@ class OrderServiceProvider extends ServiceProvider
 
 ## Handling Notifications
 
-1.  create new file for push notifcation , implement the `onNotification` and `onNotificationTapped` methods to handle the desired actions when a notification is received or tapped.
+create new file for push notifcation , implement the `onNotification` and `onNotificationTapped` methods to handle the desired actions when a notification is received or tapped.
 
 
 ```dart
