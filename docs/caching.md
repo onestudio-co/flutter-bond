@@ -79,6 +79,8 @@ class User with Jsonable {
   User({required this.id, required this.name});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  
+  @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
 ```
@@ -92,8 +94,8 @@ flutter packages pub run build_runner build
 2. When caching a custom object, simply pass it as the value to the `put` method:
 
 ```dart
-User myUser = User(id: '123', name: 'John Doe');
-await Cache.put('user_key', myUser');
+final myUser = User(id: '123', name: 'John Doe');
+await Cache.put('user_key', myUser);
 ```
 
 3. When retrieving a custom object, provide the `fromJson` factory method as a parameter to the `get` method:
