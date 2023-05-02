@@ -4,6 +4,18 @@ Cache is a flexible and extensible caching library for Flutter applications. It 
 
 ## Documentation
 
+
+1. [Documentation](#documentation)
+   - [Cache](#cache-1)
+   - [CacheDriver](#cachedriver)
+   - [Cache Drivers](#cache-drivers)
+   - [Creating a New Cache Driver](#creating-a-new-cache-driver)
+2. [Example](#example)
+3. [Caching and Retrieving Custom Objects with Jsonable Mixin](#caching-and-retrieving-custom-objects-with-jsonable-mixin)
+4. [Contributing](#contributing)
+
+You can use this index as a table of contents to help readers navigate through the documentation.
+
 ### Cache
 
 The `Cache` class includes all the functions to control cache:
