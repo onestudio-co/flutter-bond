@@ -48,6 +48,7 @@ dependencies:
   timeago: ^3.3.0
   envied: ^0.3.0
   args: ^2.3.1
+  mason_cli: ^0.1.0-dev.50
 
 
   # platforms packages
