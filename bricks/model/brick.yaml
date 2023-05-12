@@ -1,0 +1,12 @@
+name: model
+description: A new model brick
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.49 <0.1.0"
+
+vars:
+  name:
+    type: string
+    description: Model name
+    prompt: What is the model name?
