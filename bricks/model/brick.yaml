@@ -10,3 +10,8 @@ vars:
     type: string
     description: Model name
     prompt: What is the model name?
+  j:
+    type: boolean
+    description: Generate a JSON serializer
+    default: true
+    prompt: Generate a JSON serializer?[Y/N]

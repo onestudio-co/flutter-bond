@@ -51,3 +51,4 @@ lib/app/environments/env.g.dart
 lib/app/environments/env_staging.g.dart
 
 .mason
+mason-lock.json

@@ -15,4 +15,7 @@
 ### 2. To create a new model
 ``` mason make model --name <model_name> ```
 
-This will create a new model in the `lib/models` directory.
+This will create a new model in the `lib/features/feature_name/data/models` directory.
+
+### 3. To create a new model with a JsonSerializable
+``` mason make model --name <model_name> --j true ```
