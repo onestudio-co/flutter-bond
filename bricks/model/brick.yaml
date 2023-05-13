@@ -15,3 +15,8 @@ vars:
     description: Generate a JSON serializer
     default: true
     prompt: Generate a JSON serializer?[Y/N]
+  c:
+    type: boolean
+    description: Generate a copyWith method
+    default: true
+    prompt: Generate a copyWith?[Y/N]

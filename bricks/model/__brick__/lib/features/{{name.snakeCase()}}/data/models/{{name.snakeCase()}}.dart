@@ -15,4 +15,12 @@ part '{{name.snakeCase()}}.g.dart';
 
   @override
   Map<String, dynamic> toJson() => _${{name.pascalCase()}}ToJson(this);
-{{/j}}}
+  {{/j}}{{#c}}
+  {{name.pascalCase()}} copyWith({
+    int? id,
+  }) {
+    return {{name.pascalCase()}}(
+      id: id ?? this.id,
+    );
+  }{{/c}}
+}

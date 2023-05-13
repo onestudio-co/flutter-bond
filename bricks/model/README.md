@@ -19,3 +19,6 @@ This will create a new model in the `lib/features/feature_name/data/models` dire
 
 ### 3. To create a new model with a JsonSerializable
 ``` mason make model --name <model_name> --j true ```
+
+### 4. To create a new model with a copyWith method
+``` mason make model --name <model_name> --c true ```
