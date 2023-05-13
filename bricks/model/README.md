@@ -22,3 +22,17 @@ This will create a new model in the `lib/features/feature_name/data/models` dire
 
 ### 4. To create a new model with a copyWith method
 ``` mason make model --name <model_name> --c true ```
+
+### 5. To create a new model with a JsonSerializable and copyWith method
+``` mason make model --name <model_name> --j true --c true ```
+
+## This is the structure of the model directory 📁
+``` 
+lib
+└── features
+    └── feature_name
+        └── data
+            └── models
+                ├── model_name.dart
+                └── model_name.g.dart
+```
