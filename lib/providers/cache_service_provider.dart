@@ -1,5 +1,7 @@
 import 'dart:core';
 
+import 'package:bond/core/cache/secure_storage_cache_driver.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:one_studio_core/core.dart';
 
@@ -20,6 +22,12 @@ class CacheServiceProvider extends ServiceProvider {
           it.registerFactory<CacheDriver>(
             InMemoryCacheDriver.new,
             instanceName: 'in_memory',
+          );
+        } else if (value['driver'] == 'secure_cache') {
+          it.registerFactory<CacheDriver>(
+            SecureStorageCacheDriver(const FlutterSecureStorage())
+                as FactoryFunc<CacheDriver>,
+            instanceName: 'secure_cache',
           );
         }
       }

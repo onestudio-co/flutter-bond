@@ -1,3 +1,4 @@
+import 'package:bond/core/cache/secure_storage_cache_driver.dart';
 import 'package:one_studio_core/core.dart';
 
 class CacheConfig {
@@ -11,6 +12,10 @@ class CacheConfig {
     'in_memory': {
       'driver': 'in_memory',
       'class': InMemoryCacheDriver,
+    },
+    'secure_cache': {
+      'driver': 'secure_cache',
+      'class': SecureStorageCacheDriver,
     },
   };
 }
