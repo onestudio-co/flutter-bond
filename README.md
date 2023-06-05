@@ -1,42 +1,47 @@
-# Fahman
+# Bond
 
-![image](https://github.com/onestudio-co/flutter-bond/assets/17902030/56753876-84d3-4529-bd4d-4b0493cc9316)
+[![Build](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml/badge.svg)](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml)
 
-Fahman is a mobile application that assists users in interpreting their dreams using artificial intelligence. The application prompts the user for details about their dream, along with additional necessary details, and then analyzes this data to provide a logical interpretation of the dream.
+Flutter Bond is the public One Studio's template for all internals Flutter apps. You are welcome to use this template for your project as well, and more than welcome to contribute to make it even better.
 
-This application is built using Flutter with the [flutter_bond](https://github.com/onestudio-co/flutter-bond) Flutter Bond is a public One Studio's template for all internals Flutter apps. It is a Work In Progress mini framework inspired by Clean Architecture, many past projects features and limitations, and some ideas from the Laravel ecosystem.
-
-For ad monetization, the Appodeal SDK is used.
-
-## Features
-
-- Dream interpretation based on user inputs
-- Ad integration for monetization
-- Multi-platform support (Android, iOS)
+Noting that this is a Work In Progress mini framework insperied by Clean Architecture, Many past projects features and limitations, and some ideas from the Laravel ecosystem.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+This project is a starting point for a Flutter application.
 
-### Prerequisites
+A few resources to get you started if this is your first Flutter project:
 
-What things you need to install the software and how to install them:
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-- Flutter SDK
-- Dart
-- Android Studio and Xcode
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
-### Installation
+# Detailed docs:
 
-- Clone the repository: `git clone https://github.com/yourusername/fahman.git`
-- Move into the project directory: `cd fahman`
-- Install dependencies: `flutter pub get`
-- To run the project: `flutter run --flavor staging`
+* [Flavors](https://github.com/onestudio-co/flutter-bond/blob/main/docs/flavors.md)
+* [App Launcher](https://github.com/onestudio-co/flutter-bond/blob/main/docs/launcher.md)
+* [Themes](https://github.com/onestudio-co/flutter-bond/blob/main/docs/themes.md)
+* [Firebase Integration](https://github.com/onestudio-co/flutter-bond/blob/main/docs/firebase.md)
+* [Analytics](https://github.com/onestudio-co/flutter-bond/blob/main/docs/analytics.md)
+* Localization
+* Futures samples
+* [Change App Package Name](https://github.com/onestudio-co/flutter-bond/blob/main/docs/change_app_name.md)
 
-## Testing
+# To be documented:
 
-To run the test suite, use: `flutter test`
-
-## Deployment
-
-Createing tag will trigger code magic to deploy new version to stores.
+* IoC & Service Provider
+* Config
+* Routing
+  * Guards
+* Rest API
+  * Meta
+  * Paggination
+* Authentication
+  * Customize user model
+  * Device information
+* App Bloc
+* Cache
+* Bond generator
