@@ -1,4 +1,4 @@
-import 'package:one_studio_core/core.dart' as core;
+import 'package:bond_core/core.dart' as core;
 
 import '../config/app.dart';
 

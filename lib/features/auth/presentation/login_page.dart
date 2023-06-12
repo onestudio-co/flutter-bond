@@ -4,7 +4,7 @@ import 'package:bond/core/widgets/bond_pop_menu/bond_pop_menu_button.dart';
 import 'package:bond/features/auth/presentation/views/login/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import 'views/login/new_account_view.dart';
 
 class LoginPage extends StatelessWidget {
@@ -43,20 +43,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _listenerOnLogin(BuildContext context, WidgetRef ref) {
-    // ref.listen<AsyncValue<SingleMResponse<User, UserMeta>?>>(
-    //     loginRequestProvider, (previous, next) {
-    //   if (next.value?.meta.token != null) {
-    //     context.router.replaceAll([const MainRoute()]);
-    //   } else if (next.hasError) {
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //         content: Text(context.localizations.field_login),
-    //       ),
-    //     );
-    //   }
-    // });
   }
 }

@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import 'home_app_bar.dart';
 import 'post_item.dart';

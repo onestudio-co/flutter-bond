@@ -3,7 +3,7 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/update_app/update_app_service.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

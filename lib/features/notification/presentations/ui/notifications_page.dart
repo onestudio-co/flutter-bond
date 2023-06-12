@@ -1,6 +1,6 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import 'widgets/notification_item.dart';
 

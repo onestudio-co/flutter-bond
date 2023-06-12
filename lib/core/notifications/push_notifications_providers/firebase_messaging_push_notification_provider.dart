@@ -1,5 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class FirebaseMessagingNotificationProvider extends PushNotificationProvider {
   final FirebaseMessaging _firebaseMessaging;

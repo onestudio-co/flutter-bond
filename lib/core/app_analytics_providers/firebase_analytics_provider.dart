@@ -1,7 +1,7 @@
+import 'package:bond_core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
-import 'package:one_studio_core/core.dart';
 
 class FirebaseAnalyticsProvider extends AnalyticsProvider {
   FirebaseAnalyticsProvider(this._firebaseAnalytics);
@@ -196,8 +196,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
         '$userPropertyKey, '
         'value: $value and value type: ${value.runtimeType}');
     if (value is DateTime) {
-      final DateFormat formatter =
-          DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+      final formatter = DateFormat("'~t'yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
       _firebaseAnalytics.setUserProperty(
           name: userPropertyKey, value: formatter.format(value));
     } else {
