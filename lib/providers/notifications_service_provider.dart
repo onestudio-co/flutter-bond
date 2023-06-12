@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:bond/core/app_notification_providers.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get_it/get_it.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import '../config/notification.dart';
 

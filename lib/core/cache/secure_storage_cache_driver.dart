@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class SecureStorageCacheDriver implements CacheDriver {
   final FlutterSecureStorage _flutterSecureStorage;

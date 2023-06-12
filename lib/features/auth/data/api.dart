@@ -1,5 +1,5 @@
 import 'package:bond/features/auth/auth.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import 'errors/validation_error.dart';
 
@@ -9,6 +9,13 @@ class AuthApi {
   final BondFire _bondFire;
 
   AuthApi(this._bondFire);
+
+  Future<User> me() => _bondFire
+      .get<User>('/users/me')
+      .cache(cacheKey: 'user', cachePolicy: CachePolicy.cacheThenNetwork)
+      .factory(User.fromJson)
+      .errorFactory(ServerError.fromJson)
+      .execute();
 
   Future<UserApiResult> anonymousLogin() => _bondFire
       .post<UserApiResult>('users/anonymous-login')

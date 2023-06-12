@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 part 'author.dart';
 part 'post.g.dart';
