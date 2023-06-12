@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:766000556009:android:99573bfe24c57357d0cd78",
         "android_client_info": {
-          "package_name": "sa.example.bond"
+          "package_name": "ps.app.bond"
         }
       },
       "oauth_client": [

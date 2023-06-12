@@ -1,4 +1,4 @@
-package com.example.bond
+package ps.app.bond
 
 import io.flutter.embedding.android.FlutterActivity
 

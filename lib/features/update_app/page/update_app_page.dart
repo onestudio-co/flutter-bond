@@ -67,7 +67,7 @@ class UpdateAppPage extends StatelessWidget {
     //TODO::CHANGE appStoreId
     OpenStore.instance.open(
       appStoreId: '6444267986',
-      androidAppBundleId: 'sa.example.bond',
+      androidAppBundleId: 'ps.app.bond',
     );
   }
 }

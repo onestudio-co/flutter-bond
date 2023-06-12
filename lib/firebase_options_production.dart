@@ -64,6 +64,6 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-bond-87485',
     storageBucket: 'flutter-bond-87485.appspot.com',
     iosClientId: '766000556009-mojgehr55p2350f1mno3lgjfnamak00t.apps.googleusercontent.com',
-    iosBundleId: 'sa.example.bond',
+    iosBundleId: 'ps.app.bond',
   );
 }
