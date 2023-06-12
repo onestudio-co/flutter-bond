@@ -1,21 +1,20 @@
+import 'package:bond/config/configs.dart';
 import 'package:bond/features/auth/auth.dart';
+import 'package:bond_core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:one_studio_core/core.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import '../config/api.dart';
 
 class ApiServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
     final baseOptions = BaseOptions(
-      connectTimeout: ApiConfig.connectTimeout,
-      sendTimeout: ApiConfig.sendTimeout,
-      receiveTimeout: ApiConfig.receiveTimeout,
-      receiveDataWhenStatusError: ApiConfig.receiveDataWhenStatusError,
-      baseUrl: ApiConfig.baseUrl,
+      connectTimeout: config('CONNECT_TIMEOUT'),
+      sendTimeout: config('SEND_TIMEOUT'),
+      receiveTimeout: config('RECEIVE_TIMEOUT'),
+      receiveDataWhenStatusError: config('RECEIVE_DATA_WHEN_STATUS_ERROR'),
+      baseUrl: config('API_BASE_URL'),
     );
     Api.extraHeaders = () {
       return {

@@ -1,5 +1,5 @@
 import 'package:bond/providers/notifications_service_provider.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import '../features/auth/auth_service_provider.dart';
 import '../features/post/post_service_provider.dart';
@@ -23,7 +23,10 @@ final List<ServiceProvider> providers = [
   PostServiceProvider(),
 ];
 
+// mason
+
 // why we new a flutter bond framework
 // flutter bond solutions
 // bond components and packages
 // whats next
+

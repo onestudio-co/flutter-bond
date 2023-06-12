@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:bond/core/cache/secure_storage_cache_driver.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import '../config/cache.dart';
 

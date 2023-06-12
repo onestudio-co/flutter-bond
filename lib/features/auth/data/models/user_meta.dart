@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 part 'user_meta.g.dart';
 @JsonSerializable(explicitToJson: true)
