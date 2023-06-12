@@ -1,6 +1,3 @@
-.env
-.env.staging
-
 # Miscellaneous
 *.class
 *.log
@@ -47,8 +44,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-lib/app/environments/env.g.dart
-lib/app/environments/env_staging.g.dart
 
 .mason
 mason-lock.json
+env.json
+env.staging.json
+/env.staging.json

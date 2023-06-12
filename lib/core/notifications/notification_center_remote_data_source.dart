@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
   final ApiClient _client;

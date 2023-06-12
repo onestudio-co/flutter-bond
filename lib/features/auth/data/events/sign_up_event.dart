@@ -1,4 +1,4 @@
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class SignUpEvent extends AnalyticsEvent with UserSignedUp {
   final int userId;
