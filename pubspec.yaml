@@ -33,8 +33,10 @@ dependencies:
   # serialization
   json_serializable: ^6.5.4
   json_annotation: ^4.7.0
+
+  #ui
   flutter_svg: ^1.0.3
-  google_fonts: ^3.0.1
+  google_fonts: ^5.0.0
 
   # state management
   bloc: ^8.0.2
