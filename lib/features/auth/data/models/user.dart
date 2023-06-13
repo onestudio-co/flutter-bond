@@ -4,10 +4,8 @@ import 'package:bond_core/core.dart';
 part 'user.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class User extends Model with Authenticable {
-  @override
+class User extends Model {
   final String? name;
-  @override
   final String? email;
 
   const User({
@@ -22,11 +20,5 @@ class User extends Model with Authenticable {
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
-  List<Object?> get props => [name, id, phone, email];
-
-  @override
-  String? get phone => null;
-
-  @override
-  DateTime? get verificationAt => null;
+  List<Object?> get props => [name, id, email];
 }

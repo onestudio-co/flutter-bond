@@ -10,6 +10,7 @@ class PostsApi {
   Future<ListResponse<Post>> posts() => _bondFire
       .get<ListResponse<Post>>('/posts?term=sky')
       .cache()
+      .header(Api.headers())
       .factory(ListResponse<Post>.fromJson)
       .errorFactory(ServerError.fromJson)
       .execute();
@@ -17,6 +18,7 @@ class PostsApi {
   Future<SingleResponse<Post>> random() => _bondFire
       .get<SingleResponse<Post>>('/posts?term=sky')
       .factory(SingleResponse<Post>.fromJson)
+      .header(Api.headers())
       .errorFactory(ServerError.fromJson)
       .execute();
 
@@ -25,6 +27,7 @@ class PostsApi {
       .cache()
       .queryParameters({'id': id})
       .factory(SingleResponse<Post>.fromJson)
+      .header(Api.headers())
       .errorFactory(ServerError.fromJson)
       .execute();
 }

@@ -9,6 +9,6 @@ export 'presentation/login_page.dart';
 export 'presentation/register_page.dart';
 
 const authRoutes = <AutoRoute>[
-  AutoRoute<bool>(page: LoginPage, initial: true),
+  AutoRoute<bool>(page: LoginPage),
   AutoRoute(page: RegisterPage),
 ];

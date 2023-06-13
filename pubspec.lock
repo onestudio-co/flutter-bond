@@ -78,7 +78,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "7c6d8967dea061d1cf5d9d3cff1685456a3b0489"
+      resolved-ref: f0a7a50874f72de244fa843488214b06092c50b6
       url: "https://github.com/onestudio-co/bond-core.git"
     source: git
     version: "0.0.1"
@@ -178,14 +178,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  cli_completion:
-    dependency: transitive
-    description:
-      name: cli_completion
-      sha256: "595b192451285749369e99b3c2fd9a9aea7d74ed1aba61cddeb9ad8c84a44812"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.0"
   cli_util:
     dependency: transitive
     description:
@@ -618,10 +610,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "8f099045e2f2a30e4d4d0a35f40c6bc941a8f2ca0e10ad9d214ee9edd3f37483"
+      sha256: db5efba8106bd784a92c96cfd81716f4e06baab54e37de858488e9a00a764cad
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "5.0.0"
   graphs:
     dependency: transitive
     description:
@@ -650,10 +642,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"
+      sha256: "4c3f04bfb64d3efd508d06b41b825542f08122d30bda4933fb95c069d22a4fa3"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.5"
+    version: "1.0.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -734,38 +726,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  mason:
-    dependency: transitive
-    description:
-      name: mason
-      sha256: c6c25b83c61c628fc9946be39f01291808342d8e8df75c61fc7b6a671bd0a8f8
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0-dev.49"
-  mason_api:
-    dependency: transitive
-    description:
-      name: mason_api
-      sha256: "91d6078610679e97c763fb77410c0eb8880d40d7016b3cb711f893a4859fd5c2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0-dev.10"
-  mason_cli:
-    dependency: "direct main"
-    description:
-      name: mason_cli
-      sha256: ee426089ea0df8053a288ffbc8a97810cd70ffa4d1a5461d0587d18151b6c4af
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0-dev.50"
-  mason_logger:
-    dependency: transitive
-    description:
-      name: mason_logger
-      sha256: ca34d14e998cd7a7738e7320b102aa45fb363aa49a290084b211ababf75bb7ee
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.5"
   matcher:
     dependency: transitive
     description:
@@ -807,14 +767,6 @@ packages:
       url: "https://github.com/danReynolds/modal_bottom_sheet.git"
     source: git
     version: "2.1.2"
-  mustache_template:
-    dependency: transitive
-    description:
-      name: mustache_template
-      sha256: a46e26f91445bfb0b60519be280555b06792460b27b19e2b19ad5b9740df5d1c
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   nested:
     dependency: transitive
     description:
@@ -843,10 +795,10 @@ packages:
     dependency: "direct main"
     description:
       name: package_info_plus
-      sha256: "10259b111176fba5c505b102e3a5b022b51dd97e30522e906d6922c745584745"
+      sha256: ceb027f6bc6a60674a233b4a90a7658af1aebdea833da0b5b53c1e9821a78c7b
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.2"
+    version: "4.0.2"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -999,14 +951,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  pub_updater:
-    dependency: transitive
-    description:
-      name: pub_updater
-      sha256: "42890302ab2672adf567dc2b20e55b4ecc29d7e19c63b6b98143ab68dd717d3a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.4"
   pubspec_parse:
     dependency: transitive
     description:
@@ -1349,5 +1293,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=3.0.0-0 <4.0.0"
+  dart: ">=3.0.0 <4.0.0"
   flutter: ">=3.3.0"

@@ -101,7 +101,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           MainRoute.name,
-          path: '/main-page',
+          path: '/',
           children: [
             RouteConfig(
               HomeRoute.name,
@@ -117,7 +117,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           LoginRoute.name,
-          path: '/',
+          path: '/login-page',
         ),
         RouteConfig(
           RegisterRoute.name,
@@ -149,7 +149,7 @@ class MainRoute extends PageRouteInfo<void> {
   const MainRoute({List<PageRouteInfo>? children})
       : super(
           MainRoute.name,
-          path: '/main-page',
+          path: '/',
           initialChildren: children,
         );
 
@@ -162,7 +162,7 @@ class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
-          path: '/',
+          path: '/login-page',
         );
 
   static const String name = 'LoginRoute';

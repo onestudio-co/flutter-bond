@@ -3,7 +3,8 @@ import 'package:bond_core/core.dart';
 
 import 'errors/validation_error.dart';
 
-typedef UserApiResult = SingleMResponse<User, UserMeta>;
+typedef UserMApiResult = SingleMResponse<User, UserMeta>;
+typedef UserApiResult = SingleResponse<User>;
 
 class AuthApi {
   final BondFire _bondFire;
@@ -13,31 +14,32 @@ class AuthApi {
   Future<User> me() => _bondFire
       .get<User>('/users/me')
       .cache(cacheKey: 'user', cachePolicy: CachePolicy.cacheThenNetwork)
+      .header(Api.headers())
       .factory(User.fromJson)
       .errorFactory(ServerError.fromJson)
       .execute();
 
-  Future<UserApiResult> anonymousLogin() => _bondFire
-      .post<UserApiResult>('users/anonymous-login')
-      .factory(UserApiResult.fromJson)
+  Future<UserMApiResult> anonymousLogin() => _bondFire
+      .post<UserMApiResult>('users/anonymous-login')
+      .factory(UserMApiResult.fromJson)
       .errorFactory(ServerError.fromJson)
       .cacheCustomKey('token', path: 'meta.token')
       .cacheCustomKey('user', path: 'data')
       .execute();
 
-  Future<UserApiResult> login(Map<String, dynamic> body) => _bondFire
-      .post<UserApiResult>('/users/login')
+  Future<UserMApiResult> login(Map<String, dynamic> body) => _bondFire
+      .post<UserMApiResult>('/users/login')
       .body(body)
-      .factory(UserApiResult.fromJson)
+      .factory(UserMApiResult.fromJson)
       .errorFactory(ValidationError.fromJson)
       .cacheCustomKey('token', path: 'meta.token')
       .cacheCustomKey('user', path: 'data')
       .execute();
 
-  Future<UserApiResult> register(Map<String, dynamic> body) => _bondFire
-      .post<UserApiResult>('/users/register')
+  Future<UserMApiResult> register(Map<String, dynamic> body) => _bondFire
+      .post<UserMApiResult>('/users/register')
       .body(body)
-      .factory(UserApiResult.fromJson)
+      .factory(UserMApiResult.fromJson)
       .errorFactory(ValidationError.fromJson)
       .cacheCustomKey('token', path: 'meta.token')
       .cacheCustomKey('user', path: 'data')
@@ -45,12 +47,14 @@ class AuthApi {
 
   Future<SuccessResponse> logout() => _bondFire
       .post<SuccessResponse>('/users/logout')
+      .header(Api.headers())
       .factory(SuccessResponse.fromJson)
       .errorFactory(ServerError.fromJson)
       .execute();
 
   Future<SuccessResponse> updateToken(Map<String, dynamic> body) => _bondFire
       .post<SuccessResponse>('notifications/update-token')
+      .header(Api.headers())
       .body(body)
       .factory(SuccessResponse.fromJson)
       .errorFactory(ServerError.fromJson)

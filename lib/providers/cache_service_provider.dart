@@ -24,9 +24,9 @@ class CacheServiceProvider extends ServiceProvider {
             instanceName: 'in_memory',
           );
         } else if (value['driver'] == 'secure_cache') {
+          it.registerFactory(() => const FlutterSecureStorage());
           it.registerFactory<CacheDriver>(
-            SecureStorageCacheDriver(const FlutterSecureStorage())
-                as FactoryFunc<CacheDriver>,
+            () => SecureStorageCacheDriver(it()),
             instanceName: 'secure_cache',
           );
         }

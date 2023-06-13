@@ -53,13 +53,12 @@ dependencies:
   flutter_native_splash: ^2.2.8
   timeago: ^3.3.0
   args: ^2.3.1
-  mason_cli: ^0.1.0-dev.50
 
   # platforms packages
   universal_platform: ^1.0.0+1
   shared_preferences: ^2.0.15
   flutter_secure_storage: ^8.0.0
-  package_info_plus: ^3.0.2
+  package_info_plus: ^4.0.2
   flutter_local_notifications: ^9.3.3
 
   # Firebase
