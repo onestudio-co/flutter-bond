@@ -78,7 +78,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: a265aa08f7b6197328bf978d7a46c9cd077a9e6d
+      resolved-ref: "7c6d8967dea061d1cf5d9d3cff1685456a3b0489"
       url: "https://github.com/onestudio-co/bond-core.git"
     source: git
     version: "0.0.1"
@@ -278,10 +278,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: "7d328c4d898a61efc3cd93655a0955858e29a0aa647f0f9e02d59b3bb275e2e8"
+      sha256: a9d76e72985d7087eb7c5e7903224ae52b337131518d127c554b9405936752b8
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.6"
+    version: "5.2.1+1"
   equatable:
     dependency: "direct main"
     description:
@@ -971,10 +971,10 @@ packages:
     dependency: "direct main"
     description:
       name: pretty_dio_logger
-      sha256: "948f7eeb36e7aa0760b51c1a8e3331d4b21e36fabd39efca81f585ed93893544"
+      sha256: "00b80053063935cf9a6190da344c5373b9d0e92da4c944c878ff2fbef0ef6dc2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0-beta-1"
+    version: "1.3.1"
   process:
     dependency: transitive
     description:
@@ -1015,22 +1015,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
-  retrofit:
-    dependency: "direct main"
-    description:
-      name: retrofit
-      sha256: "9254ec985d5e26a839a9070ae25b98f0781c9c420e4241c5fb8b8965aa1fc7f2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.1"
-  retrofit_generator:
-    dependency: "direct dev"
-    description:
-      name: retrofit_generator
-      sha256: f5107e842e77ce71c63b995331b43d4597f71df9031389dd93a1197a00118d83
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.0"
   riverpod:
     dependency: transitive
     description:
@@ -1220,14 +1204,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  tuple:
-    dependency: transitive
-    description:
-      name: tuple
-      sha256: "0ea99cd2f9352b2586583ab2ce6489d1f95a5f6de6fb9492faaf97ae2060f0aa"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
   typed_data:
     dependency: transitive
     description:

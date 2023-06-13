@@ -18,7 +18,6 @@ dependencies:
       url: https://github.com/onestudio-co/bond-core.git
       ref: main
 
-
   get_it: ^7.2.0
   open_store: ^0.5.0
   modal_bottom_sheet:
@@ -28,9 +27,8 @@ dependencies:
 
 
   # network
-  dio: ^4.0.6
+  dio: ^5.2.1+1
   pretty_dio_logger: ^1.1.1
-  retrofit: '>=3.0.0 <4.0.0'
 
   # serialization
   json_serializable: ^6.5.4
@@ -78,7 +76,6 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   build_runner: ^2.3.2
   auto_route_generator: ^5.0.3
-  retrofit_generator: '>=4.0.0 <5.0.0'
   flutter_launcher_icons: ^0.10.0
   change_app_package_name: ^1.1.0
 
