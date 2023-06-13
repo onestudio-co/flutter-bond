@@ -8,13 +8,6 @@ import 'data/models/user_meta.dart';
 class AuthServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
-    it.registerLazySingleton(
-      () => AuthStore<User>(
-        it(),
-        User.fromJson,
-        (User user) => user.toJson(),
-      ),
-    );
     it.registerFactory(() => AuthApi(it()));
   }
 

@@ -10,15 +10,16 @@ class ApiServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
     final baseOptions = BaseOptions(
-      connectTimeout: config('CONNECT_TIMEOUT'),
-      sendTimeout: config('SEND_TIMEOUT'),
-      receiveTimeout: config('RECEIVE_TIMEOUT'),
+      connectTimeout: Duration(seconds: config('CONNECT_TIMEOUT')),
+      sendTimeout: Duration(seconds: config('SEND_TIMEOUT')),
+      receiveTimeout: Duration(seconds: config('RECEIVE_TIMEOUT')),
       receiveDataWhenStatusError: config('RECEIVE_DATA_WHEN_STATUS_ERROR'),
       baseUrl: config('API_BASE_URL'),
     );
     Api.extraHeaders = () {
+      final token = Auth.token();
       return {
-        'Authorization': 'Bearer ${sl<AuthStore<User>>().token}',
+        if (token != null) 'Authorization': 'Bearer $token',
       };
     };
     baseOptions.headers = Api.headers();
@@ -37,5 +38,6 @@ class ApiServiceProvider extends ServiceProvider {
     }
     it.registerLazySingleton(() => dio);
     it.registerLazySingleton(() => BondFire());
+    it.registerLazySingleton(() => ApiClient(it()));
   }
 }

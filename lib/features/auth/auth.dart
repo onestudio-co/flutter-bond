@@ -10,12 +10,32 @@ export 'data/models/user_meta.dart';
 export 'routes.dart';
 
 class Auth {
-  static bool check() => sl<AuthStore<User>>().hasToken;
+  static final Map<String, dynamic> _userData = {};
 
-  static User? user() => sl<AuthStore<User>>().user;
+  static Future<void> load() async {
+    if (await Cache.has('token')) {
+      final value = await Cache.get<String>('token');
+      _userData['token'] = value;
+    }
+    if (await Cache.has('user')) {
+      final value = await Cache.get<User>(
+        'user',
+        fromJsonFactory: User.fromJson,
+      );
+      _userData['user'] = value;
+    }
+  }
+
+  static bool check() => _userData.containsKey('token');
+
+  static User? user() => _userData['user'];
+
+  static String? token() => _userData['token'];
 
   static Future<User?> loginAnonymous() async {
     final response = await sl<AuthApi>().anonymousLogin();
+    _userData['token'] = response.meta.token;
+    _userData['user'] = response.data;
     return response.data;
   }
 }
