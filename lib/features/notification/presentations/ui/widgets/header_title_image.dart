@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 class HeaderTitleImage extends StatelessWidget {
   const HeaderTitleImage({

@@ -1,7 +1,7 @@
 library auth;
 
 import 'package:bond/features/auth/data/api.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import 'data/models/user.dart';
 

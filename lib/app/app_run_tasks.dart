@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:bond/features/auth/auth.dart';
+import 'package:bond_core/core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:one_studio_core/core.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 import 'injection_container.dart';
@@ -49,11 +49,11 @@ class RunAppTasks extends RunTasks {
           sl<PushNotificationProvider>(instanceName: 'firebase_messaging');
       final fcmToken = await firebaseMessaging.token;
       if (fcmToken != null) {
-        Map<String, String?> body = {
-          'device_id': await deviceIdInfo(),
-          'device_type': getDeviceType(),
-          'token': fcmToken,
-        }..removeWhere((key, value) => value == null);
+        // Map<String, String?> body = {
+        //   'device_id': await deviceIdInfo(),
+        //   'device_type': getDeviceType(),
+        //   'token': fcmToken,
+        // }..removeWhere((key, value) => value == null);
         // await sl<AuthHttpClient>().updateToken(body);
       }
     }

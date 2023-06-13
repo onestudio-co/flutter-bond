@@ -200,7 +200,7 @@ By following these steps, you can easily create and register new cache drivers t
 Here's a simple example of how to use the One Studio Core Cache:
 
 ```dart
-import 'package:one_studio_core/src/cache/cache.dart';
+import 'package:bond_core/src/cache/cache.dart';
 
 void main() async {
   // Store a value in the cache

@@ -5,7 +5,7 @@ import 'package:bond/features/auth/auth.dart';
 import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:one_studio_core/core.dart';
+import 'package:bond_core/core.dart';
 
 import 'bond_popup_menu_item.dart';
 

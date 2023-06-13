@@ -26,7 +26,7 @@ class LoginNotifier extends Notifier<LoginState> {
     };
 
     try {
-      final response = await authApi.login(body);
+      await authApi.login(body);
       appRouter.replaceAll([const MainRoute()]);
     } on ValidationError catch (validationError) {
       state = state
