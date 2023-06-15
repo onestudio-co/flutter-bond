@@ -64,6 +64,6 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-bond-staging',
     storageBucket: 'flutter-bond-staging.appspot.com',
     iosClientId: '1060161913171-dqkjiup8cs81e30id52dn0oevis694sh.apps.googleusercontent.com',
-    iosBundleId: 'sa.example.bond.staging',
+    iosBundleId: 'ps.app.bond.staging',
   );
 }
