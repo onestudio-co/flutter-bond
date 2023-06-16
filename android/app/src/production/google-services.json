@@ -31,46 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "766000556009-mojgehr55p2350f1mno3lgjfnamak00t.apps.googleusercontent.com",
+              "client_id": "766000556009-0u0bfplre3qmoe13fq7imp8e6528e4af.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "sa.example.bond"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:766000556009:android:99573bfe24c57357d0cd78",
-        "android_client_info": {
-          "package_name": "sa.example.bond"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "766000556009-bus1p8rgt7mmd8ij9g0nu8vbcioub8b8.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDfL8g3p3PmS3kUNPDxn5_RaKKDmFcZKKw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "766000556009-bus1p8rgt7mmd8ij9g0nu8vbcioub8b8.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "766000556009-mojgehr55p2350f1mno3lgjfnamak00t.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "sa.example.bond"
+                "bundle_id": "ps.app.bond"
               }
             }
           ]
