@@ -2,6 +2,7 @@ import 'package:bond/providers/notifications_service_provider.dart';
 import 'package:bond_core/core.dart';
 
 import '../features/auth/auth_service_provider.dart';
+import '../features/more/bond_chat_service_provider.dart';
 import '../features/post/post_service_provider.dart';
 import '../providers/analytics_service_provider.dart';
 import '../providers/api_service_provider.dart';
@@ -21,4 +22,5 @@ final List<ServiceProvider> providers = [
 
   // Modules Service Providers
   PostServiceProvider(),
+  BondChatServiceProvider(),
 ];

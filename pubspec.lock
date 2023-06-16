@@ -78,7 +78,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: d83375ffa32fc63ded1fc6a5df2984041725116a
+      resolved-ref: "055be5885b17b16bfdd59308c4c72a825082c9b0"
       url: "https://github.com/onestudio-co/bond-core.git"
     source: git
     version: "0.0.1"

@@ -20,11 +20,11 @@ class PostDetailsPage extends StatelessWidget {
       body: SizedBox(
         height: double.maxFinite,
         child: Hero(
-          tag: post.urls.regular,
+          tag: post.uuid,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              post.urls.smallS3,
+              post.urls.full,
               fit: BoxFit.fill,
             ),
           ),

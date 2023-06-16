@@ -15,7 +15,7 @@ class PostItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () => context.pushRoute(PostDetailsRoute(post: post)),
         child: Hero(
-          tag: post.urls.regular,
+          tag: post.uuid,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
