@@ -20,7 +20,7 @@ class RunAppTasks extends RunTasks {
     if (!(Auth.check())) {
       await Auth.loginAnonymous();
     }
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+//    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     FlutterNativeSplash.remove();
   }
 
