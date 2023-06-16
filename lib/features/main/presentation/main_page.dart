@@ -5,23 +5,11 @@ import 'package:bond/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:bond_core/core.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  @override
-  void initState() {
-    super.initState();
-    sl<UpdateAppService>().showSoftUpdate();
-  }
-
-  @override
   Widget build(BuildContext context) {
-
     return AutoTabsScaffold(
       routes: const [
         HomeRoute(),

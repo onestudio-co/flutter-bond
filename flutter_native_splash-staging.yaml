@@ -5,5 +5,5 @@ android_12:
   image: assets/images/splash_logo-staging.png
   color: "#F05D6E"
   icon_background_color: "#F05D6E"
-  web: false
+  web: true
 

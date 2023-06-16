@@ -8,3 +8,8 @@ flutter_launcher_icons:
   macos:
     generate: true
     image_path: "assets/icons/app-icon-staging.png"
+  web:
+    generate: true
+    image_path: "assets/icons/app-icon.png"
+    background_color: "#EB5C6C"
+    theme_color: "#F05D6E"
