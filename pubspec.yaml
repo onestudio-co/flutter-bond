@@ -62,11 +62,11 @@ dependencies:
   flutter_local_notifications: ^9.3.3
 
   # Firebase
-  firebase_analytics: ^10.0.6
-  firebase_core: ^2.3.0
-  firebase_messaging: ^14.1.1
-  firebase_crashlytics: ^3.0.6
-  firebase_remote_config: ^3.0.10
+  firebase_analytics: ^10.4.3
+  firebase_core: ^2.14.0
+  firebase_messaging: ^14.6.3
+  firebase_crashlytics: ^3.3.3
+  firebase_remote_config: ^4.2.3
 
   # localization
   intl: ^0.18.0

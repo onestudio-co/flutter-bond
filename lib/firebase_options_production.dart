@@ -28,10 +28,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -51,7 +48,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDfL8g3p3PmS3kUNPDxn5_RaKKDmFcZKKw',
-    appId: '1:766000556009:android:99573bfe24c57357d0cd78',
+    appId: '1:766000556009:android:5a55ed668d929522d0cd78',
     messagingSenderId: '766000556009',
     projectId: 'flutter-bond-87485',
     storageBucket: 'flutter-bond-87485.appspot.com',
@@ -59,11 +56,21 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDVvGOc_wPjffCwxy9BlL5kweFhp7-rfYg',
-    appId: '1:766000556009:ios:732934f0c9433eedd0cd78',
+    appId: '1:766000556009:ios:c008c663168299bed0cd78',
     messagingSenderId: '766000556009',
     projectId: 'flutter-bond-87485',
     storageBucket: 'flutter-bond-87485.appspot.com',
-    iosClientId: '766000556009-mojgehr55p2350f1mno3lgjfnamak00t.apps.googleusercontent.com',
+    iosClientId: '766000556009-0u0bfplre3qmoe13fq7imp8e6528e4af.apps.googleusercontent.com',
     iosBundleId: 'ps.app.bond',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDVvGOc_wPjffCwxy9BlL5kweFhp7-rfYg',
+    appId: '1:766000556009:ios:0106a631aa70de18d0cd78',
+    messagingSenderId: '766000556009',
+    projectId: 'flutter-bond-87485',
+    storageBucket: 'flutter-bond-87485.appspot.com',
+    iosClientId: '766000556009-or1qj1cqpll0vl08qshde7p68fjhe9bh.apps.googleusercontent.com',
+    iosBundleId: 'ps.app.flutterBond.staging',
   );
 }
