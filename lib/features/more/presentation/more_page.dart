@@ -1,6 +1,11 @@
+import 'dart:developer';
+
+import 'package:bond_core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'messages_views/bond_chat_bubble_decoration.dart';
+import 'messages_views/bond_chat_message_builder.dart';
 import 'providers/chat_provider.dart';
 
 class MorePage extends ConsumerWidget {
@@ -11,22 +16,38 @@ class MorePage extends ConsumerWidget {
     final chatController =
         ref.read(chatStateNotifierProvider.notifier).chatController;
     final chatState = ref.watch(chatStateNotifierProvider);
+    log('chatState: ${chatState.loading}');
     return Scaffold(
       appBar: AppBar(
         title: const Text("Chat"),
       ),
-      body: ListView.builder(
-        itemCount: chatState.messages.length,
-        itemBuilder: (context, index) {
-          final message = chatState.messages[index];
-          // Use your custom message widget here
-          return ListTile(title: Text(message.content));
+      body: ChatView(
+        controller: chatController,
+        state: chatState,
+        bubbleBuilder: (context, index, message) {
+          return ChatBubble(
+            index: index,
+            decoration: BondChatBubbleDecoration(),
+            message: message,
+            chatMessageBuilder: BondChatMessageBuilder(),
+          );
         },
+        typingIndicator: const ListTile(
+          title: Text("Bot is typing..."),
+        ),
+        inputView: TextField(
+          controller: chatController.messageController,
+          maxLines: 100,
+          minLines: 1,
+          decoration: const InputDecoration(
+            hintText: "Type a message",
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Send a message when the button is pressed
-          chatController.sendMessage({"text": "Hello, bot!"});
+          chatController.sendMessage();
         },
         child: const Icon(Icons.send),
       ),

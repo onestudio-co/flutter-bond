@@ -16,8 +16,9 @@ class BondChatApi extends ChatDataSource<BondChatMessage> {
       ),
       BondChatMessage(
         id: 2,
-        text: "What are you feeling today?",
-        type: "question",
+        text:
+            "I see, you want to provide more customization options for the TextField's appearance. You can provide properties like style, decoration, cursorColor, textCapitalization, etc., to customize its appearance",
+        type: "text",
         sender: "bot",
       ),
     ];
@@ -33,7 +34,7 @@ class BondChatApi extends ChatDataSource<BondChatMessage> {
 
     BondChatMessage userMessage = BondChatMessage(
       id: 4,
-      text: body["text"],
+      text: body["message"],
       type: "text",
       sender: "user",
     );
@@ -48,15 +49,32 @@ class BondChatApi extends ChatDataSource<BondChatMessage> {
     BondChatMessage botQuestionMessage = BondChatMessage(
       id: 6,
       text: "What is your gender?",
-      type: "question",
+      type: "multi_choice",
       sender: "bot",
-      options: const ["Male", "Female", "Other"],
+      options: const ["Male", "Female"],
+    );
+
+    BondChatMessage botOtherQuestionMessage = BondChatMessage(
+      id: 6,
+      text: "What is your food?",
+      type: "multi_choice",
+      sender: "bot",
+      options: const ["Cake", "Pizza", "Burger", "Pasta"],
+    );
+
+    BondChatMessage botStepperQuestionMessage = BondChatMessage(
+      id: 6,
+      text: "What is your age?",
+      type: "stepper",
+      sender: "bot",
     );
 
     List<BondChatMessage> messages = [
       userMessage,
       botMessage,
-      botQuestionMessage
+      botQuestionMessage,
+      botOtherQuestionMessage,
+      botStepperQuestionMessage,
     ];
 
     return ListResponse(data: messages);

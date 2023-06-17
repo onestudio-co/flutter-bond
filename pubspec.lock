@@ -78,7 +78,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "055be5885b17b16bfdd59308c4c72a825082c9b0"
+      resolved-ref: "4c1eff6b79ec748b443e5d592e37db669739799a"
       url: "https://github.com/onestudio-co/bond-core.git"
     source: git
     version: "0.0.1"
@@ -250,6 +250,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.8"
+  delayed_display:
+    dependency: transitive
+    description:
+      name: delayed_display
+      sha256: "8d722bb730071b872cef2bc0b07ef20549ebd269087a16ed1c5696896246c296"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   device_info:
     dependency: transitive
     description:

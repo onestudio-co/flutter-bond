@@ -44,8 +44,10 @@ extension BondMessageType on MessageType {
         return MessageType.text;
       case 'question':
         return MessageType.question;
-      case 'multi-choice':
+      case 'multi_choice':
         return MessageType.multiChoice;
+      case 'stepper':
+        return MessageType.stepper;
       default:
         throw ArgumentError('Invalid message type');
     }

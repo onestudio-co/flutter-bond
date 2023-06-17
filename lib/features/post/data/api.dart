@@ -8,7 +8,7 @@ class PostsApi {
   PostsApi(this._bondFire);
 
   Future<ListResponse<Post>> posts() => _bondFire
-      .get<ListResponse<Post>>('/posts?term=models')
+      .get<ListResponse<Post>>('/posts')
       .cache()
       .header(Api.headers())
       .factory(ListResponse<Post>.fromJson)
@@ -16,7 +16,7 @@ class PostsApi {
       .execute();
 
   Future<SingleResponse<Post>> random() => _bondFire
-      .get<SingleResponse<Post>>('/posts?term=models')
+      .get<SingleResponse<Post>>('/posts')
       .factory(SingleResponse<Post>.fromJson)
       .header(Api.headers())
       .errorFactory(ServerError.fromJson)
