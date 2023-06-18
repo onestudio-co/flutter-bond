@@ -12,7 +12,7 @@ class BondChatServiceProvider extends ServiceProvider {
 
   @override
   T? responseConvert<T>(Map<String, dynamic> json) {
-    if (T == ChatMessage) {
+    if (T == BondChatMessage) {
       return BondChatMessage.fromJson(json) as T;
     }
     return null;
