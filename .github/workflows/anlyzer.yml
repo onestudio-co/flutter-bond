@@ -1,0 +1,24 @@
+name: Anlyzer
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Run analysis
+        run: flutter analyze --no-pub
+
+      - name: Check analysis result
+        run: echo "::set-output name=analysis_success::${?}"
