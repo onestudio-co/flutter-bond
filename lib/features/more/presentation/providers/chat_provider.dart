@@ -1,5 +1,6 @@
-import 'package:bond/features/more/data/api.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond/features/more/data/models/bond_chat_message.dart';
+import 'package:bond_chat_bot/bond_chat_bot.dart';
+import 'package:bond_core/bond_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatStateNotifier extends StateNotifier<ChatState> {
@@ -18,13 +19,9 @@ class ChatStateNotifier extends StateNotifier<ChatState> {
   }
 }
 
-final chatControllerProvider = Provider<ChatController>((ref) {
-  final chatService = sl<BondChatApi>();
-  return ChatController(1, chatService);
-});
-
-final chatStateNotifierProvider =
-    StateNotifierProvider<ChatStateNotifier, ChatState>((ref) {
-  final chatController = ref.watch(chatControllerProvider);
+final chatStateNotifierProvider = StateNotifierProvider.family
+    .autoDispose<ChatStateNotifier, ChatState, int>((ref, chatBotId) {
+  final chatController =
+      sl<ChatController<BondChatMessage, BondChatMeta>>(param1: chatBotId);
   return ChatStateNotifier(chatController);
 });

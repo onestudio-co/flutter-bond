@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:bond_core/core.dart';
+import 'package:bond_chat_bot/bond_chat_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,9 +13,10 @@ class MorePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const int chatBotId = 1;
     final chatController =
-        ref.read(chatStateNotifierProvider.notifier).chatController;
-    final chatState = ref.watch(chatStateNotifierProvider);
+        ref.read(chatStateNotifierProvider(chatBotId).notifier).chatController;
+    final chatState = ref.watch(chatStateNotifierProvider(chatBotId));
     log('chatState: ${chatState.loading}');
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +48,9 @@ class MorePage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Send a message when the button is pressed
-          chatController.sendMessage();
+          chatController.sendTextMessage(
+            chatBotId: 1,
+          );
         },
         child: const Icon(Icons.send),
       ),

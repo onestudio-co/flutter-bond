@@ -1,10 +1,10 @@
-import 'package:bond_core/core.dart';
+import 'package:bond_chat_bot/bond_chat_bot.dart';
 import 'package:flutter/material.dart';
 
 class BondChatBubbleDecoration extends ChatBubbleDecoration {
   @override
   BoxDecoration get botDecoration => const BoxDecoration(
-        color: Colors.lightBlueAccent,
+        color: Colors.deepOrange,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -23,10 +23,10 @@ class BondChatBubbleDecoration extends ChatBubbleDecoration {
       );
 
   @override
-  EdgeInsets get margin => const EdgeInsets.all(12);
+  EdgeInsets get margin => const EdgeInsets.all(16);
 
   @override
-  EdgeInsets get padding => const EdgeInsets.all(12);
+  EdgeInsets get padding => const EdgeInsets.all(16);
 
   @override
   TextStyle get botTextStyle => const TextStyle(
@@ -50,5 +50,11 @@ class BondChatBubbleDecoration extends ChatBubbleDecoration {
   Duration get botDelayAnimationDuration => const Duration(milliseconds: 0);
 
   @override
-  Duration get userDelayAnimationDuration =>  Duration.zero;
+  Duration get userDelayAnimationDuration => const Duration(milliseconds: 0);
+
+  @override
+  TextStyle get botTitleTextStyle => const TextStyle(
+        color: Colors.white,
+        fontSize: 16,
+      );
 }

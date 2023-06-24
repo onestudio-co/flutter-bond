@@ -1,5 +1,5 @@
+import 'package:bond_network/bond_network.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:bond_core/core.dart';
 
 part 'user.g.dart';
 

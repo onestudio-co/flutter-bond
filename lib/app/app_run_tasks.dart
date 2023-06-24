@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/api.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -20,7 +21,7 @@ class RunAppTasks extends RunTasks {
     if (!(Auth.check())) {
       await Auth.loginAnonymous();
     }
-//    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     FlutterNativeSplash.remove();
   }
 

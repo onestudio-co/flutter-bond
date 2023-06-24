@@ -1,5 +1,6 @@
+import 'package:bond_network/bond_network.dart';
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:dio/dio.dart';
-import 'package:bond_core/core.dart';
 
 class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
   final ApiClient _client;

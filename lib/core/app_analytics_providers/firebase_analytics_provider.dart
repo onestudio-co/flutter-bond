@@ -1,4 +1,4 @@
-import 'package:bond_core/core.dart';
+import 'package:bond_app_analytics/bond_app_analytics.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';

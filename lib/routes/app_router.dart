@@ -10,8 +10,9 @@ import 'package:bond/features/post_details/routes.dart';
 import 'package:bond/features/update_app/routes.dart';
 import 'package:bond/routes/guards/auth_guard.dart';
 import 'package:bond/routes/router_helpers.dart';
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import '../features/main/presentation/main_page.dart';
 import '../features/main/routes.dart';

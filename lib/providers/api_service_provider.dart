@@ -1,6 +1,7 @@
 import 'package:bond/config/configs.dart';
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
+import 'package:bond_network/bond_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';

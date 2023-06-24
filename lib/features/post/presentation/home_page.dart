@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import 'home_app_bar.dart';
 import 'post_item.dart';

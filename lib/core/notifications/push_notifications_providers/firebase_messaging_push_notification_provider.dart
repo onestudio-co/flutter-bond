@@ -1,5 +1,5 @@
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:bond_core/core.dart';
 
 class FirebaseMessagingNotificationProvider extends PushNotificationProvider {
   final FirebaseMessaging _firebaseMessaging;
@@ -11,7 +11,7 @@ class FirebaseMessagingNotificationProvider extends PushNotificationProvider {
       (await _firebaseMessaging.getInitialMessage())?.data;
 
   @override
-  Stream<NotificationData> get onPushNotification =>
+  Stream<NotificationData> get onNotification =>
       FirebaseMessaging.onMessage.map(
         (event) => event.data
           ..putIfAbsent('title', () => event.notification?.title)
@@ -20,7 +20,7 @@ class FirebaseMessagingNotificationProvider extends PushNotificationProvider {
       );
 
   @override
-  Stream<NotificationData> get onPushNotificationTapped =>
+  Stream<NotificationData> get onNotificationTapped =>
       FirebaseMessaging.onMessageOpenedApp.map(
         (event) => event.data,
       );
@@ -36,4 +36,7 @@ class FirebaseMessagingNotificationProvider extends PushNotificationProvider {
 
   @override
   Future<void> deleteToken() => _firebaseMessaging.deleteToken();
+
+  @override
+  Stream<NotificationData> get onNotificationDismiss => throw UnimplementedError();
 }

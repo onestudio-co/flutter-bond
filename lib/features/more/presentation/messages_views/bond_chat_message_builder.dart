@@ -1,4 +1,4 @@
-import 'package:bond_core/core.dart';
+import 'package:bond_chat_bot/bond_chat_bot.dart';
 import 'package:flutter/material.dart';
 
 import 'multi_choice_message_widget.dart';

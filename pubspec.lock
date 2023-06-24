@@ -73,15 +73,62 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.1.2"
+  bond_app_analytics:
+    dependency: "direct main"
+    description:
+      name: bond_app_analytics
+      sha256: d695548d812271fdb31e42dd2d10c1cd3c24f0e51201533bfb2e46d2bc698a66
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+2"
+  bond_cache:
+    dependency: "direct main"
+    description:
+      name: bond_cache
+      sha256: "0770bf875248a699b7f56b4db8de3e234c9ac362b0c66db384d41de04a7396d0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+1"
+  bond_chat_bot:
+    dependency: "direct main"
+    description:
+      name: bond_chat_bot
+      sha256: "24dd4540a3b428c2e2ac34f1fcc3a2bb9929ebb9c54e163d17c8decb2a96b440"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+1"
   bond_core:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: "4c1eff6b79ec748b443e5d592e37db669739799a"
-      url: "https://github.com/onestudio-co/bond-core.git"
-    source: git
+      name: bond_core
+      sha256: "9107569a07fde3701811e3cada7ba5e409e67d9f3e9cf235833bae09a54d7dd6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+1"
+  bond_form:
+    dependency: "direct main"
+    description:
+      name: bond_form
+      sha256: "6ffffa16a2cf5b68633006007b92d78b620218a4f19cec03d208825c97a650ff"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
+  bond_network:
+    dependency: "direct main"
+    description:
+      name: bond_network
+      sha256: "9cdcaade7cea151f79eefd45a56a8bc3ccb3abb63be0389e24cda7c8ca192095"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+1"
+  bond_notifications:
+    dependency: "direct main"
+    description:
+      name: bond_notifications
+      sha256: b3bf54454aa86e018cabe751f19730b794c56db07323ba5c35e3bd933affef17
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+1"
   boolean_selector:
     dependency: transitive
     description:

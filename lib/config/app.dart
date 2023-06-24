@@ -1,5 +1,5 @@
 import 'package:bond/providers/notifications_service_provider.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import '../features/auth/auth_service_provider.dart';
 import '../features/more/bond_chat_service_provider.dart';

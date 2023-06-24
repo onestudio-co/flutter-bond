@@ -1,6 +1,7 @@
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import 'widgets/notification_item.dart';
 

@@ -13,10 +13,14 @@ dependencies:
 
 
   # Bond packages
-  bond_core:
-    git:
-      url: https://github.com/onestudio-co/bond-core.git
-      ref: main
+  bond_core: ^0.0.1+1
+  bond_network: ^0.0.1+1
+  bond_cache: ^0.0.1+1
+  bond_form: ^0.0.1
+  bond_app_analytics: ^0.0.1+2
+  bond_notifications: ^0.0.1+1
+  bond_chat_bot: ^0.0.1+1
+
 
   get_it: ^7.2.0
   open_store: ^0.5.0

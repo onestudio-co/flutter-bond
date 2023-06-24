@@ -3,9 +3,10 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/routes/app_router.dart';
+import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import 'bond_popup_menu_item.dart';
 

@@ -2,7 +2,8 @@ library app_analytics;
 
 import 'dart:developer';
 
-import 'package:bond_core/core.dart';
+import 'package:bond_app_analytics/bond_app_analytics.dart';
+import 'package:bond_core/bond_core.dart';
 
 import '../config/analytics.dart';
 

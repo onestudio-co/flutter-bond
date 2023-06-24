@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 import 'data/api.dart';
 import 'data/models/user.dart';

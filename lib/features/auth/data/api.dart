@@ -1,5 +1,5 @@
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_network/bond_network.dart';
 
 import 'errors/validation_error.dart';
 

@@ -1,5 +1,5 @@
 import 'package:bond/features/more/presentation/providers/chat_provider.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_chat_bot/bond_chat_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -55,9 +55,11 @@ class _StepperMessageWidgetState extends ConsumerState<StepperMessageWidget> {
   }
 
   void _handleAnswer(BuildContext context, int currentStep) {
-    final chatController =
-        ref.read(chatStateNotifierProvider.notifier).chatController;
-    chatController.sendMessage(
+    final chatController = ref
+        .read(chatStateNotifierProvider(widget.message.chatBotId).notifier)
+        .chatController;
+    chatController.answerQuestion(
+      chatBotId: widget.message.chatBotId,
       body: {'message': 'You selected: $currentStep'},
     );
   }

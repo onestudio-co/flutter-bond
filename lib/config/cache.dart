@@ -1,5 +1,5 @@
 import 'package:bond/core/cache/secure_storage_cache_driver.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_cache/bond_cache.dart';
 
 class CacheConfig {
   static var defaultStore = 'shared_preference';

@@ -1,4 +1,4 @@
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 enum EnvironmentType { staging, production }

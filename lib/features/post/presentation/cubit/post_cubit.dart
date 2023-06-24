@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bond/features/post/data/api.dart';
 import 'package:bond/features/post/data/models/post.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_network/bond_network.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 

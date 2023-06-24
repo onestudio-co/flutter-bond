@@ -1,5 +1,5 @@
 {{#j}}import 'package:json_annotation/json_annotation.dart';
-import 'package:bond_core/core.dart';
+import 'package:bond_core/bond_core.dart';
 
 part '{{name.snakeCase()}}.g.dart';
 
