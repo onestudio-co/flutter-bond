@@ -13,9 +13,9 @@ class BondChatBubbleDecoration extends ChatBubbleDecoration {
       );
 
   @override
-  BoxDecoration get userDecoration => const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+  BoxDecoration get userDecoration =>  BoxDecoration(
+        color: Colors.deepPurple.shade50,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
           bottomLeft: Radius.circular(20),

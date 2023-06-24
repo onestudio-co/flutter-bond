@@ -12,7 +12,7 @@ class BondChatServiceProvider extends ServiceProvider {
     it.registerFactoryParam(
       (int agentId, _) => ChatController<BondChatMessage, BondChatMeta>(
         agentId,
-        it(),
+        it<BondChatApi>(),
       ),
     );
   }

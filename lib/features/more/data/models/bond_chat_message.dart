@@ -38,6 +38,7 @@ class BondChatMessage extends Model with ChatMessageConvertible {
       sender: sender,
       id: id,
       chatBotId: agentId,
+      choices: options?.map((e) => Choice(text: e, value: e)).toList(),
     );
   }
 }

@@ -93,10 +93,10 @@ packages:
     dependency: "direct main"
     description:
       name: bond_chat_bot
-      sha256: "24dd4540a3b428c2e2ac34f1fcc3a2bb9929ebb9c54e163d17c8decb2a96b440"
+      sha256: beaf5901d9892dc848a2190301c9cad6171b4942d22a0e2a18ce71813d82809c
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1+1"
+    version: "0.0.1+2"
   bond_core:
     dependency: "direct main"
     description:

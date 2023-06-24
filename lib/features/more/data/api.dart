@@ -45,14 +45,6 @@ class BondChatApi extends ChatDataSource<BondChatMessage, BondChatMeta> {
   ) async {
     await Future.delayed(const Duration(seconds: 2)); // Simulate network delay
 
-    BondChatMessage userMessage = BondChatMessage(
-      agentId: chatBotId,
-      id: 4,
-      text: text,
-      type: "text",
-      sender: "user",
-    );
-
     BondChatMessage botMessage = BondChatMessage(
       agentId: chatBotId,
       id: 5,
@@ -88,7 +80,6 @@ class BondChatApi extends ChatDataSource<BondChatMessage, BondChatMeta> {
     );
 
     List<BondChatMessage> messages = [
-      userMessage,
       botMessage,
       botQuestionMessage,
       botOtherQuestionMessage,
