@@ -29,8 +29,8 @@ class LoginForm extends ConsumerWidget {
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: IconButton(
               icon: Icon(loginState.obscured
-                  ? Icons.lock_outline
-                  : Icons.lock_open_outlined),
+                  ? Icons.visibility_off
+                  : Icons.visibility),
               onPressed: loginNotifier.toggleObscured,
             ),
             errorText: loginState.passwordError,
