@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml/badge.svg)](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml)
 
+
 Flutter Bond is the public One Studio's template for all internals Flutter apps. You are welcome to use this template for your project as well, and more than welcome to contribute to make it even better.
 
 Noting that this is a Work In Progress mini framework insperied by Clean Architecture, Many past projects features and limitations, and some ideas from the Laravel ecosystem.
