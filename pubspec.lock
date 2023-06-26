@@ -725,6 +725,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.17"
+  in_app_review:
+    dependency: "direct main"
+    description:
+      name: in_app_review
+      sha256: "16328b8202d36522322b95804ae5d975577aa9f584d634985849ba1099645850"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
+  in_app_review_platform_interface:
+    dependency: transitive
+    description:
+      name: in_app_review_platform_interface
+      sha256: b12ec9aaf6b34d3a72aa95895eb252b381896246bdad4ef378d444affe8410ef
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.4"
   intl:
     dependency: "direct main"
     description:
