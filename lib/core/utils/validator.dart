@@ -8,7 +8,7 @@ class Validator {
     return emailRegex.hasMatch(email);
   }
 
-  static bool isPasswordValid(String password) => password.length >= 6;
+  static bool isPasswordValid(String password) => password.length >= 8;
 
   static bool isPasswordConfirmationValid(
     String password,
