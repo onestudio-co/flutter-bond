@@ -4,7 +4,8 @@ class AppReviewHelper {
   static Future<bool> showAppReview() async {
     bool isAvailable = await InAppReview.instance.isAvailable();
     if (isAvailable) {
-      return InAppReview.instance.requestReview();
+      await InAppReview.instance.requestReview();
+      return true;
     } else {
       return false;
     }
