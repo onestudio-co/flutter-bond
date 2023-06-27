@@ -2,14 +2,17 @@ import 'package:bond/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bond_core/bond_core.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:bond/core/app_localizations.dart';
 
 class ShareButton extends StatelessWidget {
   const ShareButton({
-    required this.onShare,
+    required this.postImageUrl,
     Key? key,
   }) : super(key: key);
 
-  final VoidCallback onShare;
+  final String postImageUrl;
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,6 @@ class ShareButton extends StatelessWidget {
   }
 
   void _onShare(BuildContext context) {
-    onShare();
+    Share.share(postImageUrl, subject: context.localizations.share_post_image);
   }
 }
