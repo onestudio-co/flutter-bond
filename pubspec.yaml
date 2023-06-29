@@ -41,6 +41,7 @@ dependencies:
   #ui
   flutter_svg: ^1.0.3
   google_fonts: ^5.0.0
+  octo_image: ^1.0.2
 
   # state management
   bloc: ^8.0.2

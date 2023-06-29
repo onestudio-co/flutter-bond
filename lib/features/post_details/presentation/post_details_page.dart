@@ -1,3 +1,4 @@
+import 'package:bond/core/widgets/app_image.dart';
 import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond/features/post_details/presentation/widgets/share_button.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +24,9 @@ class PostDetailsPage extends StatelessWidget {
           tag: post.uuid,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              post.urls.full,
-              fit: BoxFit.fill,
+            child: AppImage(
+              imageUrl: post.urls.full,
+              fit: BoxFit.cover,
             ),
           ),
         ),
