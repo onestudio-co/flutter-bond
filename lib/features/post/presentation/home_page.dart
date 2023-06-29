@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
+import 'package:bond_core/bond_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bond_core/bond_core.dart';
 
 import 'home_app_bar.dart';
 import 'post_item.dart';
@@ -40,7 +40,15 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
                   return PostItem(post: post);
                 }).toList(),
               ),
-              if (loading) const CircularProgressIndicator.adaptive(),
+              if (loading && posts.isEmpty)
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.8,
+                  child: const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                ),
+              if (loading && posts.isNotEmpty)
+                const CircularProgressIndicator.adaptive(),
             ],
           ),
         ),
@@ -51,9 +59,9 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
     );
   }
 
-  // void _logoutCubitListener(BuildContext context, LogoutState state) {
-  //   if (state is LogoutSuccess) {
-  //     context.router.replaceAll([const LoginRoute()]);
-  //   }
-  // }
+// void _logoutCubitListener(BuildContext context, LogoutState state) {
+//   if (state is LogoutSuccess) {
+//     context.router.replaceAll([const LoginRoute()]);
+//   }
+// }
 }
