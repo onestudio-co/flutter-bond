@@ -22,14 +22,18 @@ samples, guidance on mobile development, and a full API reference.
 
 # Detailed docs:
 
-* [Flavors](https://github.com/onestudio-co/flutter-bond/blob/main/docs/flavors.md)
-* [App Launcher](https://github.com/onestudio-co/flutter-bond/blob/main/docs/launcher.md)
-* [Themes](https://github.com/onestudio-co/flutter-bond/blob/main/docs/themes.md)
-* [Firebase Integration](https://github.com/onestudio-co/flutter-bond/blob/main/docs/firebase.md)
-* [Analytics](https://github.com/onestudio-co/flutter-bond/blob/main/docs/analytics.md)
+* [Flavors](https://github.com/onestudio-co/bond-docs/blob/main/flavors.md)
+* [App Launcher](https://github.com/onestudio-co/bond-docs/blob/main/launcher.md)
+* [Themes](https://github.com/onestudio-co/bond-docs/blob/main/themes.md)
+* [Firebase Integration](https://github.com/onestudio-co/bond-docs/blob/main/firebase.md)
+* [Analytics](https://github.com/onestudio-co/bond-docs/blob/main/analytics.md)
+* [Change App Package Name](https://github.com/onestudio-co/bond-docs/blob/main/change_app_name.md)
+* [Caching](https://github.com/onestudio-co/bond-docs/blob/main/caching.md)
+* [Networking](https://github.com/onestudio-co/bond-docs/blob/main/networking.md)
+* [Environment](https://github.com/onestudio-co/bond-docs/blob/main/environment.md)
+* [Notification](https://github.com/onestudio-co/bond-docs/blob/main/notifications.md)
 * Localization
 * Futures samples
-* [Change App Package Name](https://github.com/onestudio-co/flutter-bond/blob/main/docs/change_app_name.md)
 
 # To be documented:
 
