@@ -6,6 +6,7 @@ class RegisterState {
   final String? password;
   final String? passwordConfirmation;
   final bool obscured;
+  final bool obscuredConfirm;
   final bool loading;
   final String? error;
 
@@ -15,6 +16,7 @@ class RegisterState {
     this.password,
     this.passwordConfirmation,
     this.obscured,
+    this.obscuredConfirm,
     this.loading,
     this.error,
   );
@@ -24,6 +26,7 @@ class RegisterState {
         null,
         null,
         null,
+        true,
         true,
         false,
         null,
@@ -38,7 +41,11 @@ class RegisterState {
   RegisterState updatePasswordConfirmation(String passwordConfirmation) =>
       copyWith(passwordConfirmation: passwordConfirmation);
 
-  RegisterState toggleObscured() => copyWith(obscured: !obscured);
+  RegisterState toggleObscured() =>
+      copyWith(obscured: !obscured);
+
+  RegisterState toggleObscuredConfirm() =>
+      copyWith( obscuredConfirm: !obscuredConfirm);
 
   RegisterState updateLoading(bool loading) => copyWith(loading: loading);
 
@@ -98,6 +105,7 @@ class RegisterState {
     String? password,
     String? passwordConfirmation,
     bool? obscured,
+    bool? obscuredConfirm,
     bool? loading,
     String? error,
   }) {
@@ -107,6 +115,7 @@ class RegisterState {
       password ?? this.password,
       passwordConfirmation ?? this.passwordConfirmation,
       obscured ?? this.obscured,
+      obscuredConfirm ?? this.obscuredConfirm,
       loading ?? this.loading,
       error ?? this.error,
     );
