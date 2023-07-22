@@ -25,5 +25,7 @@
   "navigation_bar_more": "More",
   "update_app" : "It's time to update",
   "update_app_text" : "To receive all new updates, update the Bond app",
-  "update_app_now" : "Update now"
+  "update_app_now" : "Update now",
+  "share_post_image": "Share image"
+
 }

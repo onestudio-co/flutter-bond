@@ -64,6 +64,8 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   package_info_plus: ^4.0.2
   flutter_local_notifications: ^9.3.3
+  in_app_review: ^2.0.6
+  share_plus: ^7.0.2
 
   # Firebase
   firebase_analytics: ^10.4.3

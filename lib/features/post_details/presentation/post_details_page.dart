@@ -13,7 +13,7 @@ class PostDetailsPage extends StatelessWidget {
         title: Text(post.author.name),
         actions: [
           ShareButton(
-            onShare: () {},
+            postImageUrl: post.urls.full, // Pass the post image URL
           )
         ],
       ),
