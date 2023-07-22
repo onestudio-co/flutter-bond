@@ -75,7 +75,13 @@ class BondPopMenuButton extends StatelessWidget {
         appBloc.add(ChangeLocaleEvent(newLocale));
         break;
       case Menu.logout:
-        // logoutCubit?.logout();
+        //logoutCubit?.logout();
+        context.router.push(
+          LoginRoute(
+            // notificationCenterProvider: sl<NotificationCenterProvider>(),
+          ),
+        );
+
         break;
       case Menu.notifications:
         context.router.push(

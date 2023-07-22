@@ -54,15 +54,15 @@ class RegisterForm extends ConsumerWidget {
             labelText: context.localizations.filed_password_label,
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: IconButton(
-              icon: Icon(registerState.obscured
+              icon: Icon(registerState.obscuredConfirm
                   ? Icons.lock_outline
                   : Icons.lock_open_outlined),
-              onPressed: registerNotifier.toggleObscured,
+              onPressed: registerNotifier.toggleObscuredConfirm,
             ),
             errorText: registerState.passwordConfirmationError,
           ),
           onChanged: registerNotifier.updatePasswordConfirmation,
-          obscureText: registerState.obscured,
+          obscureText: registerState.obscuredConfirm,
         ),
         const SizedBox(height: 16),
         AppButton(

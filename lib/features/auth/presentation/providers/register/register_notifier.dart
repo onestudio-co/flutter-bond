@@ -16,12 +16,11 @@ class RegisterNotifier extends Notifier<RegisterState> {
 
   void toggleObscured() => state = state.toggleObscured();
 
+  void toggleObscuredConfirm() => state = state.toggleObscuredConfirm();
+
   // Implement your register logic here
   void register() async {
-
     state = state.updateLoading(true);
-
-
 
     // Perform register request...
 
