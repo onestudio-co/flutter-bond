@@ -39,4 +39,6 @@ class Auth {
     _userData['user'] = response.data;
     return response.data;
   }
+
+  static void logout() => _userData.clear();
 }
