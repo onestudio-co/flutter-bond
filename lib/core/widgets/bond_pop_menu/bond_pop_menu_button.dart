@@ -3,10 +3,10 @@ import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/routes/app_router.dart';
+import 'package:bond_core/bond_core.dart';
 import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bond_core/bond_core.dart';
 
 import 'bond_popup_menu_item.dart';
 
@@ -63,20 +63,19 @@ class BondPopMenuButton extends StatelessWidget {
     // final logoutCubit = context.read<LogoutCubit?>();
     switch (item) {
       case Menu.theme:
-        final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light
-            ? ThemeMode.dark
-            : ThemeMode.light;
+        final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
         appBloc.add(ChangeThemeEvent(newThemeMode));
         break;
       case Menu.language:
-        final newLocale = appBloc.state.currentLocale == const Locale('en')
-            ? const Locale('ar')
-            : const Locale('en');
+        final newLocale = appBloc.state.currentLocale == const Locale('en') ? const Locale('ar') : const Locale('en');
         appBloc.add(ChangeLocaleEvent(newLocale));
         break;
       case Menu.logout:
         Auth.logout();
-        context.router.push(const LoginRoute());
+        context.router.pushAndPopUntil(
+          const LoginRoute(),
+          predicate: (route) => false,
+        );
         break;
       case Menu.notifications:
         context.router.push(
