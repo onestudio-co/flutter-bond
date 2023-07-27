@@ -6,28 +6,31 @@ class RegisterState {
   final String? password;
   final String? passwordConfirmation;
   final bool obscured;
+  final bool obscuredConfirm;
   final bool loading;
   final String? error;
 
   RegisterState(
-    this.email,
-    this.name,
-    this.password,
-    this.passwordConfirmation,
-    this.obscured,
-    this.loading,
-    this.error,
-  );
+      this.email,
+      this.name,
+      this.password,
+      this.passwordConfirmation,
+      this.obscured,
+      this.obscuredConfirm,
+      this.loading,
+      this.error,
+      );
 
   factory RegisterState.defaults() => RegisterState(
-        null,
-        null,
-        null,
-        null,
-        true,
-        false,
-        null,
-      );
+    null,
+    null,
+    null,
+    null,
+    true,
+    true,
+    false,
+    null,
+  );
 
   RegisterState updateEmail(String email) => copyWith(email: email);
 
@@ -38,7 +41,11 @@ class RegisterState {
   RegisterState updatePasswordConfirmation(String passwordConfirmation) =>
       copyWith(passwordConfirmation: passwordConfirmation);
 
-  RegisterState toggleObscured() => copyWith(obscured: !obscured);
+  RegisterState toggleObscured() =>
+      copyWith(obscured: !obscured);
+
+  RegisterState toggleObscuredConfirm() =>
+      copyWith( obscuredConfirm: !obscuredConfirm);
 
   RegisterState updateLoading(bool loading) => copyWith(loading: loading);
 
@@ -87,10 +94,10 @@ class RegisterState {
 
   bool get isValid =>
       Validator.isEmailValid(email ?? '') &&
-      Validator.isNameValid(name ?? '') &&
-      Validator.isPasswordValid(password ?? '') &&
-      Validator.isPasswordConfirmationValid(
-          password ?? '', passwordConfirmation ?? '');
+          Validator.isNameValid(name ?? '') &&
+          Validator.isPasswordValid(password ?? '') &&
+          Validator.isPasswordConfirmationValid(
+              password ?? '', passwordConfirmation ?? '');
 
   RegisterState copyWith({
     String? email,
@@ -98,6 +105,7 @@ class RegisterState {
     String? password,
     String? passwordConfirmation,
     bool? obscured,
+    bool? obscuredConfirm,
     bool? loading,
     String? error,
   }) {
@@ -107,6 +115,7 @@ class RegisterState {
       password ?? this.password,
       passwordConfirmation ?? this.passwordConfirmation,
       obscured ?? this.obscured,
+      obscuredConfirm ?? this.obscuredConfirm,
       loading ?? this.loading,
       error ?? this.error,
     );
