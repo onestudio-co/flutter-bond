@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localizations.login_page_title),
-        actions: const [BondPopMenuButton()],
+        actions: [BondPopMenuButton()],
       ),
       body: SingleChildScrollView(
         child: AutofillGroup(

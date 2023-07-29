@@ -26,5 +26,8 @@
   "update_app" : "حان وقت التحديث",
   "update_app_text" : "ليصلك كل جديد يتم إضافته، قم بتحديث تطبيق راسل",
   "update_app_now" : "تحديث الآن",
-  "share_post_image": "مشاركة الصورة"
+  "share_post_image": "مشاركة الصورة",
+  "arabic" : "العربية",
+  "english" : "الإنجليزية",
+  "apply" : "تطبيق"
 }

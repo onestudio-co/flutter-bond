@@ -14,7 +14,7 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localizations.register_page_title),
-        actions: const [
+        actions: [
           BondPopMenuButton(),
         ],
       ),

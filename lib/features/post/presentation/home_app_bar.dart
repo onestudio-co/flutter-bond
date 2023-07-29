@@ -16,7 +16,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         width: 90,
       ),
-      actions: const [
+      actions:  [
         BondPopMenuButton(),
       ],
       bottom: const PreferredSize(

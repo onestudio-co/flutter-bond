@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
+import 'package:bond/core/widgets/alert_dialogues.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/routes/app_router.dart';
@@ -11,7 +12,8 @@ import 'package:bond_core/bond_core.dart';
 import 'bond_popup_menu_item.dart';
 
 class BondPopMenuButton extends StatelessWidget {
-  const BondPopMenuButton({Key? key}) : super(key: key);
+   BondPopMenuButton({Key? key}) : super(key: key);
+  final ShowDialogues showDialogues =  ShowDialogues();
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +71,12 @@ class BondPopMenuButton extends StatelessWidget {
         appBloc.add(ChangeThemeEvent(newThemeMode));
         break;
       case Menu.language:
-        final newLocale = appBloc.state.currentLocale == const Locale('en')
-            ? const Locale('ar')
-            : const Locale('en');
-        appBloc.add(ChangeLocaleEvent(newLocale));
+        // final newLocale = appBloc.state.currentLocale == const Locale('en')
+        //     ? const Locale('ar')
+        //     : const Locale('en');
+        // appBloc.add(ChangeLocaleEvent(newLocale));
+        showDialogues.showLanguagesDialogue(context);
+
         break;
       case Menu.logout:
         // logoutCubit?.logout();
