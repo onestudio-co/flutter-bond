@@ -1,16 +1,32 @@
-# How to Contribute
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+Please review our Contributing Guidelines for detailed instructions on contributing to Flutter Bond. We encourage contributions in the form of bug fixes, new features, and improvements to the codebase.
 
-## Contributor License Agreement
+### Code Style
 
+We follow the coding guidelines outlined in the Flutter Style Guide. Consistent code style helps maintain readability and collaboration.
 
-## Code reviews
+### Submitting a Pull Request
 
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
+When you're ready to submit your contribution:
 
-## Community Guidelines
+1. **Create a New Branch:** Create a new branch for your changes:
+
+   \```bash
+   git checkout -b your-branch-name
+   \```
+
+2. **Make Changes and Commit:** Make your changes, commit them with a meaningful message:
+
+   \```bash
+   git add .
+   git commit -m "Your detailed commit message"
+   \```
+
+3. **Push to Your Fork:** Push your changes to your forked repository:
+
+   \```bash
+   git push origin your-branch-name
+   \```
+
+4. **Open a Pull Request:** Visit the original Flutter Bond repository and open a new pull request. We'll review your changes and provide feedback.
+   EOF
