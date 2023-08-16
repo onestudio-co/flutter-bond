@@ -24,6 +24,7 @@ class LoginForm extends ConsumerWidget {
         ),
         const SizedBox(height: 12),
         TextFormField(
+          enableInteractiveSelection: false,
           decoration: InputDecoration(
             labelText: context.localizations.filed_password_label,
             prefixIcon: const Icon(Icons.lock),
