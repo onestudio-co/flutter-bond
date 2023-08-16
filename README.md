@@ -118,4 +118,3 @@ Ensure you have a working emulator or physical device configured for Flutter dev
 - App Bloc
 - Cache
 - Bond generator
-  EOF
