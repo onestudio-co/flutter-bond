@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   build-and-test:
@@ -30,11 +30,13 @@ jobs:
           RECEIVE_TIMEOUT: 1000000
           RECEIVE_DATA_WHEN_STATUS_ERROR: true
         run: |
-          echo "API_BASE_URL=$API_BASE_URL" >> .env
-          echo "CONNECT_TIMEOUT=$CONNECT_TIMEOUT" >> .env
-          echo "SEND_TIMEOUT=$SEND_TIMEOUT" >> .env
-          echo "RECEIVE_TIMEOUT=$RECEIVE_TIMEOUT" >> .env
-          echo "RECEIVE_DATA_WHEN_STATUS_ERROR=$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env
+          echo "{" >> .env.json
+          echo "API_BASE_URL:$API_BASE_URL," >> .env.json
+          echo "CONNECT_TIMEOUT:$CONNECT_TIMEOUT," >> .env.json
+          echo "SEND_TIMEOUT:$SEND_TIMEOUT," >> .env.json
+          echo "RECEIVE_TIMEOUT:$RECEIVE_TIMEOUT," >> .env.json
+          echo "RECEIVE_DATA_WHEN_STATUS_ERROR:$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env.json
+          echo "}" >> .env.json
 
       - name: Create Staging env file
         env:
@@ -44,17 +46,16 @@ jobs:
           RECEIVE_TIMEOUT: 1000000
           RECEIVE_DATA_WHEN_STATUS_ERROR: true
         run: |
-          echo "API_BASE_URL=$STAGING_API_BASE_URL" >> .env.staging
-          echo "CONNECT_TIMEOUT=$CONNECT_TIMEOUT" >> .env.staging
-          echo "SEND_TIMEOUT=$SEND_TIMEOUT" >> .env.staging
-          echo "RECEIVE_TIMEOUT=$RECEIVE_TIMEOUT" >> .env.staging
-          echo "RECEIVE_DATA_WHEN_STATUS_ERROR=$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env.staging
+          echo "{" >> .env.staging.json
+          echo "API_BASE_URL:$API_BASE_URL," >> .env.staging.json
+          echo "CONNECT_TIMEOUT:$CONNECT_TIMEOUT," >> .env.staging.json
+          echo "SEND_TIMEOUT:$SEND_TIMEOUT," >> .env.staging.json
+          echo "RECEIVE_TIMEOUT:$RECEIVE_TIMEOUT," >> .env.staging.json
+          echo "RECEIVE_DATA_WHEN_STATUS_ERROR:$RECEIVE_DATA_WHEN_STATUS_ERROR" >> .env.staging.json
+          echo "}" >> .env.staging.json
 
       - name: Install Dependencies
         run: flutter pub get
-
-      - name: Build Runner
-        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Analyze
         run: flutter analyze lib
