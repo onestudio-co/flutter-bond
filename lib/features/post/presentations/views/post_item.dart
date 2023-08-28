@@ -1,8 +1,5 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bond/routes/app_router.dart';
+import 'package:bond/features/post/data/models/post.dart';
 import 'package:flutter/material.dart';
-
-import '../data/models/post.dart';
 
 class PostItem extends StatelessWidget {
   const PostItem({super.key, required this.post});

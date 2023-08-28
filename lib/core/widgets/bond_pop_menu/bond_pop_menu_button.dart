@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -78,11 +76,11 @@ class BondPopMenuButton extends StatelessWidget {
         // logoutCubit?.logout();
         break;
       case Menu.notifications:
-        context.router.push(
-          NotificationsRoute(
-            notificationCenterProvider: sl<NotificationCenterProvider>(),
-          ),
-        );
+        // context.router.push(
+        //   NotificationsRoute(
+        //     notificationCenterProvider: sl<NotificationCenterProvider>(),
+        //   ),
+        // );
         break;
     }
   }

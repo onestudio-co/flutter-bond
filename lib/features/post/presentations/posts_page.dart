@@ -1,21 +1,12 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bond_core/bond_core.dart';
 
-import 'home_app_bar.dart';
-import 'post_item.dart';
+import 'views/home_app_bar.dart';
+import 'views/post_item.dart';
 
-class HomePage extends StatelessWidget with AutoRouteWrapper {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget wrappedRoute(BuildContext context) => MultiBlocProvider(providers: [
-        BlocProvider<PostCubit>(
-          create: (context) => sl<PostCubit>()..loadAllPosts(),
-        ),
-      ], child: this);
+class PostsPage extends StatelessWidget {
+  const PostsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +42,9 @@ class HomePage extends StatelessWidget with AutoRouteWrapper {
     );
   }
 
-  // void _logoutCubitListener(BuildContext context, LogoutState state) {
-  //   if (state is LogoutSuccess) {
-  //     context.router.replaceAll([const LoginRoute()]);
-  //   }
-  // }
+// void _logoutCubitListener(BuildContext context, LogoutState state) {
+//   if (state is LogoutSuccess) {
+//     context.router.replaceAll([const LoginRoute()]);
+//   }
+// }
 }

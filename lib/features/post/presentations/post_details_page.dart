@@ -1,10 +1,14 @@
-import 'package:bond/features/post/data/models/post.dart';
-import 'package:bond/features/post_details/presentation/widgets/share_button.dart';
 import 'package:flutter/material.dart';
 
+import 'views/share_button.dart';
+
 class PostDetailsPage extends StatelessWidget {
-  const PostDetailsPage({required this.post, Key? key}) : super(key: key);
-  final Post post;
+  const PostDetailsPage({
+    super.key,
+    required this.id,
+  });
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:bond/core/app_extensions.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:bond_core/bond_core.dart';
@@ -40,8 +38,7 @@ class UpdateAppService {
   }
 
   void showSoftUpdate() {
-    final jsonString =
-        remoteConfig.getString('appCurrentVersion');
+    final jsonString = remoteConfig.getString('appCurrentVersion');
     final remoteConfigVersion =
         CurrentVersion.fromJson(json.decode(jsonString));
     final currentVersion = int.tryParse(packageInfo.buildNumber) ?? 0;
