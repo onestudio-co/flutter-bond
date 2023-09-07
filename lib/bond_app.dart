@@ -1,3 +1,4 @@
+import 'package:bond/app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,6 +14,7 @@ class BondApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appBloc = context.watch<AppBloc>();
     return MaterialApp.router(
+      routerConfig: goRouter,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

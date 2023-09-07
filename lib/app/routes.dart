@@ -6,6 +6,8 @@ import 'package:bond/features/update_app/routes.dart';
 import 'package:go_router/go_router.dart';
 
 final goRouter = GoRouter(
+  debugLogDiagnostics: true,
+  initialLocation: '/home',
   routes: [
     ...mainRoutes,
     ...postRoutes,

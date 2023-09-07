@@ -34,9 +34,13 @@ class Auth {
   static String? token() => _userData['token'];
 
   static Future<User?> loginAnonymous() async {
-    final response = await sl<AuthApi>().anonymousLogin();
-    _userData['token'] = response.meta.token;
-    _userData['user'] = response.data;
-    return response.data;
+    try {
+      final response = await sl<AuthApi>().anonymousLogin();
+      _userData['token'] = response.meta.token;
+      _userData['user'] = response.data;
+      return response.data;
+    } catch (e) {
+      return null;
+    }
   }
 }

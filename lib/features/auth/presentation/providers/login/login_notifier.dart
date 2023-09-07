@@ -27,7 +27,7 @@ class LoginNotifier extends Notifier<LoginState> {
 
     try {
       await authApi.login(body);
-      appRouter.replaceAll([const MainRoute()]);
+      goRouter.replace('/home');
     } on ValidationError catch (validationError) {
       state = state
           .updateValidationErrors(validationError.errors)

@@ -1,10 +1,10 @@
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/app/app_bloc.dart';
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond_notifications/bond_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bond_core/bond_core.dart';
+import 'package:go_router/go_router.dart';
 
 import 'bond_popup_menu_item.dart';
 
@@ -58,7 +58,6 @@ class BondPopMenuButton extends StatelessWidget {
 
   void _onSelected(BuildContext context, Menu item) {
     final appBloc = context.read<AppBloc>();
-    // final logoutCubit = context.read<LogoutCubit?>();
     switch (item) {
       case Menu.theme:
         final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light
@@ -73,14 +72,9 @@ class BondPopMenuButton extends StatelessWidget {
         appBloc.add(ChangeLocaleEvent(newLocale));
         break;
       case Menu.logout:
-        // logoutCubit?.logout();
         break;
       case Menu.notifications:
-        // context.router.push(
-        //   NotificationsRoute(
-        //     notificationCenterProvider: sl<NotificationCenterProvider>(),
-        //   ),
-        // );
+        context.go('/notifications');
         break;
     }
   }

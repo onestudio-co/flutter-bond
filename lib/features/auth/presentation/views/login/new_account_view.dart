@@ -1,9 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bond/core/app_localizations.dart';
-import 'package:bond/routes/app_router.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:bond_core/bond_core.dart';
+import 'package:go_router/go_router.dart';
 
 class NewAccountView extends StatelessWidget {
   const NewAccountView({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class NewAccountView extends StatelessWidget {
             ),
             TextSpan(
               recognizer: TapGestureRecognizer()
-                ..onTap = () => context.router.push(const RegisterRoute()),
+                ..onTap = () => context.go('/register'),
               text: context.localizations.login_page_new_account_button,
               style: context.textTheme.labelSmall,
             ),

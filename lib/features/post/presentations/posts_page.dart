@@ -1,7 +1,7 @@
-import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'cubit/post_cubit.dart';
 import 'views/home_app_bar.dart';
 import 'views/post_item.dart';
 

@@ -1,9 +1,9 @@
-import 'package:bond/features/post/presentation/cubit/post_cubit.dart';
 import 'package:bond_core/bond_core.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/api.dart';
 import 'data/models/post.dart';
+import 'presentations/cubit/post_cubit.dart';
 
 class PostServiceProvider extends ServiceProvider {
   @override
