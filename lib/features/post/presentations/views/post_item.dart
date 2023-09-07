@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bond/routes/app_router.dart';
+import 'package:bond/features/post/data/models/post.dart';
 import 'package:flutter/material.dart';
-
-import '../data/models/post.dart';
+import 'package:go_router/go_router.dart';
 
 class PostItem extends StatelessWidget {
   const PostItem({super.key, required this.post});
@@ -13,7 +11,7 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: GestureDetector(
-        onTap: () => context.pushRoute(PostDetailsRoute(post: post)),
+        onTap: () => context.go('/post/${post.uuid}'),
         child: Hero(
           tag: post.uuid,
           child: ClipRRect(

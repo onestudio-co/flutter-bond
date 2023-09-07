@@ -1,10 +1,8 @@
 import 'dart:convert';
 
-import 'package:bond/core/app_extensions.dart';
-import 'package:bond/routes/app_router.dart';
+import 'package:bond/app/routes.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
-import 'package:bond_core/bond_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'models/current_version.dart';
@@ -36,12 +34,11 @@ class UpdateAppService {
   }
 
   void showForceUpdate(CurrentVersion remoteConfigVersion) {
-    sl<AppRouter>().off(UpdateAppRoute(message: remoteConfigVersion.message));
+    goRouter.push('/update_app?=message${remoteConfigVersion.message}');
   }
 
   void showSoftUpdate() {
-    final jsonString =
-        remoteConfig.getString('appCurrentVersion');
+    final jsonString = remoteConfig.getString('appCurrentVersion');
     final remoteConfigVersion =
         CurrentVersion.fromJson(json.decode(jsonString));
     final currentVersion = int.tryParse(packageInfo.buildNumber) ?? 0;
@@ -50,8 +47,7 @@ class UpdateAppService {
       remoteConfigVersion.platformVersion,
     );
     if (isSoftUpdateApp) {
-      sl<AppRouter>()
-          .push(SoftUpdateRoute(message: remoteConfigVersion.message));
+      goRouter.push('/soft_update?=message${remoteConfigVersion.message}');
     }
   }
 

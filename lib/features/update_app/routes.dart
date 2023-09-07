@@ -1,20 +1,27 @@
 library intgrations_routes;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:bond/features/update_app/page/soft_update_page.dart';
-import 'package:bond/features/update_app/page/update_app_page.dart';
-import 'package:bond/routes/router_helpers.dart';
+import 'package:bond/core/route_helpers.dart';
+import 'package:go_router/go_router.dart';
 
-export 'package:bond/features/update_app/page/soft_update_page.dart';
-export 'package:bond/features/update_app/page/update_app_page.dart';
+import 'presentations/page/soft_update_page.dart';
+import 'presentations/page/update_app_page.dart';
 
-const List<AutoRoute> integrationsRoutes = <AutoRoute>[
-  AutoRoute(
-    page: UpdateAppPage,
-    path: 'update_app',
+final updateAppRoutes = [
+  GoRoute(
+    path: '/update_app',
+    builder: (context, state) => UpdateAppPage(
+      message: state.uri.queryParameters['message'] as String,
+    ),
   ),
-  CustomRoute(
-    page: SoftUpdatePage,
-    customRouteBuilder: RouterHelpers.modalSheetBuilder,
+  GoRoute(
+    path: '/soft_update',
+    pageBuilder: (context, state) {
+      return ModalBottomSheetPage(
+        child: SoftUpdatePage(
+          message: state.uri.queryParameters['message'] as String,
+        ),
+        isScrollControlled: true,
+      );
+    },
   ),
 ];
