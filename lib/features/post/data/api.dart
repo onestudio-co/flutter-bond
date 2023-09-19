@@ -23,7 +23,7 @@ class PostsApi {
       .execute();
 
   Future<SingleResponse<Post>> post(String id) => _bondFire
-      .get<SingleResponse<Post>>('/posts')
+      .get<SingleResponse<Post>>('/posts/$id')
       .cache()
       .queryParameters({'id': id})
       .factory(SingleResponse<Post>.fromJson)
