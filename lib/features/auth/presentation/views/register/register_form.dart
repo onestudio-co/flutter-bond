@@ -1,6 +1,9 @@
+import 'package:bond/app/routes.dart';
 import 'package:bond/core/app_localizations.dart';
 import 'package:bond/core/app_widgets.dart';
-import 'package:bond/features/auth/presentation/providers/register/register_provider.dart';
+import 'package:bond/features/auth/data/models/user.dart';
+import 'package:bond/features/auth/presentation/providers/register_form_provider.dart';
+import 'package:bond_form/bond_form.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,69 +12,62 @@ class RegisterForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final registerState = ref.watch(registerNotifierProvider);
-    final registerNotifier = ref.read(registerNotifierProvider.notifier);
+    final formController = ref.read(registerProvider.notifier);
+    final formState = ref.watch(registerProvider);
+    ref.listen(
+      registerProvider,
+      (previous, next) => _formStateListener(context, previous, next),
+    );
     return Column(
       children: [
         TextFormField(
-          keyboardType: TextInputType.name,
-          decoration: InputDecoration(
-            labelText: context.localizations.filed_name_label,
-            prefixIcon: const Icon(Icons.person),
-            errorText: registerState.nameError,
-          ),
-          onChanged: registerNotifier.updateName,
-        ),
-        const SizedBox(height: 12),
-        TextFormField(
           keyboardType: TextInputType.emailAddress,
+          onChanged: (value) => formController.updateText('email', value),
           decoration: InputDecoration(
-            labelText: context.localizations.filed_email_label,
+            labelText: formState.label('email'),
+            errorText: formState.error('email'),
             prefixIcon: const Icon(Icons.email),
-            errorText: registerState.emailError,
           ),
-          onChanged: registerNotifier.updateEmail,
         ),
         const SizedBox(height: 12),
         TextFormField(
+          keyboardType: TextInputType.text,
+          onChanged: (value) => formController.updateText('password', value),
           decoration: InputDecoration(
-            labelText: context.localizations.filed_password_label,
+            labelText: formState.label('password'),
+            errorText: formState.error('password'),
             prefixIcon: const Icon(Icons.lock),
-            suffixIcon: IconButton(
-              icon: Icon(registerState.obscured
-                  ? Icons.lock_outline
-                  : Icons.lock_open_outlined),
-              onPressed: registerNotifier.toggleObscured,
-            ),
-            errorText: registerState.passwordError,
           ),
-          onChanged: registerNotifier.updatePassword,
-          obscureText: registerState.obscured,
-        ),
-        const SizedBox(height: 12),
-        TextFormField(
-          decoration: InputDecoration(
-            labelText: context.localizations.filed_password_label,
-            prefixIcon: const Icon(Icons.lock),
-            suffixIcon: IconButton(
-              icon: Icon(registerState.obscured
-                  ? Icons.lock_outline
-                  : Icons.lock_open_outlined),
-              onPressed: registerNotifier.toggleObscured,
-            ),
-            errorText: registerState.passwordConfirmationError,
-          ),
-          onChanged: registerNotifier.updatePasswordConfirmation,
-          obscureText: registerState.obscured,
         ),
         const SizedBox(height: 16),
         AppButton(
-          enabled: registerState.isValid,
-          loading: registerState.loading,
-          onPressed: registerNotifier.register,
+          onPressed: ref.read(registerProvider.notifier).submit,
           title: context.localizations.login_page_register_button,
+          loading: formState.status == BondFormStateStatus.submitting,
         ),
+        const SizedBox(height: 12),
       ],
     );
+  }
+
+  void _formStateListener(
+    BuildContext context,
+    BondFormState<User, Error>? previous,
+    BondFormState<User, Error> next,
+  ) {
+    switch (next.status) {
+      case BondFormStateStatus.submitted:
+        goRouter.replace('/home');
+        break;
+      case BondFormStateStatus.invalid:
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(next.failure.toString()),
+            backgroundColor: Colors.red,
+          ),
+        );
+        break;
+      default:
+    }
   }
 }

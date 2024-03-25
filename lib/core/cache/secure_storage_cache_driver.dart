@@ -3,79 +3,73 @@ import 'dart:developer';
 
 import 'package:bond_cache/bond_cache.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:bond_core/bond_core.dart';
 
-class SecureStorageCacheDriver implements CacheDriver {
-  final FlutterSecureStorage _flutterSecureStorage;
+class SecureStorageCacheDriver extends CacheDriver {
+  final FlutterSecureStorage _storage;
 
-  SecureStorageCacheDriver(this._flutterSecureStorage);
+  SecureStorageCacheDriver(this._storage);
+
+  var _cache = <String, dynamic>{};
+
+  Future<SecureStorageCacheDriver> loadAll() async {
+    _cache = await _storage.readAll();
+    return this;
+  }
+
+  @override
+  Map<String, dynamic>? retrieve(String key) {
+    try {
+      final jsonString = _cache[key];
+      if (jsonString == null) {
+        return null;
+      }
+      return jsonDecode(jsonString);
+    } catch (error, stack) {
+      log('retrieve error: $error , stackTrace : $stack');
+      return null;
+    }
+  }
+
+  @override
+  Future<bool> store(String key, Map<String, dynamic> data) async {
+    try {
+      final jsonString = jsonEncode(data);
+      await _storage.write(key: key, value: jsonString);
+      return Future.value(true);
+    } catch (error, stack) {
+      log('store error: $error , stackTrace : $stack');
+      return Future.value(false);
+    } finally {
+      await loadAll();
+    }
+  }
+
+  @override
+  bool has(String key) => _cache.containsKey(key);
 
   @override
   Future<bool> flush() async {
     try {
-      await _flutterSecureStorage.deleteAll();
+      await _storage.deleteAll();
       return true;
-    } catch (error , stack) {
-      log('flush error: $error , stackTrace : $stack' );
+    } catch (error, stack) {
+      log('flush error: $error , stackTrace : $stack');
       return false;
+    } finally {
+      await loadAll();
     }
   }
 
   @override
   Future<bool> forget(String key) async {
     try {
-      await _flutterSecureStorage.delete(key: key);
+      await _storage.delete(key: key);
       return true;
-    } catch (error , stack) {
-      log('forget error: $error , stackTrace : $stack' );
+    } catch (error, stack) {
+      log('forget error: $error , stackTrace : $stack');
       return false;
-    }
-  }
-
-  @override
-  CacheDriverReturnType<T> get<T>(String key,
-      {defaultValue, FromJsonFactory? factory}) async {
-    final stringCache = await _flutterSecureStorage.read(key: key);
-    if (stringCache == null) return _handleDefaultValue(defaultValue);
-    final Map<String, dynamic> jsonCache = jsonDecode(stringCache);
-    final CacheData cache = CacheData.fromJson(jsonCache);
-    if (cache.isValid) {
-      return Future.value(factory == null ? cache.data : factory(cache.data));
-    }
-    _flutterSecureStorage.delete(key: key);
-    return _handleDefaultValue(defaultValue);
-  }
-
-  @override
-  Future<bool> has(String key) => _flutterSecureStorage.containsKey(key: key);
-
-  @override
-  Future<bool> put(String key, value, [Duration? expiredAfter]) async {
-    final CacheData cache = CacheData(
-      data: value,
-      expiredAt: expiredAfter == null ? null : DateTime.now().add(expiredAfter),
-    );
-    if (value is Jsonable) {
-      value = jsonEncode(value.toJson());
-    } else if (value is List<Jsonable>) {
-      value = jsonEncode(value.map((e) => e.toJson()).toList());
-    }
-    final String stringCache = jsonEncode(cache.toJson());
-    try {
-      await _flutterSecureStorage.write(key: key, value: stringCache);
-      return true;
-    } catch (error , stack) {
-      log('put error: $error , stackTrace : $stack' );
-      return false;
-    }
-  }
-
-  //TODO:DRY
-  CacheDriverReturnType<T> _handleDefaultValue<T>(dynamic defaultValue) {
-    if (defaultValue is Function) {
-      return Future.value(defaultValue());
-    } else {
-      return Future.value(defaultValue);
+    } finally {
+      await loadAll();
     }
   }
 }

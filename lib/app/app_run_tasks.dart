@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bond/core/app_utils.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/api.dart';
 import 'package:bond_core/bond_core.dart';
@@ -17,7 +18,6 @@ class RunAppTasks extends RunTasks {
   Future<void> beforeRun(WidgetsBinding widgetsBinding) async {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     await init();
-    await Auth.load();
     if (!(Auth.check())) {
       await Auth.loginAnonymous();
     }
@@ -53,8 +53,8 @@ class RunAppTasks extends RunTasks {
       final fcmToken = await firebaseMessaging.token;
       if (fcmToken != null) {
         Map<String, String?> body = {
-          'device_id': await deviceIdInfo(),
-          'device_type': getDeviceType(),
+          'device_id': await DeviceInfo.deviceIdInfo(),
+          'device_type': DeviceInfo.getDeviceType(),
           'token': fcmToken,
         }..removeWhere((key, value) => value == null);
         await sl<AuthApi>().updateToken(body);
