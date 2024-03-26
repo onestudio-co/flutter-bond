@@ -8,7 +8,7 @@ import 'package:bond_core/bond_core.dart';
 
 import '../config/notification.dart';
 
-class NotificationsServiceProvider extends ServiceProvider {
+class NotificationsServiceProvider extends ServiceProvider with ResponseDecoding {
   @override
   Future<void> register(GetIt it) async {
     for (final provider in NotificationConfig.providers.entries) {

@@ -11,13 +11,12 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:universal_platform/universal_platform.dart';
 
-import 'injection_container.dart';
-
 class RunAppTasks extends RunTasks {
+  RunAppTasks(List<ServiceProvider> providers) : super(providers);
+
   @override
   Future<void> beforeRun(WidgetsBinding widgetsBinding) async {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-    await init();
     if (!(Auth.check())) {
       await Auth.loginAnonymous();
     }
@@ -64,7 +63,7 @@ class RunAppTasks extends RunTasks {
 
   @override
   void onError(Object error, StackTrace stack) {
-    log(stack.toString());
+    log('Error: $error', stackTrace: stack);
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
   }
 }

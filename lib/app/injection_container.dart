@@ -6,5 +6,5 @@ Future<void> init() async {
   for (var provider in providers) {
     await provider.register(core.sl);
   }
-  core.providers = providers;
+  core.appProviders = providers;
 }

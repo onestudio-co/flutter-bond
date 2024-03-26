@@ -5,7 +5,7 @@ import 'package:bond/features/auth/data/models/user.dart';
 import 'package:bond/features/auth/presentation/providers/register_form_provider.dart';
 import 'package:bond_form/bond_form.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RegisterForm extends ConsumerWidget {
   const RegisterForm({super.key});

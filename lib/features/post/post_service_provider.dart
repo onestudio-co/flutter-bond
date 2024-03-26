@@ -5,7 +5,7 @@ import 'data/api.dart';
 import 'data/models/post.dart';
 import 'presentations/cubit/post_cubit.dart';
 
-class PostServiceProvider extends ServiceProvider {
+class PostServiceProvider extends ServiceProvider with ResponseDecoding {
   @override
   Future<void> register(GetIt it) async {
     it.registerFactory(() => PostsApi(it()));
