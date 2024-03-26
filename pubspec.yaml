@@ -15,7 +15,7 @@ dependencies:
 
 
   # Bond packages
-  bond_core: ^0.0.1+5
+  bond_core: ^0.0.1+6
   bond_network: ^0.0.3
   bond_cache: ^0.0.2
   bond_form: ^0.0.1+10

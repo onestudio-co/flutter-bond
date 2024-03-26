@@ -13,9 +13,9 @@ final List<ServiceProvider> providers = [
   // Framework Service Providers
   FirebaseServiceProvider(),
   AppServiceProvider(),
+  CacheServiceProvider(),
   AuthServiceProvider(),
   ApiServiceProvider(),
-  CacheServiceProvider(),
   AnalyticsServiceProvider(),
   NotificationsServiceProvider(),
 

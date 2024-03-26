@@ -12,7 +12,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 class RunAppTasks extends RunTasks {
-  RunAppTasks(List<ServiceProvider> providers) : super(providers);
 
   @override
   Future<void> beforeRun(WidgetsBinding widgetsBinding) async {
