@@ -77,10 +77,10 @@ packages:
     dependency: "direct main"
     description:
       name: bond_core
-      sha256: "22562f84d5c2f8a60d2a38217bba0be737def7617f32abecdde1eb4eac9b3a73"
+      sha256: e91ddf411d9513402c9724f051a0fb7c403a967627ef63230237256cf8f79a20
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1+6"
+    version: "0.0.1+7"
   bond_form:
     dependency: "direct main"
     description:
