@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bond/features/app/data/app_local_data_source.dart';
+import 'package:bond_cache/bond_cache.dart';
 import 'package:bond_core/bond_core.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -10,7 +10,6 @@ class DeviceInfo {
   Future<Map<String, String>> toJson() async {
     final deviceInfoPlugin = sl<DeviceInfoPlugin>();
     final packageInfo = sl<PackageInfo>();
-    final appLocalDataSource = sl<AppLocalDataSource>();
     final map = <String, String>{};
     map.addAll({
       'device_type': 'mobile',
@@ -18,7 +17,7 @@ class DeviceInfo {
       'device_brand': getDeviceType(),
       'os_version': packageInfo.buildNumber,
       'app_version': packageInfo.buildNumber,
-      'language': appLocalDataSource.currentLocale.languageCode,
+      'language': Cache.get('language', defaultValue: 'en'),
       'device_id': await deviceIdInfo(),
     });
     if (UniversalPlatform.isAndroid) {

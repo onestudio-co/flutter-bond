@@ -1,20 +1,20 @@
 import 'package:bond/core/app_localizations.dart';
-import 'package:bond/features/app/app_bloc.dart';
+import 'package:bond/features/app/app_providers.dart';
 import 'package:bond/features/auth/auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bond_core/bond_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'bond_popup_menu_item.dart';
 
-class BondPopMenuButton extends StatelessWidget {
+class BondPopMenuButton extends ConsumerWidget {
   const BondPopMenuButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return PopupMenuButton<Menu>(
-      onSelected: (Menu item) => _onSelected(context, item),
+      onSelected: (Menu item) => _onSelected(ref, item),
       icon: const Icon(
         Icons.more_vert_rounded,
       ),
@@ -56,25 +56,25 @@ class BondPopMenuButton extends StatelessWidget {
     );
   }
 
-  void _onSelected(BuildContext context, Menu item) {
-    final appBloc = context.read<AppBloc>();
+  void _onSelected(WidgetRef ref, Menu item) {
     switch (item) {
       case Menu.theme:
-        final newThemeMode = appBloc.state.currentThemeMode == ThemeMode.light
-            ? ThemeMode.dark
-            : ThemeMode.light;
-        appBloc.add(ChangeThemeEvent(newThemeMode));
+        final theme = ref.read(themeProvider);
+        final newThemeMode =
+            theme == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+        ref.read(themeProvider.notifier).update(newThemeMode);
         break;
       case Menu.language:
-        final newLocale = appBloc.state.currentLocale == const Locale('en')
+        final local = ref.read(localProvider);
+        final newLocale = local == const Locale('en')
             ? const Locale('ar')
             : const Locale('en');
-        appBloc.add(ChangeLocaleEvent(newLocale));
+        ref.read(localProvider.notifier).update(newLocale);
         break;
       case Menu.logout:
         break;
       case Menu.notifications:
-        context.go('/notifications');
+        ref.context.go('/notifications');
         break;
     }
   }
