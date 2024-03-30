@@ -41,8 +41,6 @@ dependencies:
   google_fonts: ^5.0.0
 
   # state management
-  bloc: ^8.0.2
-  flutter_bloc: ^8.0.1
   flutter_riverpod: ^2.5.1
   equatable: ^2.0.5
 

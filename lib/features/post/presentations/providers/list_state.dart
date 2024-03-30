@@ -1,4 +1,7 @@
-part of 'post_cubit.dart';
+// extract to bond network package
+import 'package:bond_network/bond_network.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 
 enum ListStatus { initial, loading, success, failed }
 
@@ -11,9 +14,17 @@ class ListState<T extends Model> extends Equatable {
 
   final String? error;
 
+  bool get isLoading => status == ListStatus.loading;
+
   factory ListState.initial() => ListState<T>(
         ListResponse<T>(data: List<T>.empty(growable: true)),
         ListStatus.initial,
+        null,
+      );
+
+  factory ListState.data(ListResponse<T> data) => ListState<T>(
+        data,
+        ListStatus.success,
         null,
       );
 

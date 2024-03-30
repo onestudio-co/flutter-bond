@@ -1,22 +1,23 @@
+import 'package:bond/features/post/presentations/providers/posts_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'cubit/post_cubit.dart';
 import 'views/home_app_bar.dart';
 import 'views/post_item.dart';
 
-class PostsPage extends StatelessWidget {
+class PostsPage extends ConsumerWidget {
   const PostsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final postCubit = context.watch<PostCubit>();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final postsState = ref.watch(postsProvider);
+    final postsController = ref.read(postsProvider.notifier);
     return Scaffold(
       appBar: const HomeAppBar(),
-      body: postCubit.state.when(
-        initial: () => const Center(child: CircularProgressIndicator()),
-        success: (posts, loading) => SingleChildScrollView(
-          controller: postCubit.scrollController,
+      body: postsState.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        data: (posts) => SingleChildScrollView(
+          controller: postsController.scrollController,
           child: Column(
             children: [
               GridView.count(
@@ -27,16 +28,16 @@ class PostsPage extends StatelessWidget {
                 childAspectRatio: 0.6,
                 mainAxisSpacing: 6.0,
                 crossAxisSpacing: 6.0,
-                children: posts.map((post) {
+                children: posts.data.data.map((post) {
                   return PostItem(post: post);
                 }).toList(),
               ),
-              if (loading) const CircularProgressIndicator.adaptive(),
+              if (posts.isLoading) const CircularProgressIndicator.adaptive(),
             ],
           ),
         ),
-        failed: (error) => Center(
-          child: Text(error),
+        error: (error, _) => Center(
+          child: Text(error.toString()),
         ),
       ),
     );
