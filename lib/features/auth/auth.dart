@@ -13,9 +13,9 @@ export 'routes.dart';
 class Auth {
   static bool check() => Cache.has('token');
 
-  static User? user() => Cache.get('user');
+  static User user() => Cache.get('user');
 
-  static String? token() => Cache.get('token');
+  static String token() => Cache.get('token');
 
   static Future<User?> loginAnonymous() async {
     try {
