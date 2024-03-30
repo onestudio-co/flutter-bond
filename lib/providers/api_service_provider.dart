@@ -18,9 +18,8 @@ class ApiServiceProvider extends ServiceProvider {
       baseUrl: config('API_BASE_URL'),
     );
     Api.extraHeaders = () {
-      final token = Auth.token();
       return {
-        if (token != null) 'Authorization': 'Bearer $token',
+        if (Auth.check()) 'Authorization': 'Bearer ${Auth.token()}',
       };
     };
     baseOptions.headers = Api.headers();
