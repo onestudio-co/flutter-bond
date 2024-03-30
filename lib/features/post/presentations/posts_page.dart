@@ -36,9 +36,7 @@ class PostsPage extends ConsumerWidget {
             ],
           ),
         ),
-        error: (error, _) => Center(
-          child: Text(error.toString()),
-        ),
+        error: (error, stackTrace) => Center(child: Text(error.toString())),
       ),
     );
   }

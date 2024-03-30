@@ -52,6 +52,7 @@ dependencies:
   timeago: ^3.3.0
   args: ^2.3.1
   device_info_plus: ^10.0.1
+  faker: ^2.1.0
 
   # platforms packages
   universal_platform: ^1.0.0+1

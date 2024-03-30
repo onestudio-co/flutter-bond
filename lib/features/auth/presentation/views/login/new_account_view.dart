@@ -24,7 +24,7 @@ class NewAccountView extends StatelessWidget {
             ),
             TextSpan(
               recognizer: TapGestureRecognizer()
-                ..onTap = () => context.go('/register'),
+                ..onTap = () => context.push('/register'),
               text: context.localizations.login_page_new_account_button,
               style: context.textTheme.labelSmall,
             ),

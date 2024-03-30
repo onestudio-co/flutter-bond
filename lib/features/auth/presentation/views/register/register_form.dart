@@ -59,7 +59,7 @@ class RegisterForm extends ConsumerWidget {
       case BondFormStateStatus.submitted:
         goRouter.replace('/home');
         break;
-      case BondFormStateStatus.invalid:
+      case BondFormStateStatus.failed:
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(next.failure.toString()),

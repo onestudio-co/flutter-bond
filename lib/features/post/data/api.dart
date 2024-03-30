@@ -1,3 +1,4 @@
+import 'package:bond/features/post/data/post_faker.dart';
 import 'package:bond_network/bond_network.dart';
 
 import 'models/post.dart';
@@ -6,6 +7,16 @@ class PostsApi {
   final BondFire _bondFire;
 
   PostsApi(this._bondFire);
+
+  Future<ListResponse<Post>> fakePosts() => Future.delayed(
+        const Duration(seconds: 1),
+        () => ListResponse<Post>.fromJson(PostFaker.posts()),
+      );
+
+  Future<SingleResponse<Post>> fakePost() => Future.delayed(
+        const Duration(seconds: 1),
+        () => SingleResponse<Post>.fromJson({'data': PostFaker.post()}),
+      );
 
   Future<ListResponse<Post>> posts() => _bondFire
       .get<ListResponse<Post>>('/posts')

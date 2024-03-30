@@ -13,6 +13,7 @@ class ThemeNotifier extends Notifier<ThemeMode> {
 
   void update(ThemeMode themeMode) {
     Cache.put('theme', themeMode.value);
+    state = themeMode;
   }
 }
 

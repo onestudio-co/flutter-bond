@@ -68,6 +68,7 @@ ThemeData appLightThemeData() {
       textStyle: appTextTheme.titleSmall?.copyWith(
         color: Colors.black,
       ),
+      color: Colors.white,
     ),
 
     /// Text theme

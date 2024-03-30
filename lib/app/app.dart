@@ -8,12 +8,14 @@ import '../providers/api_service_provider.dart';
 import '../providers/app_service_provider.dart';
 import '../providers/cache_service_provider.dart';
 import '../providers/firebase_service_provider.dart';
+import '../providers/forms_service_provider.dart';
 
 final List<ServiceProvider> providers = [
   // Framework Service Providers
   FirebaseServiceProvider(),
   AppServiceProvider(),
   CacheServiceProvider(),
+  FormsServiceProvider(),
   AuthServiceProvider(),
   ApiServiceProvider(),
   AnalyticsServiceProvider(),

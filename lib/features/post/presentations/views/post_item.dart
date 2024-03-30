@@ -11,7 +11,7 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: GestureDetector(
-        onTap: () => context.go('/post/${post.uuid}'),
+        onTap: () => context.push('/post/${post.uuid}'),
         child: Hero(
           tag: post.uuid,
           child: ClipRRect(

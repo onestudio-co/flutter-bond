@@ -1,6 +1,5 @@
 import 'package:bond_network/bond_network.dart';
 import 'package:bond_notifications/bond_notifications.dart';
-import 'package:dio/dio.dart';
 
 class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
   final ApiClient _client;
@@ -10,11 +9,12 @@ class NotificationCenterRemoteDataSource extends NotificationCenterDataSource {
   @override
   Future<ListResponse<ServerNotificationModel>> loadNotifications(
       {String? nextUrl}) async {
-    final Response<dynamic> response = await _client.get(
-      nextUrl ?? NotificationsApis.notifications,
-      headers: Api.headers(),
-    );
-    return mapListResponse(response);
+    // final Response<dynamic> response = await _client.get(
+    //   nextUrl ?? NotificationsApis.notifications,
+    //   headers: Api.headers(),
+    // );
+    // return mapListResponse(response);
+    return ListResponse<ServerNotificationModel>.fromJson(const {"data": []});
   }
 
   @override

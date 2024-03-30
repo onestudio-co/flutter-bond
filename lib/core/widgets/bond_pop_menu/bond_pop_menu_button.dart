@@ -72,9 +72,10 @@ class BondPopMenuButton extends ConsumerWidget {
         ref.read(localProvider.notifier).update(newLocale);
         break;
       case Menu.logout:
+        ref.context.go('/login');
         break;
       case Menu.notifications:
-        ref.context.go('/notifications');
+        ref.context.push('/notifications');
         break;
     }
   }

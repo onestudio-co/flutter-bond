@@ -16,7 +16,19 @@ final postsProvider =
 );
 
 class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
-  PostController(this._api, this.scrollController) : super() {
+  PostController(this._api, this.scrollController) : super();
+
+  final PostsApi _api;
+  final ScrollController scrollController;
+
+  @override
+  Future<ListState<Post>> build() async {
+    _initialize();
+    final response = await _api.fakePosts();
+    return ListState.data(response);
+  }
+
+  void _initialize() {
     scrollController.addListener(_scrollControllerListener);
     ref.onDispose(
       () {
@@ -26,19 +38,10 @@ class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
     );
   }
 
-  final PostsApi _api;
-  final ScrollController scrollController;
-
-  @override
-  Future<ListState<Post>> build() async {
-    final response = await _api.posts();
-    return ListState.data(response);
-  }
-
-  void loadMore() async {
+  void _loadMore() async {
     state = AsyncData(state.requireValue.loading());
     state = await AsyncValue.guard(() async {
-      final response = await _api.posts();
+      final response = await _api.fakePosts();
       return state.requireValue.success(response);
     });
   }
@@ -49,7 +52,7 @@ class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
     const delta = 200.0;
     if (maxScroll - currentScroll <= delta &&
         state.value?.status != ListStatus.loading) {
-      loadMore();
+      _loadMore();
     }
   }
 }
