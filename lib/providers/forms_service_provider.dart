@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:ui';
 
 import 'package:bond_cache/bond_cache.dart';
 import 'package:bond_core/bond_core.dart';
@@ -8,10 +8,10 @@ import 'package:get_it/get_it.dart';
 class FormsServiceProvider extends ServiceProvider {
   @override
   Future<void> register(GetIt it) async {
-    // TODO - local must be a getter constructor in the ValidatorLocalizations class
-    log('Cache.get('', defaultValue: '') = ${Cache.get<String>('language', defaultValue: 'en')}');
-    it.registerSingleton(
-      ValidatorLocalizations(Cache.get('language', defaultValue: 'en')),
+    //TODO: How to force this to reload when language changes?
+    final local = Locale(Cache.get<String>('language', defaultValue: 'en'));
+    it.registerSingletonAsync(
+      () async => ValidatorLocalizations.load(local),
     );
   }
 }

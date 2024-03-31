@@ -1,7 +1,7 @@
 import 'package:bond/app/routes.dart';
+import 'package:bond_core/bond_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/app_theme.dart';
@@ -16,14 +16,9 @@ class BondApp extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     return MaterialApp.router(
       routerConfig: goRouter,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        AppLocalizations.delegate,
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       locale: locale,
-      supportedLocales: const [Locale('ar'), Locale('en')],
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: true,
       theme: appLightThemeData(),
       darkTheme: appDarkThemeData(),

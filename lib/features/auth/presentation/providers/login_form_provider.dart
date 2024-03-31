@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bond/core/app_localizations.dart';
 import 'package:bond/features/auth/auth.dart';
 import 'package:bond/features/auth/data/api.dart';
 import 'package:bond_core/bond_core.dart';
@@ -16,7 +17,7 @@ class LoginFormController extends FormStateNotifier<User, Error> {
   Map<String, FormFieldState> fields() => {
         'email': TextFieldState(
           null,
-          label: 'Email',
+          label: appContext.localizations.filed_email_label,
           rules: [
             Rules.required(),
             Rules.email(),
@@ -24,7 +25,7 @@ class LoginFormController extends FormStateNotifier<User, Error> {
         ),
         'password': TextFieldState(
           null,
-          label: 'Password',
+          label: appContext.localizations.filed_password_label,
           rules: [
             Rules.required(),
             Rules.minLength(6),
