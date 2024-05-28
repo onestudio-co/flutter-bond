@@ -15,13 +15,11 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
 
   @override
   void logEvent(AnalyticsEvent event) {
-    if (event.key != null) {
-      final String eventKey = event.key!.toLowerCase().replaceAll(' ', '_');
-      _firebaseAnalytics.logEvent(
-        name: eventKey,
-        parameters: event.params,
-      );
-    }
+    if (event.key == null) return;
+    _firebaseAnalytics.logEvent(
+      name: event.key!,
+      parameters: event.params,
+    );
   }
 
   @override
@@ -30,163 +28,162 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
   }
 
   @override
-  void logBeginTutorial() {
+  void logBeginTutorial(AnalyticsEvent event) {
     _firebaseAnalytics.logTutorialBegin();
   }
 
   @override
-  void logCompleteTutorial() {
+  void logCompleteTutorial(AnalyticsEvent event) {
     _firebaseAnalytics.logTutorialComplete();
   }
 
   @override
-  void logSignedIn(UserSignedIn event) {
-    _firebaseAnalytics.setUserId(id: event.id.toString());
-    _firebaseAnalytics.logLogin(loginMethod: event.loginMethod);
+  void logSignedIn(AnalyticsEvent event, UserSignedIn data) {
+    setUserId(data.id);
+    _firebaseAnalytics.logLogin(loginMethod: data.loginMethod);
   }
 
   @override
-  void logSignedUp(UserSignedUp event) {
-    _firebaseAnalytics.setUserId(id: event.id.toString());
-    _firebaseAnalytics.logSignUp(signUpMethod: event.signupMethod);
+  void logSignedUp(AnalyticsEvent event, UserSignedUp data) {
+    setUserId(data.id);
+    _firebaseAnalytics.logSignUp(signUpMethod: data.signupMethod);
   }
 
   @override
-  void updateProfile(UserUpdateProfile event) {
-    _firebaseAnalytics.setUserProperty(name: 'name', value: event.name);
-    _firebaseAnalytics.setUserProperty(name: 'mobile', value: event.mobile);
-    _firebaseAnalytics.setUserProperty(name: 'email', value: event.email);
-    _firebaseAnalytics.setUserProperty(name: 'dob', value: event.dob);
-    _firebaseAnalytics.setUserProperty(name: 'gender', value: event.gender);
-    _firebaseAnalytics.setUserProperty(name: 'country', value: event.country);
-    _firebaseAnalytics.setUserProperty(name: 'city', value: event.city);
-    _firebaseAnalytics.setUserProperty(
-        name: 'age', value: event.age.toString());
-    event.customAttributes.forEach(_sendCustomAttributes);
+  void updateProfile(AnalyticsEvent event, UserUpdateProfile data) {
+    _firebaseAnalytics.setUserProperty(name: 'name', value: data.name);
+    _firebaseAnalytics.setUserProperty(name: 'mobile', value: data.mobile);
+    _firebaseAnalytics.setUserProperty(name: 'email', value: data.email);
+    _firebaseAnalytics.setUserProperty(name: 'dob', value: data.dob);
+    _firebaseAnalytics.setUserProperty(name: 'gender', value: data.gender);
+    _firebaseAnalytics.setUserProperty(name: 'country', value: data.country);
+    _firebaseAnalytics.setUserProperty(name: 'city', value: data.city);
+    _firebaseAnalytics.setUserProperty(name: 'age', value: data.age.toString());
+    data.customAttributes.forEach(_sendCustomAttributes);
   }
 
   @override
-  void logViewItemList(UserViewedItemList event) {
+  void logViewItemList(AnalyticsEvent event, UserViewedItemList data) {
     _firebaseAnalytics.logViewItemList(
-      items: event.items?.map((item) => item.analyticsEventItem).toList(),
-      itemListId: event.itemListId,
-      itemListName: event.itemListName,
+      items: data.items?.map((item) => item.analyticsEventItem).toList(),
+      itemListId: data.itemListId,
+      itemListName: data.itemListName,
     );
   }
 
   @override
-  void logViewItem(UserViewItem event) {
+  void logViewItem(AnalyticsEvent event, UserViewItem data) {
     _firebaseAnalytics.logViewItem(
-      currency: event.currency,
-      value: event.value,
-      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+      currency: data.currency,
+      value: data.value,
+      items: data.items?.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logSelectItem(UserSelectItem event) {
+  void logSelectItem(AnalyticsEvent event, UserSelectItem data) {
     _firebaseAnalytics.logSelectItem(
-      itemListId: event.itemListId,
-      itemListName: event.itemListName,
-      items: event.items.map((item) => item.analyticsEventItem).toList(),
+      itemListId: data.itemListId,
+      itemListName: data.itemListName,
+      items: data.items.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logViewPromotion(UserViewPromotion event) {
+  void logViewPromotion(AnalyticsEvent event, UserViewPromotion data) {
     _firebaseAnalytics.logViewPromotion(
-      promotionId: event.promotionId,
-      promotionName: event.promotionName,
-      creativeName: event.creativeName,
-      creativeSlot: event.creativeSlot,
-      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+      promotionId: data.promotionId,
+      promotionName: data.promotionName,
+      creativeName: data.creativeName,
+      creativeSlot: data.creativeSlot,
+      items: data.items?.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logSelectPromotion(UserSelectPromotion event) {
+  void logSelectPromotion(AnalyticsEvent event, UserSelectPromotion data) {
     _firebaseAnalytics.logSelectPromotion(
-      promotionId: event.promotionId,
-      promotionName: event.promotionName,
-      creativeName: event.creativeName,
-      creativeSlot: event.creativeSlot,
-      items: event.items?.map((item) => item.analyticsEventItem).toList(),
+      promotionId: data.promotionId,
+      promotionName: data.promotionName,
+      creativeName: data.creativeName,
+      creativeSlot: data.creativeSlot,
+      items: data.items?.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logAddToCart(UserAddedToCart event) {
+  void logAddToCart(AnalyticsEvent event, UserAddedToCart data) {
     _firebaseAnalytics.logAddToCart(
-      items: event.items.map((item) => item.analyticsEventItem).toList(),
-      value: event.value,
-      currency: event.currency,
+      items: data.items.map((item) => item.analyticsEventItem).toList(),
+      value: data.value,
+      currency: data.currency,
     );
   }
 
   @override
-  void logRemoveFromCart(UserRemovedFromCart event) {
+  void logRemoveFromCart(AnalyticsEvent event, UserRemovedFromCart data) {
     _firebaseAnalytics.logRemoveFromCart(
-      items: event.items.map((item) => item.analyticsEventItem).toList(),
-      value: event.value,
-      currency: event.currency,
+      items: data.items.map((item) => item.analyticsEventItem).toList(),
+      value: data.value,
+      currency: data.currency,
     );
   }
 
   @override
-  void logBeginCheckout(UserBeginCheckout event) {
+  void logBeginCheckout(AnalyticsEvent event, UserBeginCheckout data) {
     _firebaseAnalytics.logBeginCheckout(
-      value: event.value,
-      currency: event.currency,
-      items: event.items.map((item) => item.analyticsEventItem).toList(),
+      value: data.value,
+      currency: data.currency,
+      items: data.items.map((item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logMadePurchase(UserMadePurchase event) {
+  void logMadePurchase(AnalyticsEvent event, UserMadePurchase data) {
     _firebaseAnalytics.logPurchase(
-      transactionId: event.transactionId,
-      value: event.value,
-      tax: event.tax,
-      currency: event.currency,
-      coupon: event.coupon,
+      transactionId: data.transactionId,
+      value: data.value,
+      tax: data.tax,
+      currency: data.currency,
+      coupon: data.coupon,
       items:
-          event.items.map((EventItem item) => item.analyticsEventItem).toList(),
+          data.items.map((EventItem item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logRefundOrder(UserRefundOrder event) {
+  void logRefundOrder(AnalyticsEvent event, UserRefundOrder data) {
     _firebaseAnalytics.logRefund(
-      transactionId: event.transactionId,
-      value: event.value,
-      tax: event.tax,
-      currency: event.currency,
-      coupon: event.coupon,
+      transactionId: data.transactionId,
+      value: data.value,
+      tax: data.tax,
+      currency: data.currency,
+      coupon: data.coupon,
       items:
-          event.items.map((EventItem item) => item.analyticsEventItem).toList(),
+          data.items.map((EventItem item) => item.analyticsEventItem).toList(),
     );
   }
 
   @override
-  void logSearch(UserSearch event) {
+  void logSearch(AnalyticsEvent event, UserSearch data) {
     _firebaseAnalytics.logSearch(
-      searchTerm: event.searchTerm,
+      searchTerm: data.searchTerm,
     );
   }
 
   @override
-  void logShareContent(UserShareContent event) {
+  void logShareContent(AnalyticsEvent event, UserShareContent data) {
     _firebaseAnalytics.logShare(
-      contentType: event.contentType,
-      itemId: event.itemId,
-      method: event.method ?? 'unknown',
+      contentType: data.contentType,
+      itemId: data.itemId,
+      method: data.method ?? 'unknown',
     );
   }
 
   @override
-  void logViewSearchResults(UserViewSearchResult event) {
+  void logViewSearchResults(AnalyticsEvent event, UserViewSearchResult data) {
     _firebaseAnalytics.logViewSearchResults(
-      searchTerm: event.searchTerm,
+      searchTerm: data.searchTerm,
     );
   }
 

@@ -53,10 +53,10 @@ packages:
     dependency: "direct main"
     description:
       name: bond_app_analytics
-      sha256: d695548d812271fdb31e42dd2d10c1cd3c24f0e51201533bfb2e46d2bc698a66
+      sha256: "816a07b27c82ec1524f365e2389f9c058a7216a55c04b60caa38b3d07272f024"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1+2"
+    version: "0.0.1+3"
   bond_cache:
     dependency: "direct main"
     description:
