@@ -395,7 +395,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		249021D3217E4FDB00AE95B9 /* Profile Production */ = {
+		249021D3217E4FDB00AE95B9 /* Profile-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -443,9 +443,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile Production";
+			name = "Profile-Production";
 		};
-		249021D4217E4FDB00AE95B9 /* Profile Production */ = {
+		249021D4217E4FDB00AE95B9 /* Profile-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -454,7 +454,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = production;
+				FLAVOR = Production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,9 +470,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile Production";
+			name = "Profile-Production";
 		};
-		3D9991DE27B08B0B0069707E /* Debug Staging */ = {
+		3D9991DE27B08B0B0069707E /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -525,9 +525,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug Staging";
+			name = "Debug-Staging";
 		};
-		3D9991DF27B08B0B0069707E /* Debug Staging */ = {
+		3D9991DF27B08B0B0069707E /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -536,7 +536,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = staging;
+				FLAVOR = Staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -553,9 +553,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug Staging";
+			name = "Debug-Staging";
 		};
-		3D9991E027B08B140069707E /* Release Staging */ = {
+		3D9991E027B08B140069707E /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -605,9 +605,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release Staging";
+			name = "Release-Staging";
 		};
-		3D9991E127B08B140069707E /* Release Staging */ = {
+		3D9991E127B08B140069707E /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -616,7 +616,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = staging;
+				FLAVOR = Staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -632,9 +632,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release Staging";
+			name = "Release-Staging";
 		};
-		3D9991E227B08B210069707E /* Profile Staging */ = {
+		3D9991E227B08B210069707E /* Profile-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -682,9 +682,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile Staging";
+			name = "Profile-Staging";
 		};
-		3D9991E327B08B210069707E /* Profile Staging */ = {
+		3D9991E327B08B210069707E /* Profile-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -693,7 +693,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = staging;
+				FLAVOR = Staging;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenStaging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -709,9 +709,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile Staging";
+			name = "Profile-Staging";
 		};
-		97C147031CF9000F007C117D /* Debug Production */ = {
+		97C147031CF9000F007C117D /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -765,9 +765,9 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug Production";
+			name = "Debug-Production";
 		};
-		97C147041CF9000F007C117D /* Release Production */ = {
+		97C147041CF9000F007C117D /* Release-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -817,9 +817,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release Production";
+			name = "Release-Production";
 		};
-		97C147061CF9000F007C117D /* Debug Production */ = {
+		97C147061CF9000F007C117D /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -828,7 +828,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = production;
+				FLAVOR = Production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -845,9 +845,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Debug Production";
+			name = "Debug-Production";
 		};
-		97C147071CF9000F007C117D /* Release Production */ = {
+		97C147071CF9000F007C117D /* Release-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -856,7 +856,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLAVOR = production;
+				FLAVOR = Production;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LAUNCH_SCREEN_STORYBOARD = LaunchScreenProduction;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -872,7 +872,7 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Release Production";
+			name = "Release-Production";
 		};
 /* End XCBuildConfiguration section */
 
@@ -880,28 +880,28 @@
 		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97C147031CF9000F007C117D /* Debug Production */,
-				3D9991DE27B08B0B0069707E /* Debug Staging */,
-				97C147041CF9000F007C117D /* Release Production */,
-				3D9991E027B08B140069707E /* Release Staging */,
-				249021D3217E4FDB00AE95B9 /* Profile Production */,
-				3D9991E227B08B210069707E /* Profile Staging */,
+				97C147031CF9000F007C117D /* Debug-Production */,
+				3D9991DE27B08B0B0069707E /* Debug-Staging */,
+				97C147041CF9000F007C117D /* Release-Production */,
+				3D9991E027B08B140069707E /* Release-Staging */,
+				249021D3217E4FDB00AE95B9 /* Profile-Production */,
+				3D9991E227B08B210069707E /* Profile-Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Production";
+			defaultConfigurationName = "Release-Production";
 		};
 		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97C147061CF9000F007C117D /* Debug Production */,
-				3D9991DF27B08B0B0069707E /* Debug Staging */,
-				97C147071CF9000F007C117D /* Release Production */,
-				3D9991E127B08B140069707E /* Release Staging */,
-				249021D4217E4FDB00AE95B9 /* Profile Production */,
-				3D9991E327B08B210069707E /* Profile Staging */,
+				97C147061CF9000F007C117D /* Debug-Production */,
+				3D9991DF27B08B0B0069707E /* Debug-Staging */,
+				97C147071CF9000F007C117D /* Release-Production */,
+				3D9991E127B08B140069707E /* Release-Staging */,
+				249021D4217E4FDB00AE95B9 /* Profile-Production */,
+				3D9991E327B08B210069707E /* Profile-Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Production";
+			defaultConfigurationName = "Release-Production";
 		};
 /* End XCConfigurationList section */
 	};
