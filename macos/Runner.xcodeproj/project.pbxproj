@@ -437,7 +437,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		338D0CE9231458BD00FA5F75 /* Profile Production */ = {
+		338D0CE9231458BD00FA5F75 /* Profile-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -481,9 +481,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Profile Production";
+			name = "Profile-Production";
 		};
-		338D0CEA231458BD00FA5F75 /* Profile Production */ = {
+		338D0CEA231458BD00FA5F75 /* Profile-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -506,17 +506,17 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Profile Production";
+			name = "Profile-Production";
 		};
-		338D0CEB231458BD00FA5F75 /* Profile Production */ = {
+		338D0CEB231458BD00FA5F75 /* Profile-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Profile Production";
+			name = "Profile-Production";
 		};
-		33CC10F92044A3C60003C045 /* Debug Production */ = {
+		33CC10F92044A3C60003C045 /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -567,9 +567,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug Production";
+			name = "Debug-Production";
 		};
-		33CC10FA2044A3C60003C045 /* Release Production */ = {
+		33CC10FA2044A3C60003C045 /* Release-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -613,9 +613,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Release Production";
+			name = "Release-Production";
 		};
-		33CC10FC2044A3C60003C045 /* Debug Production */ = {
+		33CC10FC2044A3C60003C045 /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -640,9 +640,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Debug Production";
+			name = "Debug-Production";
 		};
-		33CC10FD2044A3C60003C045 /* Release Production */ = {
+		33CC10FD2044A3C60003C045 /* Release-Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -664,25 +664,25 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Release Production";
+			name = "Release-Production";
 		};
-		33CC111C2044C6BA0003C045 /* Debug Production */ = {
+		33CC111C2044C6BA0003C045 /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Debug Production";
+			name = "Debug-Production";
 		};
-		33CC111D2044C6BA0003C045 /* Release Production */ = {
+		33CC111D2044C6BA0003C045 /* Release-Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Release Production";
+			name = "Release-Production";
 		};
-		3DDCF9302A3CA1B50029D6C9 /* Debug Staging */ = {
+		3DDCF9302A3CA1B50029D6C9 /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
@@ -733,9 +733,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug Staging";
+			name = "Debug-Staging";
 		};
-		3DDCF9312A3CA1B50029D6C9 /* Debug Staging */ = {
+		3DDCF9312A3CA1B50029D6C9 /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -760,17 +760,17 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Debug Staging";
+			name = "Debug-Staging";
 		};
-		3DDCF9322A3CA1B50029D6C9 /* Debug Staging */ = {
+		3DDCF9322A3CA1B50029D6C9 /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Debug Staging";
+			name = "Debug-Staging";
 		};
-		3DDCF9332A3CA1C70029D6C9 /* Release Staging */ = {
+		3DDCF9332A3CA1C70029D6C9 /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -814,9 +814,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Release Staging";
+			name = "Release-Staging";
 		};
-		3DDCF9342A3CA1C70029D6C9 /* Release Staging */ = {
+		3DDCF9342A3CA1C70029D6C9 /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -838,17 +838,17 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Release Staging";
+			name = "Release-Staging";
 		};
-		3DDCF9352A3CA1C70029D6C9 /* Release Staging */ = {
+		3DDCF9352A3CA1C70029D6C9 /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Release Staging";
+			name = "Release-Staging";
 		};
-		3DDCF9362A3CA1CD0029D6C9 /* Profile Staging */ = {
+		3DDCF9362A3CA1CD0029D6C9 /* Profile-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
@@ -892,9 +892,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
-			name = "Profile Staging";
+			name = "Profile-Staging";
 		};
-		3DDCF9372A3CA1CD0029D6C9 /* Profile Staging */ = {
+		3DDCF9372A3CA1CD0029D6C9 /* Profile-Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;
 			buildSettings = {
@@ -917,15 +917,15 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
-			name = "Profile Staging";
+			name = "Profile-Staging";
 		};
-		3DDCF9382A3CA1CD0029D6C9 /* Profile Staging */ = {
+		3DDCF9382A3CA1CD0029D6C9 /* Profile-Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = "Profile Staging";
+			name = "Profile-Staging";
 		};
 /* End XCBuildConfiguration section */
 
@@ -933,41 +933,41 @@
 		33CC10E82044A3C60003C045 /* Build configuration list for PBXProject "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC10F92044A3C60003C045 /* Debug Production */,
-				3DDCF9302A3CA1B50029D6C9 /* Debug Staging */,
-				33CC10FA2044A3C60003C045 /* Release Production */,
-				3DDCF9332A3CA1C70029D6C9 /* Release Staging */,
-				338D0CE9231458BD00FA5F75 /* Profile Production */,
-				3DDCF9362A3CA1CD0029D6C9 /* Profile Staging */,
+				33CC10F92044A3C60003C045 /* Debug-Production */,
+				3DDCF9302A3CA1B50029D6C9 /* Debug-Staging */,
+				33CC10FA2044A3C60003C045 /* Release-Production */,
+				3DDCF9332A3CA1C70029D6C9 /* Release-Staging */,
+				338D0CE9231458BD00FA5F75 /* Profile-Production */,
+				3DDCF9362A3CA1CD0029D6C9 /* Profile-Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Production";
+			defaultConfigurationName = "Release-Production";
 		};
 		33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC10FC2044A3C60003C045 /* Debug Production */,
-				3DDCF9312A3CA1B50029D6C9 /* Debug Staging */,
-				33CC10FD2044A3C60003C045 /* Release Production */,
-				3DDCF9342A3CA1C70029D6C9 /* Release Staging */,
-				338D0CEA231458BD00FA5F75 /* Profile Production */,
-				3DDCF9372A3CA1CD0029D6C9 /* Profile Staging */,
+				33CC10FC2044A3C60003C045 /* Debug-Production */,
+				3DDCF9312A3CA1B50029D6C9 /* Debug-Staging */,
+				33CC10FD2044A3C60003C045 /* Release-Production */,
+				3DDCF9342A3CA1C70029D6C9 /* Release-Staging */,
+				338D0CEA231458BD00FA5F75 /* Profile-Production */,
+				3DDCF9372A3CA1CD0029D6C9 /* Profile-Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Production";
+			defaultConfigurationName = "Release-Production";
 		};
 		33CC111B2044C6BA0003C045 /* Build configuration list for PBXAggregateTarget "Flutter Assemble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33CC111C2044C6BA0003C045 /* Debug Production */,
-				3DDCF9322A3CA1B50029D6C9 /* Debug Staging */,
-				33CC111D2044C6BA0003C045 /* Release Production */,
-				3DDCF9352A3CA1C70029D6C9 /* Release Staging */,
-				338D0CEB231458BD00FA5F75 /* Profile Production */,
-				3DDCF9382A3CA1CD0029D6C9 /* Profile Staging */,
+				33CC111C2044C6BA0003C045 /* Debug-Production */,
+				3DDCF9322A3CA1B50029D6C9 /* Debug-Staging */,
+				33CC111D2044C6BA0003C045 /* Release-Production */,
+				3DDCF9352A3CA1C70029D6C9 /* Release-Staging */,
+				338D0CEB231458BD00FA5F75 /* Profile-Production */,
+				3DDCF9382A3CA1CD0029D6C9 /* Profile-Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Production";
+			defaultConfigurationName = "Release-Production";
 		};
 /* End XCConfigurationList section */
 	};
