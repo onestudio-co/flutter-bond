@@ -50,7 +50,7 @@ flutterfire configure \
 flutterfire configure \
 --yes \
 --project=$PROJECT_ID_STAGING \
---platforms=ios,macos \
+--platforms=ios,macos,android,web \
 --android-out=android/app/src/staging/google-services.json \
 --android-package-name=$ANDROID_PACKAGE_NAME_STAGING \
 --ios-build-config='Debug-Staging' \
