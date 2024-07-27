@@ -62,11 +62,11 @@ dependencies:
   share_plus: ^7.0.2
 
   # Firebase
-  firebase_analytics: ^10.8.10
-  firebase_core: ^2.27.1
-  firebase_messaging: ^14.7.20
-  firebase_crashlytics: ^3.4.19
-  firebase_remote_config: ^4.3.18
+  firebase_analytics: ^11.2.0
+  firebase_core: ^3.2.0
+  firebase_messaging: ^15.0.3
+  firebase_crashlytics: ^4.0.3
+  firebase_remote_config: ^5.0.3
 
   # localization
   intl: ^0.19.0

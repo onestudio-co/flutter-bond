@@ -18,7 +18,7 @@ class FirebaseAnalyticsProvider extends AnalyticsProvider {
     if (event.key == null) return;
     _firebaseAnalytics.logEvent(
       name: event.key!,
-      parameters: event.params,
+      parameters: event.params as Map<String, Object>,
     );
   }
 

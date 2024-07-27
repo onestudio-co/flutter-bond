@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="production" type="FlutterRunConfigurationType" factoryName="Flutter">
     <option name="additionalArgs" value="--dart-define-from-file=env.json" />
-    <option name="buildFlavor" value="production" />
+    <option name="buildFlavor" value="Production" />
     <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
     <method v="2" />
   </configuration>
