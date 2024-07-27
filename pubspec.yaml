@@ -15,10 +15,10 @@ dependencies:
 
 
   # Bond packages
-  bond_core: ^0.0.1+8
+  bond_core: ^0.0.2
   bond_network: ^0.0.3
   bond_cache: ^0.0.2
-  bond_form: ^0.0.1+10
+  bond_form: ^0.0.1+30
   bond_form_riverpod: ^0.0.1+3
   bond_app_analytics: ^0.0.1+3
   bond_notifications: ^0.0.1
@@ -49,8 +49,6 @@ dependencies:
 
   # utils
   flutter_native_splash: ^2.2.8
-  timeago: ^3.3.0
-  args: ^2.3.1
   device_info_plus: ^10.0.1
   faker: ^2.1.0
 

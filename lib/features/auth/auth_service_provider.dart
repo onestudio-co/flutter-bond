@@ -12,14 +12,8 @@ class AuthServiceProvider extends ServiceProvider with ResponseDecoding {
   }
 
   @override
-  T? responseConvert<T>(Map<String, dynamic> json) {
-    switch (T) {
-      case User:
-        return User.fromJson(json) as T;
-      case UserMeta:
-        return UserMeta.fromJson(json) as T;
-      default:
-        return null;
-    }
-  }
+  Map<Type, JsonFactory> get factories => {
+        User: User.fromJson,
+        UserMeta: UserMeta.fromJson,
+      };
 }

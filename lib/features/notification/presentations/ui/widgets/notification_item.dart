@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:bond_core/bond_core.dart';
-import 'package:timeago/timeago.dart' as time_ago;
 
 import 'badge_unread_notification.dart';
 import 'header_title_image.dart';
@@ -51,7 +50,7 @@ class NotificationItem extends StatelessWidget {
 
                   /// Time Ago
                   Text(
-                    time_ago.format(createAt, locale: 'ar'),
+                    createAt.toIso8601String(),
                     style: context.textTheme.bodySmall,
                   )
                 ],

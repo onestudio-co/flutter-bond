@@ -11,12 +11,7 @@ class PostServiceProvider extends ServiceProvider with ResponseDecoding {
   }
 
   @override
-  T? responseConvert<T>(Map<String, dynamic> json) {
-    switch (T) {
-      case Post:
-        return Post.fromJson(json) as T;
-      default:
-        return null;
-    }
-  }
+  Map<Type, JsonFactory> get factories => {
+        Post: Post.fromJson,
+      };
 }
