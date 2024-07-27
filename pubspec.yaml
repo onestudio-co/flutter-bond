@@ -71,7 +71,7 @@ dependencies:
   firebase_remote_config: ^4.3.18
 
   # localization
-  intl: ^0.18.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
