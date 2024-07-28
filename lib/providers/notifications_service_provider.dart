@@ -6,9 +6,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get_it/get_it.dart';
 import 'package:bond_core/bond_core.dart';
 
-import '../config/notification.dart';
+import 'package:bond/config/notification.dart';
 
-class NotificationsServiceProvider extends ServiceProvider with ResponseDecoding {
+class NotificationsServiceProvider extends ServiceProvider
+    with ResponseDecoding {
   @override
   Future<void> register(GetIt it) async {
     for (final provider in NotificationConfig.providers.entries) {
@@ -78,12 +79,7 @@ class NotificationsServiceProvider extends ServiceProvider with ResponseDecoding
   }
 
   @override
-  T? responseConvert<T>(Map<String, dynamic> json) {
-    switch (T) {
-      case ServerNotificationModel:
-        return ServerNotificationModel.fromJson(json) as T;
-      default:
-        return null;
-    }
-  }
+  Map<Type, JsonFactory> get factories => {
+        ServerNotificationModel: ServerNotificationModel.fromJson,
+      };
 }

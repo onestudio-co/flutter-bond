@@ -48,7 +48,7 @@ class SecureStorageCacheDriver extends CacheDriver {
   bool has(String key) => _cache.containsKey(key);
 
   @override
-  Future<bool> flush() async {
+  Future<bool> removeAll() async {
     try {
       await _storage.deleteAll();
       return true;
@@ -61,7 +61,7 @@ class SecureStorageCacheDriver extends CacheDriver {
   }
 
   @override
-  Future<bool> forget(String key) async {
+  Future<bool> remove(String key) async {
     try {
       await _storage.delete(key: key);
       return true;

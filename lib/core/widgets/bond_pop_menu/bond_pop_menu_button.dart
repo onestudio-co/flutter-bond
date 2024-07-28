@@ -23,7 +23,7 @@ class BondPopMenuButton extends ConsumerWidget {
           value: Menu.theme,
           icon: Icon(
             Icons.color_lens_rounded,
-            color: context.colorScheme.onBackground,
+            color: context.colorScheme.onSurface,
           ),
           title: context.localizations.popup_menu_theme,
         ),
@@ -31,7 +31,7 @@ class BondPopMenuButton extends ConsumerWidget {
           value: Menu.language,
           icon: Icon(
             Icons.language,
-            color: context.colorScheme.onBackground,
+            color: context.colorScheme.onSurface,
           ),
           title: context.localizations.popup_menu_language_title,
         ),
@@ -39,7 +39,7 @@ class BondPopMenuButton extends ConsumerWidget {
           value: Menu.notifications,
           icon: Icon(
             Icons.notifications_rounded,
-            color: context.colorScheme.onBackground,
+            color: context.colorScheme.onSurface,
           ),
           title: context.localizations.popup_menu_notification_center,
         ),
@@ -48,7 +48,7 @@ class BondPopMenuButton extends ConsumerWidget {
             value: Menu.logout,
             icon: Icon(
               Icons.logout,
-              color: context.colorScheme.onBackground,
+              color: context.colorScheme.onSurface,
             ),
             title: context.localizations.popup_menu_logout,
           ),
