@@ -1,6 +1,8 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/onestudio-co/flutter-bond/5e75d3b52e12536478dc9b40455299f3f4e5c9cc/assets/images/app_logo.svg" width="400" alt="Flutter Bond Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://raw.githubusercontent.com/onestudio-co/flutter-bond/5e75d3b52e12536478dc9b40455299f3f4e5c9cc/assets/images/app_logo.svg" width="400" alt="Flutter Bond Logo"></a></p>
+
 
 [![Build](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml/badge.svg)](https://github.com/onestudio-co/flutter-bond/actions/workflows/build.yml)
+[![Free Palestine](https://img.shields.io/badge/Free_Palestine-%20%F0%9F%87%B5%F0%9F%87%B8-green)](https://github.com/onestudio-co/flutter-bond)
 
 Flutter Bond is the public One Studio's template for all internal Flutter apps. You are welcome to use this template for your project as well and contribute to make it even better.
 
