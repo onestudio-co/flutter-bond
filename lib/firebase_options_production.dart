@@ -54,30 +54,29 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDfL8g3p3PmS3kUNPDxn5_RaKKDmFcZKKw',
-    appId: '1:766000556009:android:5a55ed668d929522d0cd78',
-    messagingSenderId: '766000556009',
-    projectId: 'flutter-bond-87485',
-    storageBucket: 'flutter-bond-87485.appspot.com',
+    apiKey: 'AIzaSyCabR-NAV535DJ8NjcQhhllO3qR11q7mIM',
+    appId: '1:1077101979846:android:00afb3c0b4d1b8ae3a0fc7',
+    messagingSenderId: '1077101979846',
+    projectId: 'flutter-bond-8ae02',
+    storageBucket: 'flutter-bond-8ae02.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDVvGOc_wPjffCwxy9BlL5kweFhp7-rfYg',
-    appId: '1:766000556009:ios:c008c663168299bed0cd78',
-    messagingSenderId: '766000556009',
-    projectId: 'flutter-bond-87485',
-    storageBucket: 'flutter-bond-87485.appspot.com',
-    iosClientId: '766000556009-0u0bfplre3qmoe13fq7imp8e6528e4af.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBC8Jb_W3UwqIVcq9OE7WrcF3sQerxDdsQ',
+    appId: '1:1077101979846:ios:a2d61d584196a5be3a0fc7',
+    messagingSenderId: '1077101979846',
+    projectId: 'flutter-bond-8ae02',
+    storageBucket: 'flutter-bond-8ae02.appspot.com',
     iosBundleId: 'ps.app.bond',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDVvGOc_wPjffCwxy9BlL5kweFhp7-rfYg',
-    appId: '1:766000556009:ios:938eb6f7eeba2233d0cd78',
-    messagingSenderId: '766000556009',
-    projectId: 'flutter-bond-87485',
-    storageBucket: 'flutter-bond-87485.appspot.com',
-    iosClientId: '766000556009-dnbn58gnjeo4a581uvm95nqe973kupul.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBC8Jb_W3UwqIVcq9OE7WrcF3sQerxDdsQ',
+    appId: '1:1077101979846:ios:bb43f2ef1264d0e03a0fc7',
+    messagingSenderId: '1077101979846',
+    projectId: 'flutter-bond-8ae02',
+    storageBucket: 'flutter-bond-8ae02.appspot.com',
     iosBundleId: 'ps.app.flutterBond',
   );
+
 }

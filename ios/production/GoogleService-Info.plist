@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>766000556009-0u0bfplre3qmoe13fq7imp8e6528e4af.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.766000556009-0u0bfplre3qmoe13fq7imp8e6528e4af</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDVvGOc_wPjffCwxy9BlL5kweFhp7-rfYg</string>
+	<string>AIzaSyBC8Jb_W3UwqIVcq9OE7WrcF3sQerxDdsQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>766000556009</string>
+	<string>1077101979846</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>ps.app.bond</string>
 	<key>PROJECT_ID</key>
-	<string>flutter-bond-87485</string>
+	<string>flutter-bond-8ae02</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flutter-bond-87485.appspot.com</string>
+	<string>flutter-bond-8ae02.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:766000556009:ios:c008c663168299bed0cd78</string>
+	<string>1:1077101979846:ios:a2d61d584196a5be3a0fc7</string>
 </dict>
 </plist>
