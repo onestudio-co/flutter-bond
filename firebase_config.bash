@@ -1,5 +1,10 @@
 #!/bin/bash
 
+capitalize_first_letter() {
+    local word="$1"
+    echo "$word" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}'
+}
+
 # Description: This script configures Firebase for different environments using the FlutterFire CLI.
 
 # Function to configure Firebase
@@ -22,6 +27,9 @@ configure_firebase() {
     fi
 
     echo "Configuring Firebase for ${ENV} environment with project ID $PROJECT_ID..."
+
+    capitalized_env=$(capitalize_first_letter "$ENV")
+
     flutterfire configure \
     --yes \
     --project=$PROJECT_ID \
@@ -29,10 +37,10 @@ configure_firebase() {
     --android-out=android/app/src/${ENV}/google-services.json \
     --android-package-name=$ANDROID_PACKAGE_NAME \
     --ios-build-config=$IOS_BUILD_CONFIG \
-    --ios-out=ios/${ENV}/GoogleService-Info.plist \
+    --ios-out=ios/${capitalized_env}/GoogleService-Info.plist \
     --ios-bundle-id=$IOS_BUNDLE_ID \
     --macos-build-config=$MACOS_BUILD_CONFIG \
-    --macos-out=macos/${ENV}/GoogleService-Info.plist \
+    --macos-out=macos/${capitalized_env}/GoogleService-Info.plist \
     --macos-bundle-id=$MACOS_BUNDLE_ID \
     --out=lib/firebase_options_${ENV}.dart
 
