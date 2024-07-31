@@ -57,7 +57,7 @@ class _PostDetailsView extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              post.urls.full,
+              post.urls.regular,
               fit: BoxFit.fill,
             ),
           ),

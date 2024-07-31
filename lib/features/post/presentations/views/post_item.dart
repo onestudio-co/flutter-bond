@@ -17,7 +17,7 @@ class PostItem extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              post.urls.small,
+              post.urls.regular,
               fit: BoxFit.cover,
             ),
           ),
