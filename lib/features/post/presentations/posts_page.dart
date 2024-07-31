@@ -16,34 +16,30 @@ class PostsPage extends ConsumerWidget {
       appBar: const HomeAppBar(),
       body: postsState.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        data: (posts) => SingleChildScrollView(
-          controller: postsController.scrollController,
-          child: Column(
-            children: [
-              GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.all(16),
-                crossAxisCount: 2,
-                childAspectRatio: 0.6,
-                mainAxisSpacing: 6.0,
-                crossAxisSpacing: 6.0,
-                children: posts.data.data.map((post) {
-                  return PostItem(post: post);
-                }).toList(),
+        data: (posts) =>
+            SingleChildScrollView(
+              controller: postsController.scrollController,
+              child: Column(
+                children: [
+                  GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(16),
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.6,
+                    mainAxisSpacing: 6.0,
+                    crossAxisSpacing: 6.0,
+                    children: posts.data.data.map((post) {
+                      return PostItem(post: post);
+                    }).toList(),
+                  ),
+                  if (posts.isLoading) const CircularProgressIndicator
+                      .adaptive(),
+                ],
               ),
-              if (posts.isLoading) const CircularProgressIndicator.adaptive(),
-            ],
-          ),
-        ),
+            ),
         error: (error, stackTrace) => Center(child: Text(error.toString())),
       ),
     );
   }
-
-// void _logoutCubitListener(BuildContext context, LogoutState state) {
-//   if (state is LogoutSuccess) {
-//     context.router.replaceAll([const LoginRoute()]);
-//   }
-// }
 }
