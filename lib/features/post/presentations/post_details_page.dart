@@ -37,7 +37,7 @@ class PostDetailsPage extends ConsumerWidget {
 class _PostDetailsView extends StatelessWidget {
   final Post post;
 
-  const _PostDetailsView({super.key, required this.post});
+  const _PostDetailsView({required this.post});
 
   @override
   Widget build(BuildContext context) {
