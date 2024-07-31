@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:bond/core/app_utils.dart';
 import 'package:bond/features/auth/auth.dart';
-import 'package:bond/features/auth/data/api.dart';
 import 'package:bond_core/bond_core.dart';
 import 'package:bond_notifications/bond_notifications.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
