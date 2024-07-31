@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bond/features/post/data/api.dart';
 import 'package:bond/features/post/data/models/post.dart';
 import 'package:bond_core/bond_core.dart';
@@ -24,7 +26,7 @@ class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
   @override
   Future<ListState<Post>> build() async {
     _initialize();
-    final response = await _api.fakePosts();
+    final response = await _api.posts();
     return ListState.data(response);
   }
 
@@ -39,9 +41,14 @@ class PostController extends AutoDisposeAsyncNotifier<ListState<Post>> {
   }
 
   void _loadMore() async {
+    if (!state.requireValue.hasMoreData) {
+      log('_loadMore no more data', name: 'PostController');
+      return;
+    }
+    final nextUrl = state.requireValue.data.links?.next;
     state = AsyncData(state.requireValue.loading());
     state = await AsyncValue.guard(() async {
-      final response = await _api.fakePosts();
+      final response = await _api.posts(nextUrl);
       return state.requireValue.success(response);
     });
   }

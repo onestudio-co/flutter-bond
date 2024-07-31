@@ -8,18 +8,13 @@ class PostsApi {
 
   PostsApi(this._bondFire);
 
-  Future<ListResponse<Post>> fakePosts() => Future.delayed(
-        const Duration(seconds: 1),
-        () => ListResponse<Post>.fromJson(PostFaker.posts()),
-      );
-
   Future<SingleResponse<Post>> fakePost() => Future.delayed(
         const Duration(seconds: 1),
         () => SingleResponse<Post>.fromJson({'data': PostFaker.post()}),
       );
 
-  Future<ListResponse<Post>> posts() => _bondFire
-      .get<ListResponse<Post>>('/posts')
+  Future<ListResponse<Post>> posts([String? url]) => _bondFire
+      .get<ListResponse<Post>>(url ?? '/posts')
       .cache()
       .header(Api.headers())
       .factory(ListResponse<Post>.fromJson)
