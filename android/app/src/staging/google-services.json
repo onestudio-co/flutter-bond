@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "1060161913171",
-    "project_id": "flutter-bond-staging",
-    "storage_bucket": "flutter-bond-staging.appspot.com"
+    "project_number": "390157281889",
+    "project_id": "flutter-bond-staging-7dd42",
+    "storage_bucket": "flutter-bond-staging-7dd42.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1060161913171:android:af73c28cf1b003f555a1a6",
+        "mobilesdk_app_id": "1:390157281889:android:bf4d85c3c9a51044ab9820",
         "android_client_info": {
           "package_name": "ps.app.bond.staging"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1060161913171-div6fmuh41opo5r2bh6h1ib5o1sbs1p5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDSzUXbQV5Z2-psxdjITf1XNtCyFjnWm34"
+          "current_key": "AIzaSyA-AjzVELSPttuIp2k6kydk0RX-DORqPpg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1060161913171-div6fmuh41opo5r2bh6h1ib5o1sbs1p5.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1060161913171-81tqkgkcqusecm5mv2qu1a6n0kcusjb6.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "ps.app.flutterBond.staging"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

@@ -6,6 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final postFeatureProvider =
     FutureProvider.autoDispose.family<Post, String>((ref, id) async {
   final api = sl<PostsApi>();
-  final response = await api.fakePost();
+  final response = await api.post(id);
   return response.data;
 });

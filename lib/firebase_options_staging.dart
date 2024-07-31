@@ -54,30 +54,29 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDSzUXbQV5Z2-psxdjITf1XNtCyFjnWm34',
-    appId: '1:1060161913171:android:af73c28cf1b003f555a1a6',
-    messagingSenderId: '1060161913171',
-    projectId: 'flutter-bond-staging',
-    storageBucket: 'flutter-bond-staging.appspot.com',
+    apiKey: 'AIzaSyA-AjzVELSPttuIp2k6kydk0RX-DORqPpg',
+    appId: '1:390157281889:android:bf4d85c3c9a51044ab9820',
+    messagingSenderId: '390157281889',
+    projectId: 'flutter-bond-staging-7dd42',
+    storageBucket: 'flutter-bond-staging-7dd42.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAkWff8DcTgZEC62yTSak6B9p2Y4JQ8_Jg',
-    appId: '1:1060161913171:ios:7e71769f5507f2b255a1a6',
-    messagingSenderId: '1060161913171',
-    projectId: 'flutter-bond-staging',
-    storageBucket: 'flutter-bond-staging.appspot.com',
-    iosClientId: '1060161913171-8alevp0lf0e1cnen8srld97p26lculii.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCz95QyOlPlhPWZFUrduUsS5Q8g5boiQgc',
+    appId: '1:390157281889:ios:8c87b8875dcdd94aab9820',
+    messagingSenderId: '390157281889',
+    projectId: 'flutter-bond-staging-7dd42',
+    storageBucket: 'flutter-bond-staging-7dd42.appspot.com',
     iosBundleId: 'ps.app.bond.staging',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAkWff8DcTgZEC62yTSak6B9p2Y4JQ8_Jg',
-    appId: '1:1060161913171:ios:f0fe6502c245487955a1a6',
-    messagingSenderId: '1060161913171',
-    projectId: 'flutter-bond-staging',
-    storageBucket: 'flutter-bond-staging.appspot.com',
-    iosClientId: '1060161913171-b8g79b4ltsolf47n4jvu6vun2cq0cetf.apps.googleusercontent.com',
-    iosBundleId: 'ps.app.flutterBond',
+    apiKey: 'AIzaSyCz95QyOlPlhPWZFUrduUsS5Q8g5boiQgc',
+    appId: '1:390157281889:ios:ba7ec93993371072ab9820',
+    messagingSenderId: '390157281889',
+    projectId: 'flutter-bond-staging-7dd42',
+    storageBucket: 'flutter-bond-staging-7dd42.appspot.com',
+    iosBundleId: 'ps.app.flutterBond.staging',
   );
+
 }

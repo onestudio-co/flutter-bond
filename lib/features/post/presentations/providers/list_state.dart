@@ -14,6 +14,8 @@ class ListState<T extends Model> extends Equatable {
 
   final String? error;
 
+  bool get hasMoreData => data.links?.next != null;
+
   bool get isLoading => status == ListStatus.loading;
 
   factory ListState.initial() => ListState<T>(
