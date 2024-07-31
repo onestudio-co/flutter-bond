@@ -19,14 +19,6 @@ class AuthApi {
       .errorFactory(ServerError.fromJson)
       .execute();
 
-  Future<UserMApiResult> anonymousLogin() => _bondFire
-      .post<UserMApiResult>('users/anonymous-login')
-      .factory(UserMApiResult.fromJson)
-      .errorFactory(ServerError.fromJson)
-      .cacheCustomKey('token', path: 'meta.token')
-      .cacheCustomKey('user', path: 'data')
-      .execute();
-
   Future<UserMApiResult> login(Map<String, dynamic> body) => _bondFire
       .post<UserMApiResult>('/users/login')
       .body(body)
@@ -48,14 +40,6 @@ class AuthApi {
   Future<SuccessResponse> logout() => _bondFire
       .post<SuccessResponse>('/users/logout')
       .header(Api.headers())
-      .factory(SuccessResponse.fromJson)
-      .errorFactory(ServerError.fromJson)
-      .execute();
-
-  Future<SuccessResponse> updateToken(Map<String, dynamic> body) => _bondFire
-      .post<SuccessResponse>('notifications/update-token')
-      .header(Api.headers())
-      .body(body)
       .factory(SuccessResponse.fromJson)
       .errorFactory(ServerError.fromJson)
       .execute();

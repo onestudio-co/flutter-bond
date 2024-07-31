@@ -16,13 +16,4 @@ class Auth {
   static User user() => Cache.get('user');
 
   static String token() => Cache.get('token');
-
-  static Future<User?> loginAnonymous() async {
-    try {
-      final response = await sl<AuthApi>().anonymousLogin();
-      return response.data;
-    } catch (e) {
-      return null;
-    }
-  }
 }
