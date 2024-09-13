@@ -8,8 +8,7 @@
         "program": "${workspaceFolder}/lib/main.dart",
         "args": [
           "--flavor", "Production",
-          "--dart-define-from-file=env.json",
-          "--release"
+          "--dart-define-from-file=env.json"
         ]
       },
       {
@@ -19,8 +18,7 @@
         "program": "${workspaceFolder}/lib/main.dart",
         "args": [
           "--flavor", "Staging",
-          "--dart-define-from-file=env.staging.json",
-          "--release"
+          "--dart-define-from-file=env.staging.json"
         ]
       }
     ]
